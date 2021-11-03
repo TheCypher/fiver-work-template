@@ -6,6 +6,7 @@ import { UncontrolledCollapse, CardBody, Card } from "reactstrap";
 
 // core components
 import MenuHeader from "./MenuHeader";
+import MobileMenuHeader from "./MobileMenuHeader";
 
 function LandingPageHeader() {
   let pageHeader = React.createRef();
@@ -35,7 +36,7 @@ function LandingPageHeader() {
           ref={pageHeader}
         ></div>
 
-        <MenuHeader />
+        <MobileMenuHeader />
       </div>
     </>
   );

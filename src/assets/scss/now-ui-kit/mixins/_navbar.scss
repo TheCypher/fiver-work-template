@@ -74,9 +74,27 @@
             width: 22px;
             height: 1px;
             border-radius: 1px;
-            background: $white-bg;
+            background: $epi-blue;
 
             & + .navbar-toggler-bar{
+                margin-top: 7px;
+            }
+
+            &.bar2{
+                width: 17px;
+                transition: width .2s linear;
+            }
+        }
+        
+        .navbar-toggler-bar-2{
+            display: block;
+            position: relative;
+            width: 22px;
+            height: 1px;
+            border-radius: 1px;
+            background: $white-bg;
+
+            & + .navbar-toggler-bar-2{
                 margin-top: 7px;
             }
 
@@ -187,7 +205,7 @@
         background-color: #999;
         overflow-y: visible;
         border-top: none;
-        text-align: left;
+        text-align: center;
 
         max-height: none !important;
 

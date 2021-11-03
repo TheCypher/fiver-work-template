@@ -598,6 +598,30 @@
   line-height: 1.273em;
   font-weight: 600;
 }
+
+.HelpMeChoosePagination {
+  border: 2 !important;
+  min-width: 50px !important;
+  min-height: 50px !important;
+  margin: 0 35px !important;
+  padding: 0px 20px !important;
+  line-height: 50px !important;
+  font-size: 19px !important;
+}
+
+/* we'll come back to this */
+/* .menuMoblieShowButton {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: auto;
+  content: "";
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+  transition: transform .2s ease-in-out;
+} */
+
 /* @media (min-width: 1200px) {
   .container{
       max-width: 1270px;

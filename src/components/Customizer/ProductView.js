@@ -45,9 +45,9 @@ function ProductView(){
                 id="example-navbar-danger"
                 type="button"
               >
-                <span className="navbar-toggler-bar bar1"></span>
-                <span className="navbar-toggler-bar bar2"></span>
-                <span className="navbar-toggler-bar bar3"></span>
+                <span className="navbar-toggler-bar-2 bar1"></span>
+                <span className="navbar-toggler-bar-2 bar2"></span>
+                <span className="navbar-toggler-bar-2 bar3"></span>
               </button>
             </div>
             <UncontrolledCollapse navbar toggler="#example-navbar-danger">
@@ -117,7 +117,7 @@ function ProductView(){
           <TabPane tabId="pills1">
             <Col className="ml-auto mr-auto" md="10">
               <Row className="collections">
-                <Col md="6">
+                <Col md="6" style={{'margin-bottom': '20px'}}>
                   <h3><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit</strong></h3>
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
@@ -126,49 +126,49 @@ function ProductView(){
                     nisi ut aliquip ex ea commodo consequat. 
                   </p>
                   <Row style={{ 'margin-top': '40px', 'margin-bottom': '10px'}}>
-                    <Col md="1" style={{'font-size': '2.3em'}}>
+                    <Col className="col-1" style={{'font-size': '2.3em'}}>
                       <i className="now-ui-icons objects_globe"></i>
                     </Col>
-                    <Col md="4">
+                    <Col className="col-4">
                       METER TYPE <br /> 
                       <strong>Inline</strong>
                     </Col>
 
-                    <Col md="1" style={{'font-size': '2.3em'}}>
+                    <Col className="col-1" style={{'font-size': '2.3em'}}>
                       <i className="now-ui-icons objects_globe"></i>
                     </Col>
-                    <Col md="4">
+                    <Col className="col-4">
                       ENCLOSURE <br /> 
                       <strong>Integrated Electronics</strong>
                     </Col>
                   </Row>
 
                   <Row>
-                    <Col md="1" style={{'font-size': '2.3em'}}>
+                    <Col className="col-1" style={{'font-size': '2.3em'}}>
                       <i className="now-ui-icons objects_globe"></i>
                     </Col>
-                    <Col md="4">
+                    <Col className="col-4">
                       WARRANTY <br /> 
                       <strong>5 Years</strong>
                     </Col>
 
-                    <Col md="1" style={{'font-size': '2.3em'}}>
+                    <Col className="col-1" style={{'font-size': '2.3em'}}>
                       <i className="now-ui-icons objects_globe"></i>
                     </Col>
-                    <Col md="6">
+                    <Col className="col-6">
                       CERTIFICATIONS <br /> 
                       <strong>CE, CSA/CUS, IECEx, KOSHA, ATEX</strong>
                     </Col>
                   </Row>
 
                   <Row style={{ 'margin-top': '10px', 'margin-bottom': '10px'}}>
-                    <Col md="5"><Button color="info">Customize Your Meter</Button></Col>
-                    <Col md="6" className="my-auto"><a href="#pablo">Find a Representative Near You</a></Col>
+                    <Col className="col-5"><Button color="info">Customize Your Meter</Button></Col>
+                    <Col className="col-6 my-auto"><a href="#pablo">Find a Representative Near You</a></Col>
                   </Row>
 
                   <Row>
-                    <Col md="6">Not sure which meter is right for you?</Col>
-                    <Col md="3"><a href="#pablo">Help me choose.</a></Col>
+                    <Col className="col-6">Not sure which meter is right for you?</Col>
+                    <Col className="col-3"><a href="#pablo">Help me choose.</a></Col>
                   </Row>
                 </Col>
                 <Col md="6">

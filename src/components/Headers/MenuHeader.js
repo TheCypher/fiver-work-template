@@ -38,6 +38,7 @@ import Menu from "./MenuHeaderComponents/ByModel/Menu";
 import MenuByApplication from "./MenuHeaderComponents/ByApplication/Menu";
 import MenuHeaderFooter from "components/Footers/MenuHeaderFooter";
 import CustomOrder from "./MenuHeaderComponents/CustomOrder/CustomOrder";
+import HelpMeChoose from "./MenuHeaderComponents/HelpMeChoose/HelpMeChoose";
 
 function MenuHeader() {
   const [pills, setPills] = useState("1");
@@ -109,8 +110,11 @@ function MenuHeader() {
                     <TabPane tabId="pills2">
                       <MenuByApplication />
                     </TabPane>
+                    <TabPane tabId="pills3">
+                      <HelpMeChoose />
+                    </TabPane>
                     <TabPane tabId="pills4">
-                        <CustomOrder />
+                      <CustomOrder />
                     </TabPane>
                   </TabContent>
                 </Col>

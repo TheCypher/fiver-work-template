@@ -92,21 +92,20 @@ function NewNavbar() {
               ></img>
             </NavbarBrand>
             <UncontrolledTooltip target="#navbar-brand">
-              Designed by Invision. Coded by Creative Tim
+              EPI Products
             </UncontrolledTooltip>
             <button
               className="navbar-toggler navbar-toggler"
-              onClick={() => {
-                document.documentElement.classList.toggle("nav-open");
-                setCollapseOpen(!collapseOpen);
-              }}
-              aria-expanded={collapseOpen}
+              data-toggle="dropdown"
+              href="#pablo"
+              id="linkTogglerMobile"
               type="button"
             >
-              <span className="navbar-toggler-bar top-bar"></span>
+              <span className="navbar-toggler-bar top-bar" style={{ 'color': 'black'}}></span>
               <span className="navbar-toggler-bar middle-bar"></span>
               <span className="navbar-toggler-bar bottom-bar"></span>
             </button>
+
           </div>
           <Collapse
             className="justify-content-end"
@@ -142,7 +141,7 @@ function NewNavbar() {
                   color="default"
                   data-toggle="dropdown"
                   href="#pablo"
-                  id="navbarDropdownMenuLink"
+                  id="linkToggler"
                   nav
                   onClick={e => e.preventDefault()}
                 >
