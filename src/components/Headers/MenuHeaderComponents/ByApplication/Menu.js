@@ -113,7 +113,7 @@ function Menu(){
                     }}
                     style={{ 'padding': '0.4rem' }}
                   >
-                    <p className="nav-product-menu-inside">High-Sensor</p>
+                    <p className="nav-product-menu-inside">Multi-Sensor</p>
                   </NavLink>
                 </NavItem>
 

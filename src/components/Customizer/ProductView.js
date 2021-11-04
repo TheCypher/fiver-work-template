@@ -27,6 +27,7 @@ import {
 // core components
 
 import ImageViewer from "./ImageViewer";
+import MobileMenuTest from "components/Headers/MobileMenuHeader/MobileMenuTest";
 
 function ProductView(){
   const [pills, setPills] = React.useState("1");
@@ -173,6 +174,7 @@ function ProductView(){
                 </Col>
                 <Col md="6">
                   <ImageViewer />
+                  <MobileMenuTest />
                 </Col>
               </Row>
             </Col>
