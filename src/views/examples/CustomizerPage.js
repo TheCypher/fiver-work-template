@@ -17,6 +17,7 @@ import NewNavbar from "components/Navbars/NewNavbar";
 import LandingPageHeader from "components/Headers/LandingPageHeader.js";
 import ProductView from "components/Customizer/ProductView";
 import DefaultFooter from "components/Footers/DefaultFooter.js";
+import MeterCustomizerNavbar from "components/Navbars/MeterCustomizerNavbar";
 
 function CustomerizerPage() {
   const [firstFocus, setFirstFocus] = React.useState(false);

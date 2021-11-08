@@ -28,6 +28,7 @@ import {
 
 import ImageViewer from "./ImageViewer";
 import MobileMenuTest from "components/Headers/MobileMenuHeader/MobileMenuTest";
+import MeterCustomizerNavbar from "components/Navbars/MeterCustomizerNavbar";
 
 function ProductView(){
   const [pills, setPills] = React.useState("1");
@@ -290,6 +291,7 @@ function ProductView(){
               <div className="separator separator-primary"></div>
         </Col>
       </div>
+      {/* <MeterCustomizerNavbar /> */}
     </>
   );
 }

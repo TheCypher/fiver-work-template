@@ -62,10 +62,10 @@ function MobileMenu() {
                       <p className="nav-product-menu-outside">BY APPLICATION</p>
                     </ListGroupItem>
                     <ByApplication />
-                    <ListGroupItem tag="a" href="#" id="linkTogglerHelpMeChoose">
+                    {/* <ListGroupItem tag="a" href="#" id="linkTogglerHelpMeChoose">
                       <p className="nav-product-menu-outside">HELP ME CHOOSE</p>
                     </ListGroupItem>
-                    <HelpMeChoosePage />
+                    <HelpMeChoosePage /> */}
                     <ListGroupItem tag="a" href="#" id="linkTogglerCustomOrder">
                       <p className="nav-product-menu-outside">CUSTOM ORDER</p>
                     </ListGroupItem>
