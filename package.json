@@ -3,7 +3,6 @@
   "version": "1.5.0",
   "private": true,
   "dependencies": {
-    "@mobiscroll/react": "https://npm.mobiscroll.com/@mobiscroll/react-trial/-/react-trial-4.10.9.tgz",
     "gulp": "4.0.2",
     "gulp-append-prepend": "1.0.9",
     "moment": "2.29.1",
