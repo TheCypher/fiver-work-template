@@ -28,7 +28,6 @@ function LandingPageHeader() {
   });
 
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
-  console.log('Show me screen size change =>', isMobile)
 
   const ShowMenus = () => {
     if (isMobile) {
@@ -37,6 +36,7 @@ function LandingPageHeader() {
       return <MenuHeader />
     }
   }
+  
   return (
     <>
       <div className="page-header page-header-small">
