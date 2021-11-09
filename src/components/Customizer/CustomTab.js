@@ -4,12 +4,8 @@ import React from "react";
 import {
   Button,
   Card,
-  CardHeader,
   CardBody,
   CardImg,
-  CardFooter,
-  CardTitle,
-  CardText,
   Row,
   Col,
   FormGroup,
@@ -17,24 +13,46 @@ import {
   Input
 } from "reactstrap";
 
-function CustomTab(){
+function CustomTab({ nextStep, prevStep, handleChange, value }){
+  console.log('Show me customize data 1.0 =>', value)
+
+  // for continue event listener
+  const Continue = e => {
+    e.preventDefault();
+    nextStep();
+  }
+
+  // for back even listner
+  const GoBack = e => {
+    e.preventDefault();
+    prevStep();
+  }
+
+  const MakeChange = (data) => {
+    console.log('Show me make change data 1.0 =>', data);
+    handleChange(data);
+  }
+
   return (
     <>
       <Card>
         <CardBody>
           <Row>
             <Col>
-              <p>Pipe Orientation</p>
+              <span>Pipe Orientation</span>
               <FormGroup check className="form-check-radio">
                 <Label check>
                   <Row>
                     <Col>
-                      <p>Horizion</p>
+                      Horizion
                     </Col>
                   </Row>
                   <Input
                     defaultChecked
-                    defaultValue="no"
+                    onClick={ (e) => MakeChange({ 
+                      type: 'pipe_orientation',
+                      value: 'horizion'
+                    }, e)}
                     id="exampleRadios1"
                     name="exampleRadios"
                     type="radio"
@@ -46,26 +64,29 @@ function CustomTab(){
                 <Label check>
                   <Row>
                     <Col>
-                      <p>Vertical</p>
+                      Vertical
                     </Col>
                   </Row>
                   <Input
                     defaultChecked
-                    defaultValue="no"
+                    onClick={ (e) => MakeChange({ 
+                      type: 'pipe_orientation',
+                      value: 'vertical'
+                    }, e)}
                     id="exampleRadios1"
                     name="exampleRadios"
                     type="radio"
                   ></Input>
                   <span className="form-check-sign"></span>
                 </Label>
-              </FormGroup>
+              </FormGroup><br />
 
-              <p>Flow Direction</p>
+              <span>Flow Direction</span>
               <FormGroup check className="form-check-radio">
                 <Label check>
                   <Row>
                     <Col>
-                      <p>Top to Bottom</p>
+                      Top to Bottom
                     </Col>
                   </Row>
                   <Input
@@ -82,7 +103,7 @@ function CustomTab(){
                 <Label check>
                   <Row>
                     <Col>
-                      <p>Bottom to Top</p>
+                      Bottom to Top
                     </Col>
                   </Row>
                   <Input
@@ -94,15 +115,15 @@ function CustomTab(){
                   ></Input>
                   <span className="form-check-sign"></span>
                 </Label>
-              </FormGroup>
+              </FormGroup><br />
 
 
-              <p>Enclosure Mounting Preference</p>
+              <span>Enclosure Mounting Preference</span>
               <FormGroup check className="form-check-radio">
                 <Label check>
                   <Row>
                     <Col>
-                      <p>Left Side</p>
+                      Left Side
                     </Col>
                   </Row>
                   <Input
@@ -119,7 +140,7 @@ function CustomTab(){
                 <Label check>
                   <Row>
                     <Col>
-                      <p>Right Side</p>
+                      Right Side
                     </Col>
                   </Row>
                   <Input
@@ -131,8 +152,9 @@ function CustomTab(){
                   ></Input>
                   <span className="form-check-sign"></span>
                 </Label>
-              </FormGroup>
-              <p>Display Orientation</p>
+              </FormGroup><br />
+
+              <span>Display Orientation</span><br />
               <Button
                 color="info"
                 size="lg"
@@ -148,6 +170,55 @@ function CustomTab(){
           </Row>
         </CardBody>
       </Card>
+
+
+      <Card>
+        <CardBody>
+          <Row>
+            <Col>
+              <Row>
+                <Col style={{ 'margin-bottom': '30px'}}>
+                  <span>Transmitter</span><br />
+                  <strong>Integrated Electronics</strong><br />
+                </Col>
+              </Row>
+              <Row>
+                <Col className="align-items-center">
+                  <span>Transmitter</span><br />
+                  <strong>Integrated Electronics</strong><br />
+                </Col>
+              </Row>
+            </Col>
+            <Col className="text-center">
+              <CardImg alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
+            </Col>
+          </Row>
+        </CardBody>
+      </Card>
+
+
+
+      <Row>
+        <Col>
+          <Button
+            color="info"
+            size="lg"
+            outline
+            href="#pablo"
+            onClick={e => e.preventDefault()}
+          >
+            Back
+          </Button>
+        </Col>
+        <Col className="text-right">
+          <Button 
+            color="info"
+            size="lg"
+          >
+            Next
+          </Button>
+        </Col>
+      </Row>
     </>
   );
 }
