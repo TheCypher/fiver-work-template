@@ -38,21 +38,20 @@ function MeterCustomizerNavbar() {
           }}
         />
       ) : null}
-        <Navbar className="epi-customerizer-nav-gray cNavbar" color="info" expand="lg">
+        <Navbar className="epi-customerizer-nav-gray cNavbar" color="off-white" expand="lg">
           <Container>
             <div className="navbar-translate">
               <NavbarBrand href="#pablo" onClick={e => e.preventDefault()} style={{ 'color': 'white'}}>
-                <p style={{'font-size': '1.8571em'}}>8700 MPHAZ</p><br />
-                INLINE FLOW METER
+
               </NavbarBrand>
               <button
                 className="navbar-toggler"
                 id="example-navbar-danger"
                 type="button"
               >
-                <span className="navbar-toggler-bar-2 bar1"></span>
-                <span className="navbar-toggler-bar-2 bar2"></span>
-                <span className="navbar-toggler-bar-2 bar3"></span>
+                <span className="navbar-toggler-bar bar1"></span>
+                <span className="navbar-toggler-bar bar2"></span>
+                <span className="navbar-toggler-bar bar3"></span>
               </button>
             </div>
             <UncontrolledCollapse navbar toggler="#example-navbar-danger">
@@ -66,8 +65,7 @@ function MeterCustomizerNavbar() {
                       setPills("1");
                     }}
                   >
-                    <i className="now-ui-icons objects_globe"></i>
-                    <p>Discover</p>
+                    <p>Orientation</p>
                   </NavLink>
                 </NavItem>
 
@@ -80,8 +78,7 @@ function MeterCustomizerNavbar() {
                       setPills("2");
                     }}
                   >
-                    <i className="now-ui-icons objects_globe"></i>
-                    <p>Tech Specs</p>
+                    <p>Housing</p>
                   </NavLink>
                 </NavItem>
 
@@ -94,8 +91,7 @@ function MeterCustomizerNavbar() {
                       setPills("3");
                     }}
                   >
-                    <i className="now-ui-icons objects_globe"></i>
-                    <p>CAD Files</p>
+                    <p>Communication</p>
                   </NavLink>
                 </NavItem>
 
@@ -108,8 +104,85 @@ function MeterCustomizerNavbar() {
                       setPills("4");
                     }}
                   >
-                    <i className="now-ui-icons objects_globe"></i>
-                    <p>Support</p>
+                    <p>Application</p>
+                  </NavLink>
+                </NavItem>
+
+                <NavItem className={pills === "3" ? "active" : ""}>
+                  <NavLink
+                    href="#pablo"
+                    color="default"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setPills("3");
+                    }}
+                  >
+                    <p>Parameters</p>
+                  </NavLink>
+                </NavItem>
+
+                <NavItem className={pills === "4" ? "active" : ""}>
+                  <NavLink
+                    href="#pablo"
+                    color="default"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setPills("4");
+                    }}
+                  >
+                    <p>Sensor</p>
+                  </NavLink>
+                </NavItem>
+
+                <NavItem className={pills === "3" ? "active" : ""}>
+                  <NavLink
+                    href="#pablo"
+                    color="default"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setPills("3");
+                    }}
+                  >
+                    <p>Mounting</p>
+                  </NavLink>
+                </NavItem>
+
+                <NavItem className={pills === "4" ? "active" : ""}>
+                  <NavLink
+                    href="#pablo"
+                    color="default"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setPills("4");
+                    }}
+                  >
+                    <p>Pipe</p>
+                  </NavLink>
+                </NavItem>
+
+                <NavItem className={pills === "3" ? "active" : ""}>
+                  <NavLink
+                    href="#pablo"
+                    color="default"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setPills("3");
+                    }}
+                  >
+                    <p>Enhancements</p>
+                  </NavLink>
+                </NavItem>
+
+                <NavItem className={pills === "4" ? "active" : ""}>
+                  <NavLink
+                    href="#pablo"
+                    color="default"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setPills("4");
+                    }}
+                  >
+                    <p>Comments</p>
                   </NavLink>
                 </NavItem>
               </Nav>

@@ -18,6 +18,7 @@ import LandingPageHeader from "components/Headers/LandingPageHeader.js";
 import ProductView from "components/Customizer/ProductView";
 import DefaultFooter from "components/Footers/DefaultFooter.js";
 import MeterCustomizerNavbar from "components/Navbars/MeterCustomizerNavbar";
+import Customizer from "components/Customizer/Customizer";
 
 function CustomerizerPage() {
   const [firstFocus, setFirstFocus] = React.useState(false);
@@ -46,6 +47,7 @@ function CustomerizerPage() {
       <div className="wrapper">
         <LandingPageHeader />
         <ProductView />
+        <Customizer />
         <DefaultFooter />
       </div>
     </>

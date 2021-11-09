@@ -291,7 +291,6 @@ function ProductView(){
               <div className="separator separator-primary"></div>
         </Col>
       </div>
-      {/* <MeterCustomizerNavbar /> */}
     </>
   );
 }
