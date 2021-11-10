@@ -12,8 +12,8 @@ function CustomizerPriceFooter(props) {
   React.useEffect(() => {
     const updateNavbarColor = () => {
       if (
-        document.documentElement.scrollTop > 1850 ||
-        document.body.scrollTop > 1850
+        document.documentElement.scrollTop > 2000 ||
+        document.body.scrollTop > 2000
       ) {
         setShowNav(1);
       } else if (
