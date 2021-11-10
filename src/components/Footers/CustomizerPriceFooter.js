@@ -7,7 +7,7 @@ import { Container, Button, Row, Col } from "reactstrap";
 // core components
 
 function CustomizerPriceFooter(props) {
-  const [showNav, setShowNav] = useState(0);
+  const [showNav, setShowNav] = useState(1);
 
   React.useEffect(() => {
     const updateNavbarColor = () => {
