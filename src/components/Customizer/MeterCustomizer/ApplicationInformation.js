@@ -13,7 +13,7 @@ import {
   Input
 } from "reactstrap";
 
-function CustomTab({ nextStep, prevStep, handleChange, value }){
+function ApplicationInformation({ nextStep, prevStep, handleChange, value }){
   console.log('Show me customize data 1.0 =>', value)
 
   // for continue event listener
@@ -199,4 +199,4 @@ function CustomTab({ nextStep, prevStep, handleChange, value }){
   );
 }
 
-export default CustomTab;
+export default ApplicationInformation;

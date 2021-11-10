@@ -11,8 +11,9 @@ import {
 
 import MeterCustomizerNavbar from "components/Navbars/MeterCustomizerNavbar";
 import CustomizerPriceFooter from "components/Footers/CustomizerPriceFooter";
-import CustomTab from "./CustomTab";
-import TotalCard from "./TotalCard";
+import PipeOrientation from "./MeterCustomizer/PipeOrientation";
+import TotalCard from "./MeterCustomizer/TotalCard";
+import MeterHousing from "./MeterCustomizer/MeterHousing";
 
 function Customizer(){
   const [data, setData] = useState(
@@ -130,6 +131,14 @@ function Customizer(){
     }
   }
 
+  const ShowTotalCard = () => {
+    if (isMobile) {
+      return (<> </>)
+    } else {
+      return <TotalCard state={data} />
+    }
+  }
+
   const { step, total, pipe_orientation } = data;
   const values = { step, total, pipe_orientation }
   
@@ -142,7 +151,14 @@ function Customizer(){
         <Col className="ml-auto mr-auto" md="10">
           <Row>
             <Col className="ml-auto mr-auto" md="9">
-              <CustomTab
+              <PipeOrientation
+                nextStep={ nextStep }
+                prevStep={ prevStep }
+                handleChange={ handleChange }
+                value={ values }
+              />
+
+              <MeterHousing
                 nextStep={ nextStep }
                 prevStep={ prevStep }
                 handleChange={ handleChange }
@@ -151,7 +167,7 @@ function Customizer(){
             </Col>
 
             <Col className="ml-auto mr-auto" md="3">
-              <TotalCard state={data} />
+              <ShowTotalCard />
             </Col>
           </Row>
           <div className="separator separator-primary"></div>
