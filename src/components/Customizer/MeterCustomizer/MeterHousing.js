@@ -1,4 +1,5 @@
 import React from "react";
+import { useMediaQuery } from 'react-responsive';
 
 // reactstrap components
 import {
@@ -21,6 +22,8 @@ import {
 } from "reactstrap";
 
 function MeterHousing({ nextStep, prevStep, handleChange, value }){
+  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+
   // collapse states and functions
   const [collapses, setCollapses] = React.useState([0]);
   const changeCollapse = collapse => {
@@ -48,6 +51,11 @@ function MeterHousing({ nextStep, prevStep, handleChange, value }){
     handleChange(data);
   }
 
+  const title = 'Meter Housing';
+  if (isMobile) {
+    if(title.length > 18) title = title.substring(0,18) + '...';
+  }
+
   return (
     <>
       <Card>
@@ -65,7 +73,7 @@ function MeterHousing({ nextStep, prevStep, handleChange, value }){
               <Container>
                 <div className="navbar-translate">
                   <NavbarBrand href="#pablo" onClick={e => e.preventDefault()} style={{'font-size': '22px', 'color': 'white'}}>
-                    <p>Meter Housing</p>
+                    <p>{ title }</p>
                   </NavbarBrand>
                   <button
                     className="navbar-toggler"

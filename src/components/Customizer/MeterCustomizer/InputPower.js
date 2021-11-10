@@ -22,6 +22,8 @@ import {
 } from "reactstrap";
 
 function InputPower({ nextStep, prevStep, handleChange, value }){
+  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  
   // collapse states and functions
   const [collapses, setCollapses] = React.useState([0]);
   const changeCollapse = collapse => {
@@ -49,9 +51,7 @@ function InputPower({ nextStep, prevStep, handleChange, value }){
     handleChange(data);
   }
 
-  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
-
-  var title = 'Input Power & Communication Options';
+  const  title = 'Input Power & Communication Options';
   if (isMobile) {
     if(title.length > 18) title = title.substring(0,18) + '...';
   }

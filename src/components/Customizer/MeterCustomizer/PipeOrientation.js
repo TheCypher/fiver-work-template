@@ -1,4 +1,6 @@
 import React from "react";
+import { useMediaQuery } from 'react-responsive';
+
 
 // reactstrap components
 import {
@@ -21,6 +23,8 @@ import {
 } from "reactstrap";
 
 function PipeOrientation({ nextStep, prevStep, handleChange, value }){
+  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+
   // collapse states and functions
   const [collapses, setCollapses] = React.useState([1]);
   const changeCollapse = collapse => {
@@ -48,6 +52,11 @@ function PipeOrientation({ nextStep, prevStep, handleChange, value }){
     handleChange(data);
   }
 
+  const title = 'Meter Orientation';
+  if (isMobile) {
+    if(title.length > 18) title = title.substring(0,18) + '...';
+  }
+
   return (
     <>
       <Card>
@@ -65,7 +74,7 @@ function PipeOrientation({ nextStep, prevStep, handleChange, value }){
               <Container>
                 <div className="navbar-translate">
                   <NavbarBrand href="#pablo" onClick={e => e.preventDefault()} style={{'font-size': '22px', 'color': 'white'}}>
-                    <p>Meter Orientation</p>
+                    <p>{ title }</p>
                   </NavbarBrand>
                   <button
                     className="navbar-toggler"
