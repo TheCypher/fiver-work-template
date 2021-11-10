@@ -52,7 +52,7 @@ function PipeOrientation({ nextStep, prevStep, handleChange, value }){
     handleChange(data);
   }
 
-  const title = 'Meter Orientation';
+  var title = 'Meter Orientation';
   if (isMobile) {
     if(title.length > 18) title = title.substring(0,18) + '...';
   }

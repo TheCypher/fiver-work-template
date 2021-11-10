@@ -51,7 +51,7 @@ function MeterHousing({ nextStep, prevStep, handleChange, value }){
     handleChange(data);
   }
 
-  const title = 'Meter Housing';
+  var title = 'Meter Housing';
   if (isMobile) {
     if(title.length > 18) title = title.substring(0,18) + '...';
   }
