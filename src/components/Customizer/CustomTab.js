@@ -195,30 +195,6 @@ function CustomTab({ nextStep, prevStep, handleChange, value }){
           </Row>
         </CardBody>
       </Card>
-
-
-
-      <Row>
-        <Col>
-          <Button
-            color="info"
-            size="lg"
-            outline
-            href="#pablo"
-            onClick={e => e.preventDefault()}
-          >
-            Back
-          </Button>
-        </Col>
-        <Col className="text-right">
-          <Button 
-            color="info"
-            size="lg"
-          >
-            Next
-          </Button>
-        </Col>
-      </Row>
     </>
   );
 }
