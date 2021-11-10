@@ -53,7 +53,7 @@ function InputPower({ nextStep, prevStep, handleChange, value }){
 
   var title = 'Input Power & Communication Options';
   if (isMobile) {
-    if(title.length > 25) title = title.substring(0,25) + '...';
+    if(title.length > 20) title = title.substring(0,20) + '...';
   }
 
   return (
