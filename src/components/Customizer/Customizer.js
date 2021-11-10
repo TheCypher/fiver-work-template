@@ -1,4 +1,5 @@
 import React , { useState } from "react";
+import { useMediaQuery } from 'react-responsive';
 
 // reactstrap components
 import {
@@ -9,6 +10,7 @@ import {
 // core components
 
 import MeterCustomizerNavbar from "components/Navbars/MeterCustomizerNavbar";
+import CustomizerPriceFooter from "components/Footers/CustomizerPriceFooter";
 import CustomTab from "./CustomTab";
 import TotalCard from "./TotalCard";
 
@@ -118,6 +120,16 @@ function Customizer(){
     }
   }
 
+  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+
+  const ShowFooter = () => {
+    if (isMobile) {
+      return <CustomizerPriceFooter state={data} />
+    } else {
+      return(<> </>)
+    }
+  }
+
   const { step, total, pipe_orientation } = data;
   const values = { step, total, pipe_orientation }
   
@@ -144,6 +156,7 @@ function Customizer(){
           </Row>
           <div className="separator separator-primary"></div>
         </Col>
+        <ShowFooter />
       </div>
     </>
   );
