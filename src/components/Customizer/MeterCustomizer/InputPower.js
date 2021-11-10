@@ -79,6 +79,11 @@ function InputPower({ nextStep, prevStep, handleChange, value }){
                     className="navbar-toggler"
                     id="example-navbar-danger"
                     type="button"
+                    aria-expanded={collapses.includes(2)}
+                    onClick={e => {
+                      e.preventDefault();
+                      changeCollapse(2);
+                    }}
                   >
                     <i className="now-ui-icons arrows-1_minimal-down" style={{'font-size': '22px', 'color': 'white'}}></i>
                   </button>
