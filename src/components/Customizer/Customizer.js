@@ -14,6 +14,8 @@ import CustomizerPriceFooter from "components/Footers/CustomizerPriceFooter";
 import PipeOrientation from "./MeterCustomizer/PipeOrientation";
 import TotalCard from "./MeterCustomizer/TotalCard";
 import MeterHousing from "./MeterCustomizer/MeterHousing";
+import InputPower from "./MeterCustomizer/InputPower";
+
 
 function Customizer(){
   const [data, setData] = useState(
@@ -44,22 +46,6 @@ function Customizer(){
       ...prevState,  step: step + 1
     }));
   }
-
-  // Handle fields change
-  // const handleChange = input => e => {
-  //   console.log('Show me the data change 1.0 =>', input, e.target.value)
-
-  //   const val = e.target.value;
-  //   let total = +data.total + +val;
-  //   setData(prevState => ({
-  //     ...prevState, [input]: total
-  //   }));
-
-  //   console.log('Show me the data change 1.1 =>', data)
-  //   // setData(data_1);
-  //   // setData({ [input]: e.target.value });
-  //   // setData({ [input]: e.target.value });
-  // }
 
   const handleChange = (props) => {
     console.log('Show me the data change 1.0 =>', props)
@@ -159,6 +145,13 @@ function Customizer(){
               />
 
               <MeterHousing
+                nextStep={ nextStep }
+                prevStep={ prevStep }
+                handleChange={ handleChange }
+                value={ values }
+              />
+
+              <InputPower
                 nextStep={ nextStep }
                 prevStep={ prevStep }
                 handleChange={ handleChange }
