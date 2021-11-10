@@ -1,4 +1,5 @@
 import React from "react";
+import { useMediaQuery } from 'react-responsive';
 
 // reactstrap components
 import {
@@ -48,6 +49,13 @@ function InputPower({ nextStep, prevStep, handleChange, value }){
     handleChange(data);
   }
 
+  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+
+  var title = 'Input Power & Communication Options';
+  if (isMobile) {
+    if(title.length > 25) title = title.substring(0,25) + '...';
+  }
+
   return (
     <>
       <Card>
@@ -65,7 +73,7 @@ function InputPower({ nextStep, prevStep, handleChange, value }){
               <Container>
                 <div className="navbar-translate">
                   <NavbarBrand href="#pablo" onClick={e => e.preventDefault()} style={{'font-size': '22px', 'color': 'white'}}>
-                    <p>Input Power & Communication Options</p>
+                    <p>{ title }</p>
                   </NavbarBrand>
                   <button
                     className="navbar-toggler"
