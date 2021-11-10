@@ -1,4 +1,5 @@
 import React from "react";
+import StickyBox from "react-sticky-box";
 
 // reactstrap components
 import {
@@ -20,6 +21,7 @@ function TotalCard(props){
   
   return (
     <>
+    <StickyBox offsetTop={60} offsetBottom={60}>
       <Card className="text-center" style={{ width: "15rem" }}>
         <CardImg alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
         <CardBody>
@@ -39,6 +41,7 @@ function TotalCard(props){
           </Button>
         </CardBody>
       </Card>
+    </StickyBox>
     </>
   );
 }
