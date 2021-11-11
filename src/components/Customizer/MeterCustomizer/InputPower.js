@@ -69,7 +69,7 @@ function InputPower({ nextStep, prevStep, handleChange, value }){
               changeCollapse(2);
             }}
           >
-            <Navbar className="bg-epi-blue" style={{'height': '10px'}} expand="lg">
+            <Navbar className="bg-epi-blue" style={{'height': '10px', 'margin-bottom': '0px'}} expand="lg">
               <Container>
                 <div className="navbar-translate">
                   <NavbarBrand href="#pablo" onClick={e => e.preventDefault()} style={{'font-size': '22px', 'color': 'white'}}>
