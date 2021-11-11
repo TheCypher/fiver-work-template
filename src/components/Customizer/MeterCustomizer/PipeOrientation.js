@@ -59,7 +59,12 @@ function PipeOrientation({ nextStep, prevStep, handleChange, value }){
 
   return (
     <>
-      <Card>
+      <Card style={{
+        'border-top-left-radius': 'calc(.45rem - 1px)',
+        'border-top-right-radius': 'calc(.45rem - 1px)',
+        'border-bottom-left-radius': 'calc(.45rem - 1px)',
+        'border-bottom-right-radius': 'calc(.45rem - 1px)'
+        }}>
         <CardHeader>
           <a
             aria-expanded={collapses.includes(1)}
@@ -70,7 +75,11 @@ function PipeOrientation({ nextStep, prevStep, handleChange, value }){
               changeCollapse(1);
             }}
           >
-            <Navbar className="bg-epi-blue" style={{'height': '10px', 'margin-bottom': '0px'}} expand="lg">
+            <Navbar className="bg-epi-blue" style={{
+              'height': '10px', 'margin-bottom': '5px',
+              'border-top-left-radius': 'calc(.45rem - 1px)',
+              'border-top-right-radius': 'calc(.45rem - 1px)'
+              }} expand="lg">
               <Container>
                 <div className="navbar-translate">
                   <NavbarBrand href="#pablo" onClick={e => e.preventDefault()} style={{'font-size': '22px', 'color': 'white'}}>
