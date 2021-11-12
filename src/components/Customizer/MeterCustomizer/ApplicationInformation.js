@@ -13,23 +13,9 @@ import {
   Input
 } from "reactstrap";
 
-function ApplicationInformation({ nextStep, prevStep, handleChange, value }){
-  console.log('Show me customize data 1.0 =>', value)
-
-  // for continue event listener
-  const Continue = e => {
-    e.preventDefault();
-    nextStep();
-  }
-
-  // for back even listner
-  const GoBack = e => {
-    e.preventDefault();
-    prevStep();
-  }
+function ApplicationInformation({ handleChange, value }){
 
   const MakeChange = (data) => {
-    console.log('Show me make change data 1.0 =>', data);
     handleChange(data);
   }
 

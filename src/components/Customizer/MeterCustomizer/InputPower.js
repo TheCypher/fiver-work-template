@@ -21,7 +21,7 @@ import {
   Collapse,
 } from "reactstrap";
 
-function InputPower({ nextStep, prevStep, handleChange, value }){
+function InputPower({ handleChange, value }){
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
@@ -34,20 +34,7 @@ function InputPower({ nextStep, prevStep, handleChange, value }){
     }
   };
 
-  // for continue event listener
-  const Continue = e => {
-    e.preventDefault();
-    nextStep();
-  }
-
-  // for back even listner
-  const GoBack = e => {
-    e.preventDefault();
-    prevStep();
-  }
-
   const MakeChange = (data) => {
-    console.log('Show me make change data 1.0 =>', data);
     handleChange(data);
   }
 

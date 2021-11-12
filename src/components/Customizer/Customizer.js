@@ -15,6 +15,7 @@ import PipeOrientation from "./MeterCustomizer/PipeOrientation";
 import TotalCard from "./MeterCustomizer/TotalCard";
 import MeterHousing from "./MeterCustomizer/MeterHousing";
 import InputPower from "./MeterCustomizer/InputPower";
+import PipeInformation from "./MeterCustomizer/PipeInformation";
 
 
 function Customizer(){
@@ -22,7 +23,7 @@ function Customizer(){
     {
       step: 1,
       total: {
-        base: 7000
+        base: 3020
       },
       meter_orientation: {
         pipe_orientation: {
@@ -41,27 +42,32 @@ function Customizer(){
           left_side: true,
           right_side: false,
         }
+      },
+      pipe_infornation: {
+        type: {
+          pipe: true,
+          duct: false,
+          tube: false
+        },
+        pipe_standard: {
+          ansi: true,
+          jis: false,
+          din: false
+        },
+        pipe_size: {
+          1.5: true
+        },
+        schedule:{
+          40: true
+        },
+        inner_diameter:{
+          idk: true
+        }
       }
     }
   );
 
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
-
-  // go back to previous step
-  const prevStep = () => {
-    const { step } = data;
-    setData(prevState => ({
-      ...prevState,  step: step - 1
-    }));
-  }
-
-  // proceed to the next step
-  const nextStep = () => {
-    const { step } = data;
-    setData(prevState => ({
-      ...prevState,  step: step + 1
-    }));
-  }
 
   const handleChange = (props) => {
     console.log('Show me the data change 1.0 =>', props)
@@ -154,22 +160,21 @@ function Customizer(){
           <Row>
             <Col className="ml-auto mr-auto" md="9">
               <PipeOrientation
-                nextStep={ nextStep }
-                prevStep={ prevStep }
                 handleChange={ handleChange }
                 value={ values }
               />
 
               <MeterHousing
-                nextStep={ nextStep }
-                prevStep={ prevStep }
+                handleChange={ handleChange }
+                value={ values }
+              />
+
+              <PipeInformation
                 handleChange={ handleChange }
                 value={ values }
               />
 
               <InputPower
-                nextStep={ nextStep }
-                prevStep={ prevStep }
                 handleChange={ handleChange }
                 value={ values }
               />

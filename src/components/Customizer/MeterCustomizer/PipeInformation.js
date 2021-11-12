@@ -22,11 +22,11 @@ import {
   Collapse,
 } from "reactstrap";
 
-function PipeOrientation({ handleChange, value }){
+function PipeInformation({ handleChange, value }){
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
-  const [collapses, setCollapses] = React.useState([1]);
+  const [collapses, setCollapses] = React.useState([0]);
   const changeCollapse = collapse => {
     if (collapses.includes(collapse)) {
       setCollapses(collapses.filter(prop => prop !== collapse));
@@ -39,7 +39,7 @@ function PipeOrientation({ handleChange, value }){
     handleChange(data);
   }
 
-  var title = 'Meter Orientation';
+  var title = 'Pipe Information';
   if (isMobile) {
     if(title.length > 18) title = title.substring(0,18) + '...';
   }
@@ -99,23 +99,24 @@ function PipeOrientation({ handleChange, value }){
           <CardBody>
             <Row>
               <Col>
-                <span>Pipe Orientation</span>
+                <span>Type</span>
                 <FormGroup check className="form-check-radio">
                   <Label check>
                     <Row>
                       <Col>
-                        Horizion
+                        Pipe
                       </Col>
                     </Row>
                     <Input
+                      defaultChecked
                       onClick={ (e) => MakeChange({
-                        section: 'meter_orientation',
-                        type: 'pipe_orientation',
-                        values: ['horizion', 'vertical'],
-                        price_effect: true
+                        section: 'pipe_infornation',
+                        type: 'type',
+                        values: ['pipe', 'duct', 'tube'],
+                        price_effect: false
                       }, e)}
-                      id="pipe_orientation"
-                      name="pipe_orientation"
+                      id="type"
+                      name="type"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -125,43 +126,18 @@ function PipeOrientation({ handleChange, value }){
                   <Label check>
                     <Row>
                       <Col>
-                        Vertical
+                        Duct
                       </Col>
                     </Row>
                     <Input
-                      defaultChecked
                       onClick={ (e) => MakeChange({
-                        section: 'meter_orientation',
-                        type: 'pipe_orientation',
-                        values: ['vertical', 'horizion'],
-                        price_effect: true
-                      }, e)}
-                      id="pipe_orientation"
-                      name="pipe_orientation"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                </FormGroup><br />
-
-                <span>Flow Direction</span>
-                <FormGroup check className="form-check-radio">
-                  <Label check>
-                    <Row>
-                      <Col>
-                        Top to Bottom
-                      </Col>
-                    </Row>
-                    <Input
-                      defaultChecked
-                      onClick={ (e) => MakeChange({
-                        section: 'meter_orientation',
-                        type: 'flow_direction',
-                        values: ['top_to_bottom', 'bottom_to_top'],
+                        section: 'pipe_infornation',
+                        type: 'type',
+                        values: ['duct', 'pipe', 'tube'],
                         price_effect: false
                       }, e)}
-                      id="flow_direction"
-                      name="flow_direction"
+                      id="type"
+                      name="type"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -171,43 +147,42 @@ function PipeOrientation({ handleChange, value }){
                   <Label check>
                     <Row>
                       <Col>
-                        Bottom to Top
+                        Tube
                       </Col>
                     </Row>
                     <Input
                       onClick={ (e) => MakeChange({
-                        section: 'meter_orientation',
-                        type: 'flow_direction',
-                        values: ['bottom_to_top', 'top_to_bottom'],
+                        section: 'pipe_infornation',
+                        type: 'type',
+                        values: ['tube', 'duct', 'pipe'],
                         price_effect: false
                       }, e)}
-                      id="flow_direction"
-                      name="flow_direction"
+                      id="type"
+                      name="type"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
                   </Label>
                 </FormGroup><br />
 
-
-                <span>Enclosure Mounting Preference</span>
+                <span>Pipe Standard</span>
                 <FormGroup check className="form-check-radio">
                   <Label check>
                     <Row>
                       <Col>
-                        Left Side
+                        ANSI
                       </Col>
                     </Row>
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
-                        section: 'meter_orientation',
-                        type: 'enclosure_mounting_preference',
-                        values: ['left_side', 'right_side'],
+                        section: 'pipe_infornation',
+                        type: 'pipe_standard',
+                        values: ['ansi', 'jis', 'din'],
                         price_effect: false
                       }, e)}
-                      id="enclosure_mounting_preference"
-                      name="enclosure_mounting_preference"
+                      id="pipe_standard"
+                      name="pipe_standard"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -217,33 +192,44 @@ function PipeOrientation({ handleChange, value }){
                   <Label check>
                     <Row>
                       <Col>
-                        Right Side
+                        JIS
                       </Col>
                     </Row>
                     <Input
                       onClick={ (e) => MakeChange({
-                        section: 'meter_orientation',
-                        type: 'enclosure_mounting_preference',
-                        values: ['right_side', 'left_side'],
+                        section: 'pipe_infornation',
+                        type: 'pipe_standard',
+                        values: ['jis', 'ansi', 'din'],
                         price_effect: false
                       }, e)}
-                      id="enclosure_mounting_preference"
-                      name="enclosure_mounting_preference"
+                      id="pipe_standard"
+                      name="pipe_standard"
+                      type="radio"
+                    ></Input>
+                    <span className="form-check-sign"></span>
+                  </Label>
+                </FormGroup>
+                <FormGroup check className="form-check-radio">
+                  <Label check>
+                    <Row>
+                      <Col>
+                        Tube
+                      </Col>
+                    </Row>
+                    <Input
+                      onClick={ (e) => MakeChange({
+                        section: 'pipe_infornation',
+                        type: 'pipe_standard',
+                        values: ['din', 'ansi', 'jis'],
+                        price_effect: false
+                      }, e)}
+                      id="pipe_standard"
+                      name="pipe_standard"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
                   </Label>
                 </FormGroup><br />
-
-                <span>Display Orientation</span><br />
-                <Button
-                  color="info"
-                  size="lg"
-                  href="#pablo"
-                  onClick={e => e.preventDefault()}
-                >
-                  Rotate 90
-                </Button>
               </Col>
               <Col className="text-center">
                 <CardImg alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
@@ -256,4 +242,4 @@ function PipeOrientation({ handleChange, value }){
   );
 }
 
-export default PipeOrientation;
+export default PipeInformation;
