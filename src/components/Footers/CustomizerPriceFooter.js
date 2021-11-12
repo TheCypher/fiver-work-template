@@ -34,7 +34,7 @@ function CustomizerPriceFooter(props) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
-  let total = numberWithCommas(props.state.total);
+  let total = numberWithCommas(props.state.value.total);
 
   if(showNav > 0){
     return (

@@ -19,6 +19,7 @@ import {
   Nav,
   Container,
   Collapse,
+  UncontrolledTooltip
 } from "reactstrap";
 
 function MeterHousing({ nextStep, prevStep, handleChange, value }){
@@ -113,13 +114,27 @@ function MeterHousing({ nextStep, prevStep, handleChange, value }){
               <Col>
                 <Row>
                   <Col style={{ 'margin-bottom': '30px'}}>
-                    <span>Transmitter</span><br />
+                    <span>Transmitter 
+                      <Button color="epi-blue" id="right" size="sm">
+                          ?
+                      </Button>{` `}
+                      <UncontrolledTooltip placement="right" target="right" delay={0}>
+                        Transmitter Info
+                      </UncontrolledTooltip>
+                    </span><br />
                     <strong>Integrated Electronics</strong><br />
                   </Col>
                 </Row>
                 <Row>
                   <Col className="align-items-center">
-                    <span>Transmitter</span><br />
+                    <span>Transmitter
+                      <Button color="epi-blue" id="right" size="sm">
+                          ?
+                      </Button>{` `}
+                      <UncontrolledTooltip placement="right" target="right" delay={0}>
+                        Display Info
+                      </UncontrolledTooltip>  
+                    </span><br />
                     <strong>Integrated Electronics</strong><br />
                   </Col>
                 </Row>

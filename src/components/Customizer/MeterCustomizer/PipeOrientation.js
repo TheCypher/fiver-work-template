@@ -121,13 +121,14 @@ function PipeOrientation({ nextStep, prevStep, handleChange, value }){
                       </Col>
                     </Row>
                     <Input
-                      defaultChecked
-                      onClick={ (e) => MakeChange({ 
+                      onClick={ (e) => MakeChange({
+                        section: 'meter_orientation',
                         type: 'pipe_orientation',
-                        value: 'horizion'
+                        values: ['horizion', 'vertical'],
+                        price_effect: true
                       }, e)}
-                      id="exampleRadios1"
-                      name="exampleRadios"
+                      id="pipe_orientation"
+                      name="pipe_orientation"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -142,12 +143,14 @@ function PipeOrientation({ nextStep, prevStep, handleChange, value }){
                     </Row>
                     <Input
                       defaultChecked
-                      onClick={ (e) => MakeChange({ 
+                      onClick={ (e) => MakeChange({
+                        section: 'meter_orientation',
                         type: 'pipe_orientation',
-                        value: 'vertical'
+                        values: ['vertical', 'horizion'],
+                        price_effect: true
                       }, e)}
-                      id="exampleRadios1"
-                      name="exampleRadios"
+                      id="pipe_orientation"
+                      name="pipe_orientation"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -164,9 +167,14 @@ function PipeOrientation({ nextStep, prevStep, handleChange, value }){
                     </Row>
                     <Input
                       defaultChecked
-                      defaultValue="no"
-                      id="exampleRadios1"
-                      name="exampleRadios"
+                      onClick={ (e) => MakeChange({
+                        section: 'meter_orientation',
+                        type: 'flow_direction',
+                        values: ['top_to_bottom', 'bottom_to_top'],
+                        price_effect: false
+                      }, e)}
+                      id="flow_direction"
+                      name="flow_direction"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -180,10 +188,14 @@ function PipeOrientation({ nextStep, prevStep, handleChange, value }){
                       </Col>
                     </Row>
                     <Input
-                      defaultChecked
-                      defaultValue="no"
-                      id="exampleRadios1"
-                      name="exampleRadios"
+                      onClick={ (e) => MakeChange({
+                        section: 'meter_orientation',
+                        type: 'flow_direction',
+                        values: ['bottom_to_top', 'top_to_bottom'],
+                        price_effect: false
+                      }, e)}
+                      id="flow_direction"
+                      name="flow_direction"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -201,9 +213,14 @@ function PipeOrientation({ nextStep, prevStep, handleChange, value }){
                     </Row>
                     <Input
                       defaultChecked
-                      defaultValue="no"
-                      id="exampleRadios1"
-                      name="exampleRadios"
+                      onClick={ (e) => MakeChange({
+                        section: 'meter_orientation',
+                        type: 'enclosure_mounting_preference',
+                        values: ['left_side', 'right_side'],
+                        price_effect: false
+                      }, e)}
+                      id="enclosure_mounting_preference"
+                      name="enclosure_mounting_preference"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -217,10 +234,14 @@ function PipeOrientation({ nextStep, prevStep, handleChange, value }){
                       </Col>
                     </Row>
                     <Input
-                      defaultChecked
-                      defaultValue="no"
-                      id="exampleRadios1"
-                      name="exampleRadios"
+                      onClick={ (e) => MakeChange({
+                        section: 'meter_orientation',
+                        type: 'enclosure_mounting_preference',
+                        values: ['right_side', 'left_side'],
+                        price_effect: false
+                      }, e)}
+                      id="enclosure_mounting_preference"
+                      name="enclosure_mounting_preference"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>

@@ -12,12 +12,12 @@ import {
 } from "reactstrap";
 
 function TotalCard(props){
-  // console.log('Show me the main state 1.0 =>', props.state.total)
+  console.log('Show me the main state TotalCard 1.0 =>', props.state.value.total)
   const numberWithCommas = (num) => {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
-  let total = numberWithCommas(props.state.total);
+  let total = numberWithCommas(props.state.value.total);
   
   return (
     <>
