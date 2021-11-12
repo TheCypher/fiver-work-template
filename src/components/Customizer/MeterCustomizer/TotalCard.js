@@ -23,7 +23,6 @@ function TotalCard(props){
     <>
     <StickyBox offsetTop={60} offsetBottom={60}>
       <Card className="text-center" style={{ width: "15rem" }}>
-        <CardImg alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
         <CardBody>
           <CardTitle tag="h5">Total Cost</CardTitle>
           <CardTitle tag="h3" style={{ "color": "#0A60FF" }}><strong>${ total }</strong></CardTitle>

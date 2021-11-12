@@ -22,7 +22,13 @@ import {
   Collapse,
 } from "reactstrap";
 
+import {
+  TabContent,
+  TabPane
+} from "reactstrap";
+
 function PipeInformation({ handleChange, value }){
+  const [tabType, setTabType] = React.useState("Pipe");
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
@@ -36,6 +42,12 @@ function PipeInformation({ handleChange, value }){
   };
 
   const MakeChange = (data) => {
+    handleChange(data);
+    setTabType(data.tab);
+  }
+
+  const MakeChangeDropdown = (data) => {
+    data.option_value = data.option.target.value;
     handleChange(data);
   }
 
@@ -113,7 +125,8 @@ function PipeInformation({ handleChange, value }){
                         section: 'pipe_infornation',
                         type: 'type',
                         values: ['pipe', 'duct', 'tube'],
-                        price_effect: false
+                        price_effect: false,
+                        tab: 'Pipe'
                       }, e)}
                       id="type"
                       name="type"
@@ -134,7 +147,8 @@ function PipeInformation({ handleChange, value }){
                         section: 'pipe_infornation',
                         type: 'type',
                         values: ['duct', 'pipe', 'tube'],
-                        price_effect: false
+                        price_effect: false,
+                        tab: 'Duct'
                       }, e)}
                       id="type"
                       name="type"
@@ -155,7 +169,8 @@ function PipeInformation({ handleChange, value }){
                         section: 'pipe_infornation',
                         type: 'type',
                         values: ['tube', 'duct', 'pipe'],
-                        price_effect: false
+                        price_effect: false,
+                        tab: 'Tube'
                       }, e)}
                       id="type"
                       name="type"
@@ -231,8 +246,89 @@ function PipeInformation({ handleChange, value }){
                   </Label>
                 </FormGroup><br />
               </Col>
-              <Col className="text-center">
-                <CardImg alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
+
+              <Col className="col-9">
+                <TabContent activeTab={"tabs" + tabType}>
+                  <TabPane tabId="tabsPipe">
+                    <Row>
+                      <Col>
+                        <FormGroup>
+                          <label htmlFor="exampleFormControlSelect1">Pipe Size</label>
+                          <Input
+                            id="exampleFormControlSelect1"
+                            type="select"
+                            style={{ 'border-radius': '6px'}}
+                            onChange={ (e) => MakeChangeDropdown({
+                              section: 'pipe_infornation',
+                              type: 'pipe_size',
+                              values: [
+                                '0.75',
+                                '1.5',
+                                '1',
+                                '1_0.25',
+                                '1_1.5',
+                                '2',
+                                '2_1.5',
+                                '3',
+                                '4'
+                              ],
+                              price_effect: false,
+                              option: e
+                            }, e)}
+                          >
+                            <option value="1.5">1.5 in</option>
+                            <option value="0.75">0.75 in</option>
+                            <option value="1">1 in</option>
+                            <option value="1_0.25">1 - 0.25 in</option>
+                            <option value="1_1.5">1 - 1.5 in</option>
+                            <option value="2">2 in</option>
+                            <option value="2_1.5">2 - 1.5 in</option>
+                            <option value="3">3 in</option>
+                            <option value="4">4 in</option>
+                          </Input>
+                        </FormGroup>
+                      </Col>
+
+                      <Col>
+                        <FormGroup>
+                          <label htmlFor="exampleFormControlSelect1">Schedule</label>
+                          <Input id="exampleFormControlSelect1" type="select" style={{ 'border-radius': '6px'}}>
+                            <option>40</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                          </Input>
+                        </FormGroup>
+                      </Col>
+                    </Row>
+
+                    <Row style={{ 'margin-top': '20px'}}>
+                      <Col>
+                        <FormGroup>
+                          <label htmlFor="exampleFormControlInput1">Inner Diameter (ID)</label>
+                          <Input
+                            id="exampleFormControlInput1"
+                            placeholder="Select Pipe Size & Schedule Above"
+                            type="number"
+                            style={{ 'border-radius': '6px', 'background-color': '#EBF2FF'}}
+                          ></Input>
+                        </FormGroup>
+                      </Col>
+                      <Col className='col-1 my-auto'><br /> in</Col>
+                    </Row>
+                  </TabPane>
+                  <TabPane tabId="tabsDuct">
+                    <p>
+                      Duct
+                    </p>
+                  </TabPane>
+                  <TabPane tabId="tabsTube">
+                    <p>
+                      Tube
+                    </p>
+                  </TabPane>
+                </TabContent>
               </Col>
             </Row>
           </CardBody>

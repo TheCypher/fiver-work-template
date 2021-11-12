@@ -55,7 +55,15 @@ function Customizer(){
           din: false
         },
         pipe_size: {
-          1.5: true
+          '1.5': true,
+          '0.75': false,
+          '1': false,
+          '1_0.25': false,
+          '1_1.5': false,
+          '2': false,
+          '2_1.5': false,
+          '3': false,
+          '4': false
         },
         schedule:{
           40: true
@@ -77,13 +85,24 @@ function Customizer(){
     const section = props.section;
     const price_effect = props.price_effect;
 
-    makeChange({
-      type: type,
-      value: values[0],
-      section: section,
-      values: values,
-      price_effect
-    })
+    if(props.option_value){
+      const option_value = props.option_value;
+      makeChange({
+        type: type,
+        value: option_value,
+        section: section,
+        values: values,
+        price_effect
+      })
+    } else {
+      makeChange({
+        type: type,
+        value: values[0],
+        section: section,
+        values: values,
+        price_effect
+      })
+    }
   }
 
   const makeChange = (props) => {
