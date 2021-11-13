@@ -334,8 +334,37 @@ function ApplicationInformation({ handleChange, value }){
                   </Label>
                 </FormGroup>
               </Col>
+
               <Col>
-                    Test
+                <FormGroup>
+                  <label htmlFor="exampleFormControlSelect1">
+                    Do you expect condensing moisture in the process line?
+                    <Button className="questionToolTip" id="CondensingMoisture" size="sm">
+                      ?
+                    </Button>{` `}
+                    <UncontrolledTooltip placement="right" target="CondensingMoisture" delay={0}>
+                      Information Needed
+                    </UncontrolledTooltip>
+                    </label>
+                  <Input
+                    className="epiInputSize"
+                    id="exampleFormControlSelect1"
+                    type="select"
+                    onChange={ (e) => MakeChangeDropdown({
+                      section: 'pipe_infornation',
+                      type: 'condensing_moisture',
+                      values: [
+                        'yes',
+                        'no'
+                      ],
+                      price_effect: false,
+                      option: e
+                    }, e)}
+                  >
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </Input>
+                </FormGroup>
               </Col>
             </Row>
           </CardBody>
