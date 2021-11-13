@@ -16,6 +16,7 @@ import TotalCard from "./MeterCustomizer/TotalCard";
 import MeterHousing from "./MeterCustomizer/MeterHousing";
 import InputPower from "./MeterCustomizer/InputPower";
 import PipeInformation from "./MeterCustomizer/PipeInformation";
+import ApplicationInformation from "./MeterCustomizer/ApplicationInformation";
 
 
 function Customizer(){
@@ -23,7 +24,9 @@ function Customizer(){
     {
       step: 1,
       total: {
-        base: 3020
+        base: 3020,
+        air: 220,
+        pipe_orientation: 2000
       },
       meter_orientation: {
         pipe_orientation: {
@@ -31,8 +34,8 @@ function Customizer(){
           vertical: true,
         },
         pipe_orientation_prices: {
-          horizion_price: 0,
-          vertical_price: 2000
+          horizion: 0,
+          vertical: 2000
         },
         flow_direction: {
           top_to_bottom: true,
@@ -70,6 +73,74 @@ function Customizer(){
         },
         inner_diameter:{
           idk: true
+        }
+      },
+      application_information: {
+        gas:{
+          Air: true, 
+          Argon: false,
+          Chlorine: false,
+          Blast_Furnace_Gas: false,
+          BioGas: false,
+          Landfill_Gas: false,
+          Ethylene: false,
+          Ethane: false,
+          Propane: false,
+          Liquid_Propane_Gas: false,
+          Butane_Gas: false,
+          Benzene: false,
+          Methane: false,
+          Methane_Helium_Mix: false,
+          Methane_Nitrogen_Mix: false,
+          Carbon_Monoxide: false,
+          Carbon_Dioxide: false,
+          Hydrogen: false,
+          Hydrogen_Nitrogen_Mix: false,
+          Helium: false,
+          Mix_Gas: false,
+          Flare_gas: false,
+          Flue_Gas: false,
+          Nitrogen: false,
+          Natural_Gas: false,
+          Ammonia: false,
+          Oxygen: false,
+          O3: false,
+          SNGPL_Gas: false,
+          SSGCL_Gas: false,
+          MARI_Gas: false
+        },
+        gas_prices:{
+          Air: 220, 
+          Argon: 440,
+          Chlorine: 440,
+          Blast_Furnace_Gas: 693,
+          BioGas: 693,
+          Landfill_Gas: 693,
+          Ethylene: 858,
+          Ethane: 858,
+          Propane: 473,
+          Liquid_Propane_Gas: 474.10,
+          Butane_Gas: 474.10,
+          Benzene: 660,
+          Methane: 275,
+          Methane_Helium_Mix: 1177,
+          Methane_Nitrogen_Mix: 682,
+          Carbon_Monoxide: 341,
+          Carbon_Dioxide: 341,
+          Hydrogen: 495,
+          Hydrogen_Nitrogen_Mix: 715,
+          Helium: 825,
+          Mix_Gas: 693,
+          Flare_gas: 693,
+          Flue_Gas: 220,
+          Nitrogen: 220,
+          Natural_Gas: 275,
+          Ammonia: 275,
+          Oxygen: 220,
+          O3: 220,
+          SNGPL_Gas: 275,
+          SSGCL_Gas: 275,
+          MARI_Gas: 275
         }
       }
     }
@@ -126,12 +197,13 @@ function Customizer(){
 
       if(price_effect){
         const pricesObj = data[section][type + '_prices'];
-        const valuePrice = pricesObj[value + '_price'];
+        const valuePrice = pricesObj[value];
+        console.log('Show me the data change value price 2.0 =>', pricesObj, valuePrice)
         setData(prevState => ({
           ...prevState,
             ['total']:{
               ...prevState['total'],
-              pipe_orientation: valuePrice
+              type: valuePrice
             }
         })); 
       }
@@ -189,6 +261,11 @@ function Customizer(){
               />
 
               <PipeInformation
+                handleChange={ handleChange }
+                value={ values }
+              />
+
+              <ApplicationInformation
                 handleChange={ handleChange }
                 value={ values }
               />

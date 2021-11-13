@@ -640,6 +640,15 @@
   background-color: rgb(5, 97, 255) !important;
 }
 
+.questionToolTip {
+  background-color: rgb(214, 228, 255);
+  color: rgb(5, 97, 255);
+  margin: 5px;
+}
+
+.epiInputSize {
+  border-radius: 6px;
+}
 /* we'll come back to this */
 /* .menuMoblieShowButton {
   flex-shrink: 0;

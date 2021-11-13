@@ -20,12 +20,15 @@ import {
   Nav,
   Container,
   Collapse,
+  UncontrolledTooltip
 } from "reactstrap";
 
 import {
   TabContent,
   TabPane
 } from "reactstrap";
+
+import Pipe from "./PipeInformantion/Pipe";
 
 function PipeInformation({ handleChange, value }){
   const [tabType, setTabType] = React.useState("Pipe");
@@ -111,7 +114,15 @@ function PipeInformation({ handleChange, value }){
           <CardBody>
             <Row>
               <Col>
-                <span>Type</span>
+                <span>
+                  Type
+                  <Button className="questionToolTip" id="Type" size="sm">
+                      ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="right" target="Type" delay={0}>
+                    Type Information needed
+                  </UncontrolledTooltip>
+                </span>
                 <FormGroup check className="form-check-radio">
                   <Label check>
                     <Row>
@@ -180,7 +191,15 @@ function PipeInformation({ handleChange, value }){
                   </Label>
                 </FormGroup><br />
 
-                <span>Pipe Standard</span>
+                <span>
+                  Pipe Standard
+                  <Button className="questionToolTip" id="PipeStandard" size="sm">
+                      ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="right" target="PipeStandard" delay={0}>
+                    Pipe Standard Information needed
+                  </UncontrolledTooltip>  
+                </span>
                 <FormGroup check className="form-check-radio">
                   <Label check>
                     <Row>
@@ -250,79 +269,18 @@ function PipeInformation({ handleChange, value }){
               <Col className="col-9">
                 <TabContent activeTab={"tabs" + tabType}>
                   <TabPane tabId="tabsPipe">
-                    <Row>
-                      <Col>
-                        <FormGroup>
-                          <label htmlFor="exampleFormControlSelect1">Pipe Size</label>
-                          <Input
-                            id="exampleFormControlSelect1"
-                            type="select"
-                            style={{ 'border-radius': '6px'}}
-                            onChange={ (e) => MakeChangeDropdown({
-                              section: 'pipe_infornation',
-                              type: 'pipe_size',
-                              values: [
-                                '0.75',
-                                '1.5',
-                                '1',
-                                '1_0.25',
-                                '1_1.5',
-                                '2',
-                                '2_1.5',
-                                '3',
-                                '4'
-                              ],
-                              price_effect: false,
-                              option: e
-                            }, e)}
-                          >
-                            <option value="1.5">1.5 in</option>
-                            <option value="0.75">0.75 in</option>
-                            <option value="1">1 in</option>
-                            <option value="1_0.25">1 - 0.25 in</option>
-                            <option value="1_1.5">1 - 1.5 in</option>
-                            <option value="2">2 in</option>
-                            <option value="2_1.5">2 - 1.5 in</option>
-                            <option value="3">3 in</option>
-                            <option value="4">4 in</option>
-                          </Input>
-                        </FormGroup>
-                      </Col>
-
-                      <Col>
-                        <FormGroup>
-                          <label htmlFor="exampleFormControlSelect1">Schedule</label>
-                          <Input id="exampleFormControlSelect1" type="select" style={{ 'border-radius': '6px'}}>
-                            <option>40</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </Input>
-                        </FormGroup>
-                      </Col>
-                    </Row>
-
-                    <Row style={{ 'margin-top': '20px'}}>
-                      <Col>
-                        <FormGroup>
-                          <label htmlFor="exampleFormControlInput1">Inner Diameter (ID)</label>
-                          <Input
-                            id="exampleFormControlInput1"
-                            placeholder="Select Pipe Size & Schedule Above"
-                            type="number"
-                            style={{ 'border-radius': '6px', 'background-color': '#EBF2FF'}}
-                          ></Input>
-                        </FormGroup>
-                      </Col>
-                      <Col className='col-1 my-auto'><br /> in</Col>
-                    </Row>
+                    <Pipe
+                      handleChange={ handleChange }
+                      value={ value }
+                    />
                   </TabPane>
+
                   <TabPane tabId="tabsDuct">
                     <p>
                       Duct
                     </p>
                   </TabPane>
+
                   <TabPane tabId="tabsTube">
                     <p>
                       Tube
@@ -330,6 +288,7 @@ function PipeInformation({ handleChange, value }){
                   </TabPane>
                 </TabContent>
               </Col>
+
             </Row>
           </CardBody>
         </Collapse>

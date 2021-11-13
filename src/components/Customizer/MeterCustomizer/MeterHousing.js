@@ -102,11 +102,11 @@ function MeterHousing({handleChange, value }){
                 <Row>
                   <Col style={{ 'margin-bottom': '30px'}}>
                     <span>Transmitter 
-                      <Button color="epi-blue" id="right" size="sm">
-                          ?
+                      <Button className="questionToolTip" id="Transmitter" size="sm">
+                        ?
                       </Button>{` `}
-                      <UncontrolledTooltip placement="right" target="right" delay={0}>
-                        Transmitter Info
+                      <UncontrolledTooltip placement="right" target="Transmitter" delay={0}>
+                      Transmitter Information Needed
                       </UncontrolledTooltip>
                     </span><br />
                     <strong>Integrated Electronics</strong><br />
@@ -114,15 +114,15 @@ function MeterHousing({handleChange, value }){
                 </Row>
                 <Row>
                   <Col className="align-items-center">
-                    <span>Transmitter
-                      <Button color="epi-blue" id="right" size="sm">
-                          ?
+                    <span>Display
+                      <Button className="questionToolTip" id="Display" size="sm">
+                        ?
                       </Button>{` `}
-                      <UncontrolledTooltip placement="right" target="right" delay={0}>
-                        Display Info
-                      </UncontrolledTooltip>  
+                      <UncontrolledTooltip placement="right" target="Display" delay={0}>
+                        Display Information Needed
+                      </UncontrolledTooltip>
                     </span><br />
-                    <strong>Integrated Electronics</strong><br />
+                    <strong>2-Line Backlit Liquid Crystal Transflective</strong><br />
                   </Col>
                 </Row>
               </Col>
