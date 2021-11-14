@@ -25,8 +25,8 @@ function Customizer(){
       step: 1,
       total: {
         base: 3020,
-        air: 220,
-        pipe_orientation: 2000
+        air: 0,
+        pipe_orientation: 0
       },
       meter_orientation: {
         pipe_orientation: {
@@ -110,7 +110,7 @@ function Customizer(){
           MARI_Gas: false
         },
         gas_prices:{
-          Air: 220, 
+          Air: 0, 
           Argon: 440,
           Chlorine: 440,
           Blast_Furnace_Gas: 693,
