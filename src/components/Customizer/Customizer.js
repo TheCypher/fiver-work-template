@@ -19,6 +19,7 @@ import PipeInformation from "./MeterCustomizer/PipeInformation";
 import ApplicationInformation from "./MeterCustomizer/ApplicationInformation";
 import QuestionsOrComments from "./MeterCustomizer/QuestionsOrComments";
 import MountingRequirements from "./MeterCustomizer/MountingRequirements";
+import FlowBody from "./MeterCustomizer/FlowBody";
 
 
 function Customizer(){
@@ -28,7 +29,8 @@ function Customizer(){
       total: {
         base: 3020,
         air: 0,
-        pipe_orientation: 0
+        pipe_orientation: 0,
+        sensors:0
       },
       meter_orientation: {
         pipe_orientation: {
@@ -172,6 +174,28 @@ function Customizer(){
           contact_option: '',
           comments: ''
         }
+      },
+      flow_body:{
+        sensors:{
+          cer: false,
+          sss: false,
+          has: false          
+        },
+        sensors_prices:{
+          cer: 0,
+          sss: 0,
+          has: 1320     
+        },
+        sensors_shield:{
+          standard: true,
+          rod: false,
+          sheild: false
+        },
+        sensors_shield_prices:{
+          standard: 0,
+          rod: 275,
+          sheild: 275
+        }
       }
     }
   );
@@ -233,7 +257,7 @@ function Customizer(){
           ...prevState,
             ['total']:{
               ...prevState['total'],
-              type: valuePrice
+              [type]: valuePrice
             }
         })); 
       }
@@ -306,6 +330,11 @@ function Customizer(){
               />
 
               <MountingRequirements
+                handleChange={ handleChange }
+                value={ values }
+              />
+
+              <FlowBody
                 handleChange={ handleChange }
                 value={ values }
               />
