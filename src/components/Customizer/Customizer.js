@@ -33,10 +33,6 @@ function Customizer(){
           horizion: false,
           vertical: true,
         },
-        pipe_orientation_prices: {
-          horizion: 0,
-          vertical: 2000
-        },
         flow_direction: {
           top_to_bottom: true,
           bottom_to_top: false,
@@ -141,6 +137,25 @@ function Customizer(){
           SNGPL_Gas: 275,
           SSGCL_Gas: 275,
           MARI_Gas: 275
+        },
+        condensing_moisture: {
+          yes: false,
+          no: true
+        },
+        reference_conditions: {
+          temperature_60: false,
+          temperature_70: false,
+          temperature_0: false
+        },
+        other_temperature: {
+          temperature_70: false,
+          temperature_21: false,
+          temperature_20: false, 
+          temperature_0_Bar: false,
+          temperature_0_Hg: false,
+          temperature_20kPa: false,
+          temperature_0ׄ_1_Bar: false,
+          temperature_60_ATM:false
         }
       }
     }

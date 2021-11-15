@@ -112,7 +112,7 @@ function PipeOrientation({ handleChange, value }){
                         section: 'meter_orientation',
                         type: 'pipe_orientation',
                         values: ['horizion', 'vertical'],
-                        price_effect: true
+                        price_effect: false
                       }, e)}
                       id="pipe_orientation"
                       name="pipe_orientation"
@@ -134,7 +134,7 @@ function PipeOrientation({ handleChange, value }){
                         section: 'meter_orientation',
                         type: 'pipe_orientation',
                         values: ['vertical', 'horizion'],
-                        price_effect: true
+                        price_effect: false
                       }, e)}
                       id="pipe_orientation"
                       name="pipe_orientation"

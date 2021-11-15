@@ -276,11 +276,10 @@ function ApplicationInformation({ handleChange, value }){
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
-                        section: 'pipe_infornation',
-                        type: 'type',
-                        values: ['pipe', 'duct', 'tube'],
-                        price_effect: false,
-                        tab: 'Pipe'
+                        section: 'application_information',
+                        type: 'reference_conditions',
+                        values: ['temperature_60', 'temperature_70', 'temperature_0'],
+                        price_effect: false
                       }, e)}
                       id="type"
                       name="type"
@@ -298,12 +297,10 @@ function ApplicationInformation({ handleChange, value }){
                     </Row>
                     <Input
                       onClick={ (e) => MakeChange({
-                        section: 'pipe_infornation',
-                        type: 'type',
-                        values: ['duct', 'pipe', 'tube'],
-                        price_effect: false,
-                        tab: 'Duct'
-                      }, e)}
+                        section: 'application_information',
+                        type: 'reference_conditions',
+                        values: ['temperature_70', 'temperature_60', 'temperature_0'],
+                        price_effect: false                      }, e)}
                       id="type"
                       name="type"
                       type="radio"
@@ -320,11 +317,10 @@ function ApplicationInformation({ handleChange, value }){
                     </Row>
                     <Input
                       onClick={ (e) => MakeChange({
-                        section: 'pipe_infornation',
-                        type: 'type',
-                        values: ['tube', 'duct', 'pipe'],
-                        price_effect: false,
-                        tab: 'Tube'
+                        section: 'application_information',
+                        type: 'reference_conditions',
+                        values: ['temperature_0', 'temperature_60', 'temperature_70'],
+                        price_effect: false
                       }, e)}
                       id="type"
                       name="type"
@@ -332,6 +328,49 @@ function ApplicationInformation({ handleChange, value }){
                     ></Input>
                     <span className="form-check-sign"></span>
                   </Label>
+                </FormGroup>
+
+                <FormGroup>
+                  <label htmlFor="exampleFormControlSelect1">
+                    Other
+                    <Button className="questionToolTip" id="Gas" size="sm">
+                      ?
+                    </Button>{` `}
+                    <UncontrolledTooltip placement="right" target="Gas" delay={0}>
+                        Gas Information Needed
+                    </UncontrolledTooltip>
+                  </label>
+                  <Input
+                    className="epiInputSize"
+                    id="exampleFormControlSelect1"
+                    type="select"
+                    onChange={ (e) => MakeChangeDropdown({
+                      section: 'application_information',
+                      type: 'other_temperature',
+                      values: [
+                        'temperature_70',
+                        'temperature_21',
+                        'temperature_20', 
+                        'temperature_0_Bar',
+                        'temperature_0_Hg',
+                        'temperature_20kPa',
+                        'temperature_0ׄ_1_Bar',
+                        'temperature_60_ATM'
+                      ],
+                      price_effect: false,
+                      option: e
+                    }, e)}
+                  >
+                    <option value="" selected disabled hidden>Select Other Conditions</option>
+                    <option value="temperature_70">70°F & 29.92" Hg</option>
+                    <option value="temperature_21">21.1°C & 1.01325 BarA</option>
+                    <option value="temperature_20">20°C & 1.01325 BarA</option>
+                    <option value="temperature_0_Bar">0°C & 1.01325 BarA</option>
+                    <option value="temperature_0_Hg">0°C & 760mm Hg</option>
+                    <option value="temperature_20kPa">20°C & 101.325 kPa A</option>
+                    <option value="temperature_0ׄ_1_Bar">0ׄ°C & 1.000 Bar A</option>
+                    <option value="temperature_60_ATM">60°F & 1 ATM</option>
+                  </Input>
                 </FormGroup>
               </Col>
 
@@ -350,8 +389,9 @@ function ApplicationInformation({ handleChange, value }){
                     className="epiInputSize"
                     id="exampleFormControlSelect1"
                     type="select"
+                    placeholder="Yes or No"
                     onChange={ (e) => MakeChangeDropdown({
-                      section: 'pipe_infornation',
+                      section: 'application_information',
                       type: 'condensing_moisture',
                       values: [
                         'yes',
@@ -361,6 +401,7 @@ function ApplicationInformation({ handleChange, value }){
                       option: e
                     }, e)}
                   >
+                    <option value="" selected disabled hidden>Select Yes or No</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                   </Input>
