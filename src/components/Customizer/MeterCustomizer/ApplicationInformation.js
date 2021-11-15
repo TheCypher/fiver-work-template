@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMediaQuery } from 'react-responsive';
 
 // reactstrap components
@@ -23,6 +23,7 @@ import {
 
 function ApplicationInformation({ handleChange, value }){
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const [otherOptions, setOtherOptions] = useState(false);
 
   // collapse states and functions
   const [collapses, setCollapses] = React.useState([0]);
@@ -54,7 +55,55 @@ function ApplicationInformation({ handleChange, value }){
   }
 
   const MakeChange = (data) => {
+    if(data.other_select){
+      setOtherOptions(true);
+    } else {
+      setOtherOptions(false);
+    }
+
     handleChange(data);
+  }
+  
+  const OtherSelectionOptions = () => {
+    if(otherOptions){
+      return(
+        <FormGroup>
+          <Input
+            className="epiInputSize"
+            id="exampleFormControlSelect1"
+            type="select"
+            onChange={ (e) => MakeChangeDropdown({
+              section: 'application_information',
+              type: 'other_temperature',
+              values: [
+                'temperature_70',
+                'temperature_21',
+                'temperature_20', 
+                'temperature_0_Bar',
+                'temperature_0_Hg',
+                'temperature_20kPa',
+                'temperature_0ׄ_1_Bar',
+                'temperature_60_ATM'
+              ],
+              price_effect: false,
+              option: e
+            }, e)}
+          >
+            <option value="" selected disabled hidden>Select Other Conditions</option>
+            <option value="temperature_70">70°F & 29.92" Hg</option>
+            <option value="temperature_21">21.1°C & 1.01325 BarA</option>
+            <option value="temperature_20">20°C & 1.01325 BarA</option>
+            <option value="temperature_0_Bar">0°C & 1.01325 BarA</option>
+            <option value="temperature_0_Hg">0°C & 760mm Hg</option>
+            <option value="temperature_20kPa">20°C & 101.325 kPa A</option>
+            <option value="temperature_0ׄ_1_Bar">0ׄ°C & 1.000 Bar A</option>
+            <option value="temperature_60_ATM">60°F & 1 ATM</option>
+          </Input>
+        </FormGroup>
+      ) 
+    } else {
+      return(<> </>)
+    }
   }
 
   var title = 'Application Information';
@@ -278,8 +327,9 @@ function ApplicationInformation({ handleChange, value }){
                       onClick={ (e) => MakeChange({
                         section: 'application_information',
                         type: 'reference_conditions',
-                        values: ['temperature_60', 'temperature_70', 'temperature_0'],
-                        price_effect: false
+                        values: ['temperature_60', 'temperature_70', 'temperature_0', 'other'],
+                        price_effect: false,
+                        other_select: false
                       }, e)}
                       id="type"
                       name="type"
@@ -299,8 +349,10 @@ function ApplicationInformation({ handleChange, value }){
                       onClick={ (e) => MakeChange({
                         section: 'application_information',
                         type: 'reference_conditions',
-                        values: ['temperature_70', 'temperature_60', 'temperature_0'],
-                        price_effect: false                      }, e)}
+                        values: ['temperature_70', 'temperature_60', 'temperature_0', 'other'],
+                        price_effect: false,
+                        other_select: false
+                      }, e)}
                       id="type"
                       name="type"
                       type="radio"
@@ -319,8 +371,9 @@ function ApplicationInformation({ handleChange, value }){
                       onClick={ (e) => MakeChange({
                         section: 'application_information',
                         type: 'reference_conditions',
-                        values: ['temperature_0', 'temperature_60', 'temperature_70'],
-                        price_effect: false
+                        values: ['temperature_0', 'temperature_60', 'temperature_70', 'other'],
+                        price_effect: false,
+                        other_select: false
                       }, e)}
                       id="type"
                       name="type"
@@ -330,48 +383,34 @@ function ApplicationInformation({ handleChange, value }){
                   </Label>
                 </FormGroup>
 
-                <FormGroup>
-                  <label htmlFor="exampleFormControlSelect1">
-                    Other
-                    <Button className="questionToolTip" id="Gas" size="sm">
-                      ?
-                    </Button>{` `}
-                    <UncontrolledTooltip placement="right" target="Gas" delay={0}>
-                        Gas Information Needed
-                    </UncontrolledTooltip>
-                  </label>
-                  <Input
-                    className="epiInputSize"
-                    id="exampleFormControlSelect1"
-                    type="select"
-                    onChange={ (e) => MakeChangeDropdown({
-                      section: 'application_information',
-                      type: 'other_temperature',
-                      values: [
-                        'temperature_70',
-                        'temperature_21',
-                        'temperature_20', 
-                        'temperature_0_Bar',
-                        'temperature_0_Hg',
-                        'temperature_20kPa',
-                        'temperature_0ׄ_1_Bar',
-                        'temperature_60_ATM'
-                      ],
-                      price_effect: false,
-                      option: e
-                    }, e)}
-                  >
-                    <option value="" selected disabled hidden>Select Other Conditions</option>
-                    <option value="temperature_70">70°F & 29.92" Hg</option>
-                    <option value="temperature_21">21.1°C & 1.01325 BarA</option>
-                    <option value="temperature_20">20°C & 1.01325 BarA</option>
-                    <option value="temperature_0_Bar">0°C & 1.01325 BarA</option>
-                    <option value="temperature_0_Hg">0°C & 760mm Hg</option>
-                    <option value="temperature_20kPa">20°C & 101.325 kPa A</option>
-                    <option value="temperature_0ׄ_1_Bar">0ׄ°C & 1.000 Bar A</option>
-                    <option value="temperature_60_ATM">60°F & 1 ATM</option>
-                  </Input>
+                <FormGroup check className="form-check-radio">
+                  <Label check>
+                    <label htmlFor="exampleFormControlSelect1">
+                      Other
+                    </label>
+                    <Input
+                      onClick={ (e) => MakeChange({
+                        section: 'application_information',
+                        type: 'reference_conditions',
+                        values: ['other', 'temperature_0', 'temperature_60', 'temperature_70'],
+                        price_effect: false,
+                        other_select: true
+                      }, e)}
+                      id="type"
+                      name="type"
+                      type="radio"
+                    ></Input>
+                    <span className="form-check-sign"></span>
+                  </Label>
+                  <Button className="questionToolTip" id="Gas" size="sm">
+                    ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="right" target="Gas" delay={0}>
+                      Gas Information Needed
+                  </UncontrolledTooltip>
                 </FormGroup>
+
+                <OtherSelectionOptions />
               </Col>
 
               <Col>
