@@ -23,7 +23,7 @@ import {
 
 function ApplicationInformation({ handleChange, value }){
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
-  const [otherOptions, setOtherOptions] = useState(false);
+  const [otherOptions, setOtherOptions] = useState(true);
 
   // collapse states and functions
   const [collapses, setCollapses] = React.useState([0]);
@@ -62,48 +62,6 @@ function ApplicationInformation({ handleChange, value }){
     }
 
     handleChange(data);
-  }
-  
-  const OtherSelectionOptions = () => {
-    if(otherOptions){
-      return(
-        <FormGroup>
-          <Input
-            className="epiInputSize"
-            id="exampleFormControlSelect1"
-            type="select"
-            onChange={ (e) => MakeChangeDropdown({
-              section: 'application_information',
-              type: 'other_temperature',
-              values: [
-                'temperature_70',
-                'temperature_21',
-                'temperature_20', 
-                'temperature_0_Bar',
-                'temperature_0_Hg',
-                'temperature_20kPa',
-                'temperature_0ׄ_1_Bar',
-                'temperature_60_ATM'
-              ],
-              price_effect: false,
-              option: e
-            }, e)}
-          >
-            <option value="" selected disabled hidden>Select Other Conditions</option>
-            <option value="temperature_70">70°F & 29.92" Hg</option>
-            <option value="temperature_21">21.1°C & 1.01325 BarA</option>
-            <option value="temperature_20">20°C & 1.01325 BarA</option>
-            <option value="temperature_0_Bar">0°C & 1.01325 BarA</option>
-            <option value="temperature_0_Hg">0°C & 760mm Hg</option>
-            <option value="temperature_20kPa">20°C & 101.325 kPa A</option>
-            <option value="temperature_0ׄ_1_Bar">0ׄ°C & 1.000 Bar A</option>
-            <option value="temperature_60_ATM">60°F & 1 ATM</option>
-          </Input>
-        </FormGroup>
-      ) 
-    } else {
-      return(<> </>)
-    }
   }
 
   var title = 'Application Information';
@@ -389,6 +347,7 @@ function ApplicationInformation({ handleChange, value }){
                       Other
                     </label>
                     <Input
+                      defaultChecked
                       onClick={ (e) => MakeChange({
                         section: 'application_information',
                         type: 'reference_conditions',
@@ -410,7 +369,43 @@ function ApplicationInformation({ handleChange, value }){
                   </UncontrolledTooltip>
                 </FormGroup>
 
-                <OtherSelectionOptions />
+                { otherOptions ? (
+                  <FormGroup>
+                    <Input
+                      className="epiInputSize"
+                      id="exampleFormControlSelect1"
+                      type="select"
+                      onChange={ (e) => MakeChangeDropdown({
+                        section: 'application_information',
+                        type: 'other_temperature',
+                        values: [
+                          'temperature_70',
+                          'temperature_21',
+                          'temperature_20', 
+                          'temperature_0_Bar',
+                          'temperature_0_Hg',
+                          'temperature_20kPa',
+                          'temperature_0ׄ_1_Bar',
+                          'temperature_60_ATM'
+                        ],
+                        price_effect: false,
+                        option: e
+                      }, e)}
+                    >
+                      <option value="" selected disabled hidden>Select Other Conditions</option>
+                      <option value="temperature_70">70°F & 29.92" Hg</option>
+                      <option value="temperature_21">21.1°C & 1.01325 BarA</option>
+                      <option value="temperature_20">20°C & 1.01325 BarA</option>
+                      <option value="temperature_0_Bar">0°C & 1.01325 BarA</option>
+                      <option value="temperature_0_Hg">0°C & 760mm Hg</option>
+                      <option value="temperature_20kPa">20°C & 101.325 kPa A</option>
+                      <option value="temperature_0ׄ_1_Bar">0ׄ°C & 1.000 Bar A</option>
+                      <option value="temperature_60_ATM">60°F & 1 ATM</option>
+                    </Input>
+                  </FormGroup>
+                ) : (
+                  <div></div>
+                )}
               </Col>
 
               <Col>

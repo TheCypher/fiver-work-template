@@ -650,6 +650,11 @@
   border-radius: 6px;
 }
 
+.epiTextArea {
+  border: 1px solid #E3E3E3 !important;
+  border-radius: 6px !important;
+}
+
 @media screen and (max-width: 767px) {
   input, select, textarea {
     font-size: 16px;

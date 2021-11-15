@@ -17,6 +17,8 @@ import MeterHousing from "./MeterCustomizer/MeterHousing";
 import InputPower from "./MeterCustomizer/InputPower";
 import PipeInformation from "./MeterCustomizer/PipeInformation";
 import ApplicationInformation from "./MeterCustomizer/ApplicationInformation";
+import QuestionsOrComments from "./MeterCustomizer/QuestionsOrComments";
+import MountingRequirements from "./MeterCustomizer/MountingRequirements";
 
 
 function Customizer(){
@@ -145,7 +147,8 @@ function Customizer(){
         reference_conditions: {
           temperature_60: false,
           temperature_70: false,
-          temperature_0: false
+          temperature_0: false,
+          other: false
         },
         other_temperature: {
           temperature_70: false,
@@ -156,6 +159,18 @@ function Customizer(){
           temperature_20kPa: false,
           temperature_0ׄ_1_Bar: false,
           temperature_60_ATM:false
+        }
+      },
+      questions_or_comments: {
+        input_options: {
+          from_email: false,
+          contact_option: false,
+          comments: false
+        },
+        input_values: {
+          from_email: '',
+          contact_option: '',
+          comments: ''
         }
       }
     }
@@ -286,6 +301,16 @@ function Customizer(){
               />
 
               <InputPower
+                handleChange={ handleChange }
+                value={ values }
+              />
+
+              <MountingRequirements
+                handleChange={ handleChange }
+                value={ values }
+              />
+
+              <QuestionsOrComments
                 handleChange={ handleChange }
                 value={ values }
               />
