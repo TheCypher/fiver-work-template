@@ -649,6 +649,13 @@
 .epiInputSize {
   border-radius: 6px;
 }
+
+@media screen and (max-width: 767px) {
+  input, select, textarea {
+    font-size: 16px;
+  }
+}
+
 /* we'll come back to this */
 /* .menuMoblieShowButton {
   flex-shrink: 0;
