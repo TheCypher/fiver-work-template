@@ -208,7 +208,7 @@ function MountingRequirements({handleChange, value }){
                   {selectFlange? (
                     <FormGroup>
                       <label htmlFor="exampleFormControlSelect1">
-                        Flang Type
+                        Flange Type
                         <Button className="questionToolTip" id="FlangType" size="sm">
                           ?
                         </Button>{` `}
@@ -246,7 +246,7 @@ function MountingRequirements({handleChange, value }){
                       <br />
 
                       <label htmlFor="exampleFormControlSelect1">
-                        Flang Size
+                        Flange Size
                         <Button className="questionToolTip" id="FlangSize" size="sm">
                           ?
                         </Button>{` `}
