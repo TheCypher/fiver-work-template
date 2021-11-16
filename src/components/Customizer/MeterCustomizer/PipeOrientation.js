@@ -114,8 +114,8 @@ function PipeOrientation({ handleChange, value }){
                         values: ['horizion', 'vertical'],
                         price_effect: false
                       }, e)}
-                      id="pipe_orientation"
-                      name="pipe_orientation"
+                      id="pipe_orientation1"
+                      name="pipe_orientation1"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -136,8 +136,8 @@ function PipeOrientation({ handleChange, value }){
                         values: ['vertical', 'horizion'],
                         price_effect: false
                       }, e)}
-                      id="pipe_orientation"
-                      name="pipe_orientation"
+                      id="pipe_orientation1"
+                      name="pipe_orientation1"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
