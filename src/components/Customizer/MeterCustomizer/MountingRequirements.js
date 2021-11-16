@@ -201,7 +201,12 @@ function MountingRequirements({handleChange, value }){
                 </FormGroup>
               </Col>
             </Row>
-            <hr />
+
+            {selectFlange? (
+              <hr />
+            ) : (
+              <></>
+            )}
 
             <Row>
               <Col>
