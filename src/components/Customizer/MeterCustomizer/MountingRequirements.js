@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMediaQuery } from 'react-responsive';
 
 // reactstrap components
@@ -23,6 +23,7 @@ import {
 } from "reactstrap";
 
 function MountingRequirements({handleChange, value }){
+  const [selectFlange, setSelectFlange] = useState(true);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
@@ -155,7 +156,10 @@ function MountingRequirements({handleChange, value }){
                         type: 'pipe_orientation',
                         values: ['vertical', 'horizion'],
                         price_effect: false
-                      }, e)}
+                      }, e,
+                      setSelectFlange(false)
+                      )
+                    }
                       id="pipe_orientation"
                       name="pipe_orientation"
                       type="radio"
@@ -177,7 +181,9 @@ function MountingRequirements({handleChange, value }){
                         type: 'pipe_orientation',
                         values: ['vertical', 'horizion'],
                         price_effect: false
-                      }, e)}
+                      }, e,
+                      setSelectFlange(true)
+                      )}
                       id="pipe_orientation"
                       name="pipe_orientation"
                       type="radio"
@@ -199,83 +205,86 @@ function MountingRequirements({handleChange, value }){
 
             <Row>
               <Col>
-                <FormGroup>
-                  <label htmlFor="exampleFormControlSelect1">
-                    Flang Type
-                    <Button className="questionToolTip" id="FlangType" size="sm">
-                      ?
-                    </Button>{` `}
-                    <UncontrolledTooltip placement="right" target="FlangType" delay={0}>
-                      Select Flange Type
-                    </UncontrolledTooltip>
-                    </label>
-                  <Input
-                    className="epiInputSize"
-                    id="exampleFormControlSelect1"
-                    type="select"
-                    onChange={ (e) => MakeChangeDropdown({
-                      section: 'pipe_infornation',
-                      type: 'pipe_size',
-                      values: [
-                        '1.5',
-                        '0.75',
-                        '1',
-                        '1_0.25',
-                        '1_1.5',
-                        '2',
-                        '2_1.5',
-                        '3',
-                        '4'
-                      ],
-                      price_effect: false,
-                      option: e
-                    }, e)}
-                  >
-                    <option value="" selected disabled hidden>Select Flange Type</option>
-                    <option value="1.5">Flange 1</option>
-                    <option value="0.75">Flange 2</option>
-                    <option value="1">Flange 3</option>
-                  </Input>
-                </FormGroup>
+                  {selectFlange? (
+                    <FormGroup>
+                      <label htmlFor="exampleFormControlSelect1">
+                        Flang Type
+                        <Button className="questionToolTip" id="FlangType" size="sm">
+                          ?
+                        </Button>{` `}
+                        <UncontrolledTooltip placement="right" target="FlangType" delay={0}>
+                          Select Flange Type
+                        </UncontrolledTooltip>
+                        </label>
+                      <Input
+                        className="epiInputSize"
+                        id="exampleFormControlSelect1"
+                        type="select"
+                        onChange={ (e) => MakeChangeDropdown({
+                          section: 'pipe_infornation',
+                          type: 'pipe_size',
+                          values: [
+                            '1.5',
+                            '0.75',
+                            '1',
+                            '1_0.25',
+                            '1_1.5',
+                            '2',
+                            '2_1.5',
+                            '3',
+                            '4'
+                          ],
+                          price_effect: false,
+                          option: e
+                        }, e)}
+                      >
+                        <option value="" selected disabled hidden>Select Flange Type</option>
+                        <option value="1.5">Flange 1</option>
+                        <option value="0.75">Flange 2</option>
+                        <option value="1">Flange 3</option>
+                      </Input>
+                      <br />
 
-                <FormGroup>
-                  <label htmlFor="exampleFormControlSelect1">
-                    Flang Size
-                    <Button className="questionToolTip" id="FlangSize" size="sm">
-                      ?
-                    </Button>{` `}
-                    <UncontrolledTooltip placement="right" target="FlangSize" delay={0}>
-                      Select Flange Size
-                    </UncontrolledTooltip>
-                    </label>
-                  <Input
-                    className="epiInputSize"
-                    id="exampleFormControlSelect1"
-                    type="select"
-                    onChange={ (e) => MakeChangeDropdown({
-                      section: 'pipe_infornation',
-                      type: 'pipe_size',
-                      values: [
-                        '1.5',
-                        '0.75',
-                        '1',
-                        '1_0.25',
-                        '1_1.5',
-                        '2',
-                        '2_1.5',
-                        '3',
-                        '4'
-                      ],
-                      price_effect: false,
-                      option: e
-                    }, e)}
-                  >
-                    <option value="" selected disabled hidden>Select Flange Type</option>
-                    <option value="1.5">Size 1</option>
-                    <option value="0.75">Size 2</option>
-                    <option value="1">Size 3</option>
-                  </Input>
-                </FormGroup>
+                      <label htmlFor="exampleFormControlSelect1">
+                        Flang Size
+                        <Button className="questionToolTip" id="FlangSize" size="sm">
+                          ?
+                        </Button>{` `}
+                        <UncontrolledTooltip placement="right" target="FlangSize" delay={0}>
+                          Select Flange Size
+                        </UncontrolledTooltip>
+                        </label>
+                      <Input
+                        className="epiInputSize"
+                        id="exampleFormControlSelect1"
+                        type="select"
+                        onChange={ (e) => MakeChangeDropdown({
+                          section: 'pipe_infornation',
+                          type: 'pipe_size',
+                          values: [
+                            '1.5',
+                            '0.75',
+                            '1',
+                            '1_0.25',
+                            '1_1.5',
+                            '2',
+                            '2_1.5',
+                            '3',
+                            '4'
+                          ],
+                          price_effect: false,
+                          option: e
+                        }, e)}
+                      >
+                        <option value="" selected disabled hidden>Select Flange Type</option>
+                        <option value="1.5">Size 1</option>
+                        <option value="0.75">Size 2</option>
+                        <option value="1">Size 3</option>
+                      </Input>
+                    </FormGroup>
+                  ) : (
+                    <></>
+                  )}
               </Col>
               <Col></Col>
             </Row>
