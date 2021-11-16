@@ -11,7 +11,7 @@ import {
 
 import MeterCustomizerNavbar from "components/Navbars/MeterCustomizerNavbar";
 import CustomizerPriceFooter from "components/Footers/CustomizerPriceFooter";
-import PipeOrientation from "./MeterCustomizer/PipeOrientation";
+import MeterOrientation from "./MeterCustomizer/MeterOrientation";
 import TotalCard from "./MeterCustomizer/TotalCard";
 import MeterHousing from "./MeterCustomizer/MeterHousing";
 import InputPower from "./MeterCustomizer/InputPower";
@@ -20,6 +20,7 @@ import ApplicationInformation from "./MeterCustomizer/ApplicationInformation";
 import QuestionsOrComments from "./MeterCustomizer/QuestionsOrComments";
 import MountingRequirements from "./MeterCustomizer/MountingRequirements";
 import FlowBody from "./MeterCustomizer/FlowBody";
+import Enhancements from "./MeterCustomizer/Enhancements";
 
 
 function Customizer(){
@@ -73,6 +74,29 @@ function Customizer(){
         },
         inner_diameter:{
           idk: true
+        },
+        duct_shape:{
+          rectangular: true,
+          round: false
+        },
+        duct_rectangular:{
+          height: false,
+          width: false,
+          dimention: false,
+          wall: false,
+          probe: false
+        },
+        duct_round:{
+          outer: false,
+          inner: false,
+          units: false,
+          wall: false
+        },
+        tube:{
+          outer: false,
+          inner: false,
+          units: false,
+          wall: false
         }
       },
       application_information: {
@@ -304,7 +328,7 @@ function Customizer(){
         <Col className="ml-auto mr-auto" md="10">
           <Row>
             <Col className="ml-auto mr-auto" md="9">
-              <PipeOrientation
+              <MeterOrientation
                 handleChange={ handleChange }
                 value={ values }
               />
@@ -335,6 +359,11 @@ function Customizer(){
               />
 
               <FlowBody
+                handleChange={ handleChange }
+                value={ values }
+              />
+
+              <Enhancements
                 handleChange={ handleChange }
                 value={ values }
               />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMediaQuery } from 'react-responsive';
 
 
@@ -29,9 +29,14 @@ import {
 } from "reactstrap";
 
 import Pipe from "./PipeInformantion/Pipe";
+import PipeStandard from "./PipeInformantion/PipeStandard";
+import DuctShape from "./PipeInformantion/DuctShape";
+import Duct from "./PipeInformantion/Duct";
+import Tube from "./PipeInformantion/Tube";
 
 function PipeInformation({ handleChange, value }){
-  const [tabType, setTabType] = React.useState("Pipe");
+  const [tabType, setTabType] = useState("Pipe");
+  const [ductShape, setDuctShape] = useState('rectangular');
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
@@ -52,6 +57,32 @@ function PipeInformation({ handleChange, value }){
   const MakeChangeDropdown = (data) => {
     data.option_value = data.option.target.value;
     handleChange(data);
+  }
+
+  const BottomOptions = () => {
+    if(tabType === "Pipe"){
+      return <PipeStandard />
+    }
+    
+    if(tabType === "Duct"){
+      return(
+        <DuctShape 
+          handleChange={ handleChange }
+          value={ value }
+          setDuctShape={ setDuctShape }
+        />
+      );
+    }
+
+    if(tabType === "Tube"){
+      return(
+        <DuctShape 
+          handleChange={ handleChange }
+          value={ value }
+          setDuctShape={ setDuctShape }
+        />
+      );
+    }
   }
 
   var title = 'Pipe Information';
@@ -139,8 +170,8 @@ function PipeInformation({ handleChange, value }){
                         price_effect: false,
                         tab: 'Pipe'
                       }, e)}
-                      id="type"
-                      name="type"
+                      id="type2"
+                      name="type2"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -161,8 +192,8 @@ function PipeInformation({ handleChange, value }){
                         price_effect: false,
                         tab: 'Duct'
                       }, e)}
-                      id="type"
-                      name="type"
+                      id="type2"
+                      name="type2"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -183,87 +214,15 @@ function PipeInformation({ handleChange, value }){
                         price_effect: false,
                         tab: 'Tube'
                       }, e)}
-                      id="type"
-                      name="type"
+                      id="type2"
+                      name="type2"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
                   </Label>
                 </FormGroup><br />
 
-                <span>
-                  Pipe Standard
-                  <Button className="questionToolTip" id="PipeStandard" size="sm">
-                      ?
-                  </Button>{` `}
-                  <UncontrolledTooltip placement="right" target="PipeStandard" delay={0}>
-                    Pipe Standard Information needed
-                  </UncontrolledTooltip>  
-                </span>
-                <FormGroup check className="form-check-radio">
-                  <Label check>
-                    <Row>
-                      <Col>
-                        ANSI
-                      </Col>
-                    </Row>
-                    <Input
-                      defaultChecked
-                      onClick={ (e) => MakeChange({
-                        section: 'pipe_infornation',
-                        type: 'pipe_standard',
-                        values: ['ansi', 'jis', 'din'],
-                        price_effect: false
-                      }, e)}
-                      id="pipe_standard"
-                      name="pipe_standard"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                </FormGroup>
-                <FormGroup check className="form-check-radio">
-                  <Label check>
-                    <Row>
-                      <Col>
-                        JIS
-                      </Col>
-                    </Row>
-                    <Input
-                      onClick={ (e) => MakeChange({
-                        section: 'pipe_infornation',
-                        type: 'pipe_standard',
-                        values: ['jis', 'ansi', 'din'],
-                        price_effect: false
-                      }, e)}
-                      id="pipe_standard"
-                      name="pipe_standard"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                </FormGroup>
-                <FormGroup check className="form-check-radio">
-                  <Label check>
-                    <Row>
-                      <Col>
-                        Tube
-                      </Col>
-                    </Row>
-                    <Input
-                      onClick={ (e) => MakeChange({
-                        section: 'pipe_infornation',
-                        type: 'pipe_standard',
-                        values: ['din', 'ansi', 'jis'],
-                        price_effect: false
-                      }, e)}
-                      id="pipe_standard"
-                      name="pipe_standard"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                </FormGroup><br />
+                <BottomOptions />
               </Col>
 
               <Col className="col-9">
@@ -276,15 +235,18 @@ function PipeInformation({ handleChange, value }){
                   </TabPane>
 
                   <TabPane tabId="tabsDuct">
-                    <p>
-                      Duct
-                    </p>
+                    <Duct
+                      handleChange={ handleChange }
+                      value={ value }
+                      ductShape={ ductShape }
+                    />
                   </TabPane>
 
                   <TabPane tabId="tabsTube">
-                    <p>
-                      Tube
-                    </p>
+                    <Tube
+                      handleChange={ handleChange }
+                      value={ value }
+                    />
                   </TabPane>
                 </TabContent>
               </Col>
