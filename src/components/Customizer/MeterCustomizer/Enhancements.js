@@ -108,11 +108,11 @@ function Enhancements({handleChange, value }){
           <CardBody>
           <Row>
             <Col>
-              <span>Certificates</span>
+              <span className="customizerInputTitle">Certificates</span>
               <br /><br />
               <FormGroup check inline>
                 <Label check>
-                  COO - Certificate of Origin notarized by Chamber of Commerce
+                  <span className="customizerInputTitleSmallX1">COO - Certificate of Origin notarized by Chamber of Commerce</span>
                   <Input
                     onClick={ (e) => MakeChangeCheckbox({
                       section: 'enhancements',
@@ -136,7 +136,7 @@ function Enhancements({handleChange, value }){
               </FormGroup>
               <FormGroup check inline>
                 <Label check>
-                  O2CLN - Certified Oxygen Clean and Bag with Certificate
+                  <span className="customizerInputTitleSmallX1">O2CLN - Certified Oxygen Clean and Bag with Certificate</span>
                   <Input
                     onClick={ (e) => MakeChangeCheckbox({
                       section: 'enhancements',
@@ -160,7 +160,7 @@ function Enhancements({handleChange, value }){
               </FormGroup>
               <FormGroup check inline>
                 <Label check>
-                  EPI Hydrostatic & Leak Test Certificate
+                  <span className="customizerInputTitleSmallX1">EPI Hydrostatic & Leak Test Certificate</span>
                   <Input
                     onClick={ (e) => MakeChangeCheckbox({
                       section: 'enhancements',
@@ -184,7 +184,7 @@ function Enhancements({handleChange, value }){
               </FormGroup>
               <FormGroup check inline>
                 <Label check>
-                  WPQ & WPS & PQR - Welding Certifications (per order)
+                  <span className="customizerInputTitleSmallX1">WPQ & WPS & PQR - Welding Certifications (per order)</span>
                   <Input
                     onClick={ (e) => MakeChangeCheckbox({
                       section: 'enhancements',
@@ -209,10 +209,10 @@ function Enhancements({handleChange, value }){
 
               {/* new */}
 
-              <span>Calibration Enhancements</span>
+              <span className="customizerInputTitle">Calibration Enhancements</span>
               <FormGroup check inline>
                 <Label check>
-                  CTP - Calibration Test Points [+$225]
+                  <span className="customizerInputTitleSmallX1">CTP - Calibration Test Points [+$225]</span>
                   <Input
                     onClick={ (e) => MakeChangeCheckbox({
                       section: 'enhancements',
@@ -236,7 +236,7 @@ function Enhancements({handleChange, value }){
               </FormGroup>
               <FormGroup check inline>
                 <Label check>
-                  As Left Validation Curve [+$X]
+                  <span className="customizerInputTitleSmallX1">As Left Validation Curve [+$X]</span>
                   <Input
                     onClick={ (e) => MakeChangeCheckbox({
                       section: 'enhancements',
@@ -259,7 +259,7 @@ function Enhancements({handleChange, value }){
                 </Label>
               </FormGroup><br /><br />
 
-              <span>Tests</span><br />
+              <span className="customizerInputTitle">Tests</span><br />
               <FormGroup check inline>
                 <Label check>
                   Positive Material Identification (PMI) Test
@@ -360,7 +360,7 @@ function Enhancements({handleChange, value }){
             </Col>
 
             <Col>
-              <span>Extended Warranty</span>
+              <span className="customizerInputTitle">Extended Warranty</span>
               <Button className="questionToolTip" id="ExtendedWarranty" size="sm">
                 ?
               </Button>{` `}
@@ -451,7 +451,7 @@ function Enhancements({handleChange, value }){
 
               {/* new */}
 
-              <span>Stainless Steel ID Tag</span>
+              <span className="customizerInputTitle">Stainless Steel ID Tag</span>
               <Button className="questionToolTip" id="StainlessSteel" size="sm">
                 ?
               </Button>{` `}
@@ -479,7 +479,7 @@ function Enhancements({handleChange, value }){
 
               {/* new */}
 
-              <span>Electropolish Flow Section & Sensor</span>
+              <span className="customizerInputTitle">Electropolish Flow Section & Sensor</span>
               <Button className="questionToolTip" id="ElectropolishFlow" size="sm">
                 ?
               </Button>{` `}

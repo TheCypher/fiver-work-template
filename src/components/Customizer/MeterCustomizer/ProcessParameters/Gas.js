@@ -18,7 +18,7 @@ function Gas({ MakeChangeText, MakeChangeDropdown }){
         <Col className="processParametterCols">
         <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">MINIMUM GAS TEMP.</span>
+              <span className="customizerInputTitleProcessParameters">MINIMUM GAS TEMP.</span>
               <Button className="questionToolTip" id="MINIMUMGASTEMP" size="sm">
                 ?
               </Button>{` `}
@@ -47,7 +47,7 @@ function Gas({ MakeChangeText, MakeChangeDropdown }){
         <Col className="processParametterCols">
         <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">MAXIMUM GAS TEMP.</span>
+              <span className="customizerInputTitleProcessParameters">MAXIMUM GAS TEMP.</span>
               <Button className="questionToolTip" id="MAXIMUMGASTEMP" size="sm">
                 ?
               </Button>{` `}
@@ -76,7 +76,7 @@ function Gas({ MakeChangeText, MakeChangeDropdown }){
         <Col className="processParametterCols">
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">OPTIMAL GAS TEMP.</span>
+              <span className="customizerInputTitleProcessParameters">OPTIMAL GAS TEMP.</span>
               <Button className="questionToolTip" id="OPTIMALGASTEMP" size="sm">
                 ?
               </Button>{` `}
@@ -105,7 +105,7 @@ function Gas({ MakeChangeText, MakeChangeDropdown }){
         <Col className="processParametterCols">
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">Units</span>
+              <span className="customizerInputTitleProcessParameters">Units</span>
               <Button className="questionToolTip" id="UnitsGAS" size="sm">
                 ?
               </Button>{` `}

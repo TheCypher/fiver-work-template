@@ -19,7 +19,7 @@ function FlowRate({ MakeChangeText, MakeChangeDropdown }){
         <Col className="processParametterCols">
         <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">Minimum Flow Rate</span>
+              <span className="customizerInputTitleProcessParameters">Minimum Flow Rate</span>
               <Button className="questionToolTip" id="MinimumFlowRate" size="sm">
                 ?
               </Button>{` `}
@@ -48,7 +48,7 @@ function FlowRate({ MakeChangeText, MakeChangeDropdown }){
         <Col className="processParametterCols">
         <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">Maximum Flow Rate</span>
+              <span className="customizerInputTitleProcessParameters">Maximum Flow Rate</span>
               <Button className="questionToolTip" id="MaximumFlowRate" size="sm">
                 ?
               </Button>{` `}
@@ -77,7 +77,7 @@ function FlowRate({ MakeChangeText, MakeChangeDropdown }){
         <Col className="processParametterCols">
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">OPTIMAL FLOW RATE</span>
+              <span className="customizerInputTitleProcessParameters">OPTIMAL FLOW RATE</span>
               <Button className="questionToolTip" id="OPTIMALFLOWRATE" size="sm">
                 ?
               </Button>{` `}
@@ -106,7 +106,7 @@ function FlowRate({ MakeChangeText, MakeChangeDropdown }){
         <Col className="processParametterCols">
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">Units</span>
+              <span className="customizerInputTitleProcessParameters">Units</span>
               <Button className="questionToolTip" id="UnitsFLOWRATE" size="sm">
                 ?
               </Button>{` `}

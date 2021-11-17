@@ -123,7 +123,7 @@ function FlowBody({handleChange, value }){
               <Col>
                 <FormGroup>
                   <label htmlFor="exampleFormControlSelect1">
-                    Sensor Material
+                    <span className="customizerInputTitle">Sensor Material</span>
                     <Button className="questionToolTip" id="SensorMaterial" size="sm">
                       ?
                     </Button>{` `}
@@ -157,7 +157,7 @@ function FlowBody({handleChange, value }){
             </Row>
             <br />
             <label htmlFor="exampleFormControlSelect1">
-              Sensor Shield
+              <span className="customizerInputTitle">Sensor Shield</span>
               <Button className="questionToolTip" id="SensorShield" size="sm">
                 ?
               </Button>{` `}
@@ -170,11 +170,7 @@ function FlowBody({handleChange, value }){
                 <CardImg style={{'width': '152.65px', 'height': '150px'}} alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Standard Sensor
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitle">Standard Sensor</span>
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
@@ -198,11 +194,7 @@ function FlowBody({handleChange, value }){
                 <CardImg style={{'width': '152.65px', 'height': '150px'}} alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Standard Sensor + Attenuation Rod
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitle"> Standard Sensor + Attenuation Rod</span>
                     <Input
                       onClick={ (e) => MakeChange({
                         section: 'flow_body',
@@ -225,11 +217,7 @@ function FlowBody({handleChange, value }){
                 <CardImg style={{'width': '152.65px', 'height': '150px'}} alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Standard Sensor + Particulate Shield
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitle"> Standard Sensor + Particulate Shield</span>
                     <Input
                       onClick={ (e) => MakeChange({
                         section: 'flow_body',

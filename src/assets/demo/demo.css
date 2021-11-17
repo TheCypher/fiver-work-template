@@ -657,6 +657,22 @@
 
 .customizerInputTitle {
   font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase !important;
+  line-height: 22px;
+  color: #4B5976;
+}
+
+.customizerInputTitleSmallX1 {
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase !important;
+  line-height: 22px;
+  color: #4B5976;
+}
+
+.customizerInputTitleProcessParameters {
+  font-weight: 700;
   font-size: 11px;
   text-transform: uppercase !important;
   line-height: 22px;

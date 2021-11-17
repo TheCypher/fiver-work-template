@@ -18,7 +18,7 @@ function Ambient({ MakeChangeText, MakeChangeDropdown }){
         <Col className="processParametterCols">
         <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">MINIMUM AMBIENT TEMP.</span>
+              <span className="customizerInputTitleProcessParameters">MINIMUM AMBIENT TEMP.</span>
               <Button className="questionToolTip" id="MINIMUMAMBIENTTEMP" size="sm">
                 ?
               </Button>{` `}
@@ -47,7 +47,7 @@ function Ambient({ MakeChangeText, MakeChangeDropdown }){
         <Col className="processParametterCols">
         <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">MAXIMUM AMBIENT TEMP.</span>
+              <span className="customizerInputTitleProcessParameters">MAXIMUM AMBIENT TEMP.</span>
               <Button className="questionToolTip" id="MAXIMUMAMBIENTTEMP" size="sm">
                 ?
               </Button>{` `}
@@ -76,7 +76,7 @@ function Ambient({ MakeChangeText, MakeChangeDropdown }){
         <Col className="processParametterCols">
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">OPTIMAL AMBIENT TEMP.</span>
+              <span className="customizerInputTitleProcessParameters">OPTIMAL AMBIENT TEMP.</span>
               <Button className="questionToolTip" id="OPTIMALAMBIENTTEMP" size="sm">
                 ?
               </Button>{` `}
@@ -105,7 +105,7 @@ function Ambient({ MakeChangeText, MakeChangeDropdown }){
         <Col className="processParametterCols">
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">Units</span>
+              <span className="customizerInputTitleProcessParameters">Units</span>
               <Button className="questionToolTip" id="UnitsAMBIENT" size="sm">
                 ?
               </Button>{` `}

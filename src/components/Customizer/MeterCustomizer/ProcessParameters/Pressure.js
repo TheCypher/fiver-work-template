@@ -18,7 +18,7 @@ function Pressure({ MakeChangeText, MakeChangeDropdown }){
         <Col className="processParametterCols">
         <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">MINIMUM GAS PRESSURE</span>
+              <span className="customizerInputTitleProcessParameters">MINIMUM GAS PRESSURE</span>
               <Button className="questionToolTip" id="MINIMUMGASPRESSURE" size="sm">
                 ?
               </Button>{` `}
@@ -47,7 +47,7 @@ function Pressure({ MakeChangeText, MakeChangeDropdown }){
         <Col className="processParametterCols">
         <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">MAXIMUM GAS PRESSURE</span>
+              <span className="customizerInputTitleProcessParameters">MAXIMUM GAS PRESSURE</span>
               <Button className="questionToolTip" id="MAXIMUMGASPRESSURE" size="sm">
                 ?
               </Button>{` `}
@@ -76,7 +76,7 @@ function Pressure({ MakeChangeText, MakeChangeDropdown }){
         <Col className="processParametterCols">
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">OPTIMAL GAS PRESSURE</span>
+              <span className="customizerInputTitleProcessParameters">OPTIMAL GAS PRESSURE</span>
               <Button className="questionToolTip" id="OPTIMALGASPRESSURE" size="sm">
                 ?
               </Button>{` `}
@@ -105,7 +105,7 @@ function Pressure({ MakeChangeText, MakeChangeDropdown }){
         <Col className="processParametterCols">
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">Units</span>
+              <span className="customizerInputTitleProcessParameters">Units</span>
               <Button className="questionToolTip" id="UnitsPRESSURE" size="sm">
                 ?
               </Button>{` `}
