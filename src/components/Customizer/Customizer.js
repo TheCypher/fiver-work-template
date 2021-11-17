@@ -284,6 +284,56 @@ function Customizer(){
           section: false,
           section_sensor: true
         }
+      },
+      process_parameters: {
+        flow_rate_mininum:{
+          minimum: false
+        },
+        flow_rate_maximum:{
+          maximum: false
+        },
+        flow_rate_optimal:{
+          optimal: false
+        },
+        flow_rate_units:{
+          units: false
+        },
+        gas_mininum:{
+          minimum: false
+        },
+        gas_maximum:{
+          maximum: false
+        },
+        gas_optimal:{
+          optimal: false
+        },
+        gas_units:{
+          units: false
+        },
+        ambient_mininum:{
+          minimum: false
+        },
+        ambient_maximum:{
+          maximum: false
+        },
+        ambient_optimal:{
+          optimal: false
+        },
+        ambient_units:{
+          units: false
+        },
+        process_mininum:{
+          minimum: false
+        },
+        process_maximum:{
+          maximum: false
+        },
+        process_optimal:{
+          optimal: false
+        },
+        process_units:{
+          units: false
+        }
       }
     }
   );
@@ -298,7 +348,18 @@ function Customizer(){
     const section = props.section;
     const price_effect = props.price_effect;
 
-    if(props.option_value){
+    if(props.option_value && props.text_input){
+      const option_value = props.option_value;
+      const text_input = props.text_input;
+      makeChangeText({
+        type: type,
+        value: option_value,
+        section: section,
+        values: values,
+        price_effect,
+        text_input
+      })
+    } else if(props.option_value) {
       const option_value = props.option_value;
       makeChange({
         type: type,
@@ -349,8 +410,43 @@ function Customizer(){
             }
         })); 
       }
-      console.log('Show me the data change 2.0 =>', data)
+      console.log('Show me the data change 2.0 =>', data, value)
     }
+  }
+
+  const makeChangeText = (props) => {
+    const { type, value, values, section, price_effect } = props;
+
+    const valuesObj = values.reduce((acc,curr)=> (acc[curr]=false,acc),{});
+
+    if(props.text_input){
+      valuesObj[values[0]] = value;
+    }
+
+    setData(prevState => ({
+      ...prevState,
+        [section]:{
+          ...prevState[section],
+            [type]: {
+              ...prevState[type],
+              valuesObj
+            }
+        }
+    }));
+
+    if(price_effect){
+      const pricesObj = data[section][type + '_prices'];
+      const valuePrice = pricesObj[value];
+      console.log('Show me the data change value price 2.0 =>', pricesObj, valuePrice)
+      setData(prevState => ({
+        ...prevState,
+          ['total']:{
+            ...prevState['total'],
+            [type]: valuePrice
+          }
+      })); 
+    }
+    console.log('Show me the data change 2.0 =>', data, value)
   }
 
   const sum = (obj) => {

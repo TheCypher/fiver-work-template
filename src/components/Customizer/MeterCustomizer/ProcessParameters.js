@@ -22,8 +22,12 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
+import FlowRate from "./ProcessParameters/FlowRate";
+import Gas from "./ProcessParameters/Gas";
+import Ambient from "./ProcessParameters/Ambient";
+import Pressure from "./ProcessParameters/Pressure";
+
 function ProcessParameters({handleChange, value }){
-  const [selectFlange, setSelectFlange] = useState(true);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
@@ -56,8 +60,9 @@ function ProcessParameters({handleChange, value }){
     // handleChange(data);
   }
 
-  const MakeChange = (data) => {
-    // handleChange(data);
+  const MakeChangeText = (data) => {
+    data.option_value = data.option.target.value;
+    handleChange(data);
   }
 
   var title = 'Process Parameters';
@@ -118,161 +123,22 @@ function ProcessParameters({handleChange, value }){
 
         <Collapse isOpen={collapses.includes(2)}>
           <CardBody>
-            <Row>
-              <Col>
-                <FormGroup>
-                  <label htmlFor="exampleFormControlSelect1">
-                    Flange Type
-                    <Button className="questionToolTip" id="FlangType" size="sm">
-                      ?
-                    </Button>{` `}
-                    <UncontrolledTooltip placement="right" target="FlangType" delay={0}>
-                      Select Flange Type
-                    </UncontrolledTooltip>
-                    </label>
-                  <Input
-                    className="epiInputSize"
-                    id="exampleFormControlSelect1"
-                    type="select"
-                    onChange={ (e) => MakeChangeDropdown({
-                      section: 'pipe_infornation',
-                      type: 'pipe_size',
-                      values: [
-                        '1.5',
-                        '0.75',
-                        '1',
-                        '1_0.25',
-                        '1_1.5',
-                        '2',
-                        '2_1.5',
-                        '3',
-                        '4'
-                      ],
-                      price_effect: false,
-                      option: e
-                    }, e)}
-                  >
-                    <option value="" selected disabled hidden>Select Flange Type</option>
-                    <option value="1.5">Flange 1</option>
-                    <option value="0.75">Flange 2</option>
-                    <option value="1">Flange 3</option>
-                  </Input>
-                </FormGroup>
-              </Col>
-
-              <Col>
-                <FormGroup>
-                  <label htmlFor="exampleFormControlSelect1">
-                    Flange Size
-                    <Button className="questionToolTip" id="FlangSize" size="sm">
-                      ?
-                    </Button>{` `}
-                    <UncontrolledTooltip placement="right" target="FlangSize" delay={0}>
-                      Select Flange Size
-                    </UncontrolledTooltip>
-                    </label>
-                  <Input
-                    className="epiInputSize"
-                    id="exampleFormControlSelect1"
-                    type="select"
-                    onChange={ (e) => MakeChangeDropdown({
-                      section: 'pipe_infornation',
-                      type: 'pipe_size',
-                      values: [
-                        '1.5',
-                        '0.75',
-                        '1',
-                        '1_0.25',
-                        '1_1.5',
-                        '2',
-                        '2_1.5',
-                        '3',
-                        '4'
-                      ],
-                      price_effect: false,
-                      option: e
-                    }, e)}
-                  >
-                    <option value="" selected disabled hidden>Select Flange Type</option>
-                    <option value="1.5">Size 1</option>
-                    <option value="0.75">Size 2</option>
-                    <option value="1">Size 3</option>
-                  </Input>
-                </FormGroup>
-              </Col>
-
-              <Col>
-                <FormGroup>
-                  <label htmlFor="exampleFormControlSelect1">
-                    OPTIMAL FLOW RATE
-                    <Button className="questionToolTip" id="FlangSize" size="sm">
-                      ?
-                    </Button>{` `}
-                    <UncontrolledTooltip placement="right" target="FlangSize" delay={0}>
-                      Select Flange Size
-                    </UncontrolledTooltip>
-                    </label>
-                  <Input
-                    className="epiInputSize"
-                    id="exampleFormControlSelect1"
-                    type="text"
-                    placeholder="Op1mal Flow Rate"
-                    onChange={ (e) => MakeChangeDropdown({
-                      section: 'pipe_infornation',
-                      type: 'pipe_size',
-                      values: ['optimal_flow_rate'],
-                      price_effect: false,
-                      option: e
-                    }, e)}
-                  >
-                    <option value="" selected disabled hidden>Select Flange Type</option>
-                    <option value="1.5">Size 1</option>
-                    <option value="0.75">Size 2</option>
-                    <option value="1">Size 3</option>
-                  </Input>
-                </FormGroup>
-              </Col>
-              <Col>
-                <FormGroup>
-                  <label htmlFor="exampleFormControlSelect1">
-                    UNITS
-                    <Button className="questionToolTip" id="FlangSize" size="sm">
-                      ?
-                    </Button>{` `}
-                    <UncontrolledTooltip placement="right" target="FlangSize" delay={0}>
-                      Select Flange Size
-                    </UncontrolledTooltip>
-                    </label>
-                  <Input
-                    className="epiInputSize"
-                    id="exampleFormControlSelect1"
-                    type="select"
-                    onChange={ (e) => MakeChangeDropdown({
-                      section: 'pipe_infornation',
-                      type: 'pipe_size',
-                      values: [
-                        '1.5',
-                        '0.75',
-                        '1',
-                        '1_0.25',
-                        '1_1.5',
-                        '2',
-                        '2_1.5',
-                        '3',
-                        '4'
-                      ],
-                      price_effect: false,
-                      option: e
-                    }, e)}
-                  >
-                    <option value="" selected disabled hidden>Units</option>
-                    <option value="1.5">Size 1</option>
-                    <option value="0.75">Size 2</option>
-                    <option value="1">Size 3</option>
-                  </Input>
-                </FormGroup>
-              </Col>
-            </Row>
+            <FlowRate
+              MakeChangeText={MakeChangeText}
+              MakeChangeDropdown={MakeChangeDropdown}
+            />
+            <Gas
+              MakeChangeText={MakeChangeText}
+              MakeChangeDropdown={MakeChangeDropdown}
+            />
+            <Ambient
+              MakeChangeText={MakeChangeText}
+              MakeChangeDropdown={MakeChangeDropdown}
+            />
+            <Pressure
+              MakeChangeText={MakeChangeText}
+              MakeChangeDropdown={MakeChangeDropdown}
+            />
           </CardBody>
         </Collapse>
       </Card>

@@ -655,11 +655,24 @@
   border-radius: 6px !important;
 }
 
-@media screen and (max-width: 767px) {
+.customizerInputTitle {
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase !important;
+  line-height: 22px;
+  color: #4B5976;
+}
+
+.processParametterCols {
+  padding-right: 5px !important;
+  padding-left: 5px !important;
+}
+
+/* @media screen and (max-width: 767px) {
   input, select, textarea {
     font-size: 16px;
   }
-}
+} */
 
 /* we'll come back to this */
 /* .menuMoblieShowButton {
