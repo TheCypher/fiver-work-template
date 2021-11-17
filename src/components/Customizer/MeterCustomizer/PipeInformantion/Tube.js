@@ -55,10 +55,10 @@ function Tube({ handleChange, value }){
   return (
     <>
       <Row>
-        <Col>
+        <Col className="processParametterCols">
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              Outer Diameter (OD)
+              <span className="customizerInputTitle">Outer Dimention (OD)</span>
               <Button className="questionToolTip" id="DuctRoundOuterDiameter" size="sm">
                   ?
               </Button>{` `}
@@ -76,10 +76,10 @@ function Tube({ handleChange, value }){
           </FormGroup>
         </Col>
 
-        <Col>
+        <Col className="processParametterCols">
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              Inner Diameter (ID)
+              <span className="customizerInputTitle">Inner Dimention (ID)</span>
               <Button className="questionToolTip" id="DuctRoundInnerDiameter" size="sm">
                   ?
               </Button>{` `}
@@ -100,7 +100,7 @@ function Tube({ handleChange, value }){
         <Col className="col-3">
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1" style={{ 'margin-bottom': '14px', 'margin-top': '10px'}}>
-              Units
+              <span className="customizerInputTitle">Units</span>
             </label>
             <Input
               className="epiInputSize"
@@ -140,10 +140,10 @@ function Tube({ handleChange, value }){
       </Row>
 
       <Row style={{ 'margin-top': '20px'}}>
-        <Col>
+        <Col className="processParametterCols">
           <FormGroup>
             <label htmlFor="exampleFormControlInput1">
-              Duct Wall Thickness
+              <span className="customizerInputTitle">Duct Wall Thickness</span>
               <Button className="questionToolTip" id="DuctRoundWallThickness" size="sm">
                   ?
               </Button>{` `}

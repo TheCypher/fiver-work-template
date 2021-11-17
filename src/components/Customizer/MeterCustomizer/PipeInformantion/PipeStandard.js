@@ -19,7 +19,7 @@ function PipeStandard({ handleChange, value }){
   return (
     <>
       <span>
-        Pipe Standard
+        <span className="customizerInputTitle">Pipe Standard</span>
         <Button className="questionToolTip" id="PipeStandard" size="sm">
             ?
         </Button>{` `}
@@ -29,11 +29,7 @@ function PipeStandard({ handleChange, value }){
       </span>
       <FormGroup check className="form-check-radio">
         <Label check>
-          <Row>
-            <Col>
-              ANSI
-            </Col>
-          </Row>
+          <span className="customizerInputTitleSmallX1">ANSI</span>
           <Input
             defaultChecked
             onClick={ (e) => MakeChange({
@@ -51,11 +47,7 @@ function PipeStandard({ handleChange, value }){
       </FormGroup>
       <FormGroup check className="form-check-radio">
         <Label check>
-          <Row>
-            <Col>
-              JIS
-            </Col>
-          </Row>
+          <span className="customizerInputTitleSmallX1">JIS</span>
           <Input
             onClick={ (e) => MakeChange({
               section: 'pipe_infornation',
@@ -72,11 +64,7 @@ function PipeStandard({ handleChange, value }){
       </FormGroup>
       <FormGroup check className="form-check-radio">
         <Label check>
-          <Row>
-            <Col>
-              Tube
-            </Col>
-          </Row>
+          <span className="customizerInputTitleSmallX1">Tube</span>
           <Input
             onClick={ (e) => MakeChange({
               section: 'pipe_infornation',

@@ -99,14 +99,10 @@ function PipeOrientation({ handleChange, value }){
           <CardBody>
             <Row>
               <Col>
-                <span>Pipe Orientation</span>
+                <span className="customizerInputTitle">Pipe Orientation</span>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Horizion
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitleSmallX1">Horizion</span>
                     <Input
                       onClick={ (e) => MakeChange({
                         section: 'meter_orientation',
@@ -123,11 +119,7 @@ function PipeOrientation({ handleChange, value }){
                 </FormGroup>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Vertical
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitleSmallX1">Vertical</span>
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
@@ -144,14 +136,10 @@ function PipeOrientation({ handleChange, value }){
                   </Label>
                 </FormGroup><br />
 
-                <span>Flow Direction</span>
+                <span className="customizerInputTitle">Flow Direction</span>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Top to Bottom
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitleSmallX1">Top to Bottom</span>
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
@@ -169,11 +157,7 @@ function PipeOrientation({ handleChange, value }){
                 </FormGroup>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Bottom to Top
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitleSmallX1">Bottom to Top</span>
                     <Input
                       onClick={ (e) => MakeChange({
                         section: 'meter_orientation',
@@ -189,15 +173,10 @@ function PipeOrientation({ handleChange, value }){
                   </Label>
                 </FormGroup><br />
 
-
-                <span>Enclosure Mounting Preference</span>
+                <span className="customizerInputTitle">Enclosure Mounting Preference</span>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Left Side
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitleSmallX1">Left Side</span>
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
@@ -215,11 +194,7 @@ function PipeOrientation({ handleChange, value }){
                 </FormGroup>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Right Side
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitleSmallX1">Right Side</span>
                     <Input
                       onClick={ (e) => MakeChange({
                         section: 'meter_orientation',
@@ -235,7 +210,7 @@ function PipeOrientation({ handleChange, value }){
                   </Label>
                 </FormGroup><br />
 
-                <span>Display Orientation</span><br />
+                <span className="customizerInputTitle">Display Orientation</span><br />
                 <Button
                   color="info"
                   size="lg"

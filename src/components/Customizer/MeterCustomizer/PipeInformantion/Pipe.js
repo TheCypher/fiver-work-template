@@ -58,7 +58,7 @@ function Pipe({ handleChange, value }){
         <Col>
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              Pipe Size
+              <span className="customizerInputTitle">Pipe Size</span>
               <Button className="questionToolTip" id="PipeSize" size="sm">
                   ?
               </Button>{` `}
@@ -104,7 +104,7 @@ function Pipe({ handleChange, value }){
         <Col>
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              Schedule
+              <span className="customizerInputTitle">Schedule</span>
               <Button className="questionToolTip" id="Schedule" size="sm">
                   ?
               </Button>{` `}
@@ -127,7 +127,7 @@ function Pipe({ handleChange, value }){
         <Col>
           <FormGroup>
             <label htmlFor="exampleFormControlInput1">
-              Inner Diameter (ID)
+              <span className="customizerInputTitle">Inner Diameter (ID)</span>
               <Button className="questionToolTip" id="InnerDiameter" size="sm">
                   ?
               </Button>{` `}

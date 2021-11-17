@@ -140,7 +140,7 @@ function PipeInformation({ handleChange, value }){
             <Row>
               <Col>
                 <span>
-                  Type
+                  <span className="customizerInputTitle">Type</span>
                   <Button className="questionToolTip" id="Type" size="sm">
                       ?
                   </Button>{` `}
@@ -150,11 +150,7 @@ function PipeInformation({ handleChange, value }){
                 </span>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Pipe
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitleSmallX1">Pipe</span>
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
@@ -173,11 +169,7 @@ function PipeInformation({ handleChange, value }){
                 </FormGroup>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Duct
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitleSmallX1">Duct</span>
                     <Input
                       onClick={ (e) => MakeChange({
                         section: 'pipe_infornation',
@@ -195,11 +187,7 @@ function PipeInformation({ handleChange, value }){
                 </FormGroup>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Tube
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitleSmallX1">Tube</span>
                     <Input
                       onClick={ (e) => MakeChange({
                         section: 'pipe_infornation',

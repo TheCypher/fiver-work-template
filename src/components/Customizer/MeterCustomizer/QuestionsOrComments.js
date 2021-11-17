@@ -121,7 +121,7 @@ function QuestionsOrComments({handleChange, value }){
               <Col>
                 <FormGroup>
                   <label htmlFor="exampleFormControlSelect1">
-                    From
+                    <span className="customizerInputTitle">From</span>
                   </label>
                   <Input
                     className="epiInputSize"
@@ -143,10 +143,10 @@ function QuestionsOrComments({handleChange, value }){
               <Col>
                 <FormGroup>
                   <label htmlFor="exampleFormControlSelect1">
-                    To
+                    <span className="customizerInputTitle">To</span>
                   </label>
                   <br />
-                  EPI Sales Team
+                  <span className="customizerInputTitleSmallX1">EPI Sales Team</span>
                 </FormGroup>
               </Col>
             </Row>
@@ -158,7 +158,10 @@ function QuestionsOrComments({handleChange, value }){
                   id="inlineCheckbox1"
                   type="checkbox"
                 ></Input>
-                Select if you would like an EPI representative to contact you regarding this quote.
+                <span className="customizerInputTitleSmallX1">
+                  Select if you would like an EPI representative to contact you regarding this quote.
+                </span>
+
                 {" "}
                 <span className="form-check-sign">
                   <span className="check"></span>
@@ -168,7 +171,9 @@ function QuestionsOrComments({handleChange, value }){
             <br />
 
             <FormGroup>
-              <label htmlFor="inputAddress">Enter Comments</label>
+              <label htmlFor="inputAddress">
+                <span className="customizerInputTitle">Enter Comments</span>
+              </label>
               <Input
                 className="epiTextArea"
                 id="inputAddress"

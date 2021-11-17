@@ -120,14 +120,10 @@ function MountingRequirements({handleChange, value }){
           <CardBody>
           <Row>
               <Col>
-                <span>Mounting Type</span>
+                <span className="customizerInputTitle">Mounting Type</span>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        MNPT Ends
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitleSmallX1">MNPT Ends</span>
                     <Input
                       onClick={ (e) => MakeChange({
                         section: 'meter_orientation',
@@ -144,11 +140,7 @@ function MountingRequirements({handleChange, value }){
                 </FormGroup>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Butt End
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitleSmallX1">Butt End</span>
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
@@ -169,11 +161,7 @@ function MountingRequirements({handleChange, value }){
                 </FormGroup>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Flange
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitleSmallX1">Flange</span>
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
@@ -213,7 +201,7 @@ function MountingRequirements({handleChange, value }){
                   {selectFlange? (
                     <FormGroup>
                       <label htmlFor="exampleFormControlSelect1">
-                        Flange Type
+                        <span className="customizerInputTitle">Flange Type</span>
                         <Button className="questionToolTip" id="FlangType" size="sm">
                           ?
                         </Button>{` `}
@@ -251,7 +239,7 @@ function MountingRequirements({handleChange, value }){
                       <br />
 
                       <label htmlFor="exampleFormControlSelect1">
-                        Flange Size
+                        <span className="customizerInputTitle">Flange Size</span>
                         <Button className="questionToolTip" id="FlangSize" size="sm">
                           ?
                         </Button>{` `}

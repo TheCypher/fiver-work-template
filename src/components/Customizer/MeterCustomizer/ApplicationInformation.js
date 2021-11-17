@@ -126,7 +126,7 @@ function ApplicationInformation({ handleChange, value }){
               <Col>
                 <FormGroup>
                   <label htmlFor="exampleFormControlSelect1">
-                    Application
+                    <span className="customizerInputTitle">Application</span>
                     <Button className="questionToolTip" id="Application" size="sm">
                       ?
                     </Button>{` `}
@@ -172,7 +172,7 @@ function ApplicationInformation({ handleChange, value }){
               <Col>
                 <FormGroup>
                   <label htmlFor="exampleFormControlSelect1">
-                    Gas
+                    <span className="customizerInputTitle">Gas</span>
                     <Button className="questionToolTip" id="Gas" size="sm">
                       ?
                     </Button>{` `}
@@ -265,7 +265,7 @@ function ApplicationInformation({ handleChange, value }){
             <Row>
               <Col>
               <span>
-                  Reference Conditions
+                  <span className="customizerInputTitle">Reference Conditions</span>
                   <Button className="questionToolTip" id="ReferenceConditions" size="sm">
                       ?
                   </Button>{` `}
@@ -275,11 +275,9 @@ function ApplicationInformation({ handleChange, value }){
                 </span>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Standard Temperature & Pressure: 60°F and 29.92” Hg
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitleSmallX1">
+                      Standard Temperature & Pressure: 60°F and 29.92” Hg
+                    </span>
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
@@ -298,11 +296,9 @@ function ApplicationInformation({ handleChange, value }){
                 </FormGroup>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Standard Temperature & Pressure: 70°F and 29.92” Hg
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitleSmallX1">
+                      Standard Temperature & Pressure: 70°F and 29.92” Hg
+                    </span>
                     <Input
                       onClick={ (e) => MakeChange({
                         section: 'application_information',
@@ -320,11 +316,9 @@ function ApplicationInformation({ handleChange, value }){
                 </FormGroup>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <Row>
-                      <Col>
-                        Normal Temperature & Pressure: 0°C and 1.013 Bar Abs.
-                      </Col>
-                    </Row>
+                    <span className="customizerInputTitleSmallX1">
+                      Normal Temperature & Pressure: 0°C and 1.013 Bar Abs.
+                    </span>
                     <Input
                       onClick={ (e) => MakeChange({
                         section: 'application_information',
@@ -343,9 +337,9 @@ function ApplicationInformation({ handleChange, value }){
 
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <label htmlFor="exampleFormControlSelect1">
+                    <span className="customizerInputTitleSmallX1">
                       Other
-                    </label>
+                    </span>
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
@@ -361,11 +355,11 @@ function ApplicationInformation({ handleChange, value }){
                     ></Input>
                     <span className="form-check-sign"></span>
                   </Label>
-                  <Button className="questionToolTip" id="Gas" size="sm">
+                  <Button className="questionToolTip" id="Other" size="sm">
                     ?
                   </Button>{` `}
-                  <UncontrolledTooltip placement="right" target="Gas" delay={0}>
-                      Gas Information Needed
+                  <UncontrolledTooltip placement="right" target="Other" delay={0}>
+                      Other Information Needed
                   </UncontrolledTooltip>
                 </FormGroup>
 
@@ -411,7 +405,9 @@ function ApplicationInformation({ handleChange, value }){
               <Col>
                 <FormGroup>
                   <label htmlFor="exampleFormControlSelect1">
-                    Do you expect condensing moisture in the process line?
+                    <span className="customizerInputTitle">
+                      Do you expect condensing moisture in the process line?
+                    </span>
                     <Button className="questionToolTip" id="CondensingMoisture" size="sm">
                       ?
                     </Button>{` `}

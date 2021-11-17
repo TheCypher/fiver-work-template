@@ -170,7 +170,7 @@ function FlowBody({handleChange, value }){
                 <CardImg style={{'width': '152.65px', 'height': '150px'}} alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <span className="customizerInputTitle">Standard Sensor</span>
+                    <span className="customizerInputTitleSmallX1">Standard Sensor</span>
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
@@ -194,7 +194,7 @@ function FlowBody({handleChange, value }){
                 <CardImg style={{'width': '152.65px', 'height': '150px'}} alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <span className="customizerInputTitle"> Standard Sensor + Attenuation Rod</span>
+                    <span className="customizerInputTitleSmallX1"> Standard Sensor + Attenuation Rod</span>
                     <Input
                       onClick={ (e) => MakeChange({
                         section: 'flow_body',
@@ -217,7 +217,7 @@ function FlowBody({handleChange, value }){
                 <CardImg style={{'width': '152.65px', 'height': '150px'}} alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <span className="customizerInputTitle"> Standard Sensor + Particulate Shield</span>
+                    <span className="customizerInputTitleSmallX1"> Standard Sensor + Particulate Shield</span>
                     <Input
                       onClick={ (e) => MakeChange({
                         section: 'flow_body',

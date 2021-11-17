@@ -665,8 +665,8 @@
 
 .customizerInputTitleSmallX1 {
   font-weight: 700;
-  font-size: 11px;
-  text-transform: uppercase !important;
+  font-size: 12px;
+  text-transform: capitalize !important;
   line-height: 22px;
   color: #4B5976;
 }

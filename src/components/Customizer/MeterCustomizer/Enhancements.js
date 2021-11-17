@@ -262,7 +262,7 @@ function Enhancements({handleChange, value }){
               <span className="customizerInputTitle">Tests</span><br />
               <FormGroup check inline>
                 <Label check>
-                  Positive Material Identification (PMI) Test
+                  <span className="customizerInputTitleSmallX1">Positive Material Identification (PMI) Test</span>
                   <Input
                     onClick={ (e) => MakeChangeCheckbox({
                       section: 'enhancements',
@@ -286,7 +286,7 @@ function Enhancements({handleChange, value }){
               </FormGroup>
               <FormGroup check inline>
                 <Label check>
-                  Liquid Penetration Test
+                  <span className="customizerInputTitleSmallX1">Liquid Penetration Test</span>
                   <Input
                     onClick={ (e) => MakeChangeCheckbox({
                       section: 'enhancements',
@@ -310,7 +310,7 @@ function Enhancements({handleChange, value }){
               </FormGroup>
               <FormGroup check inline>
                 <Label check>
-                  Ferrite Test - Welds
+                  <span className="customizerInputTitleSmallX1">Ferrite Test - Welds</span>
                   <Input
                     onClick={ (e) => MakeChangeCheckbox({
                       section: 'enhancements',
@@ -334,7 +334,7 @@ function Enhancements({handleChange, value }){
               </FormGroup>
               <FormGroup check inline>
                 <Label check>
-                  Ferrite Test - All Wetted Parts
+                  <span className="customizerInputTitleSmallX1">Ferrite Test - All Wetted Parts</span>
                   <Input
                     onClick={ (e) => MakeChangeCheckbox({
                       section: 'enhancements',
@@ -369,7 +369,7 @@ function Enhancements({handleChange, value }){
               </UncontrolledTooltip>
               <FormGroup check className="form-check-radio">
                 <Label check>
-                  None
+                  <span className="customizerInputTitleSmallX1">None</span>
                   <Input
                     defaultChecked
                     onClick={ (e) => MakeChange({
@@ -387,11 +387,7 @@ function Enhancements({handleChange, value }){
               </FormGroup>
               <FormGroup check className="form-check-radio">
                 <Label check>
-                  <Row>
-                    <Col>
-                      Add 1 Year
-                    </Col>
-                  </Row>
+                  <span className="customizerInputTitleSmallX1">Add 1 Year</span>
                   <Input
                     onClick={ (e) => MakeChange({
                       section: 'enhancements',
@@ -408,11 +404,7 @@ function Enhancements({handleChange, value }){
               </FormGroup>
               <FormGroup check className="form-check-radio">
                 <Label check>
-                  <Row>
-                    <Col>
-                      Add 2 Years
-                    </Col>
-                  </Row>
+                  <span className="customizerInputTitleSmallX1">Add 2 Years</span>
                   <Input
                     onClick={ (e) => MakeChange({
                       section: 'enhancements',
@@ -429,11 +421,7 @@ function Enhancements({handleChange, value }){
               </FormGroup>
               <FormGroup check className="form-check-radio">
                 <Label check>
-                  <Row>
-                    <Col>
-                      Add 3 Years
-                    </Col>
-                  </Row>
+                  <span className="customizerInputTitleSmallX1">Add 3 Years</span>
                   <Input
                     onClick={ (e) => MakeChange({
                       section: 'enhancements',
@@ -460,7 +448,7 @@ function Enhancements({handleChange, value }){
               </UncontrolledTooltip>
               <FormGroup check inline>
                 <Label check>
-                  Add Stainless Steel ID Tag
+                  <span className="customizerInputTitleSmallX1">Add Stainless Steel ID Tag</span>
                   <Input
                     onClick={ (e) => MakeChangeCheckbox({
                       section: 'enhancements',
@@ -488,7 +476,7 @@ function Enhancements({handleChange, value }){
               </UncontrolledTooltip>
               <FormGroup check className="form-check-radio">
                 <Label check>
-                  None
+                  <span className="customizerInputTitleSmallX1">None</span>
                   <Input
                     onClick={ (e) => MakeChange({
                       section: 'enhancements',
@@ -505,7 +493,7 @@ function Enhancements({handleChange, value }){
               </FormGroup>
               <FormGroup check className="form-check-radio">
                 <Label check>
-                  Sensor Only
+                  <span className="customizerInputTitleSmallX1">Sensor Only</span>
                   <Input
                     onClick={ (e) => MakeChange({
                       section: 'enhancements',
@@ -522,7 +510,7 @@ function Enhancements({handleChange, value }){
               </FormGroup>
               <FormGroup check className="form-check-radio">
                 <Label check>
-                  Fow Section Only
+                  <span className="customizerInputTitleSmallX1">Fow Section Only</span>
                   <Input
                     onClick={ (e) => MakeChange({
                       section: 'enhancements',
@@ -539,7 +527,7 @@ function Enhancements({handleChange, value }){
               </FormGroup>
               <FormGroup check className="form-check-radio">
                 <Label check>
-                  Flow Section & Sensor (All Wetted Parts)
+                  <span className="customizerInputTitleSmallX1">Flow Section & Sensor (All Wetted Parts)</span>
                   <Input
                     defaultChecked
                     onClick={ (e) => MakeChange({

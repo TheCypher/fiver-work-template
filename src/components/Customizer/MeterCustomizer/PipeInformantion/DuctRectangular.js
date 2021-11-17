@@ -58,7 +58,7 @@ function DuctRectangular({ handleChange, value }){
         <Col>
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              Height
+              <span className="customizerInputTitle">Height</span>
               <Button className="questionToolTip" id="DuctHeight" size="sm">
                   ?
               </Button>{` `}
@@ -79,7 +79,7 @@ function DuctRectangular({ handleChange, value }){
         <Col>
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              Width
+              <span className="customizerInputTitle">Width</span>
               <Button className="questionToolTip" id="DuctWidth" size="sm">
                   ?
               </Button>{` `}
@@ -100,7 +100,7 @@ function DuctRectangular({ handleChange, value }){
         <Col>
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1" style={{ 'margin-bottom': '14px', 'margin-top': '10px'}}>
-              Dimention
+              <span className="customizerInputTitle">Dimention</span>
             </label>
             <Input
               className="epiInputSize"
@@ -143,7 +143,7 @@ function DuctRectangular({ handleChange, value }){
         <Col>
           <FormGroup>
             <label htmlFor="exampleFormControlInput1">
-              Duct Wall Thickness
+              <span className="customizerInputTitle">Duct Wall Thickness</span>
               <Button className="questionToolTip" id="DuctWallThickness" size="sm">
                   ?
               </Button>{` `}
@@ -162,7 +162,7 @@ function DuctRectangular({ handleChange, value }){
         <Col>
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              Probe Direction
+              <span className="customizerInputTitle">Probe Direction</span>
               <Button className="questionToolTip" id="ProbeDirection" size="sm">
                 ?
               </Button>{` `}
