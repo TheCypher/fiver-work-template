@@ -35,29 +35,8 @@ function Enhancements({handleChange, value }){
     }
   };
 
-  const MakeChangeDropdown = (data) => {
-    data.option_value = data.option.target.value;
-    console.log('Show me Question Or Comments data 1.0 =>', data);
-    // const values = data.values;
-    // const first_value = values[0]
-    
-    // if(first_value != data.option_value){
-    //   values.removeWithValue(data.option_value)
-    //   values[0] = data.option_value;
-    //   values.splice(1,0, first_value);
-    //   values.join();
-    //   data.values = values;
-    //   console.log('Show me pipe option data 1.0 =>', data);
-    // } else {
-    //   console.log('Show me pipe option data 1.0 =>', data);
-    // }
-
-    // handleChange(data);
-  }
-
   const MakeChange = (data) => {
-    console.log('Show me Enhancements data 1.0 =>', data.option.target.checked);
-    // handleChange(data);
+    handleChange(data);
   }
 
   const MakeChangeCheckbox = (data) => {
