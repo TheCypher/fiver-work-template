@@ -449,6 +449,7 @@ function Enhancements({handleChange, value }){
               <FormGroup check inline>
                 <Label check>
                   <span className="customizerInputTitleSmallX1">Add Stainless Steel ID Tag</span>
+                  <br />
                   <Input
                     onClick={ (e) => MakeChangeCheckbox({
                       section: 'enhancements',
