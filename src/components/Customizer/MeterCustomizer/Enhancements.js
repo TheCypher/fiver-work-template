@@ -23,7 +23,6 @@ import {
 } from "reactstrap";
 
 function Enhancements({handleChange, value }){
-  const [selectFlange, setSelectFlange] = useState(true);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
@@ -57,7 +56,17 @@ function Enhancements({handleChange, value }){
   }
 
   const MakeChange = (data) => {
+    console.log('Show me Enhancements data 1.0 =>', data.option.target.checked);
     // handleChange(data);
+  }
+
+  const MakeChangeCheckbox = (data) => {
+    if(!data.option.target.checked){
+      data.values = ['none', data.values[0]]
+      handleChange(data);
+    } else {
+      handleChange(data);
+    }
   }
 
   var title = 'Enhancements';
@@ -119,180 +128,456 @@ function Enhancements({handleChange, value }){
         <Collapse isOpen={collapses.includes(2)}>
           <CardBody>
           <Row>
-              <Col>
-                <span>Mounting Type</span>
-                <FormGroup check className="form-check-radio">
-                  <Label check>
-                    <Row>
-                      <Col>
-                        MNPT Ends
-                      </Col>
-                    </Row>
-                    <Input
-                      onClick={ (e) => MakeChange({
-                        section: 'meter_orientation',
-                        type: 'pipe_orientation',
-                        values: ['horizion', 'vertical'],
-                        price_effect: false
-                      }, e)}
-                      id="pipe_orientation"
-                      name="pipe_orientation"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                </FormGroup>
-                <FormGroup check className="form-check-radio">
-                  <Label check>
-                    <Row>
-                      <Col>
-                        Butt End
-                      </Col>
-                    </Row>
-                    <Input
-                      defaultChecked
-                      onClick={ (e) => MakeChange({
-                        section: 'meter_orientation',
-                        type: 'pipe_orientation',
-                        values: ['vertical', 'horizion'],
-                        price_effect: false
-                      }, e,
-                      setSelectFlange(false)
-                      )
-                    }
-                      id="pipe_orientation"
-                      name="pipe_orientation"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                </FormGroup>
-                <FormGroup check className="form-check-radio">
-                  <Label check>
-                    <Row>
-                      <Col>
-                        Flange
-                      </Col>
-                    </Row>
-                    <Input
-                      defaultChecked
-                      onClick={ (e) => MakeChange({
-                        section: 'meter_orientation',
-                        type: 'pipe_orientation',
-                        values: ['vertical', 'horizion'],
-                        price_effect: false
-                      }, e,
-                      setSelectFlange(true)
-                      )}
-                      id="pipe_orientation"
-                      name="pipe_orientation"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                </FormGroup>
-              </Col>
+            <Col>
+              <span>Certificates</span>
+              <br /><br />
+              <FormGroup check inline>
+                <Label check>
+                  COO - Certificate of Origin notarized by Chamber of Commerce
+                  <Input
+                    onClick={ (e) => MakeChangeCheckbox({
+                      section: 'enhancements',
+                      type: 'certificates_origin',
+                      values: ['orgin', 'none'],
+                      price_effect: false,
+                      option: e
+                    }, e)}
+                    id="certificates_origin"
+                    name="certificates_origin"
+                    type="checkbox"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                  <Button className="questionToolTip" id="COOCertificate" size="sm">
+                    ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="right" target="COOCertificate" delay={0}>
+                    COO - Certificate of Origin info needed
+                  </UncontrolledTooltip>
+                </Label>
+              </FormGroup>
+              <FormGroup check inline>
+                <Label check>
+                  O2CLN - Certified Oxygen Clean and Bag with Certificate
+                  <Input
+                    onClick={ (e) => MakeChangeCheckbox({
+                      section: 'enhancements',
+                      type: 'certificates_oxygen',
+                      values: ['oxygen', 'none'],
+                      price_effect: false,
+                      option: e
+                    }, e)}
+                    id="certificates_oxygen"
+                    name="certificates_oxygen"
+                    type="checkbox"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                  <Button className="questionToolTip" id="O2CLNCertificate" size="sm">
+                    ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="right" target="O2CLNCertificate" delay={0}>
+                    O2CLN - Certified Oxygen info needed
+                  </UncontrolledTooltip>
+                </Label>
+              </FormGroup>
+              <FormGroup check inline>
+                <Label check>
+                  EPI Hydrostatic & Leak Test Certificate
+                  <Input
+                    onClick={ (e) => MakeChangeCheckbox({
+                      section: 'enhancements',
+                      type: 'certificates_leak',
+                      values: ['leak', 'none'],
+                      price_effect: false,
+                      option: e
+                    }, e)}
+                    id="certificates_leak"
+                    name="certificates_leak"
+                    type="checkbox"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                  <Button className="questionToolTip" id="HydrostaticCertificate" size="sm">
+                    ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="top" target="HydrostaticCertificate" delay={0}>
+                    EPI Hydrostatic & Leak Test Certificate info needed
+                  </UncontrolledTooltip>
+                </Label>
+              </FormGroup>
+              <FormGroup check inline>
+                <Label check>
+                  WPQ & WPS & PQR - Welding Certifications (per order)
+                  <Input
+                    onClick={ (e) => MakeChangeCheckbox({
+                      section: 'enhancements',
+                      type: 'certificates_welding',
+                      values: ['welding', 'none'],
+                      price_effect: false,
+                      option: e
+                    }, e)}
+                    id="certificates_welding"
+                    name="certificates_welding"
+                    type="checkbox"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                  <Button className="questionToolTip" id="WPQCertificate" size="sm">
+                    ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="right" target="WPQCertificate" delay={0}>
+                    WPQ & WPS & PQR - Welding Certifications info needed
+                  </UncontrolledTooltip>
+                </Label>
+              </FormGroup><br /><br />
 
-              <Col>
-                <FormGroup>
-                  <label htmlFor="exampleFormControlSelect1">
-                    Image here
-                  </label>
-                </FormGroup>
-              </Col>
-            </Row>
+              {/* new */}
 
-            {selectFlange? (
-              <hr />
-            ) : (
-              <></>
-            )}
+              <span>Calibration Enhancements</span>
+              <FormGroup check inline>
+                <Label check>
+                  CTP - Calibration Test Points [+$225]
+                  <Input
+                    onClick={ (e) => MakeChangeCheckbox({
+                      section: 'enhancements',
+                      type: 'calibration_ctp',
+                      values: ['ctp', 'none'],
+                      price_effect: true,
+                      option: e
+                    }, e)}
+                    id="calibration_ctp"
+                    name="calibration_ctp"
+                    type="checkbox"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                  <Button className="questionToolTip" id="CTPCertificate" size="sm">
+                    ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="right" target="CTPCertificate" delay={0}>
+                    CTP - Calibration Test Points info needed
+                  </UncontrolledTooltip>
+                </Label>
+              </FormGroup>
+              <FormGroup check inline>
+                <Label check>
+                  As Left Validation Curve [+$X]
+                  <Input
+                    onClick={ (e) => MakeChangeCheckbox({
+                      section: 'enhancements',
+                      type: 'calibration_left_curve',
+                      values: ['left_curve', 'none'],
+                      price_effect: false,
+                      option: e
+                    }, e)}
+                    id="calibration_left_curve"
+                    name="calibration_left_curve"
+                    type="checkbox"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                  <Button className="questionToolTip" id="LeftCertificate" size="sm">
+                    ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="right" target="LeftCertificate" delay={0}>
+                    As Left Validation Curve info needed
+                  </UncontrolledTooltip>
+                </Label>
+              </FormGroup><br /><br />
 
-            <Row>
-              <Col>
-                  {selectFlange? (
-                    <FormGroup>
-                      <label htmlFor="exampleFormControlSelect1">
-                        Flange Type
-                        <Button className="questionToolTip" id="FlangType" size="sm">
-                          ?
-                        </Button>{` `}
-                        <UncontrolledTooltip placement="right" target="FlangType" delay={0}>
-                          Select Flange Type
-                        </UncontrolledTooltip>
-                        </label>
-                      <Input
-                        className="epiInputSize"
-                        id="exampleFormControlSelect1"
-                        type="select"
-                        onChange={ (e) => MakeChangeDropdown({
-                          section: 'pipe_infornation',
-                          type: 'pipe_size',
-                          values: [
-                            '1.5',
-                            '0.75',
-                            '1',
-                            '1_0.25',
-                            '1_1.5',
-                            '2',
-                            '2_1.5',
-                            '3',
-                            '4'
-                          ],
-                          price_effect: false,
-                          option: e
-                        }, e)}
-                      >
-                        <option value="" selected disabled hidden>Select Flange Type</option>
-                        <option value="1.5">Flange 1</option>
-                        <option value="0.75">Flange 2</option>
-                        <option value="1">Flange 3</option>
-                      </Input>
-                      <br />
+              <span>Tests</span><br />
+              <FormGroup check inline>
+                <Label check>
+                  Positive Material Identification (PMI) Test
+                  <Input
+                    onClick={ (e) => MakeChangeCheckbox({
+                      section: 'enhancements',
+                      type: 'test_pmi',
+                      values: ['pmi', 'none'],
+                      price_effect: false,
+                      option: e
+                    }, e)}
+                    id="test_pmi"
+                    name="test_pmi"
+                    type="checkbox"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                  <Button className="questionToolTip" id="PMICertificate" size="sm">
+                    ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="right" target="PMICertificate" delay={0}>
+                    Positive Material Identification info needed
+                  </UncontrolledTooltip>
+                </Label>
+              </FormGroup>
+              <FormGroup check inline>
+                <Label check>
+                  Liquid Penetration Test
+                  <Input
+                    onClick={ (e) => MakeChangeCheckbox({
+                      section: 'enhancements',
+                      type: 'test_liquid',
+                      values: ['liquid', 'none'],
+                      price_effect: false,
+                      option: e
+                    }, e)}
+                    id="test_liquid"
+                    name="test_liquid"
+                    type="checkbox"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                  <Button className="questionToolTip" id="LiquidCertificate" size="sm">
+                    ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="right" target="LiquidCertificate" delay={0}>
+                    Liquid Penetration Test info needed
+                  </UncontrolledTooltip>
+                </Label>
+              </FormGroup>
+              <FormGroup check inline>
+                <Label check>
+                  Ferrite Test - Welds
+                  <Input
+                    onClick={ (e) => MakeChangeCheckbox({
+                      section: 'enhancements',
+                      type: 'test_welds',
+                      values: ['welds', 'none'],
+                      price_effect: false,
+                      option: e
+                    }, e)}
+                    id="test_welds"
+                    name="test_welds"
+                    type="checkbox"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                  <Button className="questionToolTip" id="WeldsCertificate" size="sm">
+                    ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="right" target="WeldsCertificate" delay={0}>
+                    Ferrite Test - Welds info needed
+                  </UncontrolledTooltip>
+                </Label>
+              </FormGroup>
+              <FormGroup check inline>
+                <Label check>
+                  Ferrite Test - All Wetted Parts
+                  <Input
+                    onClick={ (e) => MakeChangeCheckbox({
+                      section: 'enhancements',
+                      type: 'test_wetted',
+                      values: ['wetted', 'none'],
+                      price_effect: false,
+                      option: e
+                    }, e)}
+                    id="test_wetted"
+                    name="test_wetted"
+                    type="checkbox"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                  <Button className="questionToolTip" id="WettedCertificate" size="sm">
+                    ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="right" target="WettedCertificate" delay={0}>
+                    Ferrite Test - All Wetted Parts info needed
+                  </UncontrolledTooltip>
+                </Label>
+              </FormGroup>
+              {/* new */}
+            </Col>
 
-                      <label htmlFor="exampleFormControlSelect1">
-                        Flange Size
-                        <Button className="questionToolTip" id="FlangSize" size="sm">
-                          ?
-                        </Button>{` `}
-                        <UncontrolledTooltip placement="right" target="FlangSize" delay={0}>
-                          Select Flange Size
-                        </UncontrolledTooltip>
-                        </label>
-                      <Input
-                        className="epiInputSize"
-                        id="exampleFormControlSelect1"
-                        type="select"
-                        onChange={ (e) => MakeChangeDropdown({
-                          section: 'pipe_infornation',
-                          type: 'pipe_size',
-                          values: [
-                            '1.5',
-                            '0.75',
-                            '1',
-                            '1_0.25',
-                            '1_1.5',
-                            '2',
-                            '2_1.5',
-                            '3',
-                            '4'
-                          ],
-                          price_effect: false,
-                          option: e
-                        }, e)}
-                      >
-                        <option value="" selected disabled hidden>Select Flange Type</option>
-                        <option value="1.5">Size 1</option>
-                        <option value="0.75">Size 2</option>
-                        <option value="1">Size 3</option>
-                      </Input>
-                    </FormGroup>
-                  ) : (
-                    <></>
-                  )}
-              </Col>
-              <Col></Col>
-            </Row>
+            <Col>
+              <span>Extended Warranty</span>
+              <Button className="questionToolTip" id="ExtendedWarranty" size="sm">
+                ?
+              </Button>{` `}
+              <UncontrolledTooltip placement="right" target="ExtendedWarranty" delay={0}>
+                Extended Warranty info needed info needed
+              </UncontrolledTooltip>
+              <FormGroup check className="form-check-radio">
+                <Label check>
+                  None
+                  <Input
+                    defaultChecked
+                    onClick={ (e) => MakeChange({
+                      section: 'enhancements',
+                      type: 'warranty',
+                      values: ['none', '1', '2', '3'],
+                      price_effect: false
+                    }, e)}
+                    id="warranty"
+                    name="warranty"
+                    type="radio"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                </Label>
+              </FormGroup>
+              <FormGroup check className="form-check-radio">
+                <Label check>
+                  <Row>
+                    <Col>
+                      Add 1 Year
+                    </Col>
+                  </Row>
+                  <Input
+                    onClick={ (e) => MakeChange({
+                      section: 'enhancements',
+                      type: 'warranty',
+                      values: ['1', 'none', '2', '3'],
+                      price_effect: false
+                    }, e)}
+                    id="warranty"
+                    name="warranty"
+                    type="radio"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                </Label>
+              </FormGroup>
+              <FormGroup check className="form-check-radio">
+                <Label check>
+                  <Row>
+                    <Col>
+                      Add 2 Years
+                    </Col>
+                  </Row>
+                  <Input
+                    onClick={ (e) => MakeChange({
+                      section: 'enhancements',
+                      type: 'warranty',
+                      values: ['2', '1', 'none', '3'],
+                      price_effect: false
+                    }, e)}
+                    id="warranty"
+                    name="warranty"
+                    type="radio"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                </Label>
+              </FormGroup>
+              <FormGroup check className="form-check-radio">
+                <Label check>
+                  <Row>
+                    <Col>
+                      Add 3 Years
+                    </Col>
+                  </Row>
+                  <Input
+                    onClick={ (e) => MakeChange({
+                      section: 'enhancements',
+                      type: 'warranty',
+                      values: ['3', '1', '2', 'none'],
+                      price_effect: false
+                    }, e)}
+                    id="warranty"
+                    name="warranty"
+                    type="radio"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                </Label>
+              </FormGroup><br />
+
+              {/* new */}
+
+              <span>Stainless Steel ID Tag</span>
+              <Button className="questionToolTip" id="StainlessSteel" size="sm">
+                ?
+              </Button>{` `}
+              <UncontrolledTooltip placement="right" target="StainlessSteel" delay={0}>
+                Stainless Steel ID Tag info needed
+              </UncontrolledTooltip>
+              <FormGroup check inline>
+                <Label check>
+                  Add Stainless Steel ID Tag
+                  <Input
+                    onClick={ (e) => MakeChangeCheckbox({
+                      section: 'enhancements',
+                      type: 'stainless',
+                      values: ['stainless', 'none'],
+                      price_effect: false,
+                      option: e
+                    }, e)}
+                    id="stainless"
+                    name="stainless"
+                    type="checkbox"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                </Label>
+              </FormGroup><br /><br />
+
+              {/* new */}
+
+              <span>Electropolish Flow Section & Sensor</span>
+              <Button className="questionToolTip" id="ElectropolishFlow" size="sm">
+                ?
+              </Button>{` `}
+              <UncontrolledTooltip placement="right" target="ElectropolishFlow" delay={0}>
+                Electropolish Flow info needed
+              </UncontrolledTooltip>
+              <FormGroup check className="form-check-radio">
+                <Label check>
+                  None
+                  <Input
+                    onClick={ (e) => MakeChange({
+                      section: 'enhancements',
+                      type: 'electropolish',
+                      values: ['none', 'sensor', 'section', 'section_sensor'],
+                      price_effect: false
+                    }, e)}
+                    id="electropolish"
+                    name="electropolish"
+                    type="radio"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                </Label>
+              </FormGroup>
+              <FormGroup check className="form-check-radio">
+                <Label check>
+                  Sensor Only
+                  <Input
+                    onClick={ (e) => MakeChange({
+                      section: 'enhancements',
+                      type: 'electropolish',
+                      values: ['sensor', 'section', 'section_sensor', 'none'],
+                      price_effect: false
+                    }, e)}
+                    id="electropolish"
+                    name="electropolish"
+                    type="radio"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                </Label>
+              </FormGroup>
+              <FormGroup check className="form-check-radio">
+                <Label check>
+                  Fow Section Only
+                  <Input
+                    onClick={ (e) => MakeChange({
+                      section: 'enhancements',
+                      type: 'electropolish',
+                      values: [ 'section', 'sensor', 'section_sensor', 'none'],
+                      price_effect: false
+                    }, e)}
+                    id="electropolish"
+                    name="electropolish"
+                    type="radio"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                </Label>
+              </FormGroup>
+              <FormGroup check className="form-check-radio">
+                <Label check>
+                  Flow Section & Sensor (All Wetted Parts)
+                  <Input
+                    defaultChecked
+                    onClick={ (e) => MakeChange({
+                      section: 'enhancements',
+                      type: 'electropolish',
+                      values: [ 'section_sensor', 'sensor', 'section', 'none'],
+                      price_effect: false
+                    }, e)}
+                    id="electropolish"
+                    name="electropolish"
+                    type="radio"
+                  ></Input>
+                  <span className="form-check-sign"></span>
+                </Label>
+              </FormGroup>
+            </Col>
+          </Row>
           </CardBody>
         </Collapse>
       </Card>

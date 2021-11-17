@@ -31,7 +31,8 @@ function Customizer(){
         base: 3020,
         air: 0,
         pipe_orientation: 0,
-        sensors:0
+        sensors:0,
+        calibration_ctp_prices:0
       },
       meter_orientation: {
         pipe_orientation: {
@@ -219,6 +220,68 @@ function Customizer(){
           standard: 0,
           rod: 275,
           sheild: 275
+        }
+      },
+      enhancements:{
+        certificates_origin:{
+          orgin: false,
+          none: true
+        },
+        certificates_oxygen:{
+          oxygen: false,
+          none: true,
+        },
+        certificates_leak:{
+          leak: false,
+          none: true
+        },
+        certificates_welding:{
+          welding: false,
+          none: true
+        },
+        calibration_ctp:{
+          ctp: false,
+          none: true
+        },
+        calibration_ctp_prices:{
+          ctp: 225,
+          none: 0
+        },
+        calibration_left_curve:{
+          left_curve: false,
+          none: true
+        },
+        test_pmi:{
+          pmi: false,
+          none: true
+        },
+        test_liquid:{
+          liquid: false,
+          none: true,
+        },
+        test_welds:{
+          welds: false,
+          none: true
+        },
+        test_wetted:{
+          wetted: false,
+          none: true
+        },
+        warranty:{
+          none: true,
+          1:false,
+          2: false,
+          3: false
+        },
+        stainless:{
+          stainless: false,
+          none: true
+        },
+        electropolish:{
+          none: false,
+          sensor: false,
+          section: false,
+          section_sensor: true
         }
       }
     }
