@@ -75,13 +75,7 @@ function PipeInformation({ handleChange, value }){
     }
 
     if(tabType === "Tube"){
-      return(
-        <DuctShape 
-          handleChange={ handleChange }
-          value={ value }
-          setDuctShape={ setDuctShape }
-        />
-      );
+      return(<> </>);
     }
   }
 

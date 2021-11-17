@@ -21,6 +21,7 @@ import QuestionsOrComments from "./MeterCustomizer/QuestionsOrComments";
 import MountingRequirements from "./MeterCustomizer/MountingRequirements";
 import FlowBody from "./MeterCustomizer/FlowBody";
 import Enhancements from "./MeterCustomizer/Enhancements";
+import ProcessParameters from "./MeterCustomizer/ProcessParameters";
 
 
 function Customizer(){
@@ -417,6 +418,11 @@ function Customizer(){
               />
 
               <MountingRequirements
+                handleChange={ handleChange }
+                value={ values }
+              />
+
+              <ProcessParameters
                 handleChange={ handleChange }
                 value={ values }
               />
