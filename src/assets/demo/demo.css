@@ -684,6 +684,10 @@
   padding-left: 5px !important;
 }
 
+.inputPowerCommunicationCols {
+  padding-right: 0px !important;
+  padding-left: 20px !important;
+}
 /* @media screen and (max-width: 767px) {
   input, select, textarea {
     font-size: 16px;

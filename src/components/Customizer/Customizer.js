@@ -33,7 +33,8 @@ function Customizer(){
         air: 0,
         pipe_orientation: 0,
         sensors:0,
-        calibration_ctp_prices:0
+        calibration_ctp_prices:0,
+        input_power: 0
       },
       meter_orientation: {
         pipe_orientation: {
@@ -333,6 +334,16 @@ function Customizer(){
         },
         process_units:{
           units: false
+        }
+      },
+      input_power_communication: {
+        input_power: {
+          cd12_dc24: false,
+          vac115_vac230: false
+        },
+        input_power_prices: {
+          cd12_dc24: 0,
+          vac115_vac230: 204
         }
       }
     }

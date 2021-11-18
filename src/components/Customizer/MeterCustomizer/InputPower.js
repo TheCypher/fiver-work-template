@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMediaQuery } from 'react-responsive';
 
 // reactstrap components
@@ -7,7 +7,6 @@ import {
   Button,
   Card,
   CardBody,
-  CardImg,
   Row,
   Col,
   FormGroup,
@@ -19,10 +18,12 @@ import {
   Nav,
   Container,
   Collapse,
+  UncontrolledTooltip
 } from "reactstrap";
 
 function InputPower({ handleChange, value }){
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const [otherOptions, setOtherOptions] = useState(true);
 
   // collapse states and functions
   const [collapses, setCollapses] = React.useState([0]);
@@ -34,7 +35,32 @@ function InputPower({ handleChange, value }){
     }
   };
 
+  const MakeChangeDropdown = (data) => {
+    data.option_value = data.option.target.value;
+    const values = data.values;
+    const first_value = values[0]
+    
+    if(first_value != data.option_value){
+      values.removeWithValue(data.option_value)
+      values[0] = data.option_value;
+      values.splice(1,0, first_value);
+      values.join();
+      data.values = values;
+      console.log('Show me pipe option data 1.0 =>', data);
+    } else {
+      console.log('Show me pipe option data 1.0 =>', data);
+    }
+
+    handleChange(data);
+  }
+
   const MakeChange = (data) => {
+    if(data.other_select){
+      setOtherOptions(true);
+    } else {
+      setOtherOptions(false);
+    }
+
     handleChange(data);
   }
 
@@ -98,23 +124,68 @@ function InputPower({ handleChange, value }){
           <CardBody>
             <Row>
               <Col>
-                <Row>
-                  <Col style={{ 'margin-bottom': '30px'}}>
-                    <span>Transmitter</span><br />
-                    <strong>Integrated Electronics</strong><br />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col className="align-items-center">
-                    <span>Transmitter</span><br />
-                    <strong>Integrated Electronics</strong><br />
-                  </Col>
-                </Row>
+                <FormGroup>
+                  <label htmlFor="exampleFormControlSelect1">
+                    <span className="customizerInputTitle">Input Power</span>
+                    <Button className="questionToolTip" id="Application" size="sm">
+                      ?
+                    </Button>{` `}
+                    <UncontrolledTooltip placement="right" target="Application" delay={0}>
+                      Select Input Power
+                    </UncontrolledTooltip>
+                    </label>
+                  <Input
+                    className="epiInputSize"
+                    id="exampleFormControlSelect1"
+                    type="select"
+                    onChange={ (e) => MakeChangeDropdown({
+                      section: 'input_power_communication',
+                      type: 'input_power',
+                      values: [
+                        'cd12_dc24',
+                        'vac115_vac230'
+                      ],
+                      price_effect: false,
+                      option: e
+                    }, e)}
+                  >
+                    <option value="" selected disabled hidden>Select Input Power</option>
+                    <option value="cd12_dc24">DC12 & DC24</option>
+                    <option value="vac115_vac230">VAC115 & VAC230</option>
+                  </Input>
+                </FormGroup>
               </Col>
-              <Col className="text-center">
-                <CardImg alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
+
+              <Col></Col>
+            </Row>
+            <hr />
+
+            <Row>
+              <Col className="inputPowerCommunicationCols">
+                <span>
+                  <span className="customizerInputTitleSmallX1">4-20MA FLOW OUTPUT</span>
+                  <Button className="questionToolTip" id="MAFLOWOUTPUT" size="sm">
+                      ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="right" target="MAFLOWOUTPUT" delay={0}>
+                  4-20MA FLOW OUTPUT Information needed
+                  </UncontrolledTooltip>
+                </span>
+              </Col>
+
+              <Col className="inputPowerCommunicationCols">
+                Two
+              </Col>
+
+              <Col className="inputPowerCommunicationCols">
+                Three
+              </Col>
+
+              <Col className="inputPowerCommunicationCols">
+                Four
               </Col>
             </Row>
+            <hr />
           </CardBody>
         </Collapse>
       </Card>
