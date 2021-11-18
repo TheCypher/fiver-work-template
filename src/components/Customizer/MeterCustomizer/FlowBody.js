@@ -147,7 +147,7 @@ function FlowBody({handleChange, value }){
                       option: e
                     }, e)}
                   >
-                    <option value="" selected disabled hidden>Select Sensor Material</option>
+                    <option value="" selected disabled>Select Sensor Material</option>
                     <option value="cer">CER</option>
                     <option value="sss">316L SSS</option>
                     <option value="has">C-276 HAS</option>

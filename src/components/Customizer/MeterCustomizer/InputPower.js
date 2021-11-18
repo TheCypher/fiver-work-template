@@ -21,12 +21,15 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
+import NavbarInputPower from "./InputPower/Navbar";
+import Standard from "./InputPower/Standard";
+import StandardBottom from "./InputPower/StandardBottom";
+
 function InputPower({ handleChange, value }){
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
-  const [otherOptions, setOtherOptions] = useState(true);
 
   // collapse states and functions
-  const [collapses, setCollapses] = React.useState([0]);
+  const [collapses, setCollapses] = useState([0]);
   const changeCollapse = collapse => {
     if (collapses.includes(collapse)) {
       setCollapses(collapses.filter(prop => prop !== collapse));
@@ -49,16 +52,6 @@ function InputPower({ handleChange, value }){
       console.log('Show me pipe option data 1.0 =>', data);
     } else {
       console.log('Show me pipe option data 1.0 =>', data);
-    }
-
-    handleChange(data);
-  }
-
-  const MakeChange = (data) => {
-    if(data.other_select){
-      setOtherOptions(true);
-    } else {
-      setOtherOptions(false);
     }
 
     handleChange(data);
@@ -145,11 +138,11 @@ function InputPower({ handleChange, value }){
                         'cd12_dc24',
                         'vac115_vac230'
                       ],
-                      price_effect: false,
+                      price_effect: true,
                       option: e
                     }, e)}
                   >
-                    <option value="" selected disabled hidden>Select Input Power</option>
+                    <option value="" selected disabled>Select Input Power</option>
                     <option value="cd12_dc24">DC12 & DC24</option>
                     <option value="vac115_vac230">VAC115 & VAC230</option>
                   </Input>
@@ -158,34 +151,16 @@ function InputPower({ handleChange, value }){
 
               <Col></Col>
             </Row>
+            <br />
+
+            <span className="customizerInputTitle">Select Configuration</span>
+            <NavbarInputPower />
+            <Standard
+              handleChange={handleChange}
+              value={value}
+            />
             <hr />
-
-            <Row>
-              <Col className="inputPowerCommunicationCols">
-                <span>
-                  <span className="customizerInputTitleSmallX1">4-20MA FLOW OUTPUT</span>
-                  <Button className="questionToolTip" id="MAFLOWOUTPUT" size="sm">
-                      ?
-                  </Button>{` `}
-                  <UncontrolledTooltip placement="right" target="MAFLOWOUTPUT" delay={0}>
-                  4-20MA FLOW OUTPUT Information needed
-                  </UncontrolledTooltip>
-                </span>
-              </Col>
-
-              <Col className="inputPowerCommunicationCols">
-                Two
-              </Col>
-
-              <Col className="inputPowerCommunicationCols">
-                Three
-              </Col>
-
-              <Col className="inputPowerCommunicationCols">
-                Four
-              </Col>
-            </Row>
-            <hr />
+            <StandardBottom />
           </CardBody>
         </Collapse>
       </Card>

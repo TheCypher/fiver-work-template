@@ -231,7 +231,7 @@ function MountingRequirements({handleChange, value }){
                           option: e
                         }, e)}
                       >
-                        <option value="" selected disabled hidden>Select Flange Type</option>
+                        <option value="" selected disabled>Select Flange Type</option>
                         <option value="1.5">Flange 1</option>
                         <option value="0.75">Flange 2</option>
                         <option value="1">Flange 3</option>
@@ -269,7 +269,7 @@ function MountingRequirements({handleChange, value }){
                           option: e
                         }, e)}
                       >
-                        <option value="" selected disabled hidden>Select Flange Type</option>
+                        <option value="" selected disabled>Select Flange Type</option>
                         <option value="1.5">Size 1</option>
                         <option value="0.75">Size 2</option>
                         <option value="1">Size 3</option>

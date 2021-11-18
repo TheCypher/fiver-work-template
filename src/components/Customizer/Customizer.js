@@ -344,6 +344,18 @@ function Customizer(){
         input_power_prices: {
           cd12_dc24: 0,
           vac115_vac230: 204
+        },
+        standard_ma_flow:{
+          self: true,
+          isolated: false
+        },
+        standard_vdc_flow:{
+          5: true,
+          10: false
+        },
+        standard_vdc_temp:{
+          5: true,
+          10: false
         }
       }
     }

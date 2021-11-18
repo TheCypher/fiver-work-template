@@ -34,7 +34,7 @@ function ProductView(){
   const [pills, setPills] = React.useState("1");
   return (
     <>
-      <div className="section section-about-us" style={{ 'background': 'whitesmoke', 'padding-bottom': '50px'}}>
+      <div className="section section-about-us" style={{ 'background': 'whitesmoke', 'padding-bottom': '50px', 'border-bottom': 'whitesmoke'}}>
         <Navbar className="bg-epi-blue" style={{'min-height': '80px'}} expand="lg">
           <Container>
             <div className="navbar-translate">
@@ -57,7 +57,7 @@ function ProductView(){
                 <NavItem className={pills === "1" ? "active" : ""}>
                   <NavLink
                     href="#pablo"
-                    style={{ 'color': 'white' }}
+                    style={{ 'color': 'white', 'border-bottom': '2px solid whitesmoke' }}
                     onClick={(e) => {
                       e.preventDefault();
                       setPills("1");
