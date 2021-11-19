@@ -9,39 +9,72 @@ import {
   Container,
 } from "reactstrap";
 
-function NavbarInputPower({ handleChange, value }){
+function NavbarInputPower({ setIconTabs, iconTabs }){
   return (
     <>
       <Navbar expand="lg" className="inputPowerCommunicationNav">
         <Container>
             <Nav className="ml-auto" navbar>
-              <NavItem className="active">
-                <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+              <NavItem className={iconTabs === "1" ? "active" : ""}>
+                <NavLink
+                  href="#pablo"
+                  onClick={e => {
+                    setIconTabs("1");
+                  }}
+                >
                   <span className="customizerInputTitleSmallX1">Standard (MODBUS RTU)</span>
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+              <NavItem className={iconTabs === "2" ? "active" : ""}>
+                <NavLink
+                  href="#pablo"
+                  onClick={e => {
+                    setIconTabs("2");
+                  }}
+                >
                   <span className="customizerInputTitleSmallX1">Multi-Range + Temp Out</span>
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+              <NavItem className={iconTabs === "3" ? "active" : ""}>
+                <NavLink
+                  href="#pablo"
+                  onClick={e => {
+                    setIconTabs("3");
+                  }}
+                >
                   <span className="customizerInputTitleSmallX1">Multi-Range + No Temp</span>
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+              <NavItem className={iconTabs === "4" ? "active" : ""}>
+                <NavLink
+                  href="#pablo"
+                  onClick={e => {
+                    e.preventDefault();
+                    setIconTabs("4");
+                  }}
+                >
                   <span className="customizerInputTitleSmallX1">HART</span>
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+              <NavItem className={iconTabs === "5" ? "active" : ""}>
+                <NavLink
+                  href="#pablo"
+                  onClick={e => {
+                    e.preventDefault();
+                    setIconTabs("5");
+                  }}
+                >
                   <span className="customizerInputTitleSmallX1">BACnet</span>
                 </NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+              <NavItem className={iconTabs === "6" ? "active" : ""}>
+                <NavLink
+                  href="#pablo"
+                  onClick={e => {
+                    e.preventDefault();
+                    setIconTabs("6");
+                  }}
+                >
                   <span className="customizerInputTitleSmallX1">Profibus</span>
                 </NavLink>
               </NavItem>

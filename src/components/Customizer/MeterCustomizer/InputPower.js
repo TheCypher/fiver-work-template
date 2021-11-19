@@ -18,14 +18,22 @@ import {
   Nav,
   Container,
   Collapse,
-  UncontrolledTooltip
+  UncontrolledTooltip,
+  TabContent,
+  TabPane
 } from "reactstrap";
+import Profibus from "./InputPower/Profibus";
+import Bacnet from "./InputPower/Bacnet";
+import Hart from "./InputPower/Hart";
+import MultiRange from "./InputPower/MultiRange";
+import MultiRangeNoTemp from "./InputPower/MultiRangeNoTemp";
 
 import NavbarInputPower from "./InputPower/Navbar";
 import Standard from "./InputPower/Standard";
 import StandardBottom from "./InputPower/StandardBottom";
 
 function InputPower({ handleChange, value }){
+  const [iconTabs, setIconTabs] = React.useState("1");
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
@@ -154,13 +162,55 @@ function InputPower({ handleChange, value }){
             <br />
 
             <span className="customizerInputTitle">Select Configuration</span>
-            <NavbarInputPower />
-            <Standard
-              handleChange={handleChange}
-              value={value}
+            <NavbarInputPower
+              setIconTabs={setIconTabs}
+              iconTabs={iconTabs}
             />
-            <hr />
-            <StandardBottom />
+            <TabContent
+            activeTab={"iconTabs" + iconTabs}
+            >
+              <TabPane tabId="iconTabs1" key="345">
+                <Standard
+                  handleChange={handleChange}
+                  value={value}
+                />
+              </TabPane>
+
+              <TabPane tabId="iconTabs2">
+                <MultiRange
+                  handleChange={handleChange}
+                  value={value}
+                />
+              </TabPane>
+
+              <TabPane tabId="iconTabs3">
+                <MultiRangeNoTemp
+                  handleChange={handleChange}
+                  value={value}
+                />
+              </TabPane>
+
+              <TabPane tabId="iconTabs4">
+                <Hart
+                  handleChange={handleChange}
+                  value={value}
+                />
+              </TabPane>
+
+              <TabPane tabId="iconTabs5">
+                <Bacnet
+                  handleChange={handleChange}
+                  value={value}
+                />
+              </TabPane>
+              
+              <TabPane tabId="iconTabs6">
+                <Profibus
+                  handleChange={handleChange}
+                  value={value}
+                />
+              </TabPane>
+          </TabContent>
           </CardBody>
         </Collapse>
       </Card>

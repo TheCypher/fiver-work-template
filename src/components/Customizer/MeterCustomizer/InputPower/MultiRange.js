@@ -13,9 +13,14 @@ import {
 
 import StandardBottom from "./StandardBottom";
 
-function Standard({ handleChange, value }){
+function MultiRange({ handleChange, value }){
+
   return (
     <>
+      <p className="text-center inputPowerCommunicationTextbox customizerInputTitleSmallX1">
+        Multi-Range allows for up to 4 custom ranges, specified before purchasing. An EPI representative will reach out
+        to you to confirm these details after your quote has become finalized.
+      </p>
       <Row>
         <Col className="inputPowerCommunicationCols">
           <span>
@@ -34,13 +39,13 @@ function Standard({ handleChange, value }){
                 defaultChecked
                 onClick={ (e) => handleChange({
                   section: 'input_power_communication',
-                  type: 'standard_ma_flow',
+                  type: 'multi_ma_flow',
                   values: ['self', 'isolated'],
                   price_effect: false
                 },e)
               }
-                id="standard_ma_flow"
-                name="standard_ma_flow"
+                id="multi_ma_flow"
+                name="multi_ma_flow"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
@@ -52,13 +57,13 @@ function Standard({ handleChange, value }){
               <Input
                 onClick={ (e) => handleChange({
                   section: 'input_power_communication',
-                  type: 'standard_ma_flow',
+                  type: 'multi_ma_flow',
                   values: ['isolated', 'self'],
                   price_effect: false
                 },e)
               }
-                id="standard_ma_flow"
-                name="standard_ma_flow"
+                id="multi_ma_flow"
+                name="multi_ma_flow"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
@@ -108,13 +113,13 @@ function Standard({ handleChange, value }){
                 defaultChecked
                 onClick={ (e) => handleChange({
                   section: 'input_power_communication',
-                  type: 'standard_vdc_flow',
+                  type: 'multi_vdc_flow',
                   values: ['5', '10'],
                   price_effect: false
                 },e)
               }
-                id="standard_vdc_flow"
-                name="standard_vdc_flow"
+                id="multi_vdc_flow"
+                name="multi_vdc_flow"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
@@ -126,13 +131,13 @@ function Standard({ handleChange, value }){
               <Input
                 onClick={ (e) => handleChange({
                   section: 'input_power_communication',
-                  type: 'standard_vdc_flow',
+                  type: 'multi_vdc_flow',
                   values: ['10', '5'],
                   price_effect: false
                 },e)
               }
-                id="standard_vdc_flow"
-                name="standard_vdc_flow"
+                id="multi_vdc_flow"
+                name="multi_vdc_flow"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
@@ -157,13 +162,13 @@ function Standard({ handleChange, value }){
                 defaultChecked
                 onClick={ (e) => handleChange({
                   section: 'input_power_communication',
-                  type: 'standard_vdc_temp',
+                  type: 'multi_vdc_temp',
                   values: ['5', '10'],
                   price_effect: false
                 },e)
               }
-                id="standard_vdc_temp"
-                name="standard_vdc_temp"
+                id="multi_vdc_temp"
+                name="multi_vdc_temp"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
@@ -175,13 +180,13 @@ function Standard({ handleChange, value }){
               <Input
                 onClick={ (e) => handleChange({
                   section: 'input_power_communication',
-                  type: 'standard_vdc_temp',
+                  type: 'multi_vdc_temp',
                   values: ['10', '5'],
                   price_effect: false
                 },e)
               }
-                id="standard_vdc_temp"
-                name="standard_vdc_temp"
+                id="multi_vdc_temp"
+                name="multi_vdc_temp"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
@@ -195,4 +200,4 @@ function Standard({ handleChange, value }){
   );
 }
 
-export default Standard;
+export default MultiRange;

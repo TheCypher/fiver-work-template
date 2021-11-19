@@ -113,7 +113,7 @@ function NewNavbar() {
             navbar
           >
             <Nav navbar>
-              <NavItem>
+              <NavItem className="active">
                 <UncontrolledDropdown>
                   <DropdownToggle
                     aria-haspopup={true}

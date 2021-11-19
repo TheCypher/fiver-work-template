@@ -11,9 +11,9 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-import StandardBottom from "./StandardBottom";
+import BacnetBottom from "./BacnetBottom";
 
-function Standard({ handleChange, value }){
+function Bacnet({ handleChange, value }){
   return (
     <>
       <Row>
@@ -34,13 +34,13 @@ function Standard({ handleChange, value }){
                 defaultChecked
                 onClick={ (e) => handleChange({
                   section: 'input_power_communication',
-                  type: 'standard_ma_flow',
+                  type: 'bacnet_ma_flow',
                   values: ['self', 'isolated'],
                   price_effect: false
                 },e)
               }
-                id="standard_ma_flow"
-                name="standard_ma_flow"
+                id="bacnet_ma_flow"
+                name="bacnet_ma_flow"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
@@ -52,13 +52,13 @@ function Standard({ handleChange, value }){
               <Input
                 onClick={ (e) => handleChange({
                   section: 'input_power_communication',
-                  type: 'standard_ma_flow',
+                  type: 'bacnet_ma_flow',
                   values: ['isolated', 'self'],
                   price_effect: false
                 },e)
               }
-                id="standard_ma_flow"
-                name="standard_ma_flow"
+                id="bacnet_ma_flow"
+                name="bacnet_ma_flow"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
@@ -108,13 +108,13 @@ function Standard({ handleChange, value }){
                 defaultChecked
                 onClick={ (e) => handleChange({
                   section: 'input_power_communication',
-                  type: 'standard_vdc_flow',
+                  type: 'bacnet_vdc_flow',
                   values: ['5', '10'],
                   price_effect: false
                 },e)
               }
-                id="standard_vdc_flow"
-                name="standard_vdc_flow"
+                id="bacnet_vdc_flow"
+                name="bacnet_vdc_flow"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
@@ -126,13 +126,13 @@ function Standard({ handleChange, value }){
               <Input
                 onClick={ (e) => handleChange({
                   section: 'input_power_communication',
-                  type: 'standard_vdc_flow',
+                  type: 'bacnet_vdc_flow',
                   values: ['10', '5'],
                   price_effect: false
                 },e)
               }
-                id="standard_vdc_flow"
-                name="standard_vdc_flow"
+                id="bacnet_vdc_flow"
+                name="bacnet_vdc_flow"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
@@ -157,13 +157,13 @@ function Standard({ handleChange, value }){
                 defaultChecked
                 onClick={ (e) => handleChange({
                   section: 'input_power_communication',
-                  type: 'standard_vdc_temp',
+                  type: 'bacnet_vdc_temp',
                   values: ['5', '10'],
                   price_effect: false
                 },e)
               }
-                id="standard_vdc_temp"
-                name="standard_vdc_temp"
+                id="bacnet_vdc_temp"
+                name="bacnet_vdc_temp"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
@@ -175,13 +175,13 @@ function Standard({ handleChange, value }){
               <Input
                 onClick={ (e) => handleChange({
                   section: 'input_power_communication',
-                  type: 'standard_vdc_temp',
+                  type: 'bacnet_vdc_temp',
                   values: ['10', '5'],
                   price_effect: false
                 },e)
               }
-                id="standard_vdc_temp"
-                name="standard_vdc_temp"
+                id="bacnet_vdc_temp"
+                name="bacnet_vdc_temp"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
@@ -190,9 +190,9 @@ function Standard({ handleChange, value }){
         </Col>
       </Row>
       <hr />
-      <StandardBottom />
+      <BacnetBottom />
     </>
   );
 }
 
-export default Standard;
+export default Bacnet;

@@ -698,6 +698,14 @@
   padding-left: 0px;
 }
 
+.inputPowerCommunicationTextbox {
+  border: 1px solid rgb(5, 97, 255);
+  border-radius: 5px;
+  padding: 5px;
+  background-color: rgb(214, 228, 255);
+  color: rgb(5, 97, 255);
+}
+
 /* .navbar-nav > li {
   float: left;
   position: relative;

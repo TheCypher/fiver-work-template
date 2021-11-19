@@ -11,9 +11,9 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-import StandardBottom from "./StandardBottom";
+import HartBottom from "./HartBottom";
 
-function Standard({ handleChange, value }){
+function Hart({ handleChange, value }){
   return (
     <>
       <Row>
@@ -34,13 +34,13 @@ function Standard({ handleChange, value }){
                 defaultChecked
                 onClick={ (e) => handleChange({
                   section: 'input_power_communication',
-                  type: 'standard_ma_flow',
+                  type: 'hart_ma_flow',
                   values: ['self', 'isolated'],
                   price_effect: false
                 },e)
               }
-                id="standard_ma_flow"
-                name="standard_ma_flow"
+                id="hart_ma_flow"
+                name="hart_ma_flow"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
@@ -52,13 +52,13 @@ function Standard({ handleChange, value }){
               <Input
                 onClick={ (e) => handleChange({
                   section: 'input_power_communication',
-                  type: 'standard_ma_flow',
+                  type: 'hart_ma_flow',
                   values: ['isolated', 'self'],
                   price_effect: false
                 },e)
               }
-                id="standard_ma_flow"
-                name="standard_ma_flow"
+                id="hart_ma_flow"
+                name="hart_ma_flow"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
@@ -93,55 +93,6 @@ function Standard({ handleChange, value }){
 
         <Col className="inputPowerCommunicationCols">
           <span>
-            <span className="customizerInputTitleSmallX1">VDC FLOW OUTPUT</span>
-            <Button className="questionToolTip" id="VDCFLOWOUTPUT" size="sm">
-                ?
-            </Button>{` `}
-            <UncontrolledTooltip placement="top" target="VDCFLOWOUTPUT" delay={0}>
-              VDC FLOW OUTPUT Information needed
-            </UncontrolledTooltip>
-          </span>
-          <FormGroup check className="form-check-radio">
-            <Label check>
-              <span className="customizerInputTitleSmallX1">0-5</span>
-              <Input
-                defaultChecked
-                onClick={ (e) => handleChange({
-                  section: 'input_power_communication',
-                  type: 'standard_vdc_flow',
-                  values: ['5', '10'],
-                  price_effect: false
-                },e)
-              }
-                id="standard_vdc_flow"
-                name="standard_vdc_flow"
-                type="radio"
-              ></Input>
-              <span className="form-check-sign"></span>
-            </Label>
-          </FormGroup>
-          <FormGroup check className="form-check-radio">
-            <Label check>
-              <span className="customizerInputTitleSmallX1">0-10</span>
-              <Input
-                onClick={ (e) => handleChange({
-                  section: 'input_power_communication',
-                  type: 'standard_vdc_flow',
-                  values: ['10', '5'],
-                  price_effect: false
-                },e)
-              }
-                id="standard_vdc_flow"
-                name="standard_vdc_flow"
-                type="radio"
-              ></Input>
-              <span className="form-check-sign"></span>
-            </Label>
-          </FormGroup>
-        </Col>
-
-        <Col className="inputPowerCommunicationCols">
-          <span>
             <span className="customizerInputTitleSmallX1">VDC TEMP OUTPUT</span>
             <Button className="questionToolTip" id="VDCTEMPOUTPUT" size="sm">
                 ?
@@ -157,13 +108,13 @@ function Standard({ handleChange, value }){
                 defaultChecked
                 onClick={ (e) => handleChange({
                   section: 'input_power_communication',
-                  type: 'standard_vdc_temp',
+                  type: 'hart_vdc_temp',
                   values: ['5', '10'],
                   price_effect: false
                 },e)
               }
-                id="standard_vdc_temp"
-                name="standard_vdc_temp"
+                id="hart_vdc_temp"
+                name="hart_vdc_temp"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
@@ -175,24 +126,28 @@ function Standard({ handleChange, value }){
               <Input
                 onClick={ (e) => handleChange({
                   section: 'input_power_communication',
-                  type: 'standard_vdc_temp',
+                  type: 'hart_vdc_temp',
                   values: ['10', '5'],
                   price_effect: false
                 },e)
               }
-                id="standard_vdc_temp"
-                name="standard_vdc_temp"
+                id="hart_vdc_temp"
+                name="hart_vdc_temp"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
             </Label>
           </FormGroup>
         </Col>
+
+        <Col className="inputPowerCommunicationCols">
+
+        </Col>
       </Row>
       <hr />
-      <StandardBottom />
+      <HartBottom />
     </>
   );
 }
 
-export default Standard;
+export default Hart;

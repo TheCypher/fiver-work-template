@@ -356,6 +356,54 @@ function Customizer(){
         standard_vdc_temp:{
           5: true,
           10: false
+        },
+        multi_ma_flow:{
+          self: true,
+          isolated: false
+        },
+        multi_vdc_flow:{
+          5: true,
+          10: false
+        },
+        multi_vdc_temp:{
+          5: true,
+          10: false
+        },
+        hart_ma_flow:{
+          self: true,
+          isolated: false
+        },
+        hart_vdc_flow:{
+          5: true,
+          10: false
+        },
+        hart_vdc_temp:{
+          5: true,
+          10: false
+        },
+        bacnet_ma_flow:{
+          self: true,
+          isolated: false
+        },
+        bacnet_vdc_flow:{
+          5: true,
+          10: false
+        },
+        bacnet_vdc_temp:{
+          5: true,
+          10: false
+        },
+        profibus_ma_flow:{
+          self: true,
+          isolated: false
+        },
+        profibus_vdc_flow:{
+          5: true,
+          10: false
+        },
+        profibus_vdc_temp:{
+          5: true,
+          10: false
         }
       }
     }
