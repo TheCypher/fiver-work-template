@@ -706,18 +706,25 @@
   color: rgb(5, 97, 255);
 }
 
-/* .navbar-nav > li {
-  float: left;
-  position: relative;
-} */
-.navbar-light-see .active {
-  border-bottom: 5px solid #5bc0eb !important;
-  bottom: -10px !important;
-  content: " " !important;
-  left: 0 !important;
-  position: absolute !important;
-  right: 0 !important;
+.footerTitle {
+  color: rgb(71, 136, 255);
+  font-weight: 700;
+  font-size: 18px;
 }
+
+.footerLink {
+  margin: 0px !important;
+  padding: 0px !important;
+  margin-bottom: 1rem !important;
+}
+
+.footerNavEpi {
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  margin-top: 15px;
+}
+
 /* @media screen and (max-width: 767px) {
   input, select, textarea {
     font-size: 16px;
