@@ -1,0 +1,21 @@
+.custom-radio {
+  .custom-control-label {
+      &::after {
+          transition: background-size 0.15s ease-in-out;
+          background-size: 0%;
+      }
+  }
+
+  .custom-control-input:checked {
+      &~.custom-control-label {
+          &::before {
+              background-color: $epi-blue;
+          }
+
+          &::after {
+              transition: background-size 0.15s ease-in-out;
+              background-size: 80%;
+          }
+      }
+  }
+}

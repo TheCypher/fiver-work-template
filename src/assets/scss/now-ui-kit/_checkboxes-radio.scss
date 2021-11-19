@@ -67,6 +67,8 @@
 }
 .form-check input[type="checkbox"]:checked + .form-check-sign::after{
   opacity: 1;
+  color: $epi-blue !important;
+  border: 1px solid $epi-blue !important;
 }
 
 .form-control input[type="checkbox"]:disabled + .form-check-sign::before,
@@ -85,11 +87,11 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 1px solid $light-gray;
+  border: 2px solid $epi-blue;
   display: inline-block;
   position: absolute;
-  left: 3px;
-  top: 3px;
+  left: 4px;
+  top: 4px;
   padding: 1px;
   -webkit-transition: opacity 0.3s linear;
   -moz-transition: opacity 0.3s linear;
@@ -106,7 +108,7 @@
     width: 4px;
     height: 4px;
     background-color: $dark-background;
-    border-color: $dark-background;
+    border-color: $epi-blue;
     top: 11px;
     left: 11px;
     opacity: 1;
