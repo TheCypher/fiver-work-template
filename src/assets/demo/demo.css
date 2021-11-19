@@ -725,11 +725,61 @@
   margin-top: 15px;
 }
 
-/* @media screen and (max-width: 767px) {
-  input, select, textarea {
-    font-size: 16px;
-  }
-} */
+.footerLogosContainer {
+  height: 210px;
+  align-items: center !important;
+}
+
+.footerImgLogos {
+  width: 100px;
+  height: 84px;
+  margin-left: 5px;
+}
+
+.footerContactInfo {
+  background-color: rgb(1, 46, 130) !important;
+  height: 300px;
+  color: white;
+}
+
+.footerContactInfoTitle {
+  color:#B7BDC8 !important;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase !important;
+}
+
+.footerContactInfoText {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.footerContactInfoTextGray {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.footerContactInfoSocialImgs {
+  width: 60px;
+  height: 60px;
+}
+
+.footerBlack {
+  background-color: black !important;
+  color: white !important;
+}
+
+.footerBlackText {
+  color:#B7BDC8 !important;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.footerBlackCopyright {
+  color: white !important;
+  font-weight: 400;
+  font-size: 14px;
+}
 
 /* we'll come back to this */
 /* .menuMoblieShowButton {

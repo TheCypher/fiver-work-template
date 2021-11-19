@@ -348,50 +348,237 @@ function DefaultFooter() {
 
       <footer className="footer footer-default">
         <Container>
+          <Row className="footerLogosContainer">
+          <Nav>
+            <NavItem>
+              <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                <img
+                  alt="..."
+                  className="img-raised footerImgLogos"
+                  src={require("assets/img/bg7.jpg").default}
+                ></img>
+              </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                <img
+                  alt="..."
+                  className="img-raised footerImgLogos"
+                  src={require("assets/img/bg7.jpg").default}
+                ></img>
+              </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                <img
+                  alt="..."
+                  className="img-raised footerImgLogos"
+                  src={require("assets/img/bg7.jpg").default}
+                ></img>
+              </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                <img
+                  alt="..."
+                  className="img-raised footerImgLogos"
+                  src={require("assets/img/bg7.jpg").default}
+                ></img>
+              </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                <img
+                  alt="..."
+                  className="img-raised footerImgLogos"
+                  src={require("assets/img/bg7.jpg").default}
+                ></img>
+              </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                <img
+                  alt="..."
+                  className="img-raised footerImgLogos"
+                  src={require("assets/img/bg7.jpg").default}
+                ></img>
+              </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                <img
+                  alt="..."
+                  className="img-raised footerImgLogos"
+                  src={require("assets/img/bg7.jpg").default}
+                ></img>
+              </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                <img
+                  alt="..."
+                  className="img-raised footerImgLogos"
+                  src={require("assets/img/bg7.jpg").default}
+                ></img>
+              </NavLink>
+            </NavItem>
+
+            <NavItem>
+              <NavLink href="#pablo" onClick={e => e.preventDefault()}>
+                <img
+                  alt="..."
+                  className="img-raised footerImgLogos"
+                  src={require("assets/img/bg7.jpg").default}
+                ></img>
+              </NavLink>
+            </NavItem>
+          </Nav>
+          </Row>
+        </Container>
+      </footer>
+
+      <footer className="footer footer-default footerContactInfo">
+        <Container>
+          <Row>
+            <Col>
+              <span className="footerContactInfoTitle">Call Us</span><br />
+              <span className="footerContactInfoText">1-800-321-FLOW</span>
+              <br />
+              <br />
+
+              <span className="footerContactInfoTitle">Email Us</span><br />
+              <span className="footerContactInfoText">info@epiflow.com</span><br />
+              <span className="footerContactInfoText">sales@epiflow.com</span>
+            </Col>
+
+            <Col>
+              <span className="footerContactInfoTitle">Business Hours</span><br /><br />
+              <Row>
+                <Col><span className="footerContactInfoTextGray">Monday - Friday</span></Col>
+                <Col><span className="footerContactInfoTextGray">7:30am-5pm PST</span></Col>
+              </Row>
+
+              <Row>
+                <Col><span className="footerContactInfoTextGray">Saturday & Sunday</span></Col>
+                <Col><span className="footerContactInfoTextGray">Closed</span></Col>
+              </Row>
+
+              <br />
+              <span className="footerContactInfoTextGray">Need to contact us after hours?</span><br />
+              <Button
+                color="info"
+                style={{ 'color': 'white' }}
+                size="lg"
+                outline
+                href="#pablo"
+                onClick={e => e.preventDefault()}
+              >
+                Send Us a Message
+              </Button>
+            </Col>
+            <Col>
+              <span className="footerContactInfoText">Social Media</span><br />
+              <span className="footerContactInfoTextGray">Follow EPI for Updates & Announcements</span>
+              <br />
+              <br />
+              <Row>
+                <Col>
+                  <img
+                    alt="..."
+                    className="img-raised footerContactInfoSocialImgs"
+                    src={require("assets/img/bg7.jpg").default}
+                  ></img>
+                </Col>
+                <Col>
+                  <img
+                    alt="..."
+                    className="img-raised footerContactInfoSocialImgs"
+                    src={require("assets/img/bg7.jpg").default}
+                  ></img>
+                </Col>
+                <Col>
+                  <img
+                    alt="..."
+                    className="img-raised footerContactInfoSocialImgs"
+                    src={require("assets/img/bg7.jpg").default}
+                  ></img>
+                </Col>
+                <Col>
+                  <img
+                    alt="..."
+                    className="img-raised footerContactInfoSocialImgs"
+                    src={require("assets/img/bg7.jpg").default}
+                  ></img>
+                </Col>
+                <Col>
+                  <img
+                    alt="..."
+                    className="img-raised footerContactInfoSocialImgs"
+                    src={require("assets/img/bg7.jpg").default}
+                  ></img>
+                </Col>
+              </Row>
+            </Col>
+          </Row>
+        </Container>
+      </footer>
+
+
+      <footer className="footer footer-default footerBlack">
+        <Container>
+          <span className="footerBlackText">© 1988-2021 Eldridge Products, Inc. All Rights Reserved.  465 Reservation Rd., Marina, CA 93933</span><br />
           <nav>
             <ul>
               <li>
                 <a
-                  href="https://www.creative-tim.com?ref=nukr-default-footer"
+                  href="#"
                   target="_blank"
                 >
-                  Creative Tim
+                  Privacy Policy
                 </a>
               </li>
               <li>
                 <a
-                  href="http://presentation.creative-tim.com?ref=nukr-default-footer"
+                  href="#"
                   target="_blank"
                 >
-                  About Us
+                  Terms & Conditions
                 </a>
               </li>
               <li>
                 <a
-                  href="http://blog.creative-tim.com?ref=nukr-default-footer"
+                  href="#"
                   target="_blank"
                 >
-                  Blog
+                  Legal
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  target="_blank"
+                >
+                  Sitemap
                 </a>
               </li>
             </ul>
           </nav>
           <div className="copyright" id="copyright">
-            © {new Date().getFullYear()}, Designed by{" "}
-            <a
-              href="https://www.invisionapp.com?ref=nukr-default-footer"
-              target="_blank"
-            >
-              Invision
-            </a>
-            . Coded by{" "}
-            <a
-              href="https://www.creative-tim.com?ref=nukr-default-footer"
-              target="_blank"
-            >
-              Creative Tim
-            </a>
-            .
+            <span className="footerBlackCopyright">Proudly Designed & Manufactured in the USA</span>
+            <img
+              style={{ 'height': '19.51px', 'margin-left': '5px'}}
+              alt="..."
+              className="img-raised footerContactInfoSocialImgs"
+              src={require("assets/img/bg7.jpg").default}
+            ></img>
+            <br />
           </div>
         </Container>
       </footer>
