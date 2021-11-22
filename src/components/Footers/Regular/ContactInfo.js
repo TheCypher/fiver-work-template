@@ -1,5 +1,7 @@
 /*eslint-disable*/
 import React from "react";
+import { useMediaQuery } from 'react-responsive';
+
 
 // reactstrap components
 import { 
@@ -16,6 +18,8 @@ import {
 
 // core components
 function ContactInfo() {
+  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+
   return (
     <>
       <footer className="footer footer-default footerContactInfo">
@@ -57,49 +61,53 @@ function ContactInfo() {
                 Send Us a Message
               </Button>
             </Col>
-            <Col>
-              <span className="footerContactInfoText">Social Media</span><br />
-              <span className="footerContactInfoTextGray">Follow EPI for Updates & Announcements</span>
-              <br />
-              <br />
-              <Row>
+            {
+              isMobile? (<> </>) : (
                 <Col>
-                  <img
-                    alt="..."
-                    className="img-raised footerContactInfoSocialImgs"
-                    src={require("assets/img/bg7.jpg").default}
-                  ></img>
-                </Col>
-                <Col>
-                  <img
-                    alt="..."
-                    className="img-raised footerContactInfoSocialImgs"
-                    src={require("assets/img/bg7.jpg").default}
-                  ></img>
-                </Col>
-                <Col>
-                  <img
-                    alt="..."
-                    className="img-raised footerContactInfoSocialImgs"
-                    src={require("assets/img/bg7.jpg").default}
-                  ></img>
-                </Col>
-                <Col>
-                  <img
-                    alt="..."
-                    className="img-raised footerContactInfoSocialImgs"
-                    src={require("assets/img/bg7.jpg").default}
-                  ></img>
-                </Col>
-                <Col>
-                  <img
-                    alt="..."
-                    className="img-raised footerContactInfoSocialImgs"
-                    src={require("assets/img/bg7.jpg").default}
-                  ></img>
-                </Col>
-              </Row>
-            </Col>
+                  <span className="footerContactInfoText">Social Media</span><br />
+                  <span className="footerContactInfoTextGray">Follow EPI for Updates & Announcements</span>
+                  <br />
+                  <br />
+                  <Row>
+                    <Col>
+                      <img
+                        alt="..."
+                        className="img-raised footerContactInfoSocialImgs"
+                        src={require("assets/img/bg7.jpg").default}
+                      ></img>
+                    </Col>
+                    <Col>
+                      <img
+                        alt="..."
+                        className="img-raised footerContactInfoSocialImgs"
+                        src={require("assets/img/bg7.jpg").default}
+                      ></img>
+                    </Col>
+                    <Col>
+                      <img
+                        alt="..."
+                        className="img-raised footerContactInfoSocialImgs"
+                        src={require("assets/img/bg7.jpg").default}
+                      ></img>
+                    </Col>
+                    <Col>
+                      <img
+                        alt="..."
+                        className="img-raised footerContactInfoSocialImgs"
+                        src={require("assets/img/bg7.jpg").default}
+                      ></img>
+                    </Col>
+                    <Col>
+                      <img
+                        alt="..."
+                        className="img-raised footerContactInfoSocialImgs"
+                        src={require("assets/img/bg7.jpg").default}
+                      ></img>
+                    </Col>
+                  </Row>
+                </Col> 
+              )
+            }
           </Row>
         </Container>
       </footer>

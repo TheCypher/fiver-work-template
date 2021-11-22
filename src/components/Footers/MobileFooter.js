@@ -12,6 +12,7 @@ import ProductsLinks from "./Mobile/ProductsLinks";
 import InformationLinks from "./Mobile/InformationLinks";
 import SupportLinks from "./Mobile/SupportLinks";
 import CompanyLink from "components/Customizer/CompanyLinks";
+import ContactInfo from "./Regular/ContactInfo";
 
 function MobileFooter() {
   // collapse states and functions
@@ -82,6 +83,20 @@ function MobileFooter() {
           <i className="now-ui-icons arrows-1_minimal-down footerDropDownLinkIcon"></i>
           <Collapse isOpen={collapses.includes(4)}>
             <CompanyLink />
+          </Collapse>
+        </ListGroupItem>
+
+        <ListGroupItem
+          className="footerMobileListGroupItem"
+          onClick={e => {
+            e.preventDefault();
+            changeCollapse(5);
+          }}
+        >
+          <span className="footerTitle">Contact Info</span>
+          <i className="now-ui-icons arrows-1_minimal-down footerDropDownLinkIcon"></i>
+          <Collapse isOpen={collapses.includes(5)}>
+            <ContactInfo />
           </Collapse>
         </ListGroupItem>
       </ListGroup>

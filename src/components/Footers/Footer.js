@@ -62,6 +62,9 @@ function Footer() {
     return (
       <>
         <MobileFooter />
+        <span className="text-center">
+          <CopyRight />
+        </span>
       </>
     );
   }
