@@ -30,9 +30,11 @@ function TotalCard(props){
             The price listed is for the meter with the current configuration.
           </CardText>
           <Button
-            color="info"
+            className="saveQuoteButtonZoom"
+            color="white"
             size="lg"
             outline
+            style={{ 'background': '#dc3545' }}
             href="#pablo"
             onClick={e => e.preventDefault()}
           >
