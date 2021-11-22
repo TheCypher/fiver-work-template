@@ -53,10 +53,12 @@ function MobileFooter() {
         >
           <span className="footerTitle">Information & Resources</span>
           <i className="now-ui-icons arrows-1_minimal-down footerDropDownLinkIcon"></i>
+        </ListGroupItem>
+        <Col className="footerMobileListGroupItem">
           <Collapse isOpen={collapses.includes(2)}>
             <InformationLinks />
           </Collapse>
-        </ListGroupItem>
+        </Col>
 
         <ListGroupItem
           className="footerMobileListGroupItem"
@@ -67,10 +69,12 @@ function MobileFooter() {
         >
           <span className="footerTitle">Support</span>
           <i className="now-ui-icons arrows-1_minimal-down footerDropDownLinkIcon"></i>
+        </ListGroupItem>
+        <Col className="footerMobileListGroupItem">
           <Collapse isOpen={collapses.includes(3)}>
             <SupportLinks />
           </Collapse>
-        </ListGroupItem>
+        </Col>
 
         <ListGroupItem
           className="footerMobileListGroupItem"
@@ -81,10 +85,12 @@ function MobileFooter() {
         >
           <span className="footerTitle">Company</span>
           <i className="now-ui-icons arrows-1_minimal-down footerDropDownLinkIcon"></i>
+        </ListGroupItem>
+        <Col className="footerMobileListGroupItem">
           <Collapse isOpen={collapses.includes(4)}>
             <CompanyLink />
           </Collapse>
-        </ListGroupItem>
+        </Col>
 
         <ListGroupItem
           className="footerMobileListGroupItem"
@@ -95,10 +101,12 @@ function MobileFooter() {
         >
           <span className="footerTitle">Contact Info</span>
           <i className="now-ui-icons arrows-1_minimal-down footerDropDownLinkIcon"></i>
+        </ListGroupItem>
+        <Col className="footerMobileListGroupItem">
           <Collapse isOpen={collapses.includes(5)} style={{ 'padding-bottom': '70px'}}>
             <ContactInfo />
           </Collapse>
-        </ListGroupItem>
+        </Col>
       </ListGroup>
     </>
   );
