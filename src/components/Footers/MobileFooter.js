@@ -95,7 +95,7 @@ function MobileFooter() {
         >
           <span className="footerTitle">Contact Info</span>
           <i className="now-ui-icons arrows-1_minimal-down footerDropDownLinkIcon"></i>
-          <Collapse isOpen={collapses.includes(5)}>
+          <Collapse isOpen={collapses.includes(5)} style={{ 'padding-bottom': '70px'}}>
             <ContactInfo />
           </Collapse>
         </ListGroupItem>
