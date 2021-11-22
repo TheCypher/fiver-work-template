@@ -1,5 +1,6 @@
 /*eslint-disable*/
 import React from "react";
+import { useMediaQuery } from 'react-responsive';
 
 // reactstrap components
 import { 
@@ -20,8 +21,10 @@ import Links from "./Regular/Links";
 import Logos from "./Regular/Logos";
 import ContactInfo from "./Regular/ContactInfo";
 import CopyRight from "./Regular/CopyRight";
+import MobileFooter from "./MobileFooter";
 
-function DefaultFooter() {
+function Footer() {
+  const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   {
     /**
@@ -43,15 +46,25 @@ function DefaultFooter() {
           As Left Validation Curve [+$X]
      */
   }
-  return (
-    <>
-      <Subscribe />
-      <Links />
-      <Logos />
-      <ContactInfo />
-      <CopyRight />
-    </>
-  );
+  if(!isMobile){
+    return (
+      <>
+        <Subscribe />
+        <Links />
+        <Logos />
+        <ContactInfo />
+        <CopyRight />
+      </>
+    );
+  }
+
+  if(isMobile){
+    return (
+      <>
+        <MobileFooter />
+      </>
+    );
+  }
 }
 
-export default DefaultFooter;
+export default Footer;

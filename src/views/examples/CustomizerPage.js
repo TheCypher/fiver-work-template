@@ -16,7 +16,7 @@ import {
 import NewNavbar from "components/Navbars/NewNavbar";
 import LandingPageHeader from "components/Headers/LandingPageHeader.js";
 import ProductView from "components/Customizer/ProductView";
-import DefaultFooter from "components/Footers/DefaultFooter.js";
+import Footer from "components/Footers/Footer.js";
 import MeterCustomizerNavbar from "components/Navbars/MeterCustomizerNavbar";
 import Customizer from "components/Customizer/Customizer";
 
@@ -48,7 +48,7 @@ function CustomerizerPage() {
         <LandingPageHeader />
         <ProductView />
         <Customizer />
-        <DefaultFooter />
+        <Footer />
       </div>
     </>
   );

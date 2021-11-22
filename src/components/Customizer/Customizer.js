@@ -532,7 +532,7 @@ function Customizer(){
 
   const ShowFooter = (props) => {
     if (isMobile) {
-      return (<> </>)
+      return (<CustomizerPriceFooter state={props} />)
     } else {
       return(<> </>)
     }

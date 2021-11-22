@@ -781,6 +781,18 @@
   font-size: 14px;
 }
 
+.footerMobileListGroupItem {
+  background: #012E82 !important;
+  color: white !important;
+}
+
+.footerDropDownLinkIcon {
+  float: right;
+  overflow: visible;
+  font-size: 22px;
+  line-height: 21px;
+}
+
 /* we'll come back to this */
 /* .menuMoblieShowButton {
   flex-shrink: 0;
