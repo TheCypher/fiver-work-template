@@ -50,6 +50,7 @@ function CustomizerPriceFooter(props) {
                     color="white"
                     outline
                     href="#pablo"
+                    style={{ 'background': '#dc3545' }}
                     onClick={e => e.preventDefault()}
                   >
                     Save Quote

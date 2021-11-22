@@ -552,7 +552,7 @@ function Customizer(){
   
   return (
     <>
-      <div className="section section-about-us" style={{ 'background': '#EBF2FF', 'padding-bottom': '50px', 'padding-top': ''}}>
+      <div className={ !isMobile? ' section section-about-us CustomizerPage' : ' section section-about-us CustomizerPageMobile'}>
         <MeterCustomizerNavbar />
         <h3 className="title text-center">Meter Customizer</h3>
         <p className="text-center">Description text</p>
