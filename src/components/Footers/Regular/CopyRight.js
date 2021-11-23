@@ -15,6 +15,8 @@ import {
 } from "reactstrap";
 
 // core components
+import white_logo from  'assets/img/logo_white.svg';
+
 
 function CopyRight() {
   return (
@@ -64,7 +66,7 @@ function CopyRight() {
               style={{ 'height': '19.51px', 'margin-left': '5px'}}
               alt="..."
               className="img-raised footerContactInfoSocialImgs"
-              src={require("assets/img/bg7.jpg").default}
+              src={ white_logo }
             ></img>
             <br />
           </div>
