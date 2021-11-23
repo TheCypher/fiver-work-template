@@ -11,10 +11,24 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-function FlowRate({ MakeChangeText, MakeChangeDropdown }){
+function FlowRate({ MakeChangeText, MakeChangeDropdown, CheckErrors, ErrorValues }){
+  
+  const CheckAndMakeChange = (data) => {
+    data.input_value = data.option.target.value;
+    CheckErrors(data)
+
+    if(!ErrorValues[data.input_name]){
+      MakeChangeText(data)
+    }
+  }
   
   return (
     <>
+      {ErrorValues.max_flow_rate &&
+        <p className="text-center inputErrorTextbox customizerInputTitleSmallX1">
+          Warning! Flow rate needs to be less than 25,000 SFPM for Carbon Dioxide (CO2).
+        </p>
+      }
       <Row>
         <Col className="processParametterCols">
         <FormGroup>
@@ -30,7 +44,7 @@ function FlowRate({ MakeChangeText, MakeChangeDropdown }){
             <Input
               className="epiInputSize"
               id="exampleFormControlSelect1"
-              type="text"
+              type="number"
               placeholder="Minimum Flow Rate"
               onChange={ (e) => MakeChangeText({
                 section: 'process_parameters',
@@ -59,14 +73,15 @@ function FlowRate({ MakeChangeText, MakeChangeDropdown }){
             <Input
               className="epiInputSize"
               id="exampleFormControlSelect1"
-              type="text"
+              type="number"
               placeholder="Maximum Flow Rate"
-              onChange={ (e) => MakeChangeText({
+              onChange={ (e) => CheckAndMakeChange({
                 section: 'process_parameters',
                 type: 'flow_rate_maximum',
                 values: ['maximum'],
                 price_effect: false,
                 text_input: true,
+                input_name: 'max_flow_rate',
                 option: e
               }, e)}
             >

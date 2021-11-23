@@ -29,6 +29,13 @@ import Pressure from "./ProcessParameters/Pressure";
 
 function ProcessParameters({handleChange, value }){
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+  const [errors, setErrors] = useState(
+    {
+      max_flow_rate: false,
+      max_gas_temp: false,
+      min_gas_pressure: false
+    }
+  );
 
   // collapse states and functions
   const [collapses, setCollapses] = useState([0]);
@@ -65,10 +72,44 @@ function ProcessParameters({handleChange, value }){
     handleChange(data);
   }
 
+  const CheckErrors = (data) => {
+    const { input_name, input_value } = data;
+
+    const set = () => {
+      setErrors(prevState => ({
+        ...prevState,
+          [input_name]: true
+      })); 
+    }
+
+    const unSet = () => {
+      console.log('Show me error data 1.0 =>', data);
+      setErrors(prevState => ({
+        ...prevState,
+          [input_name]: false
+      })); 
+    }
+    
+    if(input_name === "max_flow_rate" && input_value > 24999){
+      set()
+    } else if(errors[input_name]) {
+      unSet()
+    }
+
+    if(input_name === "max_gas_temp" && input_value > 250){
+      set()
+    } else if(errors[input_name]) {
+      unSet()
+    }
+  }
+
   var title = 'Process Parameters';
   if (isMobile) {
     if(title.length > 18) title = title.substring(0,18) + '...';
   }
+
+  const { max_flow_rate, max_gas_temp, min_gas_pressure } = errors;
+  const error_values = { max_flow_rate, max_gas_temp, min_gas_pressure }
 
   return (
     <>
@@ -126,10 +167,14 @@ function ProcessParameters({handleChange, value }){
             <FlowRate
               MakeChangeText={MakeChangeText}
               MakeChangeDropdown={MakeChangeDropdown}
+              CheckErrors={CheckErrors}
+              ErrorValues={error_values}
             />
             <Gas
               MakeChangeText={MakeChangeText}
               MakeChangeDropdown={MakeChangeDropdown}
+              CheckErrors={CheckErrors}
+              ErrorValues={error_values}
             />
             <Ambient
               MakeChangeText={MakeChangeText}

@@ -11,9 +11,24 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-function Gas({ MakeChangeText, MakeChangeDropdown }){
+function Gas({ MakeChangeText, MakeChangeDropdown, CheckErrors, ErrorValues }){
+
+  const CheckAndMakeChange = (data) => {
+    data.input_value = data.option.target.value;
+    CheckErrors(data)
+
+    if(!ErrorValues[data.input_name]){
+      MakeChangeText(data)
+    }
+  }
+
   return (
     <>
+      {ErrorValues.max_gas_temp &&
+        <p className="text-center inputErrorTextbox customizerInputTitleSmallX1">
+          Warning! Temperatures above 250°F (121°C) require a High Temperature flow meter.
+        </p>
+      }
       <Row>
         <Col className="processParametterCols">
         <FormGroup>
@@ -60,12 +75,13 @@ function Gas({ MakeChangeText, MakeChangeDropdown }){
               id="exampleFormControlSelect1"
               type="text"
               placeholder="Maximum Temp"
-              onChange={ (e) => MakeChangeText({
+              onChange={ (e) => CheckAndMakeChange({
                 section: 'process_parameters',
                 type: 'gas_maximum',
                 values: ['maximum'],
                 price_effect: false,
                 text_input: true,
+                input_name: 'max_gas_temp',
                 option: e
               }, e)}
             >

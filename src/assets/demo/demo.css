@@ -717,6 +717,15 @@
   color: rgb(5, 97, 255);
 }
 
+.inputErrorTextbox {
+  border: 1px solid rgb(246 65 81);
+  border-radius: 5px;
+  padding: 5px;
+  min-height: 56px;
+  background-color: rgb(252 207 211);
+  color: rgb(246 65 81);
+}
+
 .footerTitle {
   color: rgb(71, 136, 255);
   font-weight: 700;
