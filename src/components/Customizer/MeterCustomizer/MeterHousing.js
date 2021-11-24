@@ -114,7 +114,7 @@ function MeterHousing({handleChange, value }){
                 </Row>
                 <Row>
                   <Col className="align-items-center">
-                    <span>Display
+                    <span className="customizerInputTitle">Display
                       <Button className="questionToolTip" id="Display" size="sm">
                         ?
                       </Button>{` `}
@@ -122,7 +122,41 @@ function MeterHousing({handleChange, value }){
                         Display Information Needed
                       </UncontrolledTooltip>
                     </span><br />
-                    <strong>2-Line Backlit Liquid Crystal Transflective</strong><br />
+                    <FormGroup check className="form-check-radio">
+                      <Label check>
+                        <span className="customizerInputTitleSmallX1">Display with keypad</span>
+                        <Input
+                          defaultChecked
+                          onClick={ (e) => MakeChange({
+                            section: 'meter_housing',
+                            type: 'display',
+                            values: ['display', 'no-display'],
+                            price_effect: false
+                          }, e)}
+                          id="display"
+                          name="display"
+                          type="radio"
+                        ></Input>
+                        <span className="form-check-sign"></span>
+                      </Label>
+                    </FormGroup>
+                    <FormGroup check className="form-check-radio">
+                      <Label check>
+                        <span className="customizerInputTitleSmallX1">No Display</span>
+                        <Input
+                          onClick={ (e) => MakeChange({
+                            section: 'meter_housing',
+                            type: 'display',
+                            values: ['no-display', 'display'],
+                            price_effect: false
+                          }, e)}
+                          id="display"
+                          name="display"
+                          type="radio"
+                        ></Input>
+                        <span className="form-check-sign"></span>
+                      </Label>
+                    </FormGroup><br />
                   </Col>
                 </Row>
               </Col>

@@ -41,13 +41,27 @@ function Customizer(){
           horizion: false,
           vertical: true,
         },
-        flow_direction: {
+        flow_direction_vertical: {
           top_to_bottom: true,
           bottom_to_top: false,
         },
-        enclosure_mounting_preference: {
+        flow_direction_horizontal: {
+          left_to_right: true,
+          right_to_left: false
+        },
+        enclosure_mounting_preference_vertical: {
           left_side: true,
           right_side: false,
+        },
+        enclosure_mounting_preference_horizontal: {
+          above_pipe: true,
+          below_pipe: false
+        }
+      },
+      meter_housing: {
+        display:{
+          display: true,
+          no_display: false 
         }
       },
       pipe_infornation: {
