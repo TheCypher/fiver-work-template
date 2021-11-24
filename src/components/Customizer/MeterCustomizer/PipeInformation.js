@@ -167,42 +167,48 @@ function PipeInformation({ handleChange, value }){
                     <span className="form-check-sign"></span>
                   </Label>
                 </FormGroup>
-                <FormGroup check className="form-check-radio">
-                  <Label check>
-                    <span className="customizerInputTitleSmallX1">Duct</span>
-                    <Input
-                      onClick={ (e) => MakeChange({
-                        section: 'pipe_infornation',
-                        type: 'type',
-                        values: ['duct', 'pipe', 'tube'],
-                        price_effect: false,
-                        tab: 'Duct'
-                      }, e)}
-                      id="type2"
-                      name="type2"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                </FormGroup>
-                <FormGroup check className="form-check-radio">
-                  <Label check>
-                    <span className="customizerInputTitleSmallX1">Tube</span>
-                    <Input
-                      onClick={ (e) => MakeChange({
-                        section: 'pipe_infornation',
-                        type: 'type',
-                        values: ['tube', 'duct', 'pipe'],
-                        price_effect: false,
-                        tab: 'Tube'
-                      }, e)}
-                      id="type2"
-                      name="type2"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                </FormGroup><br />
+
+                {
+                  /**
+                    <FormGroup check className="form-check-radio">
+                      <Label check>
+                        <span className="customizerInputTitleSmallX1">Duct</span>
+                        <Input
+                          onClick={ (e) => MakeChange({
+                            section: 'pipe_infornation',
+                            type: 'type',
+                            values: ['duct', 'pipe', 'tube'],
+                            price_effect: false,
+                            tab: 'Duct'
+                          }, e)}
+                          id="type2"
+                          name="type2"
+                          type="radio"
+                        ></Input>
+                        <span className="form-check-sign"></span>
+                      </Label>
+                    </FormGroup>
+                    <FormGroup check className="form-check-radio">
+                      <Label check>
+                        <span className="customizerInputTitleSmallX1">Tube</span>
+                        <Input
+                          onClick={ (e) => MakeChange({
+                            section: 'pipe_infornation',
+                            type: 'type',
+                            values: ['tube', 'duct', 'pipe'],
+                            price_effect: false,
+                            tab: 'Tube'
+                          }, e)}
+                          id="type2"
+                          name="type2"
+                          type="radio"
+                        ></Input>
+                        <span className="form-check-sign"></span>
+                      </Label>
+                    </FormGroup>
+                   */
+                }
+                <br />
 
                 <BottomOptions />
               </Col>

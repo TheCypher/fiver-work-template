@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMediaQuery } from 'react-responsive';
 
 
@@ -14,6 +14,9 @@ import {
 } from "reactstrap";
 
 function Pipe({ handleChange, value }){
+  const [pipeLength, setPipeLength] = useState(6);
+  const [pipeDiameter, setPipeDiameter] = useState(0.540);
+
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   const MakeChangeDropdown = (data) => {
@@ -30,6 +33,21 @@ function Pipe({ handleChange, value }){
       console.log('Show me pipe option data 1.0 =>', data);
     } else {
       console.log('Show me pipe option data 1.0 =>', data);
+    }
+
+    if(data.length_change){
+      console.log('Show me pipe length data 1.0 =>', pipeLength);
+      if(data.option_value === '1/4') {setPipeLength(6); setPipeDiameter(0.540);}
+      if(data.option_value === '3/8') {setPipeLength(6); setPipeDiameter(0.675);}
+      if(data.option_value === '1/2') {setPipeLength(7); setPipeDiameter(0.840);}
+      if(data.option_value === '3/4') {setPipeLength(7); setPipeDiameter(1.050);}
+      if(data.option_value === '1') {setPipeLength(8); setPipeDiameter(1.315);}
+      if(data.option_value === '1 1/4') {setPipeLength(10); setPipeDiameter(1.660);}
+      if(data.option_value === '1 1/2') {setPipeLength(14); setPipeDiameter(1.900);}
+      if(data.option_value === '2') {setPipeLength(14); setPipeDiameter(2.375);}
+      if(data.option_value === '2 1/2') {setPipeLength(14); setPipeDiameter(2.875);}
+      if(data.option_value === '3 Flanged') {setPipeLength(14); setPipeDiameter(3.500);}
+      if(data.option_value === '4 Flanged') {setPipeLength(14); setPipeDiameter(4.500);}
     }
 
     handleChange(data);
@@ -74,29 +92,35 @@ function Pipe({ handleChange, value }){
                 section: 'pipe_infornation',
                 type: 'pipe_size',
                 values: [
-                  '1.5',
-                  '0.75',
+                  '1/4',
+                  '3/8',
+                  '1/2',
+                  '3/4',
                   '1',
-                  '1_0.25',
-                  '1_1.5',
+                  '1 1/4',
+                  '1 1/2',
                   '2',
-                  '2_1.5',
-                  '3',
-                  '4'
+                  '2 1/2',
+                  '3 Flanged',
+                  '4 Flanged'
                 ],
                 price_effect: false,
+                length_change: true,
                 option: e
               }, e)}
             >
-              <option value="1.5">1.5 in</option>
-              <option value="0.75">0.75 in</option>
-              <option value="1">1 in</option>
-              <option value="1_0.25">1 - 0.25 in</option>
-              <option value="1_1.5">1 - 1.5 in</option>
-              <option value="2">2 in</option>
-              <option value="2_1.5">2 - 1.5 in</option>
-              <option value="3">3 in</option>
-              <option value="4">4 in</option>
+              <option value="1/4">1/4"</option>
+              <option value="3/8">3/8"</option>
+              <option value="1/2">1/2"</option>
+              <option value="3/4">3/4"</option>
+              <option value="1">1"</option>
+              <option value="1 1/4">1 1/4"</option>
+              <option value="1 1/2">1 1/2"</option>
+              <option value="2_1.5">2 - 1.5"</option>
+              <option value="2">2"</option>
+              <option value="2 1/2">2 1/2"</option>
+              <option value="3 Flanged">3" Flanged</option>
+              <option value="4 Flanged">4" Flanged"</option>
             </Input>
           </FormGroup>
         </Col>
@@ -104,21 +128,21 @@ function Pipe({ handleChange, value }){
         <Col>
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">Schedule</span>
-              <Button className="questionToolTip" id="Schedule" size="sm">
-                  ?
+              <span className="customizerInputTitle">Length</span>
+              <Button className="questionToolTip" id="Length" size="sm">
+                ?
               </Button>{` `}
-              <UncontrolledTooltip placement="right" target="Schedule" delay={0}>
-              Schedule Information needed
+              <UncontrolledTooltip placement="right" target="Length" delay={0}>
+                Length Information needed
               </UncontrolledTooltip>
             </label>
-            <Input id="exampleFormControlSelect1" type="select" style={{ 'border-radius': '6px'}}>
-              <option>40</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Input>
+            <Input
+              disabled
+              id="exampleFormControlInput1"
+              value={`${pipeLength}"`}
+              type="text"
+              style={{ 'border-radius': '6px', 'background-color': '#EBF2FF'}}
+            ></Input>
           </FormGroup>
         </Col>
       </Row>
@@ -136,9 +160,10 @@ function Pipe({ handleChange, value }){
               </UncontrolledTooltip>
             </label>
             <Input
+              disabled
               id="exampleFormControlInput1"
-              placeholder="Select Pipe Size & Schedule Above"
-              type="number"
+              value={`${pipeDiameter}"`}
+              type="text"
               style={{ 'border-radius': '6px', 'background-color': '#EBF2FF'}}
             ></Input>
           </FormGroup>

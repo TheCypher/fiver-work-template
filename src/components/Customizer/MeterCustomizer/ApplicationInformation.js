@@ -23,7 +23,7 @@ import {
 
 function ApplicationInformation({ handleChange, value }){
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
-  const [otherOptions, setOtherOptions] = useState(true);
+  const [otherOptions, setOtherOptions] = useState(false);
 
   // collapse states and functions
   const [collapses, setCollapses] = React.useState([0]);
@@ -51,6 +51,11 @@ function ApplicationInformation({ handleChange, value }){
       console.log('Show me pipe option data 1.0 =>', data);
     }
 
+    handleChange(data);
+  }
+
+  const MakeChangeText = (data) => {
+    data.option_value = data.option.target.value;
     handleChange(data);
   }
 
@@ -134,38 +139,21 @@ function ApplicationInformation({ handleChange, value }){
                       Application Information Needed
                     </UncontrolledTooltip>
                     </label>
-                  <Input
-                    className="epiInputSize"
-                    id="exampleFormControlSelect1"
-                    type="select"
-                    onChange={ (e) => MakeChangeDropdown({
-                      section: 'pipe_infornation',
-                      type: 'pipe_size',
-                      values: [
-                        '1.5',
-                        '0.75',
-                        '1',
-                        '1_0.25',
-                        '1_1.5',
-                        '2',
-                        '2_1.5',
-                        '3',
-                        '4'
-                      ],
-                      price_effect: false,
-                      option: e
-                    }, e)}
-                  >
-                    <option value="1.5">Select Application</option>
-                    <option value="0.75">0.75 in</option>
-                    <option value="1">1 in</option>
-                    <option value="1_0.25">1 - 0.25 in</option>
-                    <option value="1_1.5">1 - 1.5 in</option>
-                    <option value="2">2 in</option>
-                    <option value="2_1.5">2 - 1.5 in</option>
-                    <option value="3">3 in</option>
-                    <option value="4">4 in</option>
-                  </Input>
+                    <Input
+                      className="epiInputSize"
+                      id="exampleFormControlSelect1"
+                      type="text"
+                      placeholder="Enter Application"
+                      onChange={ (e) => MakeChangeText({
+                        section: 'application_information',
+                        type: 'application',
+                        values: ['application_type'],
+                        price_effect: false,
+                        text_input: true,
+                        option: e
+                      }, e)}
+                    >
+                    </Input>
                 </FormGroup>
               </Col>
 
@@ -224,6 +212,7 @@ function ApplicationInformation({ handleChange, value }){
                       option: e
                     }, e)}
                   >
+                    <option value="" selected disabled>Select a Gas</option>
                     <option value="Air">Air</option>
                     <option value="Argon">Argon</option>
                     <option value="Chlorine">Chlorine</option>
@@ -237,7 +226,7 @@ function ApplicationInformation({ handleChange, value }){
                     <option value="Butane_Gas">Butane Gas</option>
                     <option value="Benzene">Benzene</option>
                     <option value="Methane">Methane</option>
-                    <option value="Methane_Helium_Mix">Methane HeliumMix</option>
+                    <option value="Methane_Helium_Mix">Methane Helium Mix</option>
                     <option value="Methane_Nitrogen_Mix">Methane Nitrogen Mix</option>
                     <option value="Carbon_Monoxide">Carbon Monoxide</option>
                     <option value="Carbon_Dioxide">Carbon Dioxide</option>
@@ -279,7 +268,6 @@ function ApplicationInformation({ handleChange, value }){
                       Standard Temperature & Pressure: 60°F and 29.92” Hg
                     </span>
                     <Input
-                      defaultChecked
                       onClick={ (e) => MakeChange({
                         section: 'application_information',
                         type: 'reference_conditions',
@@ -287,8 +275,8 @@ function ApplicationInformation({ handleChange, value }){
                         price_effect: false,
                         other_select: false
                       }, e)}
-                      id="type"
-                      name="type"
+                      id="type2"
+                      name="type2"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -300,6 +288,7 @@ function ApplicationInformation({ handleChange, value }){
                       Standard Temperature & Pressure: 70°F and 29.92” Hg
                     </span>
                     <Input
+                      defaultChecked
                       onClick={ (e) => MakeChange({
                         section: 'application_information',
                         type: 'reference_conditions',
@@ -307,8 +296,8 @@ function ApplicationInformation({ handleChange, value }){
                         price_effect: false,
                         other_select: false
                       }, e)}
-                      id="type"
-                      name="type"
+                      id="type2"
+                      name="type2"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -327,8 +316,8 @@ function ApplicationInformation({ handleChange, value }){
                         price_effect: false,
                         other_select: false
                       }, e)}
-                      id="type"
-                      name="type"
+                      id="type2"
+                      name="type2"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -341,7 +330,6 @@ function ApplicationInformation({ handleChange, value }){
                       Other
                     </span>
                     <Input
-                      defaultChecked
                       onClick={ (e) => MakeChange({
                         section: 'application_information',
                         type: 'reference_conditions',
@@ -349,8 +337,8 @@ function ApplicationInformation({ handleChange, value }){
                         price_effect: false,
                         other_select: true
                       }, e)}
-                      id="type"
-                      name="type"
+                      id="type2"
+                      name="type2"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -431,7 +419,7 @@ function ApplicationInformation({ handleChange, value }){
                       option: e
                     }, e)}
                   >
-                    <option value="" selected disabled hidden>Select Yes or No</option>
+                    <option value="" selected disabled>Select Yes or No</option>
                     <option value="yes">Yes</option>
                     <option value="no">No</option>
                   </Input>

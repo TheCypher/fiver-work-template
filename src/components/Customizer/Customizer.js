@@ -76,15 +76,17 @@ function Customizer(){
           din: false
         },
         pipe_size: {
-          '1.5': true,
-          '0.75': false,
+          '1/4': true,
+          '3/8': false,
+          '1/2': false,
+          '3/4': false,
           '1': false,
-          '1_0.25': false,
-          '1_1.5': false,
+          '1 1/4': false,
+          '1 1/2': false,
           '2': false,
-          '2_1.5': false,
-          '3': false,
-          '4': false
+          '2 1/2': false,
+          '3 Flanged': false,
+          '4 Flanged': false
         },
         schedule:{
           40: true
@@ -117,8 +119,11 @@ function Customizer(){
         }
       },
       application_information: {
+        application:{
+          application_type: false
+        },
         gas:{
-          Air: true, 
+          Air: false, 
           Argon: false,
           Chlorine: false,
           Blast_Furnace_Gas: false,
@@ -151,7 +156,7 @@ function Customizer(){
           MARI_Gas: false
         },
         gas_prices:{
-          Air: 0, 
+          Air: 220, 
           Argon: 440,
           Chlorine: 440,
           Blast_Furnace_Gas: 693,
@@ -189,7 +194,7 @@ function Customizer(){
         },
         reference_conditions: {
           temperature_60: false,
-          temperature_70: false,
+          temperature_70: true,
           temperature_0: false,
           other: false
         },
