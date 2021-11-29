@@ -173,10 +173,10 @@ function InputPower({ handleChange, value }){
                 <FormGroup>
                   <label htmlFor="exampleFormControlSelect1">
                     <span className="customizerInputTitle">Communication Options</span>
-                    <Button className="questionToolTip" id="Application" size="sm">
+                    <Button className="questionToolTip" id="ApplicationCommunication" size="sm">
                       ?
                     </Button>{` `}
-                    <UncontrolledTooltip placement="right" target="Application" delay={0}>
+                    <UncontrolledTooltip placement="right" target="ApplicationCommunication" delay={0}>
                       Select Communication Options
                     </UncontrolledTooltip>
                     </label>
