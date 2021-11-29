@@ -156,7 +156,7 @@ function InputPower({ handleChange, value }){
                     }, e)}
                   >
                     <option value="" selected disabled>Select Input Power</option>
-                    <option value="vdc_12_18">12 to 18 VDC (HART and Profibus are excluded with this input power)</option>
+                    <option value="vdc_12_18">12 to 18 VDC</option>
                     <option value="vdc_18_24">18 to 24 VDC</option>
                     <option value="vac_105_120">VAC 105 to 120</option>
                     <option value="vac_210_240">VAC 210 to 240</option>
