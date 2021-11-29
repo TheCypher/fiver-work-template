@@ -28,7 +28,7 @@ function Logos() {
                 <img
                   alt="..."
                   className="img-raised footerImgLogos"
-                  src={require("assets/img/bg7.jpg").default}
+                  src={require("assets/img/footer_assets/certificates/Bitmap_3.png").default}
                 ></img>
               </NavLink>
             </NavItem>
@@ -38,7 +38,7 @@ function Logos() {
                 <img
                   alt="..."
                   className="img-raised footerImgLogos"
-                  src={require("assets/img/bg7.jpg").default}
+                  src={require("assets/img/footer_assets/certificates/Bitmap_4.png").default}
                 ></img>
               </NavLink>
             </NavItem>
@@ -48,7 +48,7 @@ function Logos() {
                 <img
                   alt="..."
                   className="img-raised footerImgLogos"
-                  src={require("assets/img/bg7.jpg").default}
+                  src={require("assets/img/footer_assets/certificates/Bitmap_5.png").default}
                 ></img>
               </NavLink>
             </NavItem>
@@ -58,7 +58,7 @@ function Logos() {
                 <img
                   alt="..."
                   className="img-raised footerImgLogos"
-                  src={require("assets/img/bg7.jpg").default}
+                  src={require("assets/img/footer_assets/certificates/Bitmap_9.png").default}
                 ></img>
               </NavLink>
             </NavItem>
@@ -68,7 +68,7 @@ function Logos() {
                 <img
                   alt="..."
                   className="img-raised footerImgLogos"
-                  src={require("assets/img/bg7.jpg").default}
+                  src={require("assets/img/footer_assets/certificates/Bitmap_6.png").default}
                 ></img>
               </NavLink>
             </NavItem>
@@ -78,7 +78,7 @@ function Logos() {
                 <img
                   alt="..."
                   className="img-raised footerImgLogos"
-                  src={require("assets/img/bg7.jpg").default}
+                  src={require("assets/img/footer_assets/certificates/Bitmap_7.png").default}
                 ></img>
               </NavLink>
             </NavItem>
@@ -88,7 +88,7 @@ function Logos() {
                 <img
                   alt="..."
                   className="img-raised footerImgLogos"
-                  src={require("assets/img/bg7.jpg").default}
+                  src={require("assets/img/footer_assets/certificates/Bitmap_8.png").default}
                 ></img>
               </NavLink>
             </NavItem>
@@ -98,7 +98,7 @@ function Logos() {
                 <img
                   alt="..."
                   className="img-raised footerImgLogos"
-                  src={require("assets/img/bg7.jpg").default}
+                  src={require("assets/img/footer_assets/certificates/Bitmap_2.png").default}
                 ></img>
               </NavLink>
             </NavItem>
@@ -108,7 +108,7 @@ function Logos() {
                 <img
                   alt="..."
                   className="img-raised footerImgLogos"
-                  src={require("assets/img/bg7.jpg").default}
+                  src={require("assets/img/footer_assets/certificates/Bitmap.png").default}
                 ></img>
               </NavLink>
             </NavItem>
