@@ -375,8 +375,10 @@ function Customizer(){
           vac_210_240: false
         },
         input_power_prices: {
-          cd12_dc24: 0,
-          vac115_vac230: 204
+          vdc_12_18: 0,
+          vdc_18_24: 100,
+          vac_105_120: 200,
+          vac_210_240: 300
         },
         standard_ma_flow:{
           self: true,

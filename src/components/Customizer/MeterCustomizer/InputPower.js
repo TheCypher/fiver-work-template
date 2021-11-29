@@ -35,6 +35,7 @@ import StandardBottom from "./InputPower/StandardBottom";
 function InputPower({ handleChange, value }){
   const [iconTabs, setIconTabs] = useState("1");
   const [selectInputOptions, setSelectInputOptions] = useState(0);
+  const [inputPowerSelected, setInputPowerSelected] = useState(0);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
@@ -61,6 +62,10 @@ function InputPower({ handleChange, value }){
       console.log('Show me pipe option data 1.0 =>', data);
     } else {
       console.log('Show me pipe option data 1.0 =>', data);
+    }
+    
+    if (!inputPowerSelected) {
+      setInputPowerSelected(1)
     }
 
     (data.option_value === 'vdc_12_18') ? setSelectInputOptions(1) : setSelectInputOptions(0);
@@ -203,57 +208,66 @@ function InputPower({ handleChange, value }){
             </Row>
             <br />
 
-            <span className="customizerInputTitle">Select Configuration</span>
-            <NavbarInputPower
-              setIconTabs={setIconTabs}
-              iconTabs={iconTabs}
-              selectInputOptions={selectInputOptions}
-            />
-            <TabContent
-            activeTab={"iconTabs" + iconTabs}
-            >
-              <TabPane tabId="iconTabs1" key="345">
-                <Standard
-                  handleChange={handleChange}
-                  value={value}
-                />
-              </TabPane>
 
-              <TabPane tabId="iconTabs2">
-                <MultiRange
-                  handleChange={handleChange}
-                  value={value}
-                />
-              </TabPane>
+            { inputPowerSelected ? (
+              <span className="customizerInputTitle">Select Configuration</span>
+            ) : (<></>)}
 
-              <TabPane tabId="iconTabs3">
-                <MultiRangeNoTemp
-                  handleChange={handleChange}
-                  value={value}
-                />
-              </TabPane>
+            { inputPowerSelected ? (
+              <NavbarInputPower
+                setIconTabs={setIconTabs}
+                iconTabs={iconTabs}
+                selectInputOptions={selectInputOptions}
+              />
+            ) : (<></>)}
 
-              <TabPane tabId="iconTabs4">
-                <Hart
-                  handleChange={handleChange}
-                  value={value}
-                />
-              </TabPane>
+            { inputPowerSelected ? (
+              <TabContent
+              activeTab={"iconTabs" + iconTabs}
+              >
+                <TabPane tabId="iconTabs1" key="345">
+                  <Standard
+                    handleChange={handleChange}
+                    value={value}
+                  />
+                </TabPane>
 
-              <TabPane tabId="iconTabs5">
-                <Bacnet
-                  handleChange={handleChange}
-                  value={value}
-                />
-              </TabPane>
-              
-              <TabPane tabId="iconTabs6">
-                <Profibus
-                  handleChange={handleChange}
-                  value={value}
-                />
-              </TabPane>
-          </TabContent>
+                <TabPane tabId="iconTabs2">
+                  <MultiRange
+                    handleChange={handleChange}
+                    value={value}
+                  />
+                </TabPane>
+
+                <TabPane tabId="iconTabs3">
+                  <MultiRangeNoTemp
+                    handleChange={handleChange}
+                    value={value}
+                  />
+                </TabPane>
+
+                <TabPane tabId="iconTabs4">
+                  <Hart
+                    handleChange={handleChange}
+                    value={value}
+                  />
+                </TabPane>
+
+                <TabPane tabId="iconTabs5">
+                  <Bacnet
+                    handleChange={handleChange}
+                    value={value}
+                  />
+                </TabPane>
+                
+                <TabPane tabId="iconTabs6">
+                  <Profibus
+                    handleChange={handleChange}
+                    value={value}
+                  />
+                </TabPane>
+              </TabContent>
+            ) : (<></>)}
           </CardBody>
         </Collapse>
       </Card>
