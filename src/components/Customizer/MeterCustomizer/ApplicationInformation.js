@@ -22,6 +22,7 @@ import {
 } from "reactstrap";
 
 function ApplicationInformation({ handleChange, value }){
+  const [selectInputOptions, setSelectInputOptions] = useState(0);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const [otherOptions, setOtherOptions] = useState(false);
 
@@ -51,21 +52,13 @@ function ApplicationInformation({ handleChange, value }){
       console.log('Show me pipe option data 1.0 =>', data);
     }
 
+    (data.option_value === 'other') ? setSelectInputOptions(1) : setSelectInputOptions(0);
+
     handleChange(data);
   }
 
   const MakeChangeText = (data) => {
     data.option_value = data.option.target.value;
-    handleChange(data);
-  }
-
-  const MakeChange = (data) => {
-    if(data.other_select){
-      setOtherOptions(true);
-    } else {
-      setOtherOptions(false);
-    }
-
     handleChange(data);
   }
 
@@ -132,29 +125,68 @@ function ApplicationInformation({ handleChange, value }){
                 <FormGroup>
                   <label htmlFor="exampleFormControlSelect1">
                     <span className="customizerInputTitle">Application</span>
-                    <Button className="questionToolTip" id="Application" size="sm">
+                    <Button className="questionToolTip" id="ApplicationQuestion" size="sm">
                       ?
                     </Button>{` `}
-                    <UncontrolledTooltip placement="right" target="Application" delay={0}>
-                      Application Information Needed
+                    <UncontrolledTooltip placement="right" target="ApplicationQuestion" delay={0}>
+                      Type of Industry
                     </UncontrolledTooltip>
-                    </label>
-                    <Input
-                      className="epiInputSize"
-                      id="exampleFormControlSelect1"
-                      type="text"
-                      placeholder="Enter Application"
-                      onChange={ (e) => MakeChangeText({
-                        section: 'application_information',
-                        type: 'application',
-                        values: ['application_type'],
-                        price_effect: false,
-                        text_input: true,
-                        option: e
-                      }, e)}
-                    >
-                    </Input>
+                  </label>
+                  <Input
+                    className="epiInputSize"
+                    id="exampleFormControlSelect1"
+                    type="select"
+                    placeholder="Yes or No"
+                    onChange={ (e) => MakeChangeDropdown({
+                      section: 'application_information',
+                      type: 'application_options',
+                      values: [
+                        'compressed_air',
+                        'hvac',
+                        'landfill_gas',
+                        'natural_gas',
+                        'waste_water',
+                        'flue_gas',
+                        'flare',
+                        'other'
+                      ],
+                      price_effect: false,
+                      option: e
+                    }, e)}
+                  >
+                    <option value="" selected disabled>Select Application</option>
+                    <option value="compressed_air">Compressed Air Flow Measurement Meters</option>
+                    <option value="hvac">HVAC & Air Vent Meters</option>
+                    <option value="landfill_gas">Landfill Gas & Municipal Flow Meters</option>
+                    <option value="natural_gas">Natural Gas Flow Measurement Meter</option>
+                    <option value="waste_water">Wastewater & Aeration Basin Meters</option>
+                    <option value="flue_gas">Flue Gas</option>
+                    <option value="flare">Flare</option>
+                    <option value="other">Other</option>
+                  </Input>
                 </FormGroup>
+
+              { selectInputOptions ? (
+                <FormGroup>
+                  <Input
+                    className="epiInputSize"
+                    id="exampleFormControlSelect1"
+                    type="text"
+                    placeholder="Enter Application"
+                    onChange={ (e) => MakeChangeText({
+                      section: 'application_information',
+                      type: 'application_options_other',
+                      values: ['application'],
+                      price_effect: false,
+                      text_input: true,
+                      option: e
+                    }, e)}
+                  >
+                  </Input>
+                </FormGroup>
+              ) : (
+                <div></div>
+              )}
               </Col>
 
               <Col>
@@ -165,7 +197,7 @@ function ApplicationInformation({ handleChange, value }){
                       ?
                     </Button>{` `}
                     <UncontrolledTooltip placement="right" target="Gas" delay={0}>
-                        Gas Information Needed
+                      Non-condensing / Anhydrous Gas 
                     </UncontrolledTooltip>
                   </label>
                   <Input
@@ -253,155 +285,11 @@ function ApplicationInformation({ handleChange, value }){
 
             <Row>
               <Col>
-              <span>
-                  <span className="customizerInputTitle">Reference Conditions</span>
-                  <Button className="questionToolTip" id="ReferenceConditions" size="sm">
-                      ?
-                  </Button>{` `}
-                  <UncontrolledTooltip placement="right" target="ReferenceConditions" delay={0}>
-                    Reference Conditions Information needed
-                  </UncontrolledTooltip>
-                </span>
-                <FormGroup check className="form-check-radio">
-                  <Label check>
-                    <span className="customizerInputTitleSmallX1">
-                      Standard Temperature & Pressure: 60°F and 29.92” Hg
-                    </span>
-                    <Input
-                      onClick={ (e) => MakeChange({
-                        section: 'application_information',
-                        type: 'reference_conditions',
-                        values: ['temperature_60', 'temperature_70', 'temperature_0', 'other'],
-                        price_effect: false,
-                        other_select: false
-                      }, e)}
-                      id="type2"
-                      name="type2"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                </FormGroup>
-                <FormGroup check className="form-check-radio">
-                  <Label check>
-                    <span className="customizerInputTitleSmallX1">
-                      Standard Temperature & Pressure: 70°F and 29.92” Hg
-                    </span>
-                    <Input
-                      defaultChecked
-                      onClick={ (e) => MakeChange({
-                        section: 'application_information',
-                        type: 'reference_conditions',
-                        values: ['temperature_70', 'temperature_60', 'temperature_0', 'other'],
-                        price_effect: false,
-                        other_select: false
-                      }, e)}
-                      id="type2"
-                      name="type2"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                </FormGroup>
-                <FormGroup check className="form-check-radio">
-                  <Label check>
-                    <span className="customizerInputTitleSmallX1">
-                      Normal Temperature & Pressure: 0°C and 1.013 Bar Abs.
-                    </span>
-                    <Input
-                      onClick={ (e) => MakeChange({
-                        section: 'application_information',
-                        type: 'reference_conditions',
-                        values: ['temperature_0', 'temperature_60', 'temperature_70', 'other'],
-                        price_effect: false,
-                        other_select: false
-                      }, e)}
-                      id="type2"
-                      name="type2"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                </FormGroup>
-
-                <FormGroup check className="form-check-radio">
-                  <Label check>
-                    <span className="customizerInputTitleSmallX1">
-                      Other
-                    </span>
-                    <Input
-                      onClick={ (e) => MakeChange({
-                        section: 'application_information',
-                        type: 'reference_conditions',
-                        values: ['other', 'temperature_0', 'temperature_60', 'temperature_70'],
-                        price_effect: false,
-                        other_select: true
-                      }, e)}
-                      id="type2"
-                      name="type2"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                  <Button className="questionToolTip" id="Other" size="sm">
-                    ?
-                  </Button>{` `}
-                  <UncontrolledTooltip placement="right" target="Other" delay={0}>
-                      Other Information Needed
-                  </UncontrolledTooltip>
-                </FormGroup>
-
-                { otherOptions ? (
-                  <FormGroup>
-                    <Input
-                      className="epiInputSize"
-                      id="exampleFormControlSelect1"
-                      type="select"
-                      onChange={ (e) => MakeChangeDropdown({
-                        section: 'application_information',
-                        type: 'other_temperature',
-                        values: [
-                          'temperature_70',
-                          'temperature_21',
-                          'temperature_20', 
-                          'temperature_0_Bar',
-                          'temperature_0_Hg',
-                          'temperature_20kPa',
-                          'temperature_0ׄ_1_Bar',
-                          'temperature_60_ATM'
-                        ],
-                        price_effect: false,
-                        option: e
-                      }, e)}
-                    >
-                      <option value="" selected disabled hidden>Select Other Conditions</option>
-                      <option value="temperature_70">70°F & 29.92" Hg</option>
-                      <option value="temperature_21">21.1°C & 1.01325 BarA</option>
-                      <option value="temperature_20">20°C & 1.01325 BarA</option>
-                      <option value="temperature_0_Bar">0°C & 1.01325 BarA</option>
-                      <option value="temperature_0_Hg">0°C & 760mm Hg</option>
-                      <option value="temperature_20kPa">20°C & 101.325 kPa A</option>
-                      <option value="temperature_0ׄ_1_Bar">0ׄ°C & 1.000 Bar A</option>
-                      <option value="temperature_60_ATM">60°F & 1 ATM</option>
-                    </Input>
-                  </FormGroup>
-                ) : (
-                  <div></div>
-                )}
-              </Col>
-
-              <Col>
                 <FormGroup>
                   <label htmlFor="exampleFormControlSelect1">
                     <span className="customizerInputTitle">
                       Do you expect condensing moisture in the process line?
                     </span>
-                    <Button className="questionToolTip" id="CondensingMoisture" size="sm">
-                      ?
-                    </Button>{` `}
-                    <UncontrolledTooltip placement="right" target="CondensingMoisture" delay={0}>
-                      Information Needed
-                    </UncontrolledTooltip>
                     </label>
                   <Input
                     className="epiInputSize"
@@ -424,6 +312,10 @@ function ApplicationInformation({ handleChange, value }){
                     <option value="no">No</option>
                   </Input>
                 </FormGroup>
+              </Col>
+
+              <Col>
+
               </Col>
             </Row>
           </CardBody>

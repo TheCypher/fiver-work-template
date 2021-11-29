@@ -37,17 +37,17 @@ function Pipe({ handleChange, value }){
 
     if(data.length_change){
       console.log('Show me pipe length data 1.0 =>', pipeLength);
-      if(data.option_value === '1/4') {setPipeLength(6); setPipeDiameter(0.540);}
-      if(data.option_value === '3/8') {setPipeLength(6); setPipeDiameter(0.675);}
-      if(data.option_value === '1/2') {setPipeLength(7); setPipeDiameter(0.840);}
-      if(data.option_value === '3/4') {setPipeLength(7); setPipeDiameter(1.050);}
-      if(data.option_value === '1') {setPipeLength(8); setPipeDiameter(1.315);}
-      if(data.option_value === '1 1/4') {setPipeLength(10); setPipeDiameter(1.660);}
-      if(data.option_value === '1 1/2') {setPipeLength(14); setPipeDiameter(1.900);}
-      if(data.option_value === '2') {setPipeLength(14); setPipeDiameter(2.375);}
-      if(data.option_value === '2 1/2') {setPipeLength(14); setPipeDiameter(2.875);}
-      if(data.option_value === '3 Flanged') {setPipeLength(14); setPipeDiameter(3.500);}
-      if(data.option_value === '4 Flanged') {setPipeLength(14); setPipeDiameter(4.500);}
+      if(data.option_value === '1/4') {setPipeLength(6); setPipeDiameter(0.364);}
+      if(data.option_value === '3/8') {setPipeLength(6); setPipeDiameter(0.498);}
+      if(data.option_value === '1/2') {setPipeLength(7); setPipeDiameter(0.622);}
+      if(data.option_value === '3/4') {setPipeLength(7); setPipeDiameter(0.824);}
+      if(data.option_value === '1') {setPipeLength(8); setPipeDiameter(1.049);}
+      if(data.option_value === '1 1/4') {setPipeLength(10); setPipeDiameter(1.380);}
+      if(data.option_value === '1 1/2') {setPipeLength(14); setPipeDiameter(1.610);}
+      if(data.option_value === '2') {setPipeLength(14); setPipeDiameter(2.067);}
+      if(data.option_value === '2 1/2') {setPipeLength(14); setPipeDiameter(2.469);}
+      if(data.option_value === '3 Flanged') {setPipeLength(14); setPipeDiameter(3.068);}
+      if(data.option_value === '4 Flanged') {setPipeLength(14); setPipeDiameter(4.0);}
     }
 
     handleChange(data);
@@ -81,7 +81,7 @@ function Pipe({ handleChange, value }){
                   ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="PipeSize" delay={0}>
-                Pipe Size Information needed
+                Based on ANSI standard
               </UncontrolledTooltip>
             </label>
             <Input
@@ -128,12 +128,12 @@ function Pipe({ handleChange, value }){
         <Col>
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">Length</span>
+              <span className="customizerInputTitle">Length of Flow Section</span>
               <Button className="questionToolTip" id="Length" size="sm">
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="Length" delay={0}>
-                Length Information needed
+                Consult factory for custom flow section length
               </UncontrolledTooltip>
             </label>
             <Input
@@ -156,7 +156,7 @@ function Pipe({ handleChange, value }){
                   ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="InnerDiameter" delay={0}>
-              Inner Diameter Information needed
+                Based on ANSI standard
               </UncontrolledTooltip>
             </label>
             <Input

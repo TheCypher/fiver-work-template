@@ -141,12 +141,6 @@ function PipeInformation({ handleChange, value }){
               <Col>
                 <span>
                   <span className="customizerInputTitle">Type</span>
-                  <Button className="questionToolTip" id="Type" size="sm">
-                      ?
-                  </Button>{` `}
-                  <UncontrolledTooltip placement="right" target="Type" delay={0}>
-                    Type Information needed
-                  </UncontrolledTooltip>
                 </span>
                 <FormGroup check className="form-check-radio">
                   <Label check>
@@ -160,8 +154,8 @@ function PipeInformation({ handleChange, value }){
                         price_effect: false,
                         tab: 'Pipe'
                       }, e)}
-                      id="type2"
-                      name="type2"
+                      id="type2Pipe"
+                      name="type2Pipe"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>

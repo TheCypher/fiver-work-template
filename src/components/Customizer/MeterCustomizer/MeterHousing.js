@@ -100,26 +100,13 @@ function MeterHousing({handleChange, value }){
             <Row>
               <Col>
                 <Row>
-                  <Col style={{ 'margin-bottom': '30px'}}>
-                    <span>Transmitter 
-                      <Button className="questionToolTip" id="Transmitter" size="sm">
-                        ?
-                      </Button>{` `}
-                      <UncontrolledTooltip placement="right" target="Transmitter" delay={0}>
-                      Transmitter Information Needed
-                      </UncontrolledTooltip>
-                    </span><br />
-                    <strong>Integrated Electronics</strong><br />
-                  </Col>
-                </Row>
-                <Row>
                   <Col className="align-items-center">
                     <span className="customizerInputTitle">Display
                       <Button className="questionToolTip" id="Display" size="sm">
                         ?
                       </Button>{` `}
                       <UncontrolledTooltip placement="right" target="Display" delay={0}>
-                        Display Information Needed
+                        2-line backlit Liquid Crystal Transflective Display; 4-button programmable keypad;
                       </UncontrolledTooltip>
                     </span><br />
                     <FormGroup check className="form-check-radio">

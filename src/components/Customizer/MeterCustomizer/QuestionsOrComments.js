@@ -154,8 +154,7 @@ function QuestionsOrComments({handleChange, value }){
             <FormGroup check>
               <Label check>
                 <Input
-                  defaultValue="option1"
-                  id="inlineCheckbox1"
+                  id="inlineCheckbox123"
                   type="checkbox"
                 ></Input>
                 <span className="customizerInputTitleSmallX1">
@@ -177,7 +176,7 @@ function QuestionsOrComments({handleChange, value }){
               <Input
                 className="epiTextArea"
                 id="inputAddress"
-                placeholder="Enter any addiKonal informaKon or comments here."
+                placeholder="Enter any additional information or comments here."
                 type="textarea"
               ></Input>
             </FormGroup>

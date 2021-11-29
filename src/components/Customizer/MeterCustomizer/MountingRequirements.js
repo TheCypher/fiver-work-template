@@ -39,25 +39,25 @@ function MountingRequirements({handleChange, value }){
   const MakeChangeDropdown = (data) => {
     data.option_value = data.option.target.value;
     console.log('Show me Question Or Comments data 1.0 =>', data);
-    // const values = data.values;
-    // const first_value = values[0]
+    const values = data.values;
+    const first_value = values[0]
     
-    // if(first_value != data.option_value){
-    //   values.removeWithValue(data.option_value)
-    //   values[0] = data.option_value;
-    //   values.splice(1,0, first_value);
-    //   values.join();
-    //   data.values = values;
-    //   console.log('Show me pipe option data 1.0 =>', data);
-    // } else {
-    //   console.log('Show me pipe option data 1.0 =>', data);
-    // }
+    if(first_value != data.option_value){
+      values.removeWithValue(data.option_value)
+      values[0] = data.option_value;
+      values.splice(1,0, first_value);
+      values.join();
+      data.values = values;
+      console.log('Show me pipe option data 1.0 =>', data);
+    } else {
+      console.log('Show me pipe option data 1.0 =>', data);
+    }
 
-    // handleChange(data);
+    handleChange(data);
   }
 
   const MakeChange = (data) => {
-    // handleChange(data);
+    handleChange(data);
   }
 
   var title = 'Mounting Requirements';
@@ -126,13 +126,13 @@ function MountingRequirements({handleChange, value }){
                     <span className="customizerInputTitleSmallX1">MNPT Ends</span>
                     <Input
                       onClick={ (e) => MakeChange({
-                        section: 'meter_orientation',
-                        type: 'pipe_orientation',
-                        values: ['horizion', 'vertical'],
+                        section: 'mounting_requirements',
+                        type: 'mounting_types',
+                        values: ['mnpt', 'butt', 'flange'],
                         price_effect: false
                       }, e)}
-                      id="pipe_orientation"
-                      name="pipe_orientation"
+                      id="mounting_types"
+                      name="mounting_types"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -144,16 +144,16 @@ function MountingRequirements({handleChange, value }){
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
-                        section: 'meter_orientation',
-                        type: 'pipe_orientation',
-                        values: ['vertical', 'horizion'],
+                        section: 'mounting_requirements',
+                        type: 'mounting_types',
+                        values: ['butt', 'mnpt', 'flange'],
                         price_effect: false
                       }, e,
                       setSelectFlange(false)
                       )
                     }
-                      id="pipe_orientation"
-                      name="pipe_orientation"
+                      id="mounting_types"
+                      name="mounting_types"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -165,15 +165,15 @@ function MountingRequirements({handleChange, value }){
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
-                        section: 'meter_orientation',
-                        type: 'pipe_orientation',
-                        values: ['vertical', 'horizion'],
+                        section: 'mounting_requirements',
+                        type: 'mounting_types',
+                        values: ['flange', 'butt', 'mnpt'],
                         price_effect: false
                       }, e,
                       setSelectFlange(true)
                       )}
-                      id="pipe_orientation"
-                      name="pipe_orientation"
+                      id="mounting_types"
+                      name="mounting_types"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
@@ -206,7 +206,7 @@ function MountingRequirements({handleChange, value }){
                           ?
                         </Button>{` `}
                         <UncontrolledTooltip placement="right" target="FlangType" delay={0}>
-                          Select Flange Type
+                          Consult factory for non-standard flange requirements
                         </UncontrolledTooltip>
                         </label>
                       <Input
@@ -214,27 +214,19 @@ function MountingRequirements({handleChange, value }){
                         id="exampleFormControlSelect1"
                         type="select"
                         onChange={ (e) => MakeChangeDropdown({
-                          section: 'pipe_infornation',
-                          type: 'pipe_size',
+                          section: 'mounting_requirements',
+                          type: 'flange_type',
                           values: [
-                            '1.5',
-                            '0.75',
-                            '1',
-                            '1_0.25',
-                            '1_1.5',
-                            '2',
-                            '2_1.5',
-                            '3',
-                            '4'
+                            '150',
+                            '300'
                           ],
                           price_effect: false,
                           option: e
                         }, e)}
                       >
                         <option value="" selected disabled>Select Flange Type</option>
-                        <option value="1.5">Flange 1</option>
-                        <option value="0.75">Flange 2</option>
-                        <option value="1">Flange 3</option>
+                        <option value="150">ANSI 150</option>
+                        <option value="300">ANSI 300</option>
                       </Input>
                       <br />
 
@@ -244,36 +236,9 @@ function MountingRequirements({handleChange, value }){
                           ?
                         </Button>{` `}
                         <UncontrolledTooltip placement="right" target="FlangSize" delay={0}>
-                          Select Flange Size
+                          Flange size is based on pipe size selection
                         </UncontrolledTooltip>
-                        </label>
-                      <Input
-                        className="epiInputSize"
-                        id="exampleFormControlSelect1"
-                        type="select"
-                        onChange={ (e) => MakeChangeDropdown({
-                          section: 'pipe_infornation',
-                          type: 'pipe_size',
-                          values: [
-                            '1.5',
-                            '0.75',
-                            '1',
-                            '1_0.25',
-                            '1_1.5',
-                            '2',
-                            '2_1.5',
-                            '3',
-                            '4'
-                          ],
-                          price_effect: false,
-                          option: e
-                        }, e)}
-                      >
-                        <option value="" selected disabled>Select Flange Type</option>
-                        <option value="1.5">Size 1</option>
-                        <option value="0.75">Size 2</option>
-                        <option value="1">Size 3</option>
-                      </Input>
+                      </label>
                     </FormGroup>
                   ) : (
                     <></>

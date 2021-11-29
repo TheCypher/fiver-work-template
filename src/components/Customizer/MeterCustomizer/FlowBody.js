@@ -128,7 +128,7 @@ function FlowBody({handleChange, value }){
                       ?
                     </Button>{` `}
                     <UncontrolledTooltip placement="right" target="SensorMaterial" delay={0}>
-                      Select Sensor Material
+                      RTD Sheath Material
                     </UncontrolledTooltip>
                   </label>
                   <Input
@@ -148,7 +148,6 @@ function FlowBody({handleChange, value }){
                     }, e)}
                   >
                     <option value="" selected disabled>Select Sensor Material</option>
-                    <option value="cer">CER</option>
                     <option value="sss">316L SSS</option>
                     <option value="has">C-276 HAS</option>
                   </Input>
@@ -158,12 +157,6 @@ function FlowBody({handleChange, value }){
             <br />
             <label htmlFor="exampleFormControlSelect1">
               <span className="customizerInputTitle">Sensor Shield</span>
-              <Button className="questionToolTip" id="SensorShield" size="sm">
-                ?
-              </Button>{` `}
-              <UncontrolledTooltip placement="right" target="SensorShield" delay={0}>
-                Select Sensor Shield
-              </UncontrolledTooltip>
             </label>
             <Row className="text-center">
               <Col>
@@ -210,7 +203,7 @@ function FlowBody({handleChange, value }){
                   </Label>
                 </FormGroup>
                 <p>
-                  Select the a]enuaKon rod in high flow rate condiKons to help avoid sensor damage.
+                  Select the attenuation rod in high flow rate conditions to help avoid sensor damage.
                 </p>
               </Col>
               <Col>

@@ -33,7 +33,8 @@ import Standard from "./InputPower/Standard";
 import StandardBottom from "./InputPower/StandardBottom";
 
 function InputPower({ handleChange, value }){
-  const [iconTabs, setIconTabs] = React.useState("1");
+  const [iconTabs, setIconTabs] = useState("1");
+  const [selectInputOptions, setSelectInputOptions] = useState(0);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
@@ -61,6 +62,8 @@ function InputPower({ handleChange, value }){
     } else {
       console.log('Show me pipe option data 1.0 =>', data);
     }
+
+    (data.option_value === 'vdc_12_18') ? setSelectInputOptions(1) : setSelectInputOptions(0);
 
     handleChange(data);
   }
@@ -143,21 +146,60 @@ function InputPower({ handleChange, value }){
                       section: 'input_power_communication',
                       type: 'input_power',
                       values: [
-                        'cd12_dc24',
-                        'vac115_vac230'
+                        'vdc_12_18',
+                        'vdc_18_24',
+                        'vac_105_120',
+                        'vac_210_240'
                       ],
                       price_effect: true,
                       option: e
                     }, e)}
                   >
                     <option value="" selected disabled>Select Input Power</option>
-                    <option value="cd12_dc24">DC12 & DC24</option>
-                    <option value="vac115_vac230">VAC115 & VAC230</option>
+                    <option value="vdc_12_18">12 to 18 VDC (HART and Profibus are excluded with this input power)</option>
+                    <option value="vdc_18_24">18 to 24 VDC</option>
+                    <option value="vac_105_120">VAC 105 to 120</option>
+                    <option value="vac_210_240">VAC 210 to 240</option>
                   </Input>
                 </FormGroup>
               </Col>
 
-              <Col></Col>
+              <Col>
+                <FormGroup>
+                  <label htmlFor="exampleFormControlSelect1">
+                    <span className="customizerInputTitle">Communication Options</span>
+                    <Button className="questionToolTip" id="Application" size="sm">
+                      ?
+                    </Button>{` `}
+                    <UncontrolledTooltip placement="right" target="Application" delay={0}>
+                      Select Communication Options
+                    </UncontrolledTooltip>
+                    </label>
+                  <Input
+                    className="epiInputSize"
+                    id="exampleFormControlSelect1"
+                    type="select"
+                    onChange={ (e) => MakeChangeDropdown({
+                      section: 'input_power_communication',
+                      type: 'input_power',
+                      values: [
+                        'vdc_12_18',
+                        'vdc_18_24',
+                        'vac_105_120',
+                        'vac_210_240'
+                      ],
+                      price_effect: true,
+                      option: e
+                    }, e)}
+                  >
+                    <option value="" selected disabled>Select Communication Options</option>
+                    <option value="vdc_12_18">12 to 18 VDC (HART and Profibus are excluded with this input power)</option>
+                    <option value="vdc_18_24">18 to 24 VDC</option>
+                    <option value="vac_105_120">VAC 105 to 120</option>
+                    <option value="vac_210_240">VAC 210 to 240</option>
+                  </Input>
+                </FormGroup>
+              </Col>
             </Row>
             <br />
 
@@ -165,6 +207,7 @@ function InputPower({ handleChange, value }){
             <NavbarInputPower
               setIconTabs={setIconTabs}
               iconTabs={iconTabs}
+              selectInputOptions={selectInputOptions}
             />
             <TabContent
             activeTab={"iconTabs" + iconTabs}

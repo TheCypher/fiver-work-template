@@ -20,12 +20,6 @@ function PipeStandard({ handleChange, value }){
     <>
       <span>
         <span className="customizerInputTitle">Pipe Standard</span>
-        <Button className="questionToolTip" id="PipeStandard" size="sm">
-            ?
-        </Button>{` `}
-        <UncontrolledTooltip placement="right" target="PipeStandard" delay={0}>
-          Pipe Standard Information needed
-        </UncontrolledTooltip>  
       </span>
       <FormGroup check className="form-check-radio">
         <Label check>

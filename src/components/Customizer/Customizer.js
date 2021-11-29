@@ -192,6 +192,19 @@ function Customizer(){
           yes: false,
           no: true
         },
+        application_options: {
+          compressed_air: false,
+          hvac: false,
+          landfill_gas: false,
+          natural_gas: false,
+          waste_water: false,
+          flue_gas: false,
+          flare: false,
+          other: false
+        },
+        application_options_other: {
+          application: false
+        },
         reference_conditions: {
           temperature_60: false,
           temperature_70: true,
@@ -199,14 +212,13 @@ function Customizer(){
           other: false
         },
         other_temperature: {
-          temperature_70: false,
           temperature_21: false,
           temperature_20: false, 
-          temperature_0_Bar: false,
           temperature_0_Hg: false,
           temperature_20kPa: false,
           temperature_0ׄ_1_Bar: false,
-          temperature_60_ATM:false
+          temperature_60_ATM:false,
+          temperature_60_Hg:false
         }
       },
       questions_or_comments: {
@@ -357,8 +369,10 @@ function Customizer(){
       },
       input_power_communication: {
         input_power: {
-          cd12_dc24: false,
-          vac115_vac230: false
+          vdc_12_18: false,
+          vdc_18_24: false,
+          vac_105_120: false,
+          vac_210_240: false
         },
         input_power_prices: {
           cd12_dc24: 0,
@@ -423,6 +437,17 @@ function Customizer(){
         profibus_vdc_temp:{
           5: true,
           10: false
+        }
+      },
+      mounting_requirements:{
+        mounting_types:{
+          mnpt: false,
+          butt: false,
+          flange: true
+        },
+        flange_type: {
+          150: false,
+          300: false
         }
       }
     }

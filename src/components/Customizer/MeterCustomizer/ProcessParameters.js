@@ -28,6 +28,7 @@ import Ambient from "./ProcessParameters/Ambient";
 import Pressure from "./ProcessParameters/Pressure";
 
 function ProcessParameters({handleChange, value }){
+  const [otherOptions, setOtherOptions] = useState(false);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const [errors, setErrors] = useState(
     {
@@ -50,25 +51,35 @@ function ProcessParameters({handleChange, value }){
   const MakeChangeDropdown = (data) => {
     data.option_value = data.option.target.value;
     console.log('Show me Question Or Comments data 1.0 =>', data);
-    // const values = data.values;
-    // const first_value = values[0]
+    const values = data.values;
+    const first_value = values[0]
     
-    // if(first_value != data.option_value){
-    //   values.removeWithValue(data.option_value)
-    //   values[0] = data.option_value;
-    //   values.splice(1,0, first_value);
-    //   values.join();
-    //   data.values = values;
-    //   console.log('Show me pipe option data 1.0 =>', data);
-    // } else {
-    //   console.log('Show me pipe option data 1.0 =>', data);
-    // }
+    if(first_value != data.option_value){
+      values.removeWithValue(data.option_value)
+      values[0] = data.option_value;
+      values.splice(1,0, first_value);
+      values.join();
+      data.values = values;
+      console.log('Show me pipe option data 1.0 =>', data);
+    } else {
+      console.log('Show me pipe option data 1.0 =>', data);
+    }
 
-    // handleChange(data);
+    handleChange(data);
   }
 
   const MakeChangeText = (data) => {
     data.option_value = data.option.target.value;
+    handleChange(data);
+  }
+
+  const MakeChange = (data) => {
+    if(data.other_select){
+      setOtherOptions(true);
+    } else {
+      setOtherOptions(false);
+    }
+
     handleChange(data);
   }
 
@@ -184,6 +195,149 @@ function ProcessParameters({handleChange, value }){
               MakeChangeText={MakeChangeText}
               MakeChangeDropdown={MakeChangeDropdown}
             />
+
+            <hr />
+            <Row>
+              <Col>
+              <span>
+                  <span className="customizerInputTitle">Reference Conditions</span>
+                  <Button className="questionToolTip" id="ReferenceConditions" size="sm">
+                      ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="right" target="ReferenceConditions" delay={0}>
+                    EPI uses two industry standard reference conditions to calculate flow.
+                  </UncontrolledTooltip>
+                </span>
+                <FormGroup check className="form-check-radio">
+                  <Label check>
+                    <span className="customizerInputTitleSmallX1">
+                      Standard Temperature & Pressure: 60°F and 29.92” Hg
+                    </span>
+                    <Input
+                      onClick={ (e) => MakeChange({
+                        section: 'application_information',
+                        type: 'reference_conditions',
+                        values: ['temperature_60', 'temperature_70', 'temperature_0', 'other'],
+                        price_effect: false,
+                        other_select: false
+                      }, e)}
+                      id="type2"
+                      name="type2"
+                      type="radio"
+                    ></Input>
+                    <span className="form-check-sign"></span>
+                  </Label>
+                </FormGroup>
+                <FormGroup check className="form-check-radio">
+                  <Label check>
+                    <span className="customizerInputTitleSmallX1">
+                      Standard Temperature & Pressure: 70°F and 29.92” Hg
+                    </span>
+                    <Input
+                      defaultChecked
+                      onClick={ (e) => MakeChange({
+                        section: 'application_information',
+                        type: 'reference_conditions',
+                        values: ['temperature_70', 'temperature_60', 'temperature_0', 'other'],
+                        price_effect: false,
+                        other_select: false
+                      }, e)}
+                      id="type2"
+                      name="type2"
+                      type="radio"
+                    ></Input>
+                    <span className="form-check-sign"></span>
+                  </Label>
+                </FormGroup>
+                <FormGroup check className="form-check-radio">
+                  <Label check>
+                    <span className="customizerInputTitleSmallX1">
+                      Normal Temperature & Pressure: 0°C and 1.013 Bar Abs.
+                    </span>
+                    <Input
+                      onClick={ (e) => MakeChange({
+                        section: 'application_information',
+                        type: 'reference_conditions',
+                        values: ['temperature_0', 'temperature_60', 'temperature_70', 'other'],
+                        price_effect: false,
+                        other_select: false
+                      }, e)}
+                      id="type2"
+                      name="type2"
+                      type="radio"
+                    ></Input>
+                    <span className="form-check-sign"></span>
+                  </Label>
+                </FormGroup>
+
+                <FormGroup check className="form-check-radio">
+                  <Label check>
+                    <span className="customizerInputTitleSmallX1">
+                      Other
+                    </span>
+                    <Input
+                      onClick={ (e) => MakeChange({
+                        section: 'application_information',
+                        type: 'reference_conditions',
+                        values: ['other', 'temperature_0', 'temperature_60', 'temperature_70'],
+                        price_effect: false,
+                        other_select: true
+                      }, e)}
+                      id="type2"
+                      name="type2"
+                      type="radio"
+                    ></Input>
+                    <span className="form-check-sign"></span>
+                  </Label>
+                  <Button className="questionToolTip" id="Other" size="sm">
+                    ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="right" target="Other" delay={0}>
+                    Consult factory for reference conditions not included
+                  </UncontrolledTooltip>
+                </FormGroup>
+
+                { otherOptions ? (
+                  <FormGroup>
+                    <Input
+                      className="epiInputSize"
+                      id="exampleFormControlSelect1"
+                      type="select"
+                      onChange={ (e) => MakeChangeDropdown({
+                        section: 'application_information',
+                        type: 'other_temperature',
+                        values: [
+                          'temperature_21',
+                          'temperature_20', 
+                          'temperature_0_Hg',
+                          'temperature_20kPa',
+                          'temperature_0ׄ_1_Bar',
+                          'temperature_60_ATM',
+                          'temperature_60_Hg',
+                        ],
+                        price_effect: false,
+                        option: e
+                      }, e)}
+                    >
+                      <option value="" selected disabled hidden>Select Other Conditions</option>
+                      <option value="temperature_21">21.1°C & 1.01325 BarA</option>
+                      <option value="temperature_20">20°C & 1.01325 BarA</option>
+                      <option value="temperature_0_Hg">0°C & 760mm Hg</option>
+                      <option value="temperature_20kPa">20°C & 101.325 kPa A</option>
+                      <option value="temperature_0ׄ_1_Bar">0ׄ°C & 1.000 Bar A</option>
+                      <option value="temperature_60_ATM">60°F & 1 ATM</option>
+                      <option value="temperature_60_Hg">60°F & 29.92" Hg</option>
+                    </Input>
+                  </FormGroup>
+                ) : (
+                  <div></div>
+                )}
+              </Col>
+
+              <Col>
+
+              </Col>
+            </Row>
           </CardBody>
         </Collapse>
       </Card>

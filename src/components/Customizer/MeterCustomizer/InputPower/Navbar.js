@@ -9,7 +9,7 @@ import {
   Container,
 } from "reactstrap";
 
-function NavbarInputPower({ setIconTabs, iconTabs }){
+function NavbarInputPower({ setIconTabs, iconTabs, selectInputOptions }){
   return (
     <>
       <Navbar expand="lg" className="inputPowerCommunicationNav">
@@ -45,17 +45,23 @@ function NavbarInputPower({ setIconTabs, iconTabs }){
                   <span className="customizerInputTitleSmallX1">Multi-Range + No Temp</span>
                 </NavLink>
               </NavItem>
-              <NavItem className={iconTabs === "4" ? "active" : ""}>
-                <NavLink
-                  href="#pablo"
-                  onClick={e => {
-                    e.preventDefault();
-                    setIconTabs("4");
-                  }}
-                >
-                  <span className="customizerInputTitleSmallX1">HART</span>
-                </NavLink>
-              </NavItem>
+
+              { !selectInputOptions ? (
+                <NavItem className={iconTabs === "4" ? "active" : ""}>
+                  <NavLink
+                    href="#pablo"
+                    onClick={e => {
+                      e.preventDefault();
+                      setIconTabs("4");
+                    }}
+                  >
+                    <span className="customizerInputTitleSmallX1">HART</span>
+                  </NavLink>
+                </NavItem>
+              ) : (
+                <div></div>
+              )}
+
               <NavItem className={iconTabs === "5" ? "active" : ""}>
                 <NavLink
                   href="#pablo"
@@ -67,17 +73,22 @@ function NavbarInputPower({ setIconTabs, iconTabs }){
                   <span className="customizerInputTitleSmallX1">BACnet</span>
                 </NavLink>
               </NavItem>
-              <NavItem className={iconTabs === "6" ? "active" : ""}>
-                <NavLink
-                  href="#pablo"
-                  onClick={e => {
-                    e.preventDefault();
-                    setIconTabs("6");
-                  }}
-                >
-                  <span className="customizerInputTitleSmallX1">Profibus</span>
-                </NavLink>
-              </NavItem>
+              
+              { !selectInputOptions ? (
+                <NavItem className={iconTabs === "6" ? "active" : ""}>
+                  <NavLink
+                    href="#pablo"
+                    onClick={e => {
+                      e.preventDefault();
+                      setIconTabs("6");
+                    }}
+                  >
+                    <span className="customizerInputTitleSmallX1">Profibus</span>
+                  </NavLink>
+                </NavItem>
+              ) : (
+                <div></div>
+              )}
             </Nav>
         </Container>
       </Navbar>
