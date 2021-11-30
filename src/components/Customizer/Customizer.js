@@ -380,6 +380,14 @@ function Customizer(){
           vac_105_120: 200,
           vac_210_240: 300
         },
+        communications_options: {
+          standard: false,
+          multi_range_temp_out: false,
+          multi_range_no_temp: false,
+          hart: false,
+          bacnet: false,
+          profibus: false
+        },
         standard_ma_flow:{
           self: true,
           isolated: false

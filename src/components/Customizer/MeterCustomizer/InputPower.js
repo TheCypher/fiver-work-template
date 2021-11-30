@@ -32,10 +32,17 @@ import NavbarInputPower from "./InputPower/Navbar";
 import Standard from "./InputPower/Standard";
 import StandardBottom from "./InputPower/StandardBottom";
 
+import CommunicationsOptions from "./InputPower/CommunicationsOptions/CommunicationsOptions";
+
 function InputPower({ handleChange, value }){
   const [iconTabs, setIconTabs] = useState("1");
   const [selectInputOptions, setSelectInputOptions] = useState(0);
-  const [inputPowerSelected, setInputPowerSelected] = useState(0);
+  const [inputPowerSelected, setInputPowerSelected] = useState({
+    power: false
+  });
+  const [communicationsOptionsSelected, setCommunicationsOptionsSelected] = useState(false);
+
+
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
@@ -64,9 +71,9 @@ function InputPower({ handleChange, value }){
       console.log('Show me pipe option data 1.0 =>', data);
     }
     
-    if (!inputPowerSelected) {
-      setInputPowerSelected(1)
-    }
+    setInputPowerSelected(prevState => ({
+      ...prevState,  power: data.option_value
+    }));
 
     (data.option_value === 'vdc_12_18') ? setSelectInputOptions(1) : setSelectInputOptions(0);
 
@@ -77,7 +84,8 @@ function InputPower({ handleChange, value }){
   if (isMobile) {
     if(title.length > 18) title = title.substring(0,18) + '...';
   }
-
+  
+  const { power } = inputPowerSelected;
   return (
     <>
       <Card style={{
@@ -179,41 +187,35 @@ function InputPower({ handleChange, value }){
                     <UncontrolledTooltip placement="right" target="ApplicationCommunication" delay={0}>
                       Select Communication Options
                     </UncontrolledTooltip>
-                    </label>
-                  <Input
-                    className="epiInputSize"
-                    id="exampleFormControlSelect1"
-                    type="select"
-                    onChange={ (e) => MakeChangeDropdown({
-                      section: 'input_power_communication',
-                      type: 'input_power',
-                      values: [
-                        'vdc_12_18',
-                        'vdc_18_24',
-                        'vac_105_120',
-                        'vac_210_240'
-                      ],
-                      price_effect: true,
-                      option: e
-                    }, e)}
-                  >
-                    <option value="" selected disabled>Select Communication Options</option>
-                    <option value="vdc_12_18">12 to 18 VDC (HART and Profibus are excluded with this input power)</option>
-                    <option value="vdc_18_24">18 to 24 VDC</option>
-                    <option value="vac_105_120">VAC 105 to 120</option>
-                    <option value="vac_210_240">VAC 210 to 240</option>
-                  </Input>
+                  </label>
+                  { !inputPowerSelected.power ? (
+                    <Input
+                      disabled
+                      className="epiInputSize"
+                      id="exampleFormControlSelect1"
+                      type="select"
+                    >
+                      <option value="" selected disabled>Select Communication Options</option>
+                    </Input>
+                  ) : (<> </>)}
+
+                  { inputPowerSelected.power ? (
+                    <CommunicationsOptions
+                      MakeChangeDropdown={MakeChangeDropdown}
+                      power={ power }
+                    />
+                  ) : (<> </>)}
                 </FormGroup>
               </Col>
             </Row>
             <br />
 
 
-            { inputPowerSelected ? (
+            { inputPowerSelected.power ? (
               <span className="customizerInputTitle">Select Configuration</span>
             ) : (<></>)}
 
-            { inputPowerSelected ? (
+            { inputPowerSelected.power ? (
               <NavbarInputPower
                 setIconTabs={setIconTabs}
                 iconTabs={iconTabs}
@@ -221,7 +223,7 @@ function InputPower({ handleChange, value }){
               />
             ) : (<></>)}
 
-            { inputPowerSelected ? (
+            { inputPowerSelected.power ? (
               <TabContent
               activeTab={"iconTabs" + iconTabs}
               >
