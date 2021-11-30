@@ -2,12 +2,12 @@ import React from "react";
 
 import { Input } from "reactstrap";
 
-function CommunicationsOptions(selectedPower, MakeChangeDropdown){
+function CommunicationsOptions({ MakeChangeDropdown, selectedPower }){
 
-  const { power } = selectedPower
+  console.log('Show me CommunicationsOptions 1.0 =>', selectedPower);
   
   const Options = () => {
-    if( power === 'vdc_12_18'){
+    if( selectedPower === 'vdc_12_18'){
       return(
         <>
           <option value="standard">Standard (MODBUS RTU)</option>
@@ -48,8 +48,9 @@ function CommunicationsOptions(selectedPower, MakeChangeDropdown){
             'bacnet',
             'profibus'
           ],
-          price_effect: true,
-          option: e
+          price_effect: false,
+          change_effect: 'communications',
+          option: e,
         }, e)}
       >
         <option value="" selected disabled>Select Communication Options</option>

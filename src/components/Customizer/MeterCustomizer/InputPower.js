@@ -33,13 +33,13 @@ import Standard from "./InputPower/Standard";
 import StandardBottom from "./InputPower/StandardBottom";
 
 import CommunicationsOptions from "./InputPower/CommunicationsOptions/CommunicationsOptions";
+import CommunicationBody from "./InputPower/CommunicationsOptions/CommunicationBody";
 
 function InputPower({ handleChange, value }){
   const [iconTabs, setIconTabs] = useState("1");
   const [selectInputOptions, setSelectInputOptions] = useState(0);
-  const [inputPowerSelected, setInputPowerSelected] = useState({
-    power: false
-  });
+  const [inputPowerSelected, setInputPowerSelected] = useState({ power: false });
+  const [selectedCommunication, setSelectedCommunication] = useState({ communications: false });
   const [communicationsOptionsSelected, setCommunicationsOptionsSelected] = useState(false);
 
 
@@ -70,10 +70,18 @@ function InputPower({ handleChange, value }){
     } else {
       console.log('Show me pipe option data 1.0 =>', data);
     }
-    
-    setInputPowerSelected(prevState => ({
-      ...prevState,  power: data.option_value
-    }));
+
+    if(data.change_effect === 'power'){
+      setInputPowerSelected(prevState => ({
+        ...prevState,  power: data.option_value
+      }));
+    }
+
+    if(data.change_effect === 'communications'){
+      setSelectedCommunication(prevState => ({
+        ...prevState,  communications: data.option_value
+      }));
+    }
 
     (data.option_value === 'vdc_12_18') ? setSelectInputOptions(1) : setSelectInputOptions(0);
 
@@ -86,6 +94,7 @@ function InputPower({ handleChange, value }){
   }
   
   const { power } = inputPowerSelected;
+  const { communications } = selectedCommunication;
   return (
     <>
       <Card style={{
@@ -165,6 +174,7 @@ function InputPower({ handleChange, value }){
                         'vac_210_240'
                       ],
                       price_effect: true,
+                      change_effect: 'power',
                       option: e
                     }, e)}
                   >
@@ -202,7 +212,7 @@ function InputPower({ handleChange, value }){
                   { inputPowerSelected.power ? (
                     <CommunicationsOptions
                       MakeChangeDropdown={MakeChangeDropdown}
-                      power={ power }
+                      selectedPower={ power }
                     />
                   ) : (<> </>)}
                 </FormGroup>
@@ -216,59 +226,10 @@ function InputPower({ handleChange, value }){
             ) : (<></>)}
 
             { inputPowerSelected.power ? (
-              <NavbarInputPower
-                setIconTabs={setIconTabs}
-                iconTabs={iconTabs}
-                selectInputOptions={selectInputOptions}
+              <CommunicationBody
+                handleChange={handleChange}
+                selectedCommunication={communications}
               />
-            ) : (<></>)}
-
-            { inputPowerSelected.power ? (
-              <TabContent
-              activeTab={"iconTabs" + iconTabs}
-              >
-                <TabPane tabId="iconTabs1" key="345">
-                  <Standard
-                    handleChange={handleChange}
-                    value={value}
-                  />
-                </TabPane>
-
-                <TabPane tabId="iconTabs2">
-                  <MultiRange
-                    handleChange={handleChange}
-                    value={value}
-                  />
-                </TabPane>
-
-                <TabPane tabId="iconTabs3">
-                  <MultiRangeNoTemp
-                    handleChange={handleChange}
-                    value={value}
-                  />
-                </TabPane>
-
-                <TabPane tabId="iconTabs4">
-                  <Hart
-                    handleChange={handleChange}
-                    value={value}
-                  />
-                </TabPane>
-
-                <TabPane tabId="iconTabs5">
-                  <Bacnet
-                    handleChange={handleChange}
-                    value={value}
-                  />
-                </TabPane>
-                
-                <TabPane tabId="iconTabs6">
-                  <Profibus
-                    handleChange={handleChange}
-                    value={value}
-                  />
-                </TabPane>
-              </TabContent>
             ) : (<></>)}
           </CardBody>
         </Collapse>
