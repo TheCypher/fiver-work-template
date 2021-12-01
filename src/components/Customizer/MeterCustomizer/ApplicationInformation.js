@@ -155,11 +155,11 @@ function ApplicationInformation({ handleChange, value }){
                     }, e)}
                   >
                     <option value="" selected disabled>Select Application</option>
-                    <option value="compressed_air">Compressed Air Flow Measurement Meters</option>
-                    <option value="hvac">HVAC & Air Vent Meters</option>
-                    <option value="landfill_gas">Landfill Gas & Municipal Flow Meters</option>
-                    <option value="natural_gas">Natural Gas Flow Measurement Meter</option>
-                    <option value="waste_water">Wastewater & Aeration Basin Meters</option>
+                    <option value="compressed_air">Compressed Air Flow Measurement</option>
+                    <option value="hvac">HVAC & Air Vent</option>
+                    <option value="landfill_gas">Landfill Gas & Municipal Flow</option>
+                    <option value="natural_gas">Natural Gas Flow Measurement</option>
+                    <option value="waste_water">Wastewater & Aeration Basin</option>
                     <option value="flue_gas">Flue Gas</option>
                     <option value="flare">Flare</option>
                     <option value="other">Other</option>

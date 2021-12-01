@@ -88,6 +88,15 @@ function Customizer(){
           '3 Flanged': false,
           '4 Flanged': false
         },
+        pipe_size_other: {
+          size: false
+        },
+        pipe_length_other: {
+          length: false
+        },
+        pipe_inner_diameter_other: {
+          diameter: false
+        },
         schedule:{
           40: true
         },

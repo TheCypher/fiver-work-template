@@ -16,6 +16,7 @@ import {
 function Pipe({ handleChange, value }){
   const [pipeLength, setPipeLength] = useState(6);
   const [pipeDiameter, setPipeDiameter] = useState(0.540);
+  const [otherPipeSize, setOtherPipeSize] = useState(false);
 
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
@@ -50,6 +51,13 @@ function Pipe({ handleChange, value }){
       if(data.option_value === '4 Flanged') {setPipeLength(14); setPipeDiameter(4.0);}
     }
 
+    (data.option_value === 'other') ? setOtherPipeSize(true) : setOtherPipeSize(false);
+
+    handleChange(data);
+  }
+
+  const MakeChangeText = (data) => {
+    data.option_value = data.option.target.value;
     handleChange(data);
   }
 
@@ -121,8 +129,31 @@ function Pipe({ handleChange, value }){
               <option value="2 1/2">2 1/2"</option>
               <option value="3 Flanged">3" Flanged</option>
               <option value="4 Flanged">4" Flanged"</option>
+              <option value="other">Other Size</option>
             </Input>
           </FormGroup>
+
+          { otherPipeSize ? (
+            <FormGroup>
+              <Input
+                className="epiInputSize"
+                id="exampleFormControlSelect1"
+                type="number"
+                placeholder="Enter Size"
+                onChange={ (e) => MakeChangeText({
+                  section: 'pipe_infornation',
+                  type: 'pipe_size_other',
+                  values: ['size'],
+                  price_effect: false,
+                  text_input: true,
+                  option: e
+                }, e)}
+              >
+              </Input>
+            </FormGroup>
+          ) : (
+            <div></div>
+          )}
         </Col>
 
         <Col>
@@ -144,6 +175,28 @@ function Pipe({ handleChange, value }){
               style={{ 'border-radius': '6px', 'background-color': '#EBF2FF'}}
             ></Input>
           </FormGroup>
+
+          { otherPipeSize ? (
+            <FormGroup>
+              <Input
+                className="epiInputSize"
+                id="exampleFormControlSelect1"
+                type="number"
+                placeholder="Enter Length of flow section"
+                onChange={ (e) => MakeChangeText({
+                  section: 'pipe_infornation',
+                  type: 'pipe_length_other',
+                  values: ['length'],
+                  price_effect: false,
+                  text_input: true,
+                  option: e
+                }, e)}
+              >
+              </Input>
+            </FormGroup>
+          ) : (
+            <div></div>
+          )}
         </Col>
       </Row>
 
@@ -167,6 +220,28 @@ function Pipe({ handleChange, value }){
               style={{ 'border-radius': '6px', 'background-color': '#EBF2FF'}}
             ></Input>
           </FormGroup>
+
+          { otherPipeSize ? (
+            <FormGroup>
+              <Input
+                className="epiInputSize"
+                id="exampleFormControlSelect1"
+                type="number"
+                placeholder="Enter inner diameter"
+                onChange={ (e) => MakeChangeText({
+                  section: 'pipe_infornation',
+                  type: 'pipe_inner_diameter_other',
+                  values: ['diameter'],
+                  price_effect: false,
+                  text_input: true,
+                  option: e
+                }, e)}
+              >
+              </Input>
+            </FormGroup>
+          ) : (
+            <div></div>
+          )}
         </Col>
         <Col className='col-1 my-auto'><br /> in</Col>
       </Row>

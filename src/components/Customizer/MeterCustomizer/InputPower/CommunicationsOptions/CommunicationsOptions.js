@@ -2,7 +2,7 @@ import React from "react";
 
 import { Input } from "reactstrap";
 
-function CommunicationsOptions({ MakeChangeDropdown, selectedPower }){
+function CommunicationsOptions({ MakeChangeDropdown, selectedPower, communicationsName }){
 
   console.log('Show me CommunicationsOptions 1.0 =>', selectedPower);
   
@@ -10,6 +10,7 @@ function CommunicationsOptions({ MakeChangeDropdown, selectedPower }){
     if( selectedPower === 'vdc_12_18'){
       return(
         <>
+          <option value="" selected disabled>{ communicationsName }</option>
           <option value="standard">Standard (MODBUS RTU)</option>
           <option value="multi_range_temp_out">Multi-Range + Temp Out</option>
           <option value="multi_range_no_temp">Multi-Range + No Temp</option>
@@ -19,6 +20,7 @@ function CommunicationsOptions({ MakeChangeDropdown, selectedPower }){
     } else {
       return(
         <>
+          <option value="" selected disabled>{ communicationsName }</option>
           <option value="standard">Standard (MODBUS RTU)</option>
           <option value="multi_range_temp_out">Multi-Range + Temp Out</option>
           <option value="multi_range_no_temp">Multi-Range + No Temp</option>
@@ -53,7 +55,6 @@ function CommunicationsOptions({ MakeChangeDropdown, selectedPower }){
           option: e,
         }, e)}
       >
-        <option value="" selected disabled>Select Communication Options</option>
         <Options />
       </Input>
     </>

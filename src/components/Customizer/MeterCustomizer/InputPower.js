@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMediaQuery } from 'react-responsive';
 
 // reactstrap components
@@ -37,11 +37,19 @@ import CommunicationBody from "./InputPower/CommunicationsOptions/CommunicationB
 
 function InputPower({ handleChange, value }){
   const [iconTabs, setIconTabs] = useState("1");
-  const [selectInputOptions, setSelectInputOptions] = useState(0);
   const [inputPowerSelected, setInputPowerSelected] = useState({ power: false });
   const [selectedCommunication, setSelectedCommunication] = useState({ communications: false });
+  const [selectedCommunicationName, setSelectedCommunicationName] = useState({ communications_name: 'Standard (MODBUS RTU)'})
   const [communicationsOptionsSelected, setCommunicationsOptionsSelected] = useState(false);
 
+  useEffect(() => {
+    if(selectedCommunication.communications === 'standard') {setSelectedCommunicationName({communications_name:'Standard (MODBUS RTU)'})}
+    if(selectedCommunication.communications === 'multi_range_temp_out') {setSelectedCommunicationName({communications_name:'Multi-Range + Temp Out'})}
+    if(selectedCommunication.communications === 'multi_range_no_temp') {setSelectedCommunicationName({communications_name:'Multi-Range + No Temp'})}
+    if(selectedCommunication.communications === 'hart') {setSelectedCommunicationName({communications_name:'HART'})}
+    if(selectedCommunication.communications === 'bacnet') {setSelectedCommunicationName({communications_name:'BACnet'})}
+    if(selectedCommunication.communications === 'profibus') {setSelectedCommunicationName({communications_name:'Profibus'})}
+  }, [selectedCommunication.communications])
 
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
@@ -83,9 +91,16 @@ function InputPower({ handleChange, value }){
       }));
     }
 
-    (data.option_value === 'vdc_12_18') ? setSelectInputOptions(1) : setSelectInputOptions(0);
-
     handleChange(data);
+  }
+
+  const optionsName = () => {
+    if(selectedCommunication === 'standard') {setSelectedCommunicationName('Standard (MODBUS RTU)')}
+    if(selectedCommunication === 'multi_range_temp_out') {setSelectedCommunicationName('Multi-Range + Temp Out')}
+    if(selectedCommunication === 'multi_range_no_temp') {setSelectedCommunicationName('Multi-Range + No Temp')}
+    if(selectedCommunication === 'hart') {setSelectedCommunicationName('HART')}
+    if(selectedCommunication === 'bacnet') {setSelectedCommunicationName('BACnet')}
+    if(selectedCommunication === 'profibus') {setSelectedCommunicationName('Profibus')}
   }
 
   var title = 'Input Power & Communication Options';
@@ -95,6 +110,7 @@ function InputPower({ handleChange, value }){
   
   const { power } = inputPowerSelected;
   const { communications } = selectedCommunication;
+  const { communications_name }= selectedCommunicationName;
   return (
     <>
       <Card style={{
@@ -213,6 +229,7 @@ function InputPower({ handleChange, value }){
                     <CommunicationsOptions
                       MakeChangeDropdown={MakeChangeDropdown}
                       selectedPower={ power }
+                      communicationsName={ communications_name }
                     />
                   ) : (<> </>)}
                 </FormGroup>
@@ -222,7 +239,7 @@ function InputPower({ handleChange, value }){
 
 
             { inputPowerSelected.power ? (
-              <span className="customizerInputTitle">Select Configuration</span>
+              <span className="customizerInputTitle">{ communications_name }</span>
             ) : (<></>)}
 
             { inputPowerSelected.power ? (
