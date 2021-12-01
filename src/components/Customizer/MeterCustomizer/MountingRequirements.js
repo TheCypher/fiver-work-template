@@ -24,6 +24,7 @@ import {
 
 function MountingRequirements({handleChange, value }){
   const [selectFlange, setSelectFlange] = useState(true);
+  const [otherFlange, setOtherFlange] = useState(false);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
@@ -53,6 +54,13 @@ function MountingRequirements({handleChange, value }){
       console.log('Show me pipe option data 1.0 =>', data);
     }
 
+    (data.option_value === 'other') ? setOtherFlange(true) : setOtherFlange(false);
+
+    handleChange(data);
+  }
+
+  const MakeChangeText = (data) => {
+    data.option_value = data.option.target.value;
     handleChange(data);
   }
 
@@ -227,9 +235,39 @@ function MountingRequirements({handleChange, value }){
                         <option value="" selected disabled>Select Flange Type</option>
                         <option value="150">ANSI 150</option>
                         <option value="300">ANSI 300</option>
+                        <option value="other">Other</option>
+                      </Input>
+                    </FormGroup>
+                  ) : (
+                    <></>
+                  )}
+
+                  { otherFlange ? (
+                    <FormGroup>
+                      <span>(This is a placeholder) <br /> Contact factory for these flange type</span>
+                      <Input
+                        className="epiInputSize"
+                        id="exampleFormControlSelect1"
+                        type="number"
+                        placeholder="Enter flange type"
+                        onChange={ (e) => MakeChangeText({
+                          section: 'mounting_requirements',
+                          type: 'flange_type_other',
+                          values: ['size'],
+                          price_effect: false,
+                          text_input: true,
+                          option: e
+                        }, e)}
+                      >
                       </Input>
                       <br />
+                    </FormGroup>
+                  ) : (
+                    <div></div>
+                  )}
 
+                  {selectFlange? (
+                    <FormGroup>
                       <label htmlFor="exampleFormControlSelect1">
                         <span className="customizerInputTitle">Flange Size</span>
                         <Button className="questionToolTip" id="FlangSize" size="sm">

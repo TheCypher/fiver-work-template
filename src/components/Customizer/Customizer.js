@@ -467,6 +467,9 @@ function Customizer(){
         flange_type: {
           150: false,
           300: false
+        },
+        flange_type_other: {
+          size: false
         }
       }
     }
