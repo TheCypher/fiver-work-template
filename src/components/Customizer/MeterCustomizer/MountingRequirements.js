@@ -134,11 +134,14 @@ function MountingRequirements({handleChange, value }){
                     <span className="customizerInputTitleSmallX1">MNPT Ends</span>
                     <Input
                       onClick={ (e) => MakeChange({
-                        section: 'mounting_requirements',
-                        type: 'mounting_types',
-                        values: ['mnpt', 'butt', 'flange'],
-                        price_effect: false
-                      }, e)}
+                          section: 'mounting_requirements',
+                          type: 'mounting_types',
+                          values: ['mnpt', 'butt', 'flange'],
+                          price_effect: false
+                        },
+                        e,
+                        setSelectFlange(false)
+                      )}
                       id="mounting_types"
                       name="mounting_types"
                       type="radio"
@@ -152,14 +155,14 @@ function MountingRequirements({handleChange, value }){
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
-                        section: 'mounting_requirements',
-                        type: 'mounting_types',
-                        values: ['butt', 'mnpt', 'flange'],
-                        price_effect: false
-                      }, e,
-                      setSelectFlange(false)
-                      )
-                    }
+                          section: 'mounting_requirements',
+                          type: 'mounting_types',
+                          values: ['butt', 'mnpt', 'flange'],
+                          price_effect: false
+                        },
+                        e,
+                        setSelectFlange(false)
+                      )}
                       id="mounting_types"
                       name="mounting_types"
                       type="radio"

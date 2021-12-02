@@ -211,26 +211,6 @@ function ProcessParameters({handleChange, value }){
                 <FormGroup check className="form-check-radio">
                   <Label check>
                     <span className="customizerInputTitleSmallX1">
-                      Standard Temperature & Pressure: 60°F and 29.92” Hg
-                    </span>
-                    <Input
-                      onClick={ (e) => MakeChange({
-                        section: 'application_information',
-                        type: 'reference_conditions',
-                        values: ['temperature_60', 'temperature_70', 'temperature_0', 'other'],
-                        price_effect: false,
-                        other_select: false
-                      }, e)}
-                      id="type2"
-                      name="type2"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                </FormGroup>
-                <FormGroup check className="form-check-radio">
-                  <Label check>
-                    <span className="customizerInputTitleSmallX1">
                       Standard Temperature & Pressure: 70°F and 29.92” Hg
                     </span>
                     <Input
@@ -238,7 +218,7 @@ function ProcessParameters({handleChange, value }){
                       onClick={ (e) => MakeChange({
                         section: 'application_information',
                         type: 'reference_conditions',
-                        values: ['temperature_70', 'temperature_60', 'temperature_0', 'other'],
+                        values: ['temperature_70', 'temperature_0', 'other'],
                         price_effect: false,
                         other_select: false
                       }, e)}
@@ -258,7 +238,7 @@ function ProcessParameters({handleChange, value }){
                       onClick={ (e) => MakeChange({
                         section: 'application_information',
                         type: 'reference_conditions',
-                        values: ['temperature_0', 'temperature_60', 'temperature_70', 'other'],
+                        values: ['temperature_0', 'temperature_70', 'other'],
                         price_effect: false,
                         other_select: false
                       }, e)}
@@ -279,7 +259,7 @@ function ProcessParameters({handleChange, value }){
                       onClick={ (e) => MakeChange({
                         section: 'application_information',
                         type: 'reference_conditions',
-                        values: ['other', 'temperature_0', 'temperature_60', 'temperature_70'],
+                        values: ['other', 'temperature_0', 'temperature_70'],
                         price_effect: false,
                         other_select: true
                       }, e)}

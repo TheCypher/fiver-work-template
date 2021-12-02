@@ -38,7 +38,9 @@ function FlowRate({ MakeChangeText, MakeChangeDropdown, CheckErrors, ErrorValues
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="MinimumFlowRate" delay={0}>
-                Minimum Flow Rate
+                Input the minimum gas flow rate you expect in the process line. 
+                This will serve as a reference point when your meter is calibrated to your gas type. 
+                As a standard reference, all flow rates start at no flow (0).
               </UncontrolledTooltip>
             </label>
             <Input
@@ -67,7 +69,9 @@ function FlowRate({ MakeChangeText, MakeChangeDropdown, CheckErrors, ErrorValues
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="MaximumFlowRate" delay={0}>
-              Maximum Flow Rate
+                Input the maximum gas flow rate you expect in the process line. 
+                This will serve as a reference point when your meter is calibrated to your gas type, 
+                and will serve as the full scale.
               </UncontrolledTooltip>
             </label>
             <Input
@@ -97,7 +101,9 @@ function FlowRate({ MakeChangeText, MakeChangeDropdown, CheckErrors, ErrorValues
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="OPTIMALFLOWRATE" delay={0}>
-                OPTIMAL FLOW RATE
+                Input your optimal gas flow rate. 
+                This will serve as a reference point when your meter is calibrated to your gas type. 
+                This is usually between 50-80% of your specified flow range.
               </UncontrolledTooltip>
             </label>
             <Input

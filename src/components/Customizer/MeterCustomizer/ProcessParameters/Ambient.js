@@ -23,7 +23,8 @@ function Ambient({ MakeChangeText, MakeChangeDropdown }){
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="MINIMUMAMBIENTTEMP" delay={0}>
-                MINIMUM AMBIENT TEMP.
+                Input the minimum ambient temperature you expect in the process line. 
+                This ensures that the meter electronics will be able to operate within the specified parameters.
               </UncontrolledTooltip>
             </label>
             <Input
@@ -52,7 +53,8 @@ function Ambient({ MakeChangeText, MakeChangeDropdown }){
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="MAXIMUMAMBIENTTEMP" delay={0}>
-                MAXIMUM AMBIENT TEMP.
+                Input the maximum ambient temperature you expect in the process line. 
+                This ensures that the meter electronics will be able to operate within the specified parameters.
               </UncontrolledTooltip>
             </label>
             <Input
@@ -81,7 +83,8 @@ function Ambient({ MakeChangeText, MakeChangeDropdown }){
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="OPTIMALAMBIENTTEMP" delay={0}>
-                OPTIMAL AMBIENT TEMP.
+                Input your optimal ambient temperature. 
+                This ensures that the meter electronics will be able to operate within the specified parameters.
               </UncontrolledTooltip>
             </label>
             <Input

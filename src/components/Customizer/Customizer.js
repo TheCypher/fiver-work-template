@@ -215,7 +215,6 @@ function Customizer(){
           application: false
         },
         reference_conditions: {
-          temperature_60: false,
           temperature_70: true,
           temperature_0: false,
           other: false

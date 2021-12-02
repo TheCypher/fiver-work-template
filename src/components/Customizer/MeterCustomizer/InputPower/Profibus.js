@@ -24,7 +24,13 @@ function Profibus({ handleChange, value }){
                 ?
             </Button>{` `}
             <UncontrolledTooltip placement="top" target="MAFLOWOUTPUT" delay={0}>
-            4-20MA FLOW OUTPUT Information needed
+              A 4-20mA current loop is a means to pass a “value” like flow using an established electrical current (the loop) 
+              as the carrier of this information. Generally, the 4mA represents the minimum value (like 0 for flow); and the 20mA 
+              represents the maximum value, or full scale, of the value you are sending.  
+              EPI flow meters use this output to represent the flow rate in the process line. 
+              We offer Self Powered or Isolated-Loop Powered 4-20mA flow signal; please specify your desired configuration. 
+              If you choose the Isolated-Loop Powered option, this does not provide meter power, 
+              and will require separate input power for the meter electronics.
             </UncontrolledTooltip>
           </span>
           <FormGroup check className="form-check-radio">
@@ -73,7 +79,11 @@ function Profibus({ handleChange, value }){
                 ?
             </Button>{` `}
             <UncontrolledTooltip placement="top" target="MATEMPOUTPUT" delay={0}>
-            4-20MA TEMP OUTPUT Information needed
+              A 4-20mA current is a means to pass a “value” like gas temperature using an established 
+              electrical current as the carrier of this information. Generally, the 4mA represents 
+              the minimum value, and the 20mA represents the maximum value of the reading.  
+              EPI flow meters use this output to represent the gas temperature in the process line. 
+              This output is Self Powered.
             </UncontrolledTooltip>
           </span>
           <FormGroup check inline>
@@ -98,7 +108,10 @@ function Profibus({ handleChange, value }){
                 ?
             </Button>{` `}
             <UncontrolledTooltip placement="top" target="VDCFLOWOUTPUT" delay={0}>
-              VDC FLOW OUTPUT Information needed
+              VDC refers to volts of direct current, and it  is provided by the electronics in 
+              either the 0-5 or 0-10 VDC flow signal.  
+              Generally, the 0 VDC represents the minimum value, and the 5 (or 10) VDC represents the maximum value. 
+              Please specify which voltage range you require.
             </UncontrolledTooltip>
           </span>
           <FormGroup check className="form-check-radio">
@@ -147,7 +160,9 @@ function Profibus({ handleChange, value }){
                 ?
             </Button>{` `}
             <UncontrolledTooltip placement="top" target="VDCTEMPOUTPUT" delay={0}>
-              VDC TEMP OUTPUT Information needed
+              VDC refers to volts of direct current, and it  is provided by the electronics in either the 0-5 or 0-10 VDC gas temperature range.  
+              Generally, the 0 VDC represents the minimum value, and the 5 (or 10) VDC represents the maximum value. 
+              Please specify which voltage and temperature range you require.
             </UncontrolledTooltip>
           </span>
           <FormGroup check className="form-check-radio">

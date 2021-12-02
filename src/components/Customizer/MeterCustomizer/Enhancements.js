@@ -130,7 +130,9 @@ function Enhancements({handleChange, value }){
                     ?
                   </Button>{` `}
                   <UncontrolledTooltip placement="right" target="COOCertificate" delay={0}>
-                    COO - Certificate of Origin info needed
+                    A certificate of origin certifies the country where the goods originated, 
+                    and it may be required by the government of the country where your goods are imported. 
+                    It’s also frequently used to determine how much duty the importer will pay to bring in your goods.
                   </UncontrolledTooltip>
                 </Label>
               </FormGroup>
@@ -154,7 +156,12 @@ function Enhancements({handleChange, value }){
                     ?
                   </Button>{` `}
                   <UncontrolledTooltip placement="right" target="O2CLNCertificate" delay={0}>
-                    O2CLN - Certified Oxygen info needed
+                    Cleaning for oxygen service can be defined as removal of combustible contaminates from the
+                    surface of any equipment used in oxygen service. These contaminates include, but are not limited to, 
+                    organic and inorganic substances such as hydrocarbon materials like oil and greases, paper, fiber, 
+                    dust, solvents, weld, slag or weld spatter, rust, sand and dirt.      
+                    Meters certified Clean for Oxygen Services will come with a clean bag and matching certificate. 
+                    EPI offers this service with certification for wetted parts.
                   </UncontrolledTooltip>
                 </Label>
               </FormGroup>
@@ -178,7 +185,10 @@ function Enhancements({handleChange, value }){
                     ?
                   </Button>{` `}
                   <UncontrolledTooltip placement="top" target="HydrostaticCertificate" delay={0}>
-                    EPI Hydrostatic & Leak Test Certificate info needed
+                    Hydrostatic testing is a type of pressure test that works by completely filling the component with water, 
+                    removing the air contained within the unit, and pressurizing the system beyond the designed pressure limit the of the unit. 
+                    The pressure is then held for a specific amount of time to visually inspect the system for leaks.     
+                    If selected, your meter will be tested before shipment and sent with the certificate of passing.
                   </UncontrolledTooltip>
                 </Label>
               </FormGroup>
@@ -202,7 +212,17 @@ function Enhancements({handleChange, value }){
                     ?
                   </Button>{` `}
                   <UncontrolledTooltip placement="right" target="WPQCertificate" delay={0}>
-                    WPQ & WPS & PQR - Welding Certifications info needed
+                    A Welding Procedure Specification, or WPS, is a document that serves as a guide for the 
+                    effective creation of a weld that meets all applicable code requirements and production 
+                    standards. This includes information such as base metal grade, filler metal classification, 
+                    amperage range, shielding gas composition, and pre-heat and interpass temperatures.  
+                    The procedures for creating and testing the sample welds, as well as the final results, 
+                    are documented on a Procedure Qualification Record, or PQR. If the test results are 
+                    acceptable, the PQR is approved and can then serve as the foundation on which one or 
+                    more WPSs are drafted. In short, a PQR serves as evidence that a given WPS can, in fact, 
+                    be used to produce an acceptable weld.     
+                    A Welder Performance Qualification (WPQ) is a test certificate that shows whether a welder 
+                    possesses the necessary experience and knowledge to perform the specifications of a particular weld procedure.
                   </UncontrolledTooltip>
                 </Label>
               </FormGroup><br /><br />
@@ -230,7 +250,10 @@ function Enhancements({handleChange, value }){
                     ?
                   </Button>{` `}
                   <UncontrolledTooltip placement="right" target="CTPCertificate" delay={0}>
-                    CTP - Calibration Test Points info needed
+                    CTP (Calibration Test Points) is a calibration verification of the microprocessor's programing.
+                    This is done by simulating the flow rate using software to verify the accuracy of the analog flow 
+                    signal to the primary standards calibration curve. This should include a minimum of 5 test points 
+                    at 25% intervals of the flow range.
                   </UncontrolledTooltip>
                 </Label>
               </FormGroup>
@@ -254,7 +277,9 @@ function Enhancements({handleChange, value }){
                     ?
                   </Button>{` `}
                   <UncontrolledTooltip placement="right" target="LeftCertificate" delay={0}>
-                    As Left Validation Curve info needed
+                    As Left Validation Curve refers to the comparison of EPI's Primary standards to your D.U.T. (device under test). 
+                    It is done to show the accuracy of your flow meter when compared to the primary standards used by EPI. 
+                    10 Data Points are provided (contact us for more).
                   </UncontrolledTooltip>
                 </Label>
               </FormGroup><br /><br />
@@ -280,7 +305,10 @@ function Enhancements({handleChange, value }){
                     ?
                   </Button>{` `}
                   <UncontrolledTooltip placement="right" target="PMICertificate" delay={0}>
-                    Positive Material Identification info needed
+                    Positive Material Identification (PMI) is a fast and non-destructive testing (NDT) method for verifying 
+                    the chemical composition of metals and alloys. PMI can be used to verify that supplied materials conform 
+                    to the proper standards and specifications.     If selected, your meter will be tested before shipment and 
+                    sent with the certificate of passing.
                   </UncontrolledTooltip>
                 </Label>
               </FormGroup>
@@ -304,7 +332,13 @@ function Enhancements({handleChange, value }){
                     ?
                   </Button>{` `}
                   <UncontrolledTooltip placement="right" target="LiquidCertificate" delay={0}>
-                    Liquid Penetration Test info needed
+                    Liquid penetrant inspection is used to detect any surface-connected discontinuities such as cracks from fatigue, 
+                    quenching, and grinding, as well as fractures, porosity, incomplete fusion, and flaws in joints.     
+                    DPI is based upon capillary action, where low surface tension fluid penetrates into clean and dry surface-breaking discontinuities. 
+                    Penetrant is applied to the test component by dipping, spraying, or brushing. 
+                    After adequate penetration time has been allowed, the excess penetrant is removed, a developer is applied. 
+                    The developer helps to draw penetrant out of the flaw where an invisible indication becomes visible to the inspector. 
+                    Inspection is performed under ultraviolet or white light, depending upon the type of dye used - fluorescent or nonfluorescent (visible).     If selected, your meter will be tested before shipment and sent with the certificate of passing.
                   </UncontrolledTooltip>
                 </Label>
               </FormGroup>
@@ -328,7 +362,12 @@ function Enhancements({handleChange, value }){
                     ?
                   </Button>{` `}
                   <UncontrolledTooltip placement="right" target="WeldsCertificate" delay={0}>
-                    Ferrite Test - Welds info needed
+                    Ferrite testing, also referred to as a ferritescope test, is a rapid non-destructive inspection method used to measure 
+                    the amount of delta ferrite on austenitic stainless steel and duplex stainless steel materials. Ensuring proper ferrite 
+                    content ensures corrosion resistance, durability and crack prevention. When ferrite levels exceed the maximum allowable 
+                    content amount the stainless steel welds become susceptible to hot cracking.     
+                    This test is performed on all welds. If selected, your meter will be tested before shipment and 
+                    sent with the certificate of passing.
                   </UncontrolledTooltip>
                 </Label>
               </FormGroup>
@@ -352,7 +391,8 @@ function Enhancements({handleChange, value }){
                     ?
                   </Button>{` `}
                   <UncontrolledTooltip placement="right" target="WettedCertificate" delay={0}>
-                    Ferrite Test - All Wetted Parts info needed
+                    This test is performed on all wetted parts. If selected, 
+                    your meter will be tested before shipment and sent with the certificate of passing.
                   </UncontrolledTooltip>
                 </Label>
               </FormGroup>
@@ -365,7 +405,7 @@ function Enhancements({handleChange, value }){
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="ExtendedWarranty" delay={0}>
-                Extended Warranty info needed info needed
+                Extend your product warranty by up to 3 years, billed at 10% of the meter list price per year.
               </UncontrolledTooltip>
               <FormGroup check className="form-check-radio">
                 <Label check>
@@ -444,7 +484,7 @@ function Enhancements({handleChange, value }){
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="StainlessSteel" delay={0}>
-                Stainless Steel ID Tag info needed
+                Laser etched stainless steel tags provide a professional looking tag that is exceptionally tough in extreme environments.
               </UncontrolledTooltip>
               <FormGroup check inline>
                 <Label check>
@@ -473,7 +513,12 @@ function Enhancements({handleChange, value }){
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="ElectropolishFlow" delay={0}>
-                Electropolish Flow info needed
+                EPI offers electropolishing for your meter, whether you would like the sensor, sensor & flow section, or all wetted parts. 
+                Electropolishing can improve surface finish up to 50% of the existing Roughness Average (Ra).        
+                Electropolishing is an electrochemical process by which surface material is removed by anodic dissolution. 
+                Electropolishing removes surface material, beginning with the high points within the microscopic surface texture. 
+                By removing these points, the electropolishing process will improve the surface finish of a metal such as stainless steel, 
+                nickel, aluminum, and Hastelloy, leaving a smoother and more reflective surface.
               </UncontrolledTooltip>
               <FormGroup check className="form-check-radio">
                 <Label check>

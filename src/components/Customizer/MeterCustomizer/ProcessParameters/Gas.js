@@ -38,7 +38,8 @@ function Gas({ MakeChangeText, MakeChangeDropdown, CheckErrors, ErrorValues }){
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="MINIMUMGASTEMP" delay={0}>
-                MINIMUM GAS TEMP.
+                Input the minimum gas temperature you expect in the process line. 
+                This will help EPI determine the appropriate temperature compensation range for your process.
               </UncontrolledTooltip>
             </label>
             <Input
@@ -67,7 +68,8 @@ function Gas({ MakeChangeText, MakeChangeDropdown, CheckErrors, ErrorValues }){
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="MAXIMUMGASTEMP" delay={0}>
-                MAXIMUM GAS TEMP.
+                Input the maximum gas temperature you expect in the process line. 
+                This will help EPI determine the appropriate temperature compensation range for your process.
               </UncontrolledTooltip>
             </label>
             <Input
@@ -97,7 +99,8 @@ function Gas({ MakeChangeText, MakeChangeDropdown, CheckErrors, ErrorValues }){
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="OPTIMALGASTEMP" delay={0}>
-                OPTIMAL GAS TEMP.
+                Input your optimal gas temperature. 
+                This will serve as a reference point when your meter is calibrated to your gas type.
               </UncontrolledTooltip>
             </label>
             <Input

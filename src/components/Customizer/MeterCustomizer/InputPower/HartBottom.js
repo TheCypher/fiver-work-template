@@ -32,8 +32,8 @@ function HartBottom({ handleChange, value }){
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="DUALMECHANICALRELAYS12" delay={0}>
-                DUAL MECHANICAL RELAYS info needed
-              </UncontrolledTooltip>
+                This configuration includes dual 2 Amp programmable dry-contact mechanical relays.  
+                Common uses include low alarm, high alarm, totalized output by pulse, etc.              </UncontrolledTooltip>
             </Label>
           </FormGroup>
 
@@ -52,7 +52,10 @@ function HartBottom({ handleChange, value }){
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="RSRW123" delay={0}>
-                RS 232 (R/W)
+                RS232 (Recommended Standard 232C, Read / Write) is a standard protocol used for serial communication. 
+                It is used for connecting computer and its peripheral devices to allow data exchange between them. 
+                It is used in serial communication up to 50 feet with the rate of 1.492kbps, depending on the application environment. 
+                EPI recommends the shortest cable distance to minimize signal interference and maximize data transmission speed.
               </UncontrolledTooltip>
             </Label>
           </FormGroup>
@@ -73,7 +76,11 @@ function HartBottom({ handleChange, value }){
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="RSMODBUSHART" delay={0}>
-                HART
+                HART (Highway Addressable Remote Transducer, Read Only) Protocol is an open standard used globally to send and receive digital 
+                information using analog wiring between smart devices and control systems. With over 30 million devices installed, it is the most 
+                popular protocol used in the field. Maintained by an independent organization, the HART Communication Foundation, the HART protocol 
+                is an industry standard developed to define the communications protocol between intelligent field devices and a control system.         
+                EPI's HART™ compatible module provides real-time information about the operational parameters of the meter. 
               </UncontrolledTooltip>
             </Label>
           </FormGroup>

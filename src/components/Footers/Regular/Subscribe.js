@@ -26,6 +26,7 @@ function Subscribe() {
             <span style={{ 'color': 'white', 'font-size': '28px'}}>Stay Up to Date</span><br />
             <span>Get the latest news and product updates from the EPI team periodically. Don’t worry,</span><br />
             <span>we hate spam too!</span>
+            <br /><br />
             <InputGroup>
               <Input
                 style={{

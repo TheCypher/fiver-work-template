@@ -173,7 +173,9 @@ function InputPower({ handleChange, value }){
                       ?
                     </Button>{` `}
                     <UncontrolledTooltip placement="right" target="Application" delay={0}>
-                      Select Input Power
+                      The Input Power selection allows you to specify whether the system should be supplied by AC or DC power, 
+                      as well as the voltage. Some of the communication configurations below are dependent on certain types of power; 
+                      incompatible configurations will be grayed out dependent on your Input Power selection.
                     </UncontrolledTooltip>
                     </label>
                   <Input

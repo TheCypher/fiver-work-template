@@ -106,7 +106,9 @@ function MeterHousing({handleChange, value }){
                         ?
                       </Button>{` `}
                       <UncontrolledTooltip placement="right" target="Display" delay={0}>
-                        2-line backlit Liquid Crystal Transflective Display; 4-button programmable keypad;
+                        A 2-Line Backlit Liquid Crystal Transflective display is included with EPI flow meters. 
+                        It is easy to read in low light or high light conditions, 
+                        and will come with the orientation specified in the above section.
                       </UncontrolledTooltip>
                     </span><br />
                     <FormGroup check className="form-check-radio">

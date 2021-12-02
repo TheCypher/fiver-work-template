@@ -138,12 +138,12 @@ function PipeOrientation({ handleChange, value }){
                 defaultChecked
                 onClick={ (e) => MakeChange({
                   section: 'meter_orientation',
-                  type: 'flow_direction',
+                  type: 'flow_direction_horizontal',
                   values: ['left_to_right', 'right_to_left'],
                   price_effect: false
                 }, e)}
-                id="flow_direction_horizontal"
-                name="flow_direction_horizontal"
+                id="flowdirectionhorizontal"
+                name="flowdirectionhorizontal"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>
@@ -155,12 +155,12 @@ function PipeOrientation({ handleChange, value }){
               <Input
                 onClick={ (e) => MakeChange({
                   section: 'meter_orientation',
-                  type: 'flow_direction',
+                  type: 'flow_direction_horizontal',
                   values: ['right_to_left', 'left_to_right'],
                   price_effect: false
                 }, e)}
-                id="flow_direction_horizontal"
-                name="flow_direction_horizontal"
+                id="flowdirectionhorizontal"
+                name="flowdirectionhorizontal"
                 type="radio"
               ></Input>
               <span className="form-check-sign"></span>

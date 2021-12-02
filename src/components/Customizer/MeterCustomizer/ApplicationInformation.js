@@ -129,7 +129,8 @@ function ApplicationInformation({ handleChange, value }){
                       ?
                     </Button>{` `}
                     <UncontrolledTooltip placement="right" target="ApplicationQuestion" delay={0}>
-                      Type of Industry
+                      This refers to the application for which you will be using your meter, 
+                      including Industrial, Oil & Gas, Wastewater, and Biogas. 
                     </UncontrolledTooltip>
                   </label>
                   <Input
@@ -197,7 +198,10 @@ function ApplicationInformation({ handleChange, value }){
                       ?
                     </Button>{` `}
                     <UncontrolledTooltip placement="right" target="Gas" delay={0}>
-                      Non-condensing / Anhydrous Gas 
+                      Gas refers to the specific gas(es) that you will be metering. 
+                      Your new meter will be precisely calibrated to measure the provided selection. 
+                      If you select Natural or Mixed Gas, please input and verify the chemicals and percentages, 
+                      totaling 100%, that make up the composition you will be flowing.
                     </UncontrolledTooltip>
                   </label>
                   <Input

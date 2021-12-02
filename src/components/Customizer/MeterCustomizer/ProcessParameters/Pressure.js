@@ -23,7 +23,8 @@ function Pressure({ MakeChangeText, MakeChangeDropdown }){
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="MINIMUMGASPRESSURE" delay={0}>
-                MINIMUM GAS PRESSURE
+                Input the minimum gas pressure you expect in the process line. 
+                This will serve as a reference point when your meter is calibrated to your gas type.
               </UncontrolledTooltip>
             </label>
             <Input
@@ -52,7 +53,8 @@ function Pressure({ MakeChangeText, MakeChangeDropdown }){
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="MAXIMUMGASPRESSURE" delay={0}>
-                MAXIMUM GAS PRESSURE
+                Input the maximum gas pressure you expect in the process line. 
+                This will serve as a reference point when your meter is calibrated to your gas type.
               </UncontrolledTooltip>
             </label>
             <Input
@@ -81,7 +83,8 @@ function Pressure({ MakeChangeText, MakeChangeDropdown }){
                 ?
               </Button>{` `}
               <UncontrolledTooltip placement="right" target="OPTIMALGASPRESSURE" delay={0}>
-                OPTIMAL GAS PRESSURE
+                Input your optimal gas pressure. 
+                This will serve as a reference point when your meter is calibrated to your gas type.
               </UncontrolledTooltip>
             </label>
             <Input
