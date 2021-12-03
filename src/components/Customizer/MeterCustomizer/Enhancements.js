@@ -118,7 +118,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'certificates_origin',
                       values: ['orgin', 'none'],
-                      price_effect: false,
+                      price_effect: true,
                       option: e
                     }, e)}
                     id="certificates_origin"
@@ -144,7 +144,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'certificates_oxygen',
                       values: ['oxygen', 'none'],
-                      price_effect: false,
+                      price_effect: true,
                       option: e
                     }, e)}
                     id="certificates_oxygen"
@@ -173,7 +173,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'certificates_leak',
                       values: ['leak', 'none'],
-                      price_effect: false,
+                      price_effect: true,
                       option: e
                     }, e)}
                     id="certificates_leak"
@@ -200,7 +200,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'certificates_welding',
                       values: ['welding', 'none'],
-                      price_effect: false,
+                      price_effect: true,
                       option: e
                     }, e)}
                     id="certificates_welding"
@@ -265,7 +265,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'calibration_left_curve',
                       values: ['left_curve', 'none'],
-                      price_effect: false,
+                      price_effect: true,
                       option: e
                     }, e)}
                     id="calibration_left_curve"
@@ -293,7 +293,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'test_pmi',
                       values: ['pmi', 'none'],
-                      price_effect: false,
+                      price_effect: true,
                       option: e
                     }, e)}
                     id="test_pmi"
@@ -320,7 +320,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'test_liquid',
                       values: ['liquid', 'none'],
-                      price_effect: false,
+                      price_effect: true,
                       option: e
                     }, e)}
                     id="test_liquid"
@@ -350,7 +350,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'test_welds',
                       values: ['welds', 'none'],
-                      price_effect: false,
+                      price_effect: true,
                       option: e
                     }, e)}
                     id="test_welds"
@@ -416,7 +416,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'warranty',
                       values: ['none', '1', '2', '3'],
-                      price_effect: false
+                      price_effect_warranty: true
                     }, e)}
                     id="warranty"
                     name="warranty"
@@ -495,7 +495,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'stainless',
                       values: ['stainless', 'none'],
-                      price_effect: false,
+                      price_effect: true,
                       option: e
                     }, e)}
                     id="stainless"
@@ -528,7 +528,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'electropolish',
                       values: ['none', 'sensor', 'section', 'section_sensor'],
-                      price_effect: false
+                      price_effect: true
                     }, e)}
                     id="electropolish"
                     name="electropolish"
@@ -545,7 +545,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'electropolish',
                       values: ['sensor', 'section', 'section_sensor', 'none'],
-                      price_effect: false
+                      price_effect: true
                     }, e)}
                     id="electropolish"
                     name="electropolish"
@@ -562,7 +562,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'electropolish',
                       values: [ 'section', 'sensor', 'section_sensor', 'none'],
-                      price_effect: false
+                      price_effect: true
                     }, e)}
                     id="electropolish"
                     name="electropolish"
@@ -580,7 +580,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'electropolish',
                       values: [ 'section_sensor', 'sensor', 'section', 'none'],
-                      price_effect: false
+                      price_effect: true
                     }, e)}
                     id="electropolish"
                     name="electropolish"

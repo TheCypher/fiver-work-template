@@ -83,6 +83,10 @@ function InputPower({ handleChange, value }){
       setInputPowerSelected(prevState => ({
         ...prevState,  power: data.option_value
       }));
+
+      setSelectedCommunication(prevState => ({
+        ...prevState,  communications: 'standard'
+      }));
     }
 
     if(data.change_effect === 'communications'){
@@ -92,15 +96,6 @@ function InputPower({ handleChange, value }){
     }
 
     handleChange(data);
-  }
-
-  const optionsName = () => {
-    if(selectedCommunication === 'standard') {setSelectedCommunicationName('Standard (MODBUS RTU)')}
-    if(selectedCommunication === 'multi_range_temp_out') {setSelectedCommunicationName('Multi-Range + Temp Out')}
-    if(selectedCommunication === 'multi_range_no_temp') {setSelectedCommunicationName('Multi-Range + No Temp')}
-    if(selectedCommunication === 'hart') {setSelectedCommunicationName('HART')}
-    if(selectedCommunication === 'bacnet') {setSelectedCommunicationName('BACnet')}
-    if(selectedCommunication === 'profibus') {setSelectedCommunicationName('Profibus')}
   }
 
   var title = 'Input Power & Communication Options';

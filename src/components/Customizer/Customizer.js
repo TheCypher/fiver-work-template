@@ -30,6 +30,7 @@ function Customizer(){
       step: 1,
       total: {
         base: 3020,
+        warranty: 10,
         air: 0,
         pipe_orientation: 0,
         sensors:0,
@@ -268,17 +269,33 @@ function Customizer(){
           orgin: false,
           none: true
         },
+        certificates_origin_prices:{
+          orgin: 125,
+          none: 0
+        },
         certificates_oxygen:{
           oxygen: false,
           none: true,
+        },
+        certificates_oxygen_prices:{
+          oxygen: 395,
+          none: 0,
         },
         certificates_leak:{
           leak: false,
           none: true
         },
+        certificates_leak_prices:{
+          leak: 125,
+          none: 0
+        },
         certificates_welding:{
           welding: false,
           none: true
+        },
+        certificates_welding_prices:{
+          welding: 750,
+          none: 0
         },
         calibration_ctp:{
           ctp: false,
@@ -292,17 +309,33 @@ function Customizer(){
           left_curve: false,
           none: true
         },
+        calibration_left_curve_prices:{
+          left_curve: 225,
+          none: 0
+        },
         test_pmi:{
           pmi: false,
           none: true
+        },
+        test_pmi_prices:{
+          pmi: 250,
+          none: 0
         },
         test_liquid:{
           liquid: false,
           none: true,
         },
+        test_liquid_prices:{
+          liquid: 250,
+          none: 0,
+        },
         test_welds:{
           welds: false,
           none: true
+        },
+        test_welds_prices:{
+          welds: 250,
+          none: 0
         },
         test_wetted:{
           wetted: false,
@@ -314,15 +347,31 @@ function Customizer(){
           2: false,
           3: false
         },
+        warranty_prices:{
+          none: true,
+          1: 10,
+          2: 20,
+          3: 30
+        },
         stainless:{
           stainless: false,
           none: true
+        },
+        stainless_prices:{
+          stainless: 45,
+          none: 0
         },
         electropolish:{
           none: false,
           sensor: false,
           section: false,
           section_sensor: true
+        },
+        electropolish_prices:{
+          none: 0,
+          sensor: 260,
+          section: 260,
+          section_sensor: 460
         }
       },
       process_parameters: {
@@ -384,9 +433,9 @@ function Customizer(){
         },
         input_power_prices: {
           vdc_12_18: 0,
-          vdc_18_24: 100,
-          vac_105_120: 200,
-          vac_210_240: 300
+          vdc_18_24: 0,
+          vac_105_120: 204,
+          vac_210_240: 204
         },
         communications_options: {
           standard: false,
@@ -595,6 +644,13 @@ function Customizer(){
     return sum;
   }
 
+  const warrantyPercentage = (total, warranty) => {
+    const percentage = (total / 100) * 10;
+    const final_price = total + percentage;
+    console.log('Show me final price', final_price)
+    return(final_price);
+  }
+
   const ShowFooter = (props) => {
     if (isMobile) {
       return (<CustomizerPriceFooter state={props} />)
@@ -611,7 +667,8 @@ function Customizer(){
     }
   }
 
-  const total = sum(data.total);
+  const total_bare = sum(data.total);
+  const total = warrantyPercentage(total_bare, data.total.warranty);
   const { step, pipe_orientation } = data;
   const values = { step, total, pipe_orientation }
   

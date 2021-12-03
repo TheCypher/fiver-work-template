@@ -5,6 +5,8 @@ import { Input } from "reactstrap";
 function CommunicationsOptions({ MakeChangeDropdown, selectedPower, communicationsName }){
 
   console.log('Show me CommunicationsOptions 1.0 =>', selectedPower);
+
+  // if(!communicationsName){communicationsName='Select Communication Options'}
   
   const Options = () => {
     if( selectedPower === 'vdc_12_18'){
