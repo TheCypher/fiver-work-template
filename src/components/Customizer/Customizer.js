@@ -381,7 +381,7 @@ function Customizer(){
           minimum: false
         },
         flow_rate_maximum:{
-          maximum: false
+          maximum: 0
         },
         flow_rate_optimal:{
           optimal: false
@@ -740,6 +740,7 @@ function Customizer(){
               <ProcessParameters
                 handleChange={ handleChange }
                 value={ values }
+                customizerData={data}
               />
 
               <FlowBody

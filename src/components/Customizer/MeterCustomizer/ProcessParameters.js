@@ -27,8 +27,15 @@ import Gas from "./ProcessParameters/Gas";
 import Ambient from "./ProcessParameters/Ambient";
 import Pressure from "./ProcessParameters/Pressure";
 
-function ProcessParameters({handleChange, value }){
+function ProcessParameters({handleChange, value, customizerData }){
   const [otherOptions, setOtherOptions] = useState(false);
+  const [givePipeSize, setGivenPipeSize] = useState(0);
+  const [calculatorStatus, setCalculatorStatus] = useState(false);
+  const [velocityCalculatorValues, setVelocityCalculatorValues] = useState({
+    area: 0,
+    velocity: 0
+  });
+
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const [errors, setErrors] = useState(
     {
@@ -83,6 +90,39 @@ function ProcessParameters({handleChange, value }){
     handleChange(data);
   }
 
+  const velocityCalculator = (inputData) => {
+    const pipeSizes = customizerData.pipe_infornation.pipe_size;
+    const identifiers = Object.keys(pipeSizes)
+    const selectedPipeSize = identifiers.filter(function(id) {
+      return pipeSizes[id]
+    })
+    
+    const selectedPipeSizeInt = parseInt(selectedPipeSize)
+    setGivenPipeSize(selectedPipeSizeInt);
+    
+    // console.log('Show me pipe size in calculator 1.0 =>', selectedPipeSizeInt);
+    // const { flowrate } = inputData;
+    const flowrate = customizerData.process_parameters.flow_rate_maximum.valuesObj.maximum;
+    const diameter = selectedPipeSizeInt;
+
+    // console.log('Show me pipe size in calculator 1.0.1 =>', flowrate);
+    const diameterToFeets = (diameter / 12);
+    const radius = (diameterToFeets / 2);
+    var area = (3.14159265359 * (radius ** 2));
+    var velocity = (flowrate / area); // cubic feet per second
+
+    var area = area.toFixed(4);
+    var velocity = velocity.toFixed(2);
+
+    setVelocityCalculatorValues(prevState => ({
+      ...prevState,
+        ['area']: area,
+        ['velocity']: velocity
+    }));
+
+    setCalculatorStatus(true);
+  }
+
   const CheckErrors = (data) => {
     const { input_name, input_value } = data;
 
@@ -113,6 +153,8 @@ function ProcessParameters({handleChange, value }){
       unSet()
     }
   }
+
+  // console.log('Show me the data velocity 1.0 =>', velocityCalculator())
 
   var title = 'Process Parameters';
   if (isMobile) {
@@ -196,6 +238,58 @@ function ProcessParameters({handleChange, value }){
               MakeChangeDropdown={MakeChangeDropdown}
             />
 
+            <Row>
+              <Col className="processParametterCols">
+                <Button
+                  color="info"
+                  size="lg"
+                  href="#pablo"
+                  onClick={ (e) => velocityCalculator({
+                    flowrate: 35
+                  }, e)}
+                >
+                  Calculate Velocity
+                </Button>
+              </Col>
+              <Col className="processParametterCols">
+                <span className="customizerInputTitleProcessParameters"> Area (Square Feet)</span>
+                  <Button className="questionToolTip" id="CalArea" size="sm">
+                      ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="bottom" target="CalArea" delay={0}>
+                    Area in based on given pipe size in pipe information.
+                  </UncontrolledTooltip>
+                <br />
+                <h2 className="text-centerl">
+                  {calculatorStatus? (velocityCalculatorValues.area) : (<></>)}
+                </h2>
+              </Col>
+              <Col className="processParametterCols">
+                <span className="customizerInputTitleProcessParameters">Velocity (CFS)</span>
+                  <Button className="questionToolTip" id="CalVelocity" size="sm">
+                      ?
+                  </Button>{` `}
+                  <UncontrolledTooltip placement="bottom" target="CalVelocity" delay={0}>
+                    Velocity is based on given Maximum Flow Rate above.
+                  </UncontrolledTooltip>
+                <br />
+                <h2 className="text-centerl">
+                  {calculatorStatus? (velocityCalculatorValues.velocity) : (<></>)}
+                </h2>
+              </Col>
+              <Col className="processParametterCols">
+                {calculatorStatus? (
+                  <Button
+                    color="info"
+                    size="lg"
+                    href="#pablo"
+                    onClick={ (e) => setCalculatorStatus(false)}
+                  >
+                    Reset Calculator
+                  </Button>
+                ) : (<></>)}
+              </Col>
+            </Row>
             <hr />
             <Row>
               <Col>
