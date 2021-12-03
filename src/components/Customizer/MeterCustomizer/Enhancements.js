@@ -433,7 +433,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'warranty',
                       values: ['1', 'none', '2', '3'],
-                      price_effect: false
+                      price_effect_warranty: true
                     }, e)}
                     id="warranty"
                     name="warranty"
@@ -450,7 +450,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'warranty',
                       values: ['2', '1', 'none', '3'],
-                      price_effect: false
+                      price_effect_warranty: true
                     }, e)}
                     id="warranty"
                     name="warranty"
@@ -467,7 +467,7 @@ function Enhancements({handleChange, value }){
                       section: 'enhancements',
                       type: 'warranty',
                       values: ['3', '1', '2', 'none'],
-                      price_effect: false
+                      price_effect_warranty: true
                     }, e)}
                     id="warranty"
                     name="warranty"

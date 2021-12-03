@@ -30,12 +30,14 @@ function Customizer(){
       step: 1,
       total: {
         base: 3020,
-        warranty: 10,
         air: 0,
         pipe_orientation: 0,
         sensors:0,
         calibration_ctp_prices:0,
         input_power: 0
+      },
+      warranty: {
+        warranty: 0
       },
       meter_orientation: {
         pipe_orientation: {
@@ -532,8 +534,18 @@ function Customizer(){
     const values = props.values;
     const section = props.section;
     const price_effect = props.price_effect;
+    var price_effect_warranty = false;
 
-    if(props.option_value && props.text_input){
+    if(props.price_effect_warranty) {
+      makeChange({
+        type: type,
+        value: values[0],
+        section: section,
+        values: values,
+        price_effect,
+        price_effect_warranty: props.price_effect_warranty
+      })
+    } else if(props.option_value && props.text_input){
       const option_value = props.option_value;
       const text_input = props.text_input;
       makeChangeText({
@@ -542,7 +554,8 @@ function Customizer(){
         section: section,
         values: values,
         price_effect,
-        text_input
+        text_input,
+        price_effect_warranty: price_effect_warranty
       })
     } else if(props.option_value) {
       const option_value = props.option_value;
@@ -551,7 +564,8 @@ function Customizer(){
         value: option_value,
         section: section,
         values: values,
-        price_effect
+        price_effect,
+        price_effect_warranty: price_effect_warranty
       })
     } else {
       makeChange({
@@ -559,13 +573,14 @@ function Customizer(){
         value: values[0],
         section: section,
         values: values,
-        price_effect
+        price_effect,
+        price_effect_warranty: price_effect_warranty
       })
     }
   }
 
   const makeChange = (props) => {
-    const { type, value, values, section, price_effect } = props;
+    const { type, value, values, section, price_effect, price_effect_warranty } = props;
 
     const valuesObj = values.reduce((acc,curr)=> (acc[curr]=false,acc),{});
 
@@ -591,6 +606,19 @@ function Customizer(){
           ...prevState,
             ['total']:{
               ...prevState['total'],
+              [type]: valuePrice
+            }
+        })); 
+      }
+
+      if(price_effect_warranty){
+        const pricesObj = data[section][type + '_prices'];
+        const valuePrice = pricesObj[value];
+        console.log('Show me the data change value price 2.0.1 =>', pricesObj, valuePrice)
+        setData(prevState => ({
+          ...prevState,
+            ['warranty']:{
+              ...prevState['warranty'],
               [type]: valuePrice
             }
         })); 
@@ -645,10 +673,8 @@ function Customizer(){
   }
 
   const warrantyPercentage = (total, warranty) => {
-    const percentage = (total / 100) * 10;
-    const final_price = total + percentage;
-    console.log('Show me final price', final_price)
-    return(final_price);
+    const percentage = (total / 100) * warranty;
+    return(parseFloat(total + percentage));
   }
 
   const ShowFooter = (props) => {
@@ -668,7 +694,7 @@ function Customizer(){
   }
 
   const total_bare = sum(data.total);
-  const total = warrantyPercentage(total_bare, data.total.warranty);
+  const total = warrantyPercentage(total_bare, data.warranty.warranty);
   const { step, pipe_orientation } = data;
   const values = { step, total, pipe_orientation }
   
