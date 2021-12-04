@@ -163,7 +163,7 @@ function FlowBody({handleChange, value }){
                 <CardImg style={{'width': '152.65px', 'height': '150px'}} alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <span className="customizerInputTitleSmallX1">Standard Sensor</span>
+                    <span className="customizerInputTitleSmallX1">Standard Sensor - No Shield</span>
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({

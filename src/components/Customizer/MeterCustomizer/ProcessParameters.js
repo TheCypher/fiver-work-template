@@ -26,17 +26,10 @@ import FlowRate from "./ProcessParameters/FlowRate";
 import Gas from "./ProcessParameters/Gas";
 import Ambient from "./ProcessParameters/Ambient";
 import Pressure from "./ProcessParameters/Pressure";
+import VelocityCalculator from "./ProcessParameters/VelocityCalculator";
 
 function ProcessParameters({handleChange, value, customizerData }){
   const [otherOptions, setOtherOptions] = useState(false);
-  const [givenPipeSize, setGivenPipeSize] = useState(0);
-  const [givenFlowRate, setGivenFlowRate] = useState(0);
-  const [calculatorStatus, setCalculatorStatus] = useState(false);
-  const [calculatorError, setCalculatorError] = useState(false);
-  const [velocityCalculatorValues, setVelocityCalculatorValues] = useState({
-    area: 0,
-    velocity: 0
-  });
 
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
   const [errors, setErrors] = useState(
@@ -90,46 +83,6 @@ function ProcessParameters({handleChange, value, customizerData }){
     }
 
     handleChange(data);
-  }
-
-  const changeFlowRateValue = (data) => {
-    setGivenFlowRate(data);
-  }
-
-  const velocityCalculator = (inputData) => {
-    setCalculatorError(false);
-    const pipeSizes = customizerData.pipe_infornation.pipe_size;
-    const identifiers = Object.keys(pipeSizes)
-    const selectedPipeSize = identifiers.filter(function(id) {
-      return pipeSizes[id]
-    })
-    
-    setGivenPipeSize(parseInt(selectedPipeSize));
-    
-    const flowrate = givenFlowRate;
-    const diameter = givenPipeSize;
-
-    // console.log('Show me pipe size in calculator 1.0.1 =>', flowrate);
-    const diameterToFeets = (diameter / 12);
-    const radius = (diameterToFeets / 2);
-    var area = (3.14159265359 * (radius ** 2));
-    var velocity = (flowrate / area); // cubic feet per second
-
-    var area = area.toFixed(4);
-    var velocity = velocity.toFixed(2);
-
-    if(givenFlowRate > 0){
-      setVelocityCalculatorValues(prevState => ({
-        ...prevState,
-          ['area']: area,
-          ['velocity']: velocity
-      }));
-  
-      setCalculatorStatus(true);
-    } else {
-      setCalculatorStatus(false);
-      setCalculatorError(true);
-    }
   }
 
   const CheckErrors = (data) => {
@@ -231,7 +184,6 @@ function ProcessParameters({handleChange, value, customizerData }){
               MakeChangeDropdown={MakeChangeDropdown}
               CheckErrors={CheckErrors}
               ErrorValues={error_values}
-              changeFlowRateValue={changeFlowRateValue}
             />
             <Gas
               MakeChangeText={MakeChangeText}
@@ -247,66 +199,11 @@ function ProcessParameters({handleChange, value, customizerData }){
               MakeChangeText={MakeChangeText}
               MakeChangeDropdown={MakeChangeDropdown}
             />
-
-            {calculatorError? (
-              <p className="text-center inputErrorTextbox customizerInputTitleSmall">
-                Please input maximum flowrate above.
-              </p>
-            ) : (<> </>)}
-            <Row>
-              <Col className="processParametterCols">
-                <Button
-                  color="warning"
-                  size="lg"
-                  href="#pablo"
-                  onClick={ (e) => velocityCalculator({
-                    flowrate: 35
-                  }, e)}
-                >
-                  Calculate Velocity
-                </Button>
-              </Col>
-              <Col className="processParametterCols">
-                <span className="customizerInputTitleProcessParameters"> Area (Square Feet)</span>
-                  <Button className="questionToolTip" id="CalArea" size="sm">
-                      ?
-                  </Button>{` `}
-                  <UncontrolledTooltip placement="bottom" target="CalArea" delay={0}>
-                    Area in based on given pipe size in pipe information. <br />
-                    { givenPipeSize }"
-                  </UncontrolledTooltip>
-                <br />
-                <h2 className="text-centerl">
-                  {calculatorStatus? (velocityCalculatorValues.area) : (<></>)}
-                </h2>
-              </Col>
-              <Col className="processParametterCols">
-                <span className="customizerInputTitleProcessParameters">Velocity (CFS)</span>
-                  <Button className="questionToolTip" id="CalVelocity" size="sm">
-                      ?
-                  </Button>{` `}
-                  <UncontrolledTooltip placement="bottom" target="CalVelocity" delay={0}>
-                    Velocity is based on given Maximum Flow Rate above. <br />
-                    { givenFlowRate }
-                  </UncontrolledTooltip>
-                <br />
-                <h2 className="text-centerl">
-                  {calculatorStatus? (velocityCalculatorValues.velocity) : (<></>)}
-                </h2>
-              </Col>
-              <Col className="processParametterCols">
-                {calculatorStatus? (
-                  <Button
-                    color="warning"
-                    size="lg"
-                    href="#pablo"
-                    onClick={ (e) => setCalculatorStatus(false)}
-                  >
-                    Reset Calculator
-                  </Button>
-                ) : (<></>)}
-              </Col>
-            </Row>
+            <hr />
+            <VelocityCalculator
+              MakeChangeDropdown={MakeChangeDropdown}
+              customizerData={customizerData}
+            />
             <hr />
             <Row>
               <Col>

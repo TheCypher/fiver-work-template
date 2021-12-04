@@ -11,13 +11,11 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-function FlowRate({ MakeChangeText, MakeChangeDropdown, CheckErrors, ErrorValues, changeFlowRateValue }){
+function FlowRate({ MakeChangeText, MakeChangeDropdown, CheckErrors, ErrorValues }){
   
   const CheckAndMakeChange = (data) => {
     data.input_value = data.option.target.value;
     CheckErrors(data)
-
-    if(data.values[0] === 'maximum'){changeFlowRateValue(data.input_value)}
 
     if(!ErrorValues[data.input_name]){
       MakeChangeText(data)
