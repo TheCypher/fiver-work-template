@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import{
   Card,
@@ -20,6 +21,7 @@ function Haz(props) {
   const product_data = [
     {
       title: 'HAZ',
+      link: 'haz/inline/haz',
       description: 'In oculis quidem exercitus quid ex ea voluptate ponit, quod summum bonum sit.',
       type: 2,
       left_small_title: 'INLINE',
@@ -37,6 +39,7 @@ function Haz(props) {
     },
     {
       title: 'HAZ R',
+      link: 'haz/inline/haz-r',
       description: 'In oculis quidem exercitus quid ex ea voluptate ponit, quod summum bonum sit.',
       type: 2,
       left_small_title: 'INLINE',
@@ -54,6 +57,7 @@ function Haz(props) {
     },
     {
       title: 'HAZ FAT',
+      link: 'haz/inline/haz-fat',
       description: 'In oculis quidem exercitus quid ex ea voluptate ponit, quod summum bonum sit.',
       type: 2,
       left_small_title: 'INLINE',
@@ -71,6 +75,7 @@ function Haz(props) {
     },
     {
       title: 'HAZ FAT R',
+      link: 'haz/inline/haz-fat-r',
       description: 'In oculis quidem exercitus quid ex ea voluptate ponit, quod summum bonum sit.',
       type: 2,
       left_small_title: 'INLINE',
@@ -142,7 +147,8 @@ function Haz(props) {
                           <NavItem>
                             <NavLink
                               className="nav-product-hover-button"
-                              href="#pablo"
+                              tag={Link}
+                              to={`/product/${value.link}`}
                               onMouseEnter={() => updateProductImage(value, index, 'left')}
                               onMouseLeave={() => updateProductDefaultImage(value, index)}
                             >

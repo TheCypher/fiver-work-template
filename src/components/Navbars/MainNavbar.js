@@ -21,7 +21,7 @@ import {
 import { UncontrolledCollapse, CardBody, Card } from "reactstrap";
 
 
-function NewNavbar() {
+function MainNavbar() {
   const [navbarColor, setNavbarColor] = React.useState("");
   const [collapseOpen, setCollapseOpen] = React.useState(false);
 
@@ -190,4 +190,4 @@ function NewNavbar() {
   );
 }
 
-export default NewNavbar;
+export default MainNavbar;

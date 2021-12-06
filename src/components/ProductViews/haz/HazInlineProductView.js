@@ -1,119 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+
 // reactstrap components
 import {
-  UncontrolledCollapse,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  FormGroup,
-  Form,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
-  NavbarBrand,
-  Navbar,
-  NavItem,
-  NavLink,
-  Nav,
-  Container,
   TabContent,
   TabPane,
   Row,
   Col,
   Button,
 } from "reactstrap";
-// core components
 
-import ImageViewer from "./ImageViewer";
+// core components
+import ProductViewNavbar from "components/Navbars/ProductViewNavbar";
+import ImageViewer from "components/Customizer/ImageViewer";
 import MeterCustomizerNavbar from "components/Navbars/MeterCustomizerNavbar";
 
-function ProductView(){
-  const [pills, setPills] = React.useState("1");
+function HazInlineProductView(){
+  const [pills, setPills] = useState("1");
+  const navbarData = {
+    product_title: '8700 MPHAZ',
+    product_type: 'INLINE FLOW METER'
+  }
+
   return (
     <>
       <div className="section section-about-us" style={{ 'background': 'whitesmoke', 'padding-bottom': '50px', 'border-bottom': 'whitesmoke'}}>
-        <Navbar className="bg-epi-blue" style={{'min-height': '80px'}} expand="lg">
-          <Container>
-            <div className="navbar-translate">
-              <NavbarBrand href="#pablo" onClick={e => e.preventDefault()} style={{ 'color': 'white'}}>
-                <p style={{'font-size': '1.8571em'}}>8700 MPHAZ</p><br />
-                INLINE FLOW METER
-              </NavbarBrand>
-              <button
-                className="navbar-toggler"
-                id="example-navbar-danger"
-                type="button"
-              >
-                <span className="navbar-toggler-bar-2 bar1"></span>
-                <span className="navbar-toggler-bar-2 bar2"></span>
-                <span className="navbar-toggler-bar-2 bar3"></span>
-              </button>
-            </div>
-            <UncontrolledCollapse navbar toggler="#example-navbar-danger">
-              <Nav className="ml-auto" navbar style={{'font-size': '1.1em'}}>
-                <NavItem className={pills === "1" ? "active" : ""}>
-                  <NavLink
-                    href="#pablo"
-                    style={{ 'color': 'white', 'border-bottom': '2px solid whitesmoke' }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setPills("1");
-                    }}
-                  >
-                    <i className="now-ui-icons objects_globe"></i>
-                    <p>Discover</p>
-                  </NavLink>
-                </NavItem>
-
-                <NavItem className={pills === "2" ? "active" : ""}>
-                  <NavLink
-                    href="#pablo"
-                    style={{ 'color': 'white' }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setPills("2");
-                    }}
-                  >
-                    <i className="now-ui-icons objects_globe"></i>
-                    <p>Tech Specs</p>
-                  </NavLink>
-                </NavItem>
-
-                <NavItem className={pills === "3" ? "active" : ""}>
-                  <NavLink
-                    href="#pablo"
-                    style={{ 'color': 'white' }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setPills("3");
-                    }}
-                  >
-                    <i className="now-ui-icons objects_globe"></i>
-                    <p>CAD Files</p>
-                  </NavLink>
-                </NavItem>
-
-                <NavItem className={pills === "4" ? "active" : ""}>
-                  <NavLink
-                    href="#pablo"
-                    style={{ 'color': 'white' }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      setPills("4");
-                    }}
-                  >
-                    <i className="now-ui-icons objects_globe"></i>
-                    <p>Support</p>
-                  </NavLink>
-                </NavItem>
-              </Nav>
-            </UncontrolledCollapse>
-          </Container>
-        </Navbar>
-
-      
+        <ProductViewNavbar
+          navbarData={navbarData}
+          pills={pills}
+          setPills={setPills}
+        />
         <TabContent className="gallery" activeTab={"pills" + pills}>
           <TabPane tabId="pills1">
             <Col className="ml-auto mr-auto" md="10">
@@ -293,4 +208,4 @@ function ProductView(){
   );
 }
 
-export default ProductView;
+export default HazInlineProductView;
