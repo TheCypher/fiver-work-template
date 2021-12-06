@@ -10,6 +10,8 @@ import Customizer from "components/Customizer/Customizer";
 // product views
 import HazInlineProductView from "components/ProductViews/haz/HazInlineProductView";
 import HazRInlineProductView from "components/ProductViews/haz/HazRInlineProductView";
+import HazFatInlineProductView from "components/ProductViews/haz/HazFatInlineProductView";
+import HazFatRInlineProductView from "components/ProductViews/haz/HazFatRInlineProductView";
 
 function HazInline() {
   useEffect(() => {
@@ -48,6 +50,34 @@ function HazInline() {
             <div className="wrapper">
               <LandingPageHeader />
               <HazRInlineProductView />
+              <Customizer />
+              <Footer />
+            </div>
+          </>
+        );
+        break;
+
+      case 'haz-fat':
+        return (
+          <>
+            <MainNavbar />
+            <div className="wrapper">
+              <LandingPageHeader />
+              <HazFatInlineProductView />
+              <Customizer />
+              <Footer />
+            </div>
+          </>
+        );
+        break;
+
+      case 'haz-fat-r':
+        return (
+          <>
+            <MainNavbar />
+            <div className="wrapper">
+              <LandingPageHeader />
+              <HazFatRInlineProductView />
               <Customizer />
               <Footer />
             </div>

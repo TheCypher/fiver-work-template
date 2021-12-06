@@ -22,7 +22,7 @@ const routes = [
     component: () => HazInline()
   },
   {
-    path: "/product/haz/inline/:product?",
+    path: "/products/haz/inline/:product?",
     component: () => HazInline()
   }
 ];

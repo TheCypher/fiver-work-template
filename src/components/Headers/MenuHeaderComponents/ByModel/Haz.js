@@ -148,7 +148,7 @@ function Haz(props) {
                             <NavLink
                               className="nav-product-hover-button"
                               tag={Link}
-                              to={`/product/${value.link}`}
+                              to={`/products/${value.link}`}
                               onMouseEnter={() => updateProductImage(value, index, 'left')}
                               onMouseLeave={() => updateProductDefaultImage(value, index)}
                             >
