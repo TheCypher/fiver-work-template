@@ -26,10 +26,16 @@ import "assets/demo/demo.css?v=1.5.0";
 import "assets/demo/nucleo-icons-page-styles.css?v=1.5.0";
 
 import Routes from "router/Routers.js"
+import MainNavbar from "components/Navbars/MainNavbar";
+import Footer from "components/Footers/Footer.js";
 
 ReactDOM.render(
   <BrowserRouter>
-       <Routes />
+    <MainNavbar />
+    <div className="wrapper">
+      <Routes />
+      <Footer />
+    </div>
   </BrowserRouter>,
   document.getElementById("root")
 );

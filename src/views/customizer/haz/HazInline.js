@@ -2,9 +2,7 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router";
 
 // core components
-import MainNavbar from "components/Navbars/MainNavbar";
 import LandingPageHeader from "components/Headers/LandingPageHeader.js";
-import Footer from "components/Footers/Footer.js";
 import Customizer from "components/Customizer/Customizer";
 
 // product views
@@ -32,13 +30,8 @@ function HazInline() {
     case 'haz':
       return (
         <>
-          <MainNavbar />
-          <div className="wrapper">
-            <LandingPageHeader />
-            <HazInlineProductView />
-            <Customizer />
-            <Footer />
-          </div>
+          <HazInlineProductView />
+          <Customizer />
         </>
       );
       break;
@@ -46,13 +39,8 @@ function HazInline() {
       case 'haz-r':
         return (
           <>
-            <MainNavbar />
-            <div className="wrapper">
-              <LandingPageHeader />
-              <HazRInlineProductView />
-              <Customizer />
-              <Footer />
-            </div>
+            <HazRInlineProductView />
+            <Customizer />
           </>
         );
         break;
@@ -60,13 +48,8 @@ function HazInline() {
       case 'haz-fat':
         return (
           <>
-            <MainNavbar />
-            <div className="wrapper">
-              <LandingPageHeader />
-              <HazFatInlineProductView />
-              <Customizer />
-              <Footer />
-            </div>
+            <HazFatInlineProductView />
+            <Customizer />
           </>
         );
         break;
@@ -74,13 +57,8 @@ function HazInline() {
       case 'haz-fat-r':
         return (
           <>
-            <MainNavbar />
-            <div className="wrapper">
-              <LandingPageHeader />
-              <HazFatRInlineProductView />
-              <Customizer />
-              <Footer />
-            </div>
+            <HazFatRInlineProductView />
+            <Customizer />
           </>
         );
         break;
@@ -88,13 +66,8 @@ function HazInline() {
     default:
       return (
         <>
-          <MainNavbar />
-          <div className="wrapper">
-            <LandingPageHeader />
             <HazInlineProductView />
             <Customizer />
-            <Footer />
-          </div>
         </>
       );
       break;

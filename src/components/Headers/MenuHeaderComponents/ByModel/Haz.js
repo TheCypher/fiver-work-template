@@ -21,7 +21,7 @@ function Haz(props) {
   const product_data = [
     {
       title: 'HAZ',
-      link: 'haz/inline/haz',
+      link: 'haz',
       description: 'In oculis quidem exercitus quid ex ea voluptate ponit, quod summum bonum sit.',
       type: 2,
       left_small_title: 'INLINE',
@@ -39,7 +39,7 @@ function Haz(props) {
     },
     {
       title: 'HAZ R',
-      link: 'haz/inline/haz-r',
+      link: 'haz-r',
       description: 'In oculis quidem exercitus quid ex ea voluptate ponit, quod summum bonum sit.',
       type: 2,
       left_small_title: 'INLINE',
@@ -57,7 +57,7 @@ function Haz(props) {
     },
     {
       title: 'HAZ FAT',
-      link: 'haz/inline/haz-fat',
+      link: 'haz-fat',
       description: 'In oculis quidem exercitus quid ex ea voluptate ponit, quod summum bonum sit.',
       type: 2,
       left_small_title: 'INLINE',
@@ -75,7 +75,7 @@ function Haz(props) {
     },
     {
       title: 'HAZ FAT R',
-      link: 'haz/inline/haz-fat-r',
+      link: 'haz-fat-r',
       description: 'In oculis quidem exercitus quid ex ea voluptate ponit, quod summum bonum sit.',
       type: 2,
       left_small_title: 'INLINE',
@@ -93,6 +93,7 @@ function Haz(props) {
     }
   ]
 
+  const link_dir = '/products/haz/inline/'
   const [productData, setProductData] = useState(product_data)
   const [viewType, setViewType] = useState('')  
 
@@ -148,7 +149,8 @@ function Haz(props) {
                             <NavLink
                               className="nav-product-hover-button"
                               tag={Link}
-                              to={`/products/${value.link}`}
+                              from="*"
+                              to={link_dir + value.link}
                               onMouseEnter={() => updateProductImage(value, index, 'left')}
                               onMouseLeave={() => updateProductDefaultImage(value, index)}
                             >
