@@ -9,7 +9,7 @@ import ProductDescription from "../Components/ProductDescription";
 function HazInlineProductView(){
   const [pills, setPills] = useState("1");
   const productImage = require('assets/img/epi-bg.png').default;
-  
+
   const navbarData = {
     product_title: '8700 MPHAZ',
     product_type: 'INLINE FLOW METER'
@@ -21,8 +21,7 @@ function HazInlineProductView(){
     meter_type: 'Inline',
     enclosure: 'Integrated Electronics',
     warranty: '5',
-    certifications: 'CE, CSA/CUS, IECEx, KOSHA, ATEX',
-    product_description: ''
+    certifications: 'CE, CSA/CUS, IECEx, KOSHA, ATEX'
   }
 
   return (

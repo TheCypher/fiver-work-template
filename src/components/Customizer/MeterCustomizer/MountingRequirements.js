@@ -7,7 +7,6 @@ import {
   Button,
   Card,
   CardBody,
-  CardImg,
   Row,
   Col,
   FormGroup,
@@ -43,7 +42,7 @@ function MountingRequirements({handleChange, value }){
     const values = data.values;
     const first_value = values[0]
     
-    if(first_value != data.option_value){
+    if(first_value !== data.option_value){
       values.removeWithValue(data.option_value)
       values[0] = data.option_value;
       values.splice(1,0, first_value);

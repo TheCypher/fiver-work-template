@@ -24,6 +24,8 @@ function CommunicationBody({handleChange, selectedCommunication}){
           />
         );
       break;
+
+    case 'multi_range_no_temp':
         return(
           <MultiRangeNoTemp
             handleChange={handleChange}

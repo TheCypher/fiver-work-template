@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router";
 
 // core components
-import LandingPageHeader from "components/Headers/LandingPageHeader.js";
 import Customizer from "components/Customizer/Customizer";
 
 // product views

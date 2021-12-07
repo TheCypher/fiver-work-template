@@ -10,7 +10,6 @@ import {
   Row,
   Col,
   FormGroup,
-  Label,
   Input,
   CardHeader,
   NavbarBrand,
@@ -24,7 +23,6 @@ import {
 function ApplicationInformation({ handleChange, value }){
   const [selectInputOptions, setSelectInputOptions] = useState(0);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
-  const [otherOptions, setOtherOptions] = useState(false);
 
   // collapse states and functions
   const [collapses, setCollapses] = React.useState([0]);
@@ -41,7 +39,7 @@ function ApplicationInformation({ handleChange, value }){
     const values = data.values;
     const first_value = values[0]
     
-    if(first_value != data.option_value){
+    if(first_value !== data.option_value){
       values.removeWithValue(data.option_value)
       values[0] = data.option_value;
       values.splice(1,0, first_value);

@@ -5,10 +5,8 @@ import { useMediaQuery } from 'react-responsive';
 // reactstrap components
 import {
   UncontrolledCollapse,
-  Button,
   Card,
   CardBody,
-  CardImg,
   Row,
   Col,
   FormGroup,
@@ -20,7 +18,6 @@ import {
   Nav,
   Container,
   Collapse,
-  UncontrolledTooltip
 } from "reactstrap";
 
 import {
@@ -34,9 +31,12 @@ import DuctShape from "./PipeInformantion/DuctShape";
 import Duct from "./PipeInformantion/Duct";
 import Tube from "./PipeInformantion/Tube";
 
+import VelocityCalculator from "./PipeInformantion/VelocityCalculator";
+
 function PipeInformation({ handleChange, value }){
   const [tabType, setTabType] = useState("Pipe");
   const [ductShape, setDuctShape] = useState('rectangular');
+  const [selectedDiameter, setSelectedDiameter] = useState(0.25);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
@@ -54,10 +54,10 @@ function PipeInformation({ handleChange, value }){
     setTabType(data.tab);
   }
 
-  const MakeChangeDropdown = (data) => {
-    data.option_value = data.option.target.value;
-    handleChange(data);
-  }
+  // const MakeChangeDropdown = (data) => {
+  //   data.option_value = data.option.target.value;
+  //   handleChange(data);
+  // }
 
   const BottomOptions = () => {
     if(tabType === "Pipe"){
@@ -79,7 +79,7 @@ function PipeInformation({ handleChange, value }){
     }
   }
 
-  var title = 'Pipe Information';
+  var title = 'Pipe Information / (Velocity Calculator)';
   if (isMobile) {
     if(title.length > 18) title = title.substring(0,18) + '...';
   }
@@ -212,6 +212,7 @@ function PipeInformation({ handleChange, value }){
                   <TabPane tabId="tabsPipe">
                     <Pipe
                       handleChange={ handleChange }
+                      setSelectedDiameter={ setSelectedDiameter }
                       value={ value }
                     />
                   </TabPane>
@@ -232,8 +233,11 @@ function PipeInformation({ handleChange, value }){
                   </TabPane>
                 </TabContent>
               </Col>
-
             </Row>
+            <hr />
+            <VelocityCalculator
+              selectedPipeSize={selectedDiameter}
+            />
           </CardBody>
         </Collapse>
       </Card>

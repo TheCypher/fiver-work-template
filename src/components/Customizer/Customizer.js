@@ -4,8 +4,7 @@ import { useMediaQuery } from 'react-responsive';
 // reactstrap components
 import {
   Row,
-  Col,
-  Button,
+  Col
 } from "reactstrap";
 // core components
 
@@ -79,17 +78,17 @@ function Customizer(){
           din: false
         },
         pipe_size: {
-          '1/4': true,
-          '3/8': false,
-          '1/2': false,
-          '3/4': false,
-          '1': false,
-          '1 1/4': false,
-          '1 1/2': false,
-          '2': false,
-          '2 1/2': false,
-          '3 Flanged': false,
-          '4 Flanged': false
+          0.25: true,
+          0.375: false,
+          0.5: false,
+          0.75: false,
+          1: false,
+          1.25: false,
+          1.5: false,
+          2: false,
+          2.5: false,
+          3: false,
+          4: false
         },
         pipe_size_other: {
           size: false

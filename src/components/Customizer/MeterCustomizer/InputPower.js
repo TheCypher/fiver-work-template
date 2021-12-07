@@ -10,7 +10,6 @@ import {
   Row,
   Col,
   FormGroup,
-  Label,
   Input,
   CardHeader,
   NavbarBrand,
@@ -18,29 +17,16 @@ import {
   Nav,
   Container,
   Collapse,
-  UncontrolledTooltip,
-  TabContent,
-  TabPane
+  UncontrolledTooltip
 } from "reactstrap";
-import Profibus from "./InputPower/Profibus";
-import Bacnet from "./InputPower/Bacnet";
-import Hart from "./InputPower/Hart";
-import MultiRange from "./InputPower/MultiRange";
-import MultiRangeNoTemp from "./InputPower/MultiRangeNoTemp";
-
-import NavbarInputPower from "./InputPower/Navbar";
-import Standard from "./InputPower/Standard";
-import StandardBottom from "./InputPower/StandardBottom";
 
 import CommunicationsOptions from "./InputPower/CommunicationsOptions/CommunicationsOptions";
 import CommunicationBody from "./InputPower/CommunicationsOptions/CommunicationBody";
 
 function InputPower({ handleChange, value }){
-  const [iconTabs, setIconTabs] = useState("1");
   const [inputPowerSelected, setInputPowerSelected] = useState({ power: false });
   const [selectedCommunication, setSelectedCommunication] = useState({ communications: false });
   const [selectedCommunicationName, setSelectedCommunicationName] = useState({ communications_name: 'Standard (MODBUS RTU)'})
-  const [communicationsOptionsSelected, setCommunicationsOptionsSelected] = useState(false);
 
   useEffect(() => {
     if(selectedCommunication.communications === 'standard') {setSelectedCommunicationName({communications_name:'Standard (MODBUS RTU)'})}
@@ -68,7 +54,7 @@ function InputPower({ handleChange, value }){
     const values = data.values;
     const first_value = values[0]
     
-    if(first_value != data.option_value){
+    if(first_value !== data.option_value){
       values.removeWithValue(data.option_value)
       values[0] = data.option_value;
       values.splice(1,0, first_value);

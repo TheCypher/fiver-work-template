@@ -26,7 +26,6 @@ import FlowRate from "./ProcessParameters/FlowRate";
 import Gas from "./ProcessParameters/Gas";
 import Ambient from "./ProcessParameters/Ambient";
 import Pressure from "./ProcessParameters/Pressure";
-import VelocityCalculator from "./ProcessParameters/VelocityCalculator";
 
 function ProcessParameters({handleChange, value, customizerData }){
   const [otherOptions, setOtherOptions] = useState(false);
@@ -118,7 +117,7 @@ function ProcessParameters({handleChange, value, customizerData }){
 
   // console.log('Show me the data velocity 1.0 =>', velocityCalculator())
 
-  var title = 'Process Parameters / (Velocity Calculator)';
+  var title = 'Process Parameters';
   if (isMobile) {
     if(title.length > 18) title = title.substring(0,18) + '...';
   }
@@ -198,11 +197,6 @@ function ProcessParameters({handleChange, value, customizerData }){
             <Pressure
               MakeChangeText={MakeChangeText}
               MakeChangeDropdown={MakeChangeDropdown}
-            />
-            <hr />
-            <VelocityCalculator
-              MakeChangeDropdown={MakeChangeDropdown}
-              customizerData={customizerData}
             />
             <hr />
             <Row>

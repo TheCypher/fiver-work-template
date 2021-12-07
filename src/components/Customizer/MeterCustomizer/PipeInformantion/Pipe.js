@@ -13,7 +13,7 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-function Pipe({ handleChange, value }){
+function Pipe({ handleChange, setSelectedDiameter, value }){
   const [pipeLength, setPipeLength] = useState(6);
   const [pipeDiameter, setPipeDiameter] = useState(0.540);
   const [otherPipeSize, setOtherPipeSize] = useState(false);
@@ -25,7 +25,7 @@ function Pipe({ handleChange, value }){
     const values = data.values;
     const first_value = values[0]
     
-    if(first_value != data.option_value){
+    if(first_value !== data.option_value){
       values.removeWithValue(data.option_value)
       values[0] = data.option_value;
       values.splice(1,0, first_value);
@@ -38,17 +38,18 @@ function Pipe({ handleChange, value }){
 
     if(data.length_change){
       console.log('Show me pipe length data 1.0 =>', pipeLength);
-      if(data.option_value === '1/4') {setPipeLength(6); setPipeDiameter(0.364);}
-      if(data.option_value === '3/8') {setPipeLength(6); setPipeDiameter(0.498);}
-      if(data.option_value === '1/2') {setPipeLength(7); setPipeDiameter(0.622);}
-      if(data.option_value === '3/4') {setPipeLength(7); setPipeDiameter(0.824);}
-      if(data.option_value === '1') {setPipeLength(8); setPipeDiameter(1.049);}
-      if(data.option_value === '1 1/4') {setPipeLength(10); setPipeDiameter(1.380);}
-      if(data.option_value === '1 1/2') {setPipeLength(14); setPipeDiameter(1.610);}
-      if(data.option_value === '2') {setPipeLength(14); setPipeDiameter(2.067);}
-      if(data.option_value === '2 1/2') {setPipeLength(14); setPipeDiameter(2.469);}
-      if(data.option_value === '3 Flanged') {setPipeLength(14); setPipeDiameter(3.068);}
-      if(data.option_value === '4 Flanged') {setPipeLength(14); setPipeDiameter(4.0);}
+      setSelectedDiameter(data.option_value);
+      if(data.option_value == 0.25) {setPipeLength(6); setPipeDiameter(0.364);}
+      if(data.option_value == 0.375) {setPipeLength(6); setPipeDiameter(0.498);}
+      if(data.option_value == 0.5) {setPipeLength(7); setPipeDiameter(0.622);}
+      if(data.option_value == 0.75) {setPipeLength(7); setPipeDiameter(0.824);}
+      if(data.option_value == 1) {setPipeLength(8); setPipeDiameter(1.049);}
+      if(data.option_value == 1.25) {setPipeLength(10); setPipeDiameter(1.380);}
+      if(data.option_value == 1.5) {setPipeLength(14); setPipeDiameter(1.610);}
+      if(data.option_value == 2) {setPipeLength(14); setPipeDiameter(2.067);}
+      if(data.option_value == 2.5) {setPipeLength(14); setPipeDiameter(2.469);}
+      if(data.option_value == 3) {setPipeLength(14); setPipeDiameter(3.068);}
+      if(data.option_value == 4) {setPipeLength(14); setPipeDiameter(4.0);}
     }
 
     (data.option_value === 'other') ? setOtherPipeSize(true) : setOtherPipeSize(false);
@@ -100,35 +101,34 @@ function Pipe({ handleChange, value }){
                 section: 'pipe_infornation',
                 type: 'pipe_size',
                 values: [
-                  '1/4',
-                  '3/8',
-                  '1/2',
-                  '3/4',
-                  '1',
-                  '1 1/4',
-                  '1 1/2',
-                  '2',
-                  '2 1/2',
-                  '3 Flanged',
-                  '4 Flanged'
+                  0.25,
+                  0.375,
+                  0.5,
+                  0.75,
+                  1,
+                  1.25,
+                  1.5,
+                  2,
+                  2.5,
+                  3,
+                  4
                 ],
                 price_effect: false,
                 length_change: true,
                 option: e
               }, e)}
             >
-              <option value="1/4">1/4"</option>
-              <option value="3/8">3/8"</option>
-              <option value="1/2">1/2"</option>
-              <option value="3/4">3/4"</option>
-              <option value="1">1"</option>
-              <option value="1 1/4">1 1/4"</option>
-              <option value="1 1/2">1 1/2"</option>
-              <option value="2_1.5">2 - 1.5"</option>
-              <option value="2">2"</option>
-              <option value="2 1/2">2 1/2"</option>
-              <option value="3 Flanged">3" Flanged</option>
-              <option value="4 Flanged">4" Flanged"</option>
+              <option value={0.25}>1/4" / 6.35mm</option>
+              <option value={0.375}>3/8" / 9.525mm</option>
+              <option value={0.5}>1/2" / 12.70mm</option>
+              <option value={0.75}>3/4" / 19.05mm</option>
+              <option value={1}>1" / 25.4mm</option>
+              <option value={1.25}>1 1/4" / 31.75mm</option>
+              <option value={1.5}>1 1/2" / 38.09mm</option>
+              <option value={2}>2" / 50.8mm</option>
+              <option value={2.5}>2 1/2" / 63.5mm</option>
+              <option value={3}>3" Flanged / 76.19mm</option>
+              <option value={4}>4" Flanged" / 101.6mm</option>
               <option value="other">Other Size</option>
             </Input>
           </FormGroup>

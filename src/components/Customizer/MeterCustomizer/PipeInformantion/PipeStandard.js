@@ -2,13 +2,9 @@ import React from "react";
 
 // reactstrap components
 import {
-  Button,
-  Row,
-  Col,
   FormGroup,
   Input,
-  Label,
-  UncontrolledTooltip
+  Label
 } from "reactstrap";
 
 function PipeStandard({ handleChange, value }){

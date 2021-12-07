@@ -7,7 +7,6 @@ import {
   Button,
   Card,
   CardBody,
-  CardImg,
   Row,
   Col,
   FormGroup,
@@ -26,7 +25,7 @@ function Enhancements({handleChange, value }){
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
-  const [collapses, setCollapses] = React.useState([0]);
+  const [collapses, setCollapses] = useState([0]);
   const changeCollapse = collapse => {
     if (collapses.includes(collapse)) {
       setCollapses(collapses.filter(prop => prop !== collapse));
