@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 // reactstrap components
 import {
@@ -6,7 +6,6 @@ import {
   Row,
   Col,
   FormGroup,
-  Label,
   Input,
   UncontrolledTooltip
 } from "reactstrap";

@@ -5,7 +5,6 @@ import {
   Row,
   Col,
   FormGroup,
-  Label,
   Input,
   UncontrolledTooltip
 } from "reactstrap";

@@ -33,16 +33,15 @@ function Bigen(props) {
   ]
 
   const [productData, setProductData] = useState(product_data)
-  const [viewType, setViewType] = useState('')  
 
   const updateProductImage = (data, index, side) => {
-    if(side == 'left'){
+    if(side === 'left'){
       data.image = data.left_image
       product_data[index] = data;
       setProductData(product_data);
     }
 
-    if(side == 'right'){
+    if(side === 'right'){
       data.image = data.right_image
       product_data[index] = data;
       setProductData(product_data);

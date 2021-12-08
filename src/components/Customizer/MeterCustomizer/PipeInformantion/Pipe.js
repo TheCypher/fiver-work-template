@@ -13,11 +13,17 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-function Pipe({ handleChange, setSelectedDiameter, value }){
-  const [pipeLength, setPipeLength] = useState(6);
-  const [pipeDiameter, setPipeDiameter] = useState(0.540);
+function Pipe({ 
+  handleChange,
+  setSelectedPipeSize,
+  pipeDiameter,
+  setPipeDiameter,
+  pipeDiameterMM,
+  setPipeDiameterMM,
+  pipeLength,
+  setPipeLength
+}){
   const [otherPipeSize, setOtherPipeSize] = useState(false);
-
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   const MakeChangeDropdown = (data) => {
@@ -38,18 +44,18 @@ function Pipe({ handleChange, setSelectedDiameter, value }){
 
     if(data.length_change){
       console.log('Show me pipe length data 1.0 =>', pipeLength);
-      setSelectedDiameter(data.option_value);
-      if(data.option_value == 0.25) {setPipeLength(6); setPipeDiameter(0.364);}
-      if(data.option_value == 0.375) {setPipeLength(6); setPipeDiameter(0.498);}
-      if(data.option_value == 0.5) {setPipeLength(7); setPipeDiameter(0.622);}
-      if(data.option_value == 0.75) {setPipeLength(7); setPipeDiameter(0.824);}
-      if(data.option_value == 1) {setPipeLength(8); setPipeDiameter(1.049);}
-      if(data.option_value == 1.25) {setPipeLength(10); setPipeDiameter(1.380);}
-      if(data.option_value == 1.5) {setPipeLength(14); setPipeDiameter(1.610);}
-      if(data.option_value == 2) {setPipeLength(14); setPipeDiameter(2.067);}
-      if(data.option_value == 2.5) {setPipeLength(14); setPipeDiameter(2.469);}
-      if(data.option_value == 3) {setPipeLength(14); setPipeDiameter(3.068);}
-      if(data.option_value == 4) {setPipeLength(14); setPipeDiameter(4.0);}
+      setSelectedPipeSize()
+      if(data.option_value == 0.25) {setPipeLength(6); setPipeDiameter(0.364); setPipeDiameterMM(6.35);}
+      if(data.option_value == 0.375) {setPipeLength(6); setPipeDiameter(0.498); setPipeDiameterMM(9.525);}
+      if(data.option_value == 0.5) {setPipeLength(7); setPipeDiameter(0.622); setPipeDiameterMM(12.70);}
+      if(data.option_value == 0.75) {setPipeLength(7); setPipeDiameter(0.824); setPipeDiameterMM(19.05);}
+      if(data.option_value == 1) {setPipeLength(8); setPipeDiameter(1.049); setPipeDiameterMM(25.4);}
+      if(data.option_value == 1.25) {setPipeLength(10); setPipeDiameter(1.380); setPipeDiameterMM(31.75);}
+      if(data.option_value == 1.5) {setPipeLength(14); setPipeDiameter(1.610); setPipeDiameterMM(38.09);}
+      if(data.option_value == 2) {setPipeLength(14); setPipeDiameter(2.067); setPipeDiameterMM(50.8);}
+      if(data.option_value == 2.5) {setPipeLength(14); setPipeDiameter(2.469); setPipeDiameterMM(63.5);}
+      if(data.option_value == 3) {setPipeLength(14); setPipeDiameter(3.068); setPipeDiameterMM(76.19);}
+      if(data.option_value == 4) {setPipeLength(14); setPipeDiameter(4.0); setPipeDiameterMM(101.6);}
     }
 
     (data.option_value === 'other') ? setOtherPipeSize(true) : setOtherPipeSize(false);
@@ -118,17 +124,17 @@ function Pipe({ handleChange, setSelectedDiameter, value }){
                 option: e
               }, e)}
             >
-              <option value={0.25}>1/4" / 6.35mm</option>
-              <option value={0.375}>3/8" / 9.525mm</option>
-              <option value={0.5}>1/2" / 12.70mm</option>
-              <option value={0.75}>3/4" / 19.05mm</option>
-              <option value={1}>1" / 25.4mm</option>
-              <option value={1.25}>1 1/4" / 31.75mm</option>
-              <option value={1.5}>1 1/2" / 38.09mm</option>
-              <option value={2}>2" / 50.8mm</option>
-              <option value={2.5}>2 1/2" / 63.5mm</option>
-              <option value={3}>3" Flanged / 76.19mm</option>
-              <option value={4}>4" Flanged" / 101.6mm</option>
+              <option value={0.25}>1/4"</option>
+              <option value={0.375}>3/8"</option>
+              <option value={0.5}>1/2"</option>
+              <option value={0.75}>3/4"</option>
+              <option value={1}>1"</option>
+              <option value={1.25}>1 1/4"</option>
+              <option value={1.5}>1 1/2"</option>
+              <option value={2}>2"</option>
+              <option value={2.5}>2 1/2"</option>
+              <option value={3}>3" Flanged</option>
+              <option value={4}>4" Flanged"</option>
               <option value="other">Other Size</option>
             </Input>
           </FormGroup>
@@ -215,7 +221,7 @@ function Pipe({ handleChange, setSelectedDiameter, value }){
             <Input
               disabled
               id="exampleFormControlInput1"
-              value={`${pipeDiameter}"`}
+              value={`${pipeDiameter}" / ${pipeDiameterMM}mm`}
               type="text"
               style={{ 'border-radius': '6px', 'background-color': '#EBF2FF'}}
             ></Input>

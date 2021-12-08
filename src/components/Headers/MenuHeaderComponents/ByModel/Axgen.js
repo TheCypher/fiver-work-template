@@ -33,16 +33,15 @@ function Axgen(props) {
   ]
 
   const [productData, setProductData] = useState(product_data)
-  const [viewType, setViewType] = useState('')  
 
   const updateProductImage = (data, index, side) => {
-    if(side == 'left'){
+    if(side === 'left'){
       data.image = data.left_image
       product_data[index] = data;
       setProductData(product_data);
     }
 
-    if(side == 'right'){
+    if(side === 'right'){
       data.image = data.right_image
       product_data[index] = data;
       setProductData(product_data);
@@ -63,7 +62,7 @@ function Axgen(props) {
       <div>
         {
           productData.map((value, index) => {
-            if(value.type == 2){
+            if(value.type === 2){
               return(
                 <Card style={{ width: "13rem", 'margin-right': '11px' }} className="text-center">
                   <CardImg
@@ -90,7 +89,7 @@ function Axgen(props) {
                               onMouseEnter={() => updateProductImage(value, index, 'left')}
                               onMouseLeave={() => updateProductDefaultImage(value, index)}
                             >
-                              <i style={{ 'line-height': '55px'}}> <img src={ value.right_icon } style={{ 'width': '40px'}} /></i>
+                              <i style={{ 'line-height': '55px'}}> <img alt="" src={ value.right_icon } style={{ 'width': '40px'}} /></i>
                               <p className="nav-product-hover-button-title">{ value.left_small_title }</p>
                               <p className="nav-product-hover-button-size">{ value.left_size_info }</p>
                               <p className="nav-product-hover-button-info">{ value.left_small_info }</p>
@@ -112,7 +111,7 @@ function Axgen(props) {
                               onMouseEnter={() => updateProductImage(value, index, 'right')}
                               onMouseLeave={() => updateProductDefaultImage(value, index)}
                             >
-                              <i style={{ 'line-height': '55px'}}> <img src={ value.left_icon } style={{ 'width': '40px'}} /></i>
+                              <i style={{ 'line-height': '55px'}}> <img alt="" src={ value.left_icon } style={{ 'width': '40px'}} /></i>
                               <p className="nav-product-hover-button-title">{ value.right_small_title }</p>
                               <p className="nav-product-hover-button-size">{ value.right_size_info }</p>
                               <p className="nav-product-hover-button-info">{ value.right_small_info }</p>
@@ -152,7 +151,7 @@ function Axgen(props) {
                               onMouseEnter={() => updateProductImage(value, index, 'left')}
                               onMouseLeave={() => updateProductDefaultImage(value, index)}
                             >
-                              <i style={{ 'line-height': '55px'}}> <img src={ value.left_icon } style={{ 'width': '40px'}} /></i>
+                              <i style={{ 'line-height': '55px'}}> <img alt="" src={ value.left_icon } style={{ 'width': '40px'}} /></i>
                               <p className="nav-product-hover-button-title">{ value.left_small_title }</p>
                               <p className="nav-product-hover-button-size">{ value.left_size_info }</p>
                               <p className="nav-product-hover-button-info">{ value.left_small_info }</p>

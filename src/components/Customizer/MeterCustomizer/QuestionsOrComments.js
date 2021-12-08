@@ -4,10 +4,8 @@ import { useMediaQuery } from 'react-responsive';
 // reactstrap components
 import {
   UncontrolledCollapse,
-  Button,
   Card,
   CardBody,
-  CardImg,
   Row,
   Col,
   FormGroup,
@@ -19,7 +17,6 @@ import {
   Nav,
   Container,
   Collapse,
-  UncontrolledTooltip
 } from "reactstrap";
 
 function QuestionsOrComments({handleChange, value }){
@@ -52,10 +49,6 @@ function QuestionsOrComments({handleChange, value }){
     //   console.log('Show me pipe option data 1.0 =>', data);
     // }
 
-    // handleChange(data);
-  }
-
-  const MakeChange = (data) => {
     // handleChange(data);
   }
 

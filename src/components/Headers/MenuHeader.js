@@ -3,18 +3,6 @@ import React, { useState } from "react";
 // reactstrap components
 import {
   UncontrolledCollapse,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  UncontrolledDropdown,
-  FormGroup,
-  Form,
-  Input,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroup,
-  NavbarBrand,
-  Navbar,
   NavItem,
   NavLink,
   Nav,
@@ -23,14 +11,11 @@ import {
   TabPane,
   Row,
   Col,
-  Button,
 } from "reactstrap";
 
 import{
   Card,
-  CardImg,
-  CardBody,
-  CardText
+  CardBody
 } from "reactstrap";
 
 // core components

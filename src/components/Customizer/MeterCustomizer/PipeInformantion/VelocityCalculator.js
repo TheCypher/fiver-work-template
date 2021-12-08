@@ -9,12 +9,12 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-function VelocityCalculator({selectedPipeSize}){
+function VelocityCalculator({selectedPipeSize, pipeDiameter, pipeDiameterMM}){
   const [givenFlowRate, setGivenFlowRate] = useState(0);
   const [calculatorStatus, setCalculatorStatus] = useState(false);
   const [calculatorError, setCalculatorError] = useState(false);
   const [flowrateError, setFlowrateError] = useState(false);
-  const [selectedUnit, setSelectedUnit] = useState('inches');
+  const [selectedUnit, setSelectedUnit] = useState('mm');
   const [selectedDiameterData, setSelectedDiameterData] = useState({
     inches: false,
     mm: false
@@ -28,28 +28,14 @@ function VelocityCalculator({selectedPipeSize}){
   useEffect(() => {
     setSelectedDiameterData(prevState => ({
       ...prevState,
-        ['inches']: selectedPipeSize,
-        ['mm']: selectedPipeSize * 25.4
+        ['inches']: pipeDiameter,
+        ['mm']: pipeDiameterMM
     }));
-  }, [selectedPipeSize])
+  }, [pipeDiameter])
 
   const MakeChangeCalculatorValues = (data) => {
     const type = data.type;
     if(type === 'flow_rate'){
-      const flowrate = data.option.target.value;
-      if(selectedPipeSize == 0.25 || selectedPipeSize == 0.375 || selectedPipeSize == 0.5){
-        if(flowrate > 30000){
-          setFlowrateError('Flow Limit: ¼” – ½”: 0-30,000 SFPM (141 NMPS)');
-        } else {
-          setFlowrateError(false);
-        }
-      } else {
-        if(flowrate > 60000){
-          setFlowrateError('Flow Limit: ¾” – 4”: 0-60,000 SFPM (283 NMPS)');
-        } else {
-          setFlowrateError(false);
-        }
-      }
       setGivenFlowRate(data.option.target.value);
     }
   }
@@ -77,6 +63,21 @@ function VelocityCalculator({selectedPipeSize}){
   
       setCalculatorError(false);
       setCalculatorStatus(true);
+      
+      if(selectedPipeSize == 0.25 || selectedPipeSize == 0.375 || selectedPipeSize == 0.5){
+        if(velocity > 30000){
+          setFlowrateError('Flow Limit: ¼” – ½”: 0-30,000 SFPM (141 NMPS)');
+        } else {
+          setFlowrateError(false);
+        }
+      } else {
+        if(velocity > 60000){
+          setFlowrateError('Flow Limit: ¾” – 4”: 0-60,000 SFPM (283 NMPS)');
+        } else {
+          setFlowrateError(false);
+        }
+      }
+
     } else {
       setCalculatorStatus(false);
       setCalculatorError(true);
@@ -86,6 +87,7 @@ function VelocityCalculator({selectedPipeSize}){
   const resetCalculator = () => {
     setCalculatorStatus(false);
     setGivenFlowRate(0);
+    setFlowrateError(false);
   }
 
   const CalculatorResults = () => {
@@ -132,7 +134,6 @@ function VelocityCalculator({selectedPipeSize}){
       <Row>
         <Col>
           <Button
-            className={flowrateError? ('disabled') : ('')}
             color="warning"
             size="lg"
             href="#pablo"
@@ -215,7 +216,7 @@ function VelocityCalculator({selectedPipeSize}){
             >
             </Input>
           </FormGroup>
-          { flowrateError }
+          <span style={{ "color": "rgb(246 65 81)"}}>{ flowrateError }</span>
         </Col>
       </Row>
 

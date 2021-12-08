@@ -36,7 +36,10 @@ import VelocityCalculator from "./PipeInformantion/VelocityCalculator";
 function PipeInformation({ handleChange, value }){
   const [tabType, setTabType] = useState("Pipe");
   const [ductShape, setDuctShape] = useState('rectangular');
-  const [selectedDiameter, setSelectedDiameter] = useState(0.25);
+  const [selectedPipeSize, setSelectedPipeSize] = useState(0.25);
+  const [pipeDiameter, setPipeDiameter] = useState(0.364);
+  const [pipeDiameterMM, setPipeDiameterMM] = useState(6.35);
+  const [pipeLength, setPipeLength] = useState(6);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
@@ -212,7 +215,13 @@ function PipeInformation({ handleChange, value }){
                   <TabPane tabId="tabsPipe">
                     <Pipe
                       handleChange={ handleChange }
-                      setSelectedDiameter={ setSelectedDiameter }
+                      setSelectedPipeSize={setSelectedPipeSize}
+                      pipeDiameter={pipeDiameter}
+                      setPipeDiameter={setPipeDiameter}
+                      pipeDiameterMM={pipeDiameterMM}
+                      setPipeDiameterMM={setPipeDiameterMM}
+                      pipeLength={pipeLength}
+                      setPipeLength={setPipeLength}
                       value={ value }
                     />
                   </TabPane>
@@ -236,7 +245,9 @@ function PipeInformation({ handleChange, value }){
             </Row>
             <hr />
             <VelocityCalculator
-              selectedPipeSize={selectedDiameter}
+              selectedPipeSize={selectedPipeSize}
+              pipeDiameter={pipeDiameter}
+              pipeDiameterMM={pipeDiameterMM}
             />
           </CardBody>
         </Collapse>
