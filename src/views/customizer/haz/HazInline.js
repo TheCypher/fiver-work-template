@@ -5,6 +5,7 @@ import { useParams } from "react-router";
 import HazCustomizer from "components/Customizer/HazCustomizer";
 import HazRCustomizer from "components/Customizer/HazRCustomizer";
 import HazFatCustomizer from "components/Customizer/HazFatCustomizer";
+import HazFatRCustomizer from "components/Customizer/HazFatRCustomizer";
 
 // product views
 import HazInlineProductView from "components/ProductViews/haz/HazInlineProductView";
@@ -59,7 +60,7 @@ function HazInline() {
         return (
           <>
             <HazFatRInlineProductView />
-            <HazCustomizer />
+            <HazFatRCustomizer />
           </>
         );
         break;
