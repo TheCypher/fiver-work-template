@@ -10,17 +10,17 @@ import {
 
 import MeterCustomizerNavbar from "components/Navbars/MeterCustomizerNavbar";
 import CustomizerPriceFooter from "components/Footers/CustomizerPriceFooter";
-import MeterOrientation from "./MeterCustomizer/MeterOrientation";
-import TotalCard from "./MeterCustomizer/TotalCard";
-import MeterHousing from "./MeterCustomizer/MeterHousing";
-import InputPower from "./MeterCustomizer/InputPower";
-import PipeInformation from "./MeterCustomizer/PipeInformation";
-import ApplicationInformation from "./MeterCustomizer/ApplicationInformation";
-import QuestionsOrComments from "./MeterCustomizer/QuestionsOrComments";
-import MountingRequirements from "./MeterCustomizer/MountingRequirements";
-import FlowBody from "./MeterCustomizer/FlowBody";
-import Enhancements from "./MeterCustomizer/Enhancements";
-import ProcessParameters from "./MeterCustomizer/ProcessParameters";
+import MeterOrientation from "./Haz/MeterOrientation";
+import TotalCard from "./Haz/TotalCard";
+import MeterHousing from "./Haz/MeterHousing";
+import InputPower from "./Haz/InputPower";
+import PipeInformation from "./Haz/PipeInformation";
+import ApplicationInformation from "./Haz/ApplicationInformation";
+import QuestionsOrComments from "./Haz/QuestionsOrComments";
+import MountingRequirements from "./Haz/MountingRequirements";
+import FlowBody from "./Haz/FlowBody";
+import Enhancements from "./Haz/Enhancements";
+import ProcessParameters from "./Haz/ProcessParameters";
 
 
 function Customizer(){
