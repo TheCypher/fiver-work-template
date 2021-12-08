@@ -9,12 +9,12 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-function VelocityCalculator({selectedPipeSize, pipeDiameter, pipeDiameterMM}){
+function VelocityCalculator({type, selectedPipeSize, pipeDiameter, pipeDiameterMM}){
   const [givenFlowRate, setGivenFlowRate] = useState(0);
   const [calculatorStatus, setCalculatorStatus] = useState(false);
   const [calculatorError, setCalculatorError] = useState(false);
   const [flowrateError, setFlowrateError] = useState(false);
-  const [selectedUnit, setSelectedUnit] = useState('mm');
+  const [selectedUnit, setSelectedUnit] = useState('inches');
   const [selectedDiameterData, setSelectedDiameterData] = useState({
     inches: false,
     mm: false
@@ -63,19 +63,34 @@ function VelocityCalculator({selectedPipeSize, pipeDiameter, pipeDiameterMM}){
   
       setCalculatorError(false);
       setCalculatorStatus(true);
+
+      switch (type) {
+        case 'haz':
+          if(selectedPipeSize == 0.25 || selectedPipeSize == 0.375 || selectedPipeSize == 0.5){
+            if(velocity > 30000){
+              setFlowrateError('Flow Limit: ¼” – ½”: 0-30,000 SFPM (141 NMPS)');
+            } else {
+              setFlowrateError(false);
+            }
+          } else {
+            if(velocity > 60000){
+              setFlowrateError('Flow Limit: ¾” – 4”: 0-60,000 SFPM (283 NMPS)');
+            } else {
+              setFlowrateError(false);
+            }
+          } 
+          break;
+
+          case 'fat':
+            if(velocity > 250000){
+              setFlowrateError('Flow Limit: 2” – 4”: 0-250,000 SFPM (1,163.5 NMPS)');
+            } else {
+              setFlowrateError(false);
+            }
+            break;
       
-      if(selectedPipeSize == 0.25 || selectedPipeSize == 0.375 || selectedPipeSize == 0.5){
-        if(velocity > 30000){
-          setFlowrateError('Flow Limit: ¼” – ½”: 0-30,000 SFPM (141 NMPS)');
-        } else {
-          setFlowrateError(false);
-        }
-      } else {
-        if(velocity > 60000){
-          setFlowrateError('Flow Limit: ¾” – 4”: 0-60,000 SFPM (283 NMPS)');
-        } else {
-          setFlowrateError(false);
-        }
+        default:
+          break;
       }
 
     } else {

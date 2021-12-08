@@ -3,6 +3,9 @@ import { useParams } from "react-router";
 
 // core components
 import Customizer from "components/Customizer/Customizer";
+import HazCustomizer from "components/Customizer/HazCustomizer";
+import HazRCustomizer from "components/Customizer/HazRCustomizer";
+import HazFatCustomizer from "components/Customizer/HazFatCustomizer";
 
 // product views
 import HazInlineProductView from "components/ProductViews/haz/HazInlineProductView";
@@ -30,7 +33,7 @@ function HazInline() {
       return (
         <>
           <HazInlineProductView />
-          <Customizer />
+          <HazCustomizer />
         </>
       );
       break;
@@ -39,7 +42,7 @@ function HazInline() {
         return (
           <>
             <HazRInlineProductView />
-            <Customizer />
+            <HazRCustomizer />
           </>
         );
         break;
@@ -48,7 +51,7 @@ function HazInline() {
         return (
           <>
             <HazFatInlineProductView />
-            <Customizer />
+            <HazFatCustomizer />
           </>
         );
         break;

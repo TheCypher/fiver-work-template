@@ -31,7 +31,8 @@ import DuctShape from "./PipeInformantion/DuctShape";
 import Duct from "./PipeInformantion/Duct";
 import Tube from "./PipeInformantion/Tube";
 
-import VelocityCalculator from "./PipeInformantion/VelocityCalculator";
+import VelocityCalculator from "components/Customizer/VelocityCalculator";
+
 
 function PipeInformation({ handleChange, value }){
   const [tabType, setTabType] = useState("Pipe");
@@ -245,6 +246,7 @@ function PipeInformation({ handleChange, value }){
             </Row>
             <hr />
             <VelocityCalculator
+              type="haz"
               selectedPipeSize={selectedPipeSize}
               pipeDiameter={pipeDiameter}
               pipeDiameterMM={pipeDiameterMM}

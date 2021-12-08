@@ -137,17 +137,13 @@ function FlowBody({handleChange, value }){
                       section: 'flow_body',
                       type: 'sensors',
                       values: [
-                        'cer',
-                        'sss',
-                        'has'
+                        'sss'
                       ],
                       price_effect: true,
                       option: e
                     }, e)}
                   >
-                    <option value="" selected disabled>Select Sensor Material</option>
-                    <option value="sss">316L SSS</option>
-                    <option value="has">C-276 HAS</option>
+                    <option value="sss" selected disabled>Stainless Steel 316L</option>
                   </Input>
                 </FormGroup>
               </Col>
@@ -161,32 +157,9 @@ function FlowBody({handleChange, value }){
                 <CardImg style={{'width': '152.65px', 'height': '150px'}} alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <span className="customizerInputTitleSmallX1">Standard Sensor - No Shield</span>
-                    <Input
-                      defaultChecked
-                      onClick={ (e) => MakeChange({
-                        section: 'flow_body',
-                        type: 'sensors_shield',
-                        values: ['standard', 'rod', 'sheild'],
-                        price_effect: true,
-                      }, e)}
-                      id="type"
-                      name="type"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                </FormGroup>
-                <p>
-                  The standard sensor shroud will work best for most flow conditions.
-                </p>
-              </Col>
-              <Col>
-                <CardImg style={{'width': '152.65px', 'height': '150px'}} alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
-                <FormGroup check className="form-check-radio">
-                  <Label check>
                     <span className="customizerInputTitleSmallX1"> Standard Sensor + Attenuation Rod</span>
                     <Input
+                      defaultChecked
                       onClick={ (e) => MakeChange({
                         section: 'flow_body',
                         type: 'sensors_shield',
