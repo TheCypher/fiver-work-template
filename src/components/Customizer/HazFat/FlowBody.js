@@ -151,7 +151,7 @@ function FlowBody({handleChange, value }){
             <br />
             <label htmlFor="exampleFormControlSelect1">
               <span className="customizerInputTitle">Sensor Shield</span>
-            </label>
+            </label> 
             <Row className="text-center">
               <Col>
                 <CardImg style={{'width': '152.65px', 'height': '150px'}} alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
