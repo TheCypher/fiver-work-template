@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router";
 
 // core components
-import Customizer from "components/Customizer/Customizer";
 import HazCustomizer from "components/Customizer/HazCustomizer";
 import HazRCustomizer from "components/Customizer/HazRCustomizer";
 import HazFatCustomizer from "components/Customizer/HazFatCustomizer";
@@ -60,7 +59,7 @@ function HazInline() {
         return (
           <>
             <HazFatRInlineProductView />
-            <Customizer />
+            <HazCustomizer />
           </>
         );
         break;
@@ -69,7 +68,7 @@ function HazInline() {
       return (
         <>
             <HazInlineProductView />
-            <Customizer />
+            <HazCustomizer />
         </>
       );
       break;
