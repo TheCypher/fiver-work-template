@@ -10,7 +10,7 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-function FlowRate({ MakeChangeText, MakeChangeDropdown, ErrorValues }){
+function FlowRate({ MakeChangeText, MakeChangeDropdown }){
   
   return (
     <>

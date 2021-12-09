@@ -10,24 +10,10 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-function Gas({ MakeChangeText, MakeChangeDropdown, CheckErrors, ErrorValues }){
-
-  const CheckAndMakeChange = (data) => {
-    data.input_value = data.option.target.value;
-    CheckErrors(data)
-
-    if(!ErrorValues[data.input_name]){
-      MakeChangeText(data)
-    }
-  }
-
+function Gas({ MakeChangeText, MakeChangeDropdown }){
+  
   return (
     <>
-      {ErrorValues.max_gas_temp &&
-        <p className="text-center inputErrorTextbox customizerInputTitleSmallX1">
-          Warning! Temperatures above 250°F (121°C) require a High Temperature flow meter.
-        </p>
-      }
       <Row>
         <Col className="processParametterCols">
         <FormGroup>
@@ -76,7 +62,7 @@ function Gas({ MakeChangeText, MakeChangeDropdown, CheckErrors, ErrorValues }){
               id="exampleFormControlSelect1"
               type="text"
               placeholder="Maximum Temp"
-              onChange={ (e) => CheckAndMakeChange({
+              onChange={ (e) => MakeChangeText({
                 section: 'process_parameters',
                 type: 'gas_maximum',
                 values: ['maximum'],
@@ -135,28 +121,18 @@ function Gas({ MakeChangeText, MakeChangeDropdown, CheckErrors, ErrorValues }){
               className="epiInputSize"
               id="exampleFormControlSelect1"
               type="select"
-              onChange={ (e) => MakeChangeDropdown({
+              onChange={ (e) => MakeChangeText({
                 section: 'process_parameters',
                 type: 'gas_units',
-                values: [
-                  '1.5',
-                  '0.75',
-                  '1',
-                  '1_0.25',
-                  '1_1.5',
-                  '2',
-                  '2_1.5',
-                  '3',
-                  '4'
-                ],
+                values: ['units'],
                 price_effect: false,
+                text_input: true,
                 option: e
               }, e)}
             >
               <option value="" selected disabled hidden>Units</option>
-              <option value="1.5">Size 1</option>
-              <option value="0.75">Size 2</option>
-              <option value="1">Size 3</option>
+              <option value="°F">°F</option>
+              <option value="°C">°C</option>
             </Input>
           </FormGroup>
         </Col>

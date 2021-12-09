@@ -10,7 +10,7 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-function Gas({ MakeChangeText, MakeChangeDropdown, ErrorValues }){
+function Gas({ MakeChangeText, MakeChangeDropdown }){
   
   return (
     <>

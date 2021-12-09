@@ -10,24 +10,10 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-function FlowRate({ MakeChangeText, MakeChangeDropdown, CheckErrors, ErrorValues }){
-  
-  const CheckAndMakeChange = (data) => {
-    data.input_value = data.option.target.value;
-    CheckErrors(data)
-
-    if(!ErrorValues[data.input_name]){
-      MakeChangeText(data)
-    }
-  }
+function FlowRate({ MakeChangeText, MakeChangeDropdown }){
   
   return (
     <>
-      {ErrorValues.max_flow_rate &&
-        <p className="text-center inputErrorTextbox customizerInputTitleSmallX1">
-          Warning! Flow rate needs to be less than 25,000 SFPM for Carbon Dioxide (CO2).
-        </p>
-      }
       <Row>
         <Col className="processParametterCols">
         <FormGroup>
@@ -78,7 +64,7 @@ function FlowRate({ MakeChangeText, MakeChangeDropdown, CheckErrors, ErrorValues
               id="exampleFormControlSelect1"
               type="number"
               placeholder="Maximum Flow Rate"
-              onChange={ (e) => CheckAndMakeChange({
+              onChange={ (e) => MakeChangeText({
                 section: 'process_parameters',
                 type: 'flow_rate_maximum',
                 values: ['maximum'],
@@ -138,28 +124,38 @@ function FlowRate({ MakeChangeText, MakeChangeDropdown, CheckErrors, ErrorValues
               className="epiInputSize"
               id="exampleFormControlSelect1"
               type="select"
-              onChange={ (e) => MakeChangeDropdown({
+              onChange={ (e) => MakeChangeText({
                 section: 'process_parameters',
                 type: 'flow_rate_units',
-                values: [
-                  '1.5',
-                  '0.75',
-                  '1',
-                  '1_0.25',
-                  '1_1.5',
-                  '2',
-                  '2_1.5',
-                  '3',
-                  '4'
-                ],
+                values: ['units'],
                 price_effect: false,
+                text_input: true,
                 option: e
               }, e)}
             >
               <option value="" selected disabled hidden>Units</option>
-              <option value="1.5">Size 1</option>
-              <option value="0.75">Size 2</option>
-              <option value="1">Size 3</option>
+              <option value="SCFM">SCFM</option>
+              <option value="SCFH">SCFH</option>
+              <option value="SCFD">SCFD</option>
+              <option value="NM3/M">NM3/M</option>
+              <option value="NM3/H">NM3/H</option>
+              <option value="NM3/D">NM3/D</option>
+              <option value="NLPS">NLPS</option>
+              <option value="NLPM">NLPM</option>
+              <option value="NLPH">NLPH</option>
+              <option value="MSCFD">MSCFD</option>
+              <option value="MCFD">MCFD</option>
+              <option value="MMSCFD">MMSCFD</option>
+              <option value="SM3/H">SM3/H</option>
+              <option value="SLPM">SLPM</option>
+              <option value="LBS/S">LBS/S</option>
+              <option value="LBS/M">LBS/M</option>
+              <option value="LBS/H">LBS/H</option>
+              <option value="LBS/D">LBS/D</option>
+              <option value="KG/S">KG/S</option>
+              <option value="KG/M">KG/M</option>
+              <option value="KG/H">KG/H</option>
+              <option value="MT/H">MT/H</option>
             </Input>
           </FormGroup>
         </Col>

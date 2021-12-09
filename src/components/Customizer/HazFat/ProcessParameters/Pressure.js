@@ -114,33 +114,31 @@ function Pressure({ MakeChangeText, MakeChangeDropdown }){
               <UncontrolledTooltip placement="right" target="UnitsPRESSURE" delay={0}>
                 PRESSURE Units
               </UncontrolledTooltip>
-              </label>
+            </label>
             <Input
               className="epiInputSize"
               id="exampleFormControlSelect1"
               type="select"
-              onChange={ (e) => MakeChangeDropdown({
+              onChange={ (e) => MakeChangeText({
                 section: 'process_parameters',
                 type: 'pressure_units',
-                values: [
-                  '1.5',
-                  '0.75',
-                  '1',
-                  '1_0.25',
-                  '1_1.5',
-                  '2',
-                  '2_1.5',
-                  '3',
-                  '4'
-                ],
+                values: ['units'],
                 price_effect: false,
+                text_input: true,
                 option: e
               }, e)}
             >
               <option value="" selected disabled hidden>Units</option>
-              <option value="1.5">Size 1</option>
-              <option value="0.75">Size 2</option>
-              <option value="1">Size 3</option>
+              <option value="PSIG">PSIG</option>
+              <option value="PSIA">PSIA</option>
+              <option value="BARG">BARG</option>
+              <option value="BARA">BARA</option>
+              <option value="IN H20">IN H20</option>
+              <option value="KG/CM2">KG/CM2</option>
+              <option value="MM Hg">MM Hg</option>
+              <option value="PA">PA</option>
+              <option value="KPA">KPA</option>
+              <option value="MPA">MPA</option>
             </Input>
           </FormGroup>
         </Col>

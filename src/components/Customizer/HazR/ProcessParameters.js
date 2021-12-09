@@ -7,7 +7,6 @@ import {
   Button,
   Card,
   CardBody,
-  CardImg,
   Row,
   Col,
   FormGroup,
@@ -84,15 +83,10 @@ function ProcessParameters({handleChange, value, customizerData }){
     handleChange(data);
   }
 
-  // console.log('Show me the data velocity 1.0 =>', velocityCalculator())
-
   var title = 'Process Parameters';
   if (isMobile) {
     if(title.length > 18) title = title.substring(0,18) + '...';
   }
-
-  const { max_flow_rate, max_gas_temp, min_gas_pressure } = errors;
-  const error_values = { max_flow_rate, max_gas_temp, min_gas_pressure }
 
   return (
     <>
@@ -150,12 +144,10 @@ function ProcessParameters({handleChange, value, customizerData }){
             <FlowRate
               MakeChangeText={MakeChangeText}
               MakeChangeDropdown={MakeChangeDropdown}
-              ErrorValues={error_values}
             />
             <Gas
               MakeChangeText={MakeChangeText}
               MakeChangeDropdown={MakeChangeDropdown}
-              ErrorValues={error_values}
             />
             <Ambient
               MakeChangeText={MakeChangeText}
