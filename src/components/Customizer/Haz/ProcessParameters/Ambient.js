@@ -115,33 +115,23 @@ function Ambient({ MakeChangeText, MakeChangeDropdown }){
                 Units AMBIENT
               </UncontrolledTooltip>
               </label>
-            <Input
-              className="epiInputSize"
-              id="exampleFormControlSelect1"
-              type="select"
-              onChange={ (e) => MakeChangeDropdown({
-                section: 'process_parameters',
-                type: 'ambient_units',
-                values: [
-                  '1.5',
-                  '0.75',
-                  '1',
-                  '1_0.25',
-                  '1_1.5',
-                  '2',
-                  '2_1.5',
-                  '3',
-                  '4'
-                ],
-                price_effect: false,
-                option: e
-              }, e)}
-            >
-              <option value="" selected disabled hidden>Units</option>
-              <option value="1.5">Size 1</option>
-              <option value="0.75">Size 2</option>
-              <option value="1">Size 3</option>
-            </Input>
+              <Input
+                className="epiInputSize"
+                id="exampleFormControlSelect1"
+                type="select"
+                onChange={ (e) => MakeChangeText({
+                  section: 'process_parameters',
+                  type: 'ambient_units',
+                  values: ['units'],
+                  price_effect: false,
+                  text_input: true,
+                  option: e
+                }, e)}
+              >
+                <option value="" selected disabled hidden>Units</option>
+                <option value="°F">°F</option>
+                <option value="°C">°C</option>
+              </Input>
           </FormGroup>
         </Col>
       </Row>
