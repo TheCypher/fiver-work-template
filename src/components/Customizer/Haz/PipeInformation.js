@@ -169,8 +169,7 @@ function PipeInformation({ handleChange, setPipeInfoPipeSize, value }){
                   </Label>
                 </FormGroup>
 
-                {
-                  /**
+
                     <FormGroup check className="form-check-radio">
                       <Label check>
                         <span className="customizerInputTitleSmallX1">Duct</span>
@@ -207,8 +206,7 @@ function PipeInformation({ handleChange, setPipeInfoPipeSize, value }){
                         <span className="form-check-sign"></span>
                       </Label>
                     </FormGroup>
-                   */
-                }
+
                 <br />
 
                 <BottomOptions />
