@@ -250,7 +250,7 @@ function HazFatCustomizer(){
         },
         sensors_shield:{
           standard: false,
-          rod: true,
+          rod: false,
           sheild: false
         },
         sensors_shield_prices:{

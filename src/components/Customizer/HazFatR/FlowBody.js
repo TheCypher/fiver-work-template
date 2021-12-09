@@ -148,59 +148,6 @@ function FlowBody({handleChange, value }){
                 </FormGroup>
               </Col>
             </Row>
-            <br />
-            <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">Sensor Shield</span>
-            </label> 
-            <Row className="text-center">
-              <Col>
-                <CardImg style={{'width': '152.65px', 'height': '150px'}} alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
-                <FormGroup check className="form-check-radio">
-                  <Label check>
-                    <span className="customizerInputTitleSmallX1"> Standard Sensor + Attenuation Rod</span>
-                    <Input
-                      defaultChecked
-                      onClick={ (e) => MakeChange({
-                        section: 'flow_body',
-                        type: 'sensors_shield',
-                        values: ['rod', 'standard', 'sheild'],
-                        price_effect: true,
-                      }, e)}
-                      id="type"
-                      name="type"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                </FormGroup>
-                <p>
-                  Select the attenuation rod in high flow rate conditions to help avoid sensor damage.
-                </p>
-              </Col>
-              <Col>
-                <CardImg style={{'width': '152.65px', 'height': '150px'}} alt="..." src="https://demos.creative-tim.com/now-ui-kit-react/static/media/bg8.2c89438b.jpg" top></CardImg>
-                <FormGroup check className="form-check-radio">
-                  <Label check>
-                    <span className="customizerInputTitleSmallX1"> Standard Sensor + Particulate Shield</span>
-                    <Input
-                      onClick={ (e) => MakeChange({
-                        section: 'flow_body',
-                        type: 'sensors_shield',
-                        values: ['sheild', 'rod', 'standard'],
-                        price_effect: true,
-                      }, e)}
-                      id="type"
-                      name="type"
-                      type="radio"
-                    ></Input>
-                    <span className="form-check-sign"></span>
-                  </Label>
-                </FormGroup>
-                <p>
-                  Select the particulate shield only if you expect solid particles in your flow.
-                </p>
-              </Col>
-            </Row>
           </CardBody>
         </Collapse>
       </Card>
