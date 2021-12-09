@@ -84,37 +84,6 @@ function ProcessParameters({handleChange, value, customizerData }){
     handleChange(data);
   }
 
-  const CheckErrors = (data) => {
-    const { input_name, input_value } = data;
-
-    const set = () => {
-      setErrors(prevState => ({
-        ...prevState,
-          [input_name]: true
-      })); 
-    }
-
-    const unSet = () => {
-      console.log('Show me error data 1.0 =>', data);
-      setErrors(prevState => ({
-        ...prevState,
-          [input_name]: false
-      })); 
-    }
-    
-    if(input_name === "max_flow_rate" && input_value > 24999){
-      set()
-    } else if(errors[input_name]) {
-      unSet()
-    }
-
-    if(input_name === "max_gas_temp" && input_value > 250){
-      set()
-    } else if(errors[input_name]) {
-      unSet()
-    }
-  }
-
   // console.log('Show me the data velocity 1.0 =>', velocityCalculator())
 
   var title = 'Process Parameters';
@@ -181,13 +150,11 @@ function ProcessParameters({handleChange, value, customizerData }){
             <FlowRate
               MakeChangeText={MakeChangeText}
               MakeChangeDropdown={MakeChangeDropdown}
-              CheckErrors={CheckErrors}
               ErrorValues={error_values}
             />
             <Gas
               MakeChangeText={MakeChangeText}
               MakeChangeDropdown={MakeChangeDropdown}
-              CheckErrors={CheckErrors}
               ErrorValues={error_values}
             />
             <Ambient
