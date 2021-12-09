@@ -693,7 +693,7 @@ function HazFatRCustomizer(){
     }
   }
 
-  var remote_cable_price = 0;
+  var remote_cable_price = 10 * 5;
   if(data.meter_housing.remote_cable.valuesObj){
     var remote_cable_price = data.meter_housing.remote_cable.valuesObj.feet * 5;  
   }

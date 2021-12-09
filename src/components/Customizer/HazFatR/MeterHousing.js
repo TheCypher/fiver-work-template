@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMediaQuery } from 'react-responsive';
 
 // reactstrap components
@@ -23,6 +23,7 @@ import {
 } from "reactstrap";
 
 function MeterHousing({handleChange, value }){
+  const [remoteCable, setRemoteCable] = useState(10);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
@@ -40,7 +41,10 @@ function MeterHousing({handleChange, value }){
   }
 
   const MakeChangeText = (data) => {
-    data.option_value = data.option.target.value;
+    const remote_cable_feet = data.option.target.value;
+    data.option_value = +10 + +remote_cable_feet;
+    
+    setRemoteCable(data.option_value);
     handleChange(data);
   }
 
@@ -106,47 +110,14 @@ function MeterHousing({handleChange, value }){
               <Col>
                 <Row>
                   <Col className="align-items-center">
-                    <span className="customizerInputTitle">Remote Enclosure:
-                      <Button className="questionToolTip" id="HazRRemoteEnclosure" size="sm">
-                        ?
-                      </Button>{` `}
-                      <UncontrolledTooltip placement="right" target="HazRRemoteEnclosure" delay={0}>
-                        A 2-Line Backlit Liquid Crystal Transflective display is included with EPI flow meters. 
-                        It is easy to read in low light or high light conditions, 
-                        and will come with the orientation specified in the above section.
-                      </UncontrolledTooltip>
-                    </span><br />
-                    <FormGroup check className="form-check-radio">
-                      <Label check>
-                        <span className="customizerInputTitleSmallX1">8" x 10" Standard For Ordinary Locations</span>
-                          <Input
-                            defaultChecked
-                            onClick={ (e) => MakeChange({
-                              section: 'meter_housing',
-                              type: 'remote_enclosure',
-                              values: ['standard', 'dual'],
-                              price_effect: true
-                            }, e)}
-                            id="display"
-                            name="display"
-                            type="radio"
-                          ></Input>
-                        <span className="form-check-sign"></span>
-                        <Button className="questionToolTip" id="StandardEnclosure" size="sm">
-                          ?
-                        </Button>{` `}
-                        <UncontrolledTooltip placement="right" target="StandardEnclosure" delay={0}>
-                          Standard Fiberglass Reinforced Polyester (FRP) enclosure with window. 
-                          Certified to CSA/CUS Standards: Class 2252-03 & 2252-83 for Process 
-                          Control Equipment in Ordinary Locations Only; CSA Enclosures Type 4X, IP66
-                        </UncontrolledTooltip>
-                      </Label>
-                    </FormGroup>
+                    <span className="customizerInputTitle">Remote Enclosure:</span>
+                    <br />
 
                     <FormGroup check className="form-check-radio">
                       <Label check>
                         <span className="customizerInputTitleSmallX1">Dual Sided Explosion-proof enclosure for hazardous locations</span>
                           <Input
+                            defaultChecked
                             onClick={ (e) => MakeChange({
                               section: 'meter_housing',
                               type: 'remote_enclosure',
@@ -168,6 +139,32 @@ function MeterHousing({handleChange, value }){
                           d IIB+H2 IP66; Ex d IIB+H2 IP66; T2; Ta = 0°C to 50°C
                         </UncontrolledTooltip>
                       </Label>
+                    </FormGroup>
+
+                    <FormGroup check className="form-check-radio">
+                      <Label check>
+                        <span className="customizerInputTitleSmallX1">8" x 10" Ordinary Locations (non-explosion proof)</span>
+                          <Input
+                            onClick={ (e) => MakeChange({
+                              section: 'meter_housing',
+                              type: 'remote_enclosure',
+                              values: ['standard', 'dual'],
+                              price_effect: true
+                            }, e)}
+                            id="display"
+                            name="display"
+                            type="radio"
+                          ></Input>
+                        <span className="form-check-sign"></span>
+                        <Button className="questionToolTip" id="StandardEnclosure" size="sm">
+                          ?
+                        </Button>{` `}
+                        <UncontrolledTooltip placement="right" target="StandardEnclosure" delay={0}>
+                          Fiberglass Reinforced Polyester (FRP) enclosure with window. 
+                          Certified to CSA/CUS Standards: Class 2252-03 & 2252-83 for Process 
+                          Control Equipment in Ordinary Locations Only; CSA Enclosures Type 4X, IP66
+                        </UncontrolledTooltip>
+                      </Label>
                     </FormGroup><br />
                     <hr />
 
@@ -179,24 +176,39 @@ function MeterHousing({handleChange, value }){
                         Interconnecting Remote Cable Info.
                       </UncontrolledTooltip>
                     </span><br />
-                    <FormGroup>
-                      <span className="customizerInputTitleSmallX1">10’ standard/minimum ($5/ft.)</span>
-                      <Input
-                        className="epiInputSize"
-                        id="exampleFormControlSelect1"
-                        type="number"
-                        placeholder="Enter Length"
-                        onChange={ (e) => MakeChangeText({
-                          section: 'meter_housing',
-                          type: 'remote_cable',
-                          values: ['feet'],
-                          price_effect: false,
-                          text_input: true,
-                          option: e
-                        }, e)}
+                    <Row>
+                      <Col style={{ 'padding-right': '0'}}>
+                        <FormGroup>
+                          <span className="customizerInputTitleSmallX1">10’ standard/minimum ($5/ft.)</span>
+                          <Input
+                            className="epiInputSize"
+                            id="exampleFormControlSelect1"
+                            type="number"
+                            placeholder="Enter Length"
+                            maxLength={10}
+                            onChange={ (e) => MakeChangeText({
+                              section: 'meter_housing',
+                              type: 'remote_cable',
+                              values: ['feet'],
+                              price_effect: false,
+                              text_input: true,
+                              option: e
+                            }, e)}
+                          >
+                          </Input>
+                        </FormGroup>
+                      </Col>
+                      <Col 
+                        className="col-2 my-auto"
+                        style={{ 
+                          'padding-right': '0',
+                          'padding-left': '5px',
+                          'padding-top': '10px'
+                        }}
                       >
-                      </Input>
-                    </FormGroup>
+                      <span className="customizerInputTitleSmallX1">{remoteCable}Ft</span>
+                      </Col>
+                    </Row>
                   </Col>
                 </Row>
               </Col>
