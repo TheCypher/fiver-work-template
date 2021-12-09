@@ -22,6 +22,7 @@ import {
 
 function ApplicationInformation({ handleChange, value }){
   const [selectInputOptions, setSelectInputOptions] = useState(0);
+  const [selectInputOptionsTwo, setSelectInputOptionsTwo] = useState(0);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
@@ -50,7 +51,13 @@ function ApplicationInformation({ handleChange, value }){
       console.log('Show me pipe option data 1.0 =>', data);
     }
 
-    (data.option_value === 'other') ? setSelectInputOptions(1) : setSelectInputOptions(0);
+    if(data.input_name === 'application'){
+      (data.option_value === 'other') ? setSelectInputOptions(1) : setSelectInputOptions(0);
+    }
+
+    if(data.input_name === 'gas'){
+      (data.option_value === 'other') ? setSelectInputOptionsTwo(1) : setSelectInputOptionsTwo(0);
+    }
 
     handleChange(data);
   }
@@ -150,6 +157,7 @@ function ApplicationInformation({ handleChange, value }){
                         'other'
                       ],
                       price_effect: false,
+                      input_name: 'application',
                       option: e
                     }, e)}
                   >
@@ -240,9 +248,11 @@ function ApplicationInformation({ handleChange, value }){
                         'O3',
                         'SNGPL_Gas',
                         'SSGCL_Gas',
-                        'MARI_Gas'
+                        'MARI_Gas',
+                        'other'
                       ],
                       price_effect: true,
+                      input_name: 'gas',
                       option: e
                     }, e)}
                   >
@@ -278,8 +288,31 @@ function ApplicationInformation({ handleChange, value }){
                     <option value="SNGPL_Gas">SNGPL Gas</option>
                     <option value="SSGCL_Gas">SSGCL Gas</option>
                     <option value="MARI_Gas">MARI Gas</option>
+                    <option value="other">Other</option>
                   </Input>
                 </FormGroup>
+
+                { selectInputOptionsTwo ? (
+                  <FormGroup>
+                    <Input
+                      className="epiInputSize"
+                      id="exampleFormControlSelect1"
+                      type="text"
+                      placeholder="Enter Gas"
+                      onChange={ (e) => MakeChangeText({
+                        section: 'application_information',
+                        type: 'gas_other',
+                        values: ['gas'],
+                        price_effect: false,
+                        text_input: true,
+                        option: e
+                      }, e)}
+                    >
+                    </Input>
+                  </FormGroup>
+                ) : (
+                  <div></div>
+                )}
               </Col>
             </Row>
             <hr />

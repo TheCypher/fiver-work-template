@@ -164,7 +164,8 @@ function HazCustomizer(){
           O3: false,
           SNGPL_Gas: false,
           SSGCL_Gas: false,
-          MARI_Gas: false
+          MARI_Gas: false,
+          other: false
         },
         gas_prices:{
           Air: 220, 
@@ -197,7 +198,11 @@ function HazCustomizer(){
           O3: 220,
           SNGPL_Gas: 275,
           SSGCL_Gas: 275,
-          MARI_Gas: 275
+          MARI_Gas: 275,
+          other: 693
+        },
+        gas_other: {
+          gas: false
         },
         condensing_moisture: {
           yes: false,
