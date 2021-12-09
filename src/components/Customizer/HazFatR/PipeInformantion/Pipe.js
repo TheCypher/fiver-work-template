@@ -55,7 +55,7 @@ function Pipe({
       if(data.option_value == 2) {setPipeLength(14); setPipeDiameter(2.067); setPipeDiameterMM(50.8);}
       if(data.option_value == 2.5) {setPipeLength(14); setPipeDiameter(2.469); setPipeDiameterMM(63.5);}
       if(data.option_value == 3) {setPipeLength(14); setPipeDiameter(3.068); setPipeDiameterMM(76.19);}
-      if(data.option_value == 4) {setPipeLength(14); setPipeDiameter(4.0); setPipeDiameterMM(101.6);}
+      if(data.option_value == 4) {setPipeLength(14); setPipeDiameter(4.026); setPipeDiameterMM(101.6);}
     }
 
     (data.option_value === 'other') ? setOtherPipeSize(true) : setOtherPipeSize(false);
@@ -119,8 +119,8 @@ function Pipe({
             >
               <option value={2}>2"</option>
               <option value={2.5}>2 1/2"</option>
-              <option value={3}>3" Flanged</option>
-              <option value={4}>4" Flanged"</option>
+              <option value={3}>3"</option>
+              <option value={4}>4"</option>
               <option value="other">Other Size</option>
             </Input>
           </FormGroup>
@@ -235,7 +235,6 @@ function Pipe({
             <div></div>
           )}
         </Col>
-        <Col className='col-1 my-auto'><br /> in</Col>
       </Row>
     </>
   );

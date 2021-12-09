@@ -9,7 +9,7 @@ import {
 
 // core components
 
-function CompanyLink() {
+function CompanyLinks() {
   return (
     <>
       <ListGroup flush>
@@ -87,4 +87,4 @@ function CompanyLink() {
   );
 }
 
-export default CompanyLink;
+export default CompanyLinks;

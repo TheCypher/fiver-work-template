@@ -11,7 +11,7 @@ import {
 import ProductsLinks from "./Mobile/ProductsLinks";
 import InformationLinks from "./Mobile/InformationLinks";
 import SupportLinks from "./Mobile/SupportLinks";
-import CompanyLink from "components/Customizer/CompanyLinks";
+import CompanyLinks from "./Mobile/CompanyLinks";
 import ContactInfo from "./Regular/ContactInfo";
 
 function MobileFooter() {
@@ -88,7 +88,7 @@ function MobileFooter() {
         </ListGroupItem>
         <Col className="footerMobileListGroupItem">
           <Collapse isOpen={collapses.includes(4)}>
-            <CompanyLink />
+            <CompanyLinks />
           </Collapse>
         </Col>
 
