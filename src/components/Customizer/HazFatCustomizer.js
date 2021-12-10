@@ -10,17 +10,17 @@ import {
 
 import MeterCustomizerNavbar from "components/Navbars/MeterCustomizerNavbar";
 import CustomizerPriceFooter from "components/Footers/CustomizerPriceFooter";
-import MeterOrientation from "./HazFat/MeterOrientation";
-import TotalCard from "./HazFat/TotalCard";
-import MeterHousing from "./HazFat/MeterHousing";
-import InputPower from "./HazFat/InputPower";
-import PipeInformation from "./HazFat/PipeInformation";
-import ApplicationInformation from "./HazFat/ApplicationInformation";
-import QuestionsOrComments from "./HazFat/QuestionsOrComments";
-import MountingRequirements from "./HazFat/MountingRequirements";
-import FlowBody from "./HazFat/FlowBody";
-import Enhancements from "./HazFat/Enhancements";
-import ProcessParameters from "./HazFat/ProcessParameters";
+import MeterOrientation from "./Haz/HazInline/HazFat/MeterOrientation";
+import TotalCard from "./Haz/HazInline/HazFat/TotalCard";
+import MeterHousing from "./Haz/HazInline/HazFat/MeterHousing";
+import InputPower from "./Haz/HazInline/HazFat/InputPower";
+import PipeInformation from "./Haz/HazInline/HazFat/PipeInformation";
+import ApplicationInformation from "./Haz/HazInline/HazFat/ApplicationInformation";
+import QuestionsOrComments from "./Haz/HazInline/HazFat/QuestionsOrComments";
+import MountingRequirements from "./Haz/HazInline/HazFat/MountingRequirements";
+import FlowBody from "./Haz/HazInline/HazFat/FlowBody";
+import Enhancements from "./Haz/HazInline/HazFat/Enhancements";
+import ProcessParameters from "./Haz/HazInline/HazFat/ProcessParameters";
 
 
 function HazFatCustomizer(){

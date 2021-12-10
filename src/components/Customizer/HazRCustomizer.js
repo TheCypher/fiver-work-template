@@ -10,17 +10,17 @@ import {
 
 import MeterCustomizerNavbar from "components/Navbars/MeterCustomizerNavbar";
 import CustomizerPriceFooter from "components/Footers/CustomizerPriceFooter";
-import MeterOrientation from "./HazR/MeterOrientation";
-import TotalCard from "./HazR/TotalCard";
-import MeterHousing from "./HazR/MeterHousing";
-import InputPower from "./HazR/InputPower";
-import PipeInformation from "./HazR/PipeInformation";
-import ApplicationInformation from "./HazR/ApplicationInformation";
-import QuestionsOrComments from "./HazR/QuestionsOrComments";
-import MountingRequirements from "./HazR/MountingRequirements";
-import FlowBody from "./HazR/FlowBody";
-import Enhancements from "./HazR/Enhancements";
-import ProcessParameters from "./HazR/ProcessParameters";
+import MeterOrientation from "./Haz/HazInline/HazR/MeterOrientation";
+import TotalCard from "./Haz/HazInline/HazR/TotalCard";
+import MeterHousing from "./Haz/HazInline/HazR/MeterHousing";
+import InputPower from "./Haz/HazInline/HazR/InputPower";
+import PipeInformation from "./Haz/HazInline/HazR/PipeInformation";
+import ApplicationInformation from "./Haz/HazInline/HazR/ApplicationInformation";
+import QuestionsOrComments from "./Haz/HazInline/HazR/QuestionsOrComments";
+import MountingRequirements from "./Haz/HazInline/HazR/MountingRequirements";
+import FlowBody from "./Haz/HazInline/HazR/FlowBody";
+import Enhancements from "./Haz/HazInline/HazR/Enhancements";
+import ProcessParameters from "./Haz/HazInline/HazR/ProcessParameters";
 
 
 function HazRCustomizer(){
