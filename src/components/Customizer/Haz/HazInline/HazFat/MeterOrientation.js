@@ -45,169 +45,6 @@ function PipeOrientation({ handleChange, value }){
     if(title.length > 18) title = title.substring(0,18) + '...';
   }
 
-  const Orientations = () => {
-    if(orientation === 'vertical'){
-      return(
-        <>
-          <span className="customizerInputTitle">Flow Direction Vertical</span>
-          <FormGroup check className="form-check-radio">
-            <Label check>
-              <span className="customizerInputTitleSmallX1">Top to Bottom</span>
-              <Input
-                defaultChecked
-                onClick={ (e) => MakeChange({
-                  section: 'meter_orientation',
-                  type: 'flow_direction_vertical',
-                  values: ['top_to_bottom', 'bottom_to_top'],
-                  price_effect: false
-                }, e)}
-                id="flow_direction_vertical"
-                name="flow_direction_vertical"
-                type="radio"
-              ></Input>
-              <span className="form-check-sign"></span>
-            </Label>
-          </FormGroup>
-          <FormGroup check className="form-check-radio">
-            <Label check>
-              <span className="customizerInputTitleSmallX1">Bottom to Top</span>
-              <Input
-                onClick={ (e) => MakeChange({
-                  section: 'meter_orientation',
-                  type: 'flow_direction_vertical',
-                  values: ['bottom_to_top', 'top_to_bottom'],
-                  price_effect: false
-                }, e)}
-                id="flow_direction_vertical"
-                name="flow_direction_vertical"
-                type="radio"
-              ></Input>
-              <span className="form-check-sign"></span>
-            </Label>
-          </FormGroup><br />
-
-          <span className="customizerInputTitle">Enclosure Mounting Preference Vertical</span>
-          <FormGroup check className="form-check-radio">
-            <Label check>
-              <span className="customizerInputTitleSmallX1">Left Side</span>
-              <Input
-                defaultChecked
-                onClick={ (e) => MakeChange({
-                  section: 'meter_orientation',
-                  type: 'enclosure_mounting_preference_vertical',
-                  values: ['left_side', 'right_side'],
-                  price_effect: false
-                }, e)}
-                id="enclosure_mounting_preference_vertical"
-                name="enclosure_mounting_preference_vertical"
-                type="radio"
-              ></Input>
-              <span className="form-check-sign"></span>
-            </Label>
-          </FormGroup>
-          <FormGroup check className="form-check-radio">
-            <Label check>
-              <span className="customizerInputTitleSmallX1">Right Side</span>
-              <Input
-                onClick={ (e) => MakeChange({
-                  section: 'meter_orientation',
-                  type: 'enclosure_mounting_preference_vertical',
-                  values: ['right_side', 'left_side'],
-                  price_effect: false
-                }, e)}
-                id="enclosure_mounting_preference_vertical"
-                name="enclosure_mounting_preference_vertical"
-                type="radio"
-              ></Input>
-              <span className="form-check-sign"></span>
-            </Label>
-          </FormGroup>
-          <br />
-        </>
-      );
-    }
-
-    if(orientation === 'horizontal'){
-      return(
-        <>
-          <span className="customizerInputTitle">Flow Direction Horizontal</span>
-          <FormGroup check className="form-check-radio">
-            <Label check>
-              <span className="customizerInputTitleSmallX1">Left to Right</span>
-              <Input
-                defaultChecked
-                onClick={ (e) => MakeChange({
-                  section: 'meter_orientation',
-                  type: 'flow_direction_horizontal',
-                  values: ['left_to_right', 'right_to_left'],
-                  price_effect: false
-                }, e)}
-                id="flowdirectionhorizontal"
-                name="flowdirectionhorizontal"
-                type="radio"
-              ></Input>
-              <span className="form-check-sign"></span>
-            </Label>
-          </FormGroup>
-          <FormGroup check className="form-check-radio">
-            <Label check>
-              <span className="customizerInputTitleSmallX1">Right to Left</span>
-              <Input
-                onClick={ (e) => MakeChange({
-                  section: 'meter_orientation',
-                  type: 'flow_direction_horizontal',
-                  values: ['right_to_left', 'left_to_right'],
-                  price_effect: false
-                }, e)}
-                id="flowdirectionhorizontal"
-                name="flowdirectionhorizontal"
-                type="radio"
-              ></Input>
-              <span className="form-check-sign"></span>
-            </Label>
-          </FormGroup><br />
-
-          <span className="customizerInputTitle">Enclosure Mounting Preference Horizontal</span>
-          <FormGroup check className="form-check-radio">
-            <Label check>
-              <span className="customizerInputTitleSmallX1">Above Pipe</span>
-              <Input
-                defaultChecked
-                onClick={ (e) => MakeChange({
-                  section: 'meter_orientation',
-                  type: 'enclosure_mounting_preference_horizontal',
-                  values: ['above_pipe', 'below_pipe', 'left_side', 'right_side'],
-                  price_effect: false
-                }, e)}
-                id="enclosure_mounting_preference_horizontal"
-                name="enclosure_mounting_preference_horizontal"
-                type="radio"
-              ></Input>
-              <span className="form-check-sign"></span>
-            </Label>
-          </FormGroup>
-          <FormGroup check className="form-check-radio">
-            <Label check>
-              <span className="customizerInputTitleSmallX1">Below Pipe</span>
-              <Input
-                onClick={ (e) => MakeChange({
-                  section: 'meter_orientation',
-                  type: 'enclosure_mounting_preference_horizontal',
-                  values: ['below_pipe', 'above_pipe'],
-                  price_effect: false
-                }, e)}
-                id="enclosure_mounting_preference_horizontal"
-                name="enclosure_mounting_preference_horizontal"
-                type="radio"
-              ></Input>
-              <span className="form-check-sign"></span>
-            </Label>
-          </FormGroup><br />
-        </>
-      );
-    }
-  }
-
   return (
     <>
       <Card style={{
@@ -304,7 +141,201 @@ function PipeOrientation({ handleChange, value }){
                   </Label>
                 </FormGroup><br />
 
-                <Orientations />
+                {orientation === "horizontal" && (
+                  <span className="customizerInputTitle">Flow Direction Horizontal</span>
+                )}
+
+                {orientation === "horizontal" && (
+                  <FormGroup check className="form-check-radio">
+                    <Label check>
+                      <span className="customizerInputTitleSmallX1">Left to Right</span>
+                      <Input
+                        defaultChecked
+                        onClick={ (e) => MakeChange({
+                          section: 'meter_orientation',
+                          type: 'flow_direction_horizontal',
+                          values: ['left_to_right', 'right_to_left'],
+                          price_effect: false
+                        }, e)}
+                        id="flowdirectionhorizontal"
+                        name="flowdirectionhorizontal"
+                        type="radio"
+                      ></Input>
+                      <span className="form-check-sign"></span>
+                    </Label>
+                  </FormGroup>
+                )}
+
+                {orientation === "horizontal" && (
+                  <FormGroup check className="form-check-radio">
+                    <Label check>
+                      <span className="customizerInputTitleSmallX1">Right to Left</span>
+                      <Input
+                        onClick={ (e) => MakeChange({
+                          section: 'meter_orientation',
+                          type: 'flow_direction_horizontal',
+                          values: ['right_to_left', 'left_to_right'],
+                          price_effect: false
+                        }, e)}
+                        id="flowdirectionhorizontal"
+                        name="flowdirectionhorizontal"
+                        type="radio"
+                      ></Input>
+                      <span className="form-check-sign"></span>
+                    </Label>
+                  </FormGroup>
+                )}
+
+                {orientation === "horizontal" && (
+                  <br />
+                )}
+
+                {orientation === "horizontal" && (
+                  <span className="customizerInputTitle">Enclosure Mounting Preference Horizontal</span>
+                )}
+
+                {orientation === "horizontal" && (
+                  <FormGroup check className="form-check-radio">
+                    <Label check>
+                      <span className="customizerInputTitleSmallX1">Above Pipe</span>
+                      <Input
+                        defaultChecked
+                        onClick={ (e) => MakeChange({
+                          section: 'meter_orientation',
+                          type: 'enclosure_mounting_preference_horizontal',
+                          values: ['above_pipe', 'below_pipe', 'left_side', 'right_side'],
+                          price_effect: false
+                        }, e)}
+                        id="enclosure_mounting_preference_horizontal"
+                        name="enclosure_mounting_preference_horizontal"
+                        type="radio"
+                      ></Input>
+                      <span className="form-check-sign"></span>
+                    </Label>
+                  </FormGroup>
+                )}
+
+                {orientation === "horizontal" && (
+                  <FormGroup check className="form-check-radio">
+                    <Label check>
+                      <span className="customizerInputTitleSmallX1">Below Pipe</span>
+                      <Input
+                        onClick={ (e) => MakeChange({
+                          section: 'meter_orientation',
+                          type: 'enclosure_mounting_preference_horizontal',
+                          values: ['below_pipe', 'above_pipe'],
+                          price_effect: false
+                        }, e)}
+                        id="enclosure_mounting_preference_horizontal"
+                        name="enclosure_mounting_preference_horizontal"
+                        type="radio"
+                      ></Input>
+                      <span className="form-check-sign"></span>
+                    </Label>
+                  </FormGroup>
+                )}
+
+                {orientation === "horizontal" && (
+                  <br />
+                )}
+
+                {orientation === "vertical" && (
+                  <span className="customizerInputTitle">Flow Direction Vertical</span>
+                )}
+
+                {orientation === "vertical" && (
+                  <FormGroup check className="form-check-radio">
+                    <Label check>
+                      <span className="customizerInputTitleSmallX1">Top to Bottom</span>
+                      <Input
+                        defaultChecked
+                        onClick={ (e) => MakeChange({
+                          section: 'meter_orientation',
+                          type: 'flow_direction_vertical',
+                          values: ['top_to_bottom', 'bottom_to_top'],
+                          price_effect: false
+                        }, e)}
+                        id="flow_direction_vertical1"
+                        name="flow_direction_vertical1"
+                        type="radio"
+                      ></Input>
+                      <span className="form-check-sign"></span>
+                    </Label>
+                  </FormGroup>
+                )}
+
+                {orientation === "vertical" && (
+                  <FormGroup check className="form-check-radio">
+                    <Label check>
+                      <span className="customizerInputTitleSmallX1">Bottom to Top</span>
+                      <Input
+                        onClick={ (e) => MakeChange({
+                          section: 'meter_orientation',
+                          type: 'flow_direction_vertical',
+                          values: ['bottom_to_top', 'top_to_bottom'],
+                          price_effect: false
+                        }, e)}
+                        id="flow_direction_vertical1"
+                        name="flow_direction_vertical1"
+                        type="radio"
+                      ></Input>
+                      <span className="form-check-sign"></span>
+                    </Label>
+                  </FormGroup>
+                )}
+
+                {orientation === "vertical" && (
+                  <br />
+                )}
+
+                {orientation === "vertical" && (
+                  <span className="customizerInputTitle">Enclosure Mounting Preference Vertical</span>
+                )}
+
+                {orientation === "vertical" && (
+                  <FormGroup check className="form-check-radio">
+                    <Label check>
+                      <span className="customizerInputTitleSmallX1">Left Side</span>
+                      <Input
+                        defaultChecked
+                        onClick={ (e) => MakeChange({
+                          section: 'meter_orientation',
+                          type: 'enclosure_mounting_preference_vertical',
+                          values: ['left_side', 'right_side'],
+                          price_effect: false
+                        }, e)}
+                        id="enclosure_mounting_preference_vertical"
+                        name="enclosure_mounting_preference_vertical"
+                        type="radio"
+                      ></Input>
+                      <span className="form-check-sign"></span>
+                    </Label>
+                  </FormGroup>
+                )}
+
+                {orientation === "vertical" && (
+                  <FormGroup check className="form-check-radio">
+                    <Label check>
+                      <span className="customizerInputTitleSmallX1">Right Side</span>
+                      <Input
+                        onClick={ (e) => MakeChange({
+                          section: 'meter_orientation',
+                          type: 'enclosure_mounting_preference_vertical',
+                          values: ['right_side', 'left_side'],
+                          price_effect: false
+                        }, e)}
+                        id="enclosure_mounting_preference_vertical"
+                        name="enclosure_mounting_preference_vertical"
+                        type="radio"
+                      ></Input>
+                      <span className="form-check-sign"></span>
+                    </Label>
+                  </FormGroup>
+                )}
+
+                {orientation === "vertical" && (
+                  <br />
+                )}
 
                 <span className="customizerInputTitle">Display Orientation</span><br />
                 <Button
