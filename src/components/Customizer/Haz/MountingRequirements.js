@@ -179,7 +179,14 @@ function MountingRequirements({handleChange, pipeInfoPipeSize, value }){
                 </FormGroup>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <span className="customizerInputTitleSmallX1">Flange</span>
+                    <span className="customizerInputTitleSmallX1">Flange</span><br />
+                    {
+                      flangeSelected? (
+                        <span className="customizerInputTitleSmallX1">
+                        (3” 4” selections only available with flange end connection)
+                        </span>
+                      ) : (<></>)
+                    }
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({

@@ -143,7 +143,7 @@ function FlowBody({handleChange, value }){
                       option: e
                     }, e)}
                   >
-                    <option value="sss" defaultValue disabled>Stainless Steel 316L</option>
+                    <option value="sss" selected disabled>Stainless Steel 316L</option>
                   </Input>
                 </FormGroup>
               </Col>

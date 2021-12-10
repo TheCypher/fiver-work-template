@@ -21,7 +21,7 @@ import {
   UncontrolledTooltip
 } from "reactstrap";
 
-function MountingRequirements({handleChange, value }){
+function MountingRequirements({handleChange, pipeInfoPipeSize, value }){
   const [selectFlange, setSelectFlange] = useState(true);
   const [otherFlange, setOtherFlange] = useState(false);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
@@ -70,6 +70,13 @@ function MountingRequirements({handleChange, value }){
   var title = 'Mounting Requirements';
   if (isMobile) {
     if(title.length > 18) title = title.substring(0,18) + '...';
+  }
+  
+  console.log('Show me the pipe size for flange 1.0 =>', pipeInfoPipeSize);
+
+  var flangeSelected = false;
+  if(pipeInfoPipeSize > 3){
+    flangeSelected = true;
   }
 
   return (
@@ -132,6 +139,7 @@ function MountingRequirements({handleChange, value }){
                   <Label check>
                     <span className="customizerInputTitleSmallX1">MNPT Ends</span>
                     <Input
+                      disabled={flangeSelected}
                       onClick={ (e) => MakeChange({
                           section: 'mounting_requirements',
                           type: 'mounting_types',
@@ -152,7 +160,7 @@ function MountingRequirements({handleChange, value }){
                   <Label check>
                     <span className="customizerInputTitleSmallX1">Butt End</span>
                     <Input
-                      defaultChecked
+                      disabled={flangeSelected}
                       onClick={ (e) => MakeChange({
                           section: 'mounting_requirements',
                           type: 'mounting_types',
@@ -171,7 +179,14 @@ function MountingRequirements({handleChange, value }){
                 </FormGroup>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <span className="customizerInputTitleSmallX1">Flange</span>
+                    <span className="customizerInputTitleSmallX1">Flange</span><br />
+                    {
+                      flangeSelected? (
+                        <span className="customizerInputTitleSmallX1">
+                        (3” 4” selections only available with flange end connection)
+                        </span>
+                      ) : (<></>)
+                    }
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
@@ -246,7 +261,8 @@ function MountingRequirements({handleChange, value }){
 
                   { otherFlange ? (
                     <FormGroup>
-                      <span>(This is a placeholder) <br /> Contact factory for these flange type</span>
+                      <br />
+                      <span>EPI Sales department will share updated pricing for your custom flange selection below.</span>
                       <Input
                         className="epiInputSize"
                         id="exampleFormControlSelect1"

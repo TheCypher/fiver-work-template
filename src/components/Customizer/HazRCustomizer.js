@@ -531,6 +531,7 @@ function HazRCustomizer(){
     }
   );
 
+  const [pipeInfoPipeSize, setPipeInfoPipeSize] = useState(0.25);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   const handleChange = (props) => {
@@ -731,6 +732,7 @@ function HazRCustomizer(){
 
               <PipeInformation
                 handleChange={ handleChange }
+                setPipeInfoPipeSize={ setPipeInfoPipeSize }
                 value={ values }
               />
 
@@ -746,6 +748,7 @@ function HazRCustomizer(){
 
               <MountingRequirements
                 handleChange={ handleChange }
+                pipeInfoPipeSize={ pipeInfoPipeSize }
                 value={ values }
               />
 

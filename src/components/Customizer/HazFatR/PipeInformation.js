@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMediaQuery } from 'react-responsive';
 
 
@@ -33,14 +33,18 @@ import Tube from "./PipeInformantion/Tube";
 
 import VelocityCalculator from "components/Customizer/VelocityCalculator";
 
-function PipeInformation({ handleChange, value }){
+function PipeInformation({ handleChange, setPipeInfoPipeSize, value }){
   const [tabType, setTabType] = useState("Pipe");
   const [ductShape, setDuctShape] = useState('rectangular');
-  const [selectedPipeSize, setSelectedPipeSize] = useState(2);
-  const [pipeDiameter, setPipeDiameter] = useState(2.067);
-  const [pipeDiameterMM, setPipeDiameterMM] = useState(50.8);
-  const [pipeLength, setPipeLength] = useState(14);
+  const [selectedPipeSize, setSelectedPipeSize] = useState(0.25);
+  const [pipeDiameter, setPipeDiameter] = useState(0.364);
+  const [pipeDiameterMM, setPipeDiameterMM] = useState(6.35);
+  const [pipeLength, setPipeLength] = useState(6);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
+
+  useEffect(() => {
+    setPipeInfoPipeSize(pipeDiameter);
+  }, [pipeDiameter]);
 
   // collapse states and functions
   const [collapses, setCollapses] = React.useState([0]);
@@ -245,7 +249,7 @@ function PipeInformation({ handleChange, value }){
             </Row>
             <hr />
             <VelocityCalculator
-              type="fat"
+              type="haz"
               selectedPipeSize={selectedPipeSize}
               pipeDiameter={pipeDiameter}
               pipeDiameterMM={pipeDiameterMM}
