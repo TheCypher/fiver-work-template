@@ -93,7 +93,8 @@ function Haz(props) {
     }
   ]
 
-  const link_dir = '/products/haz/inline/'
+  const link_dir_inline = '/products/haz/inline/';
+  const link_dir_insertion = '/products/haz/insertion/';
   const [productData, setProductData] = useState(product_data)
   const [viewType, setViewType] = useState('')  
 
@@ -150,7 +151,7 @@ function Haz(props) {
                               className="nav-product-hover-button"
                               tag={Link}
                               from="*"
-                              to={link_dir + value.link}
+                              to={link_dir_inline + value.link}
                               onMouseEnter={() => updateProductImage(value, index, 'left')}
                               onMouseLeave={() => updateProductDefaultImage(value, index)}
                             >
@@ -172,7 +173,9 @@ function Haz(props) {
                           <NavItem>
                             <NavLink
                               className="nav-product-hover-button"
-                              href="#pablo"
+                              tag={Link}
+                              from="*"
+                              to={link_dir_insertion + value.link}
                               onMouseEnter={() => updateProductImage(value, index, 'right')}
                               onMouseLeave={() => updateProductDefaultImage(value, index)}
                             >
@@ -212,7 +215,9 @@ function Haz(props) {
                             <NavLink
                               className="nav-product-hover-button"
                               style={{ 'margin-left': '55px'}}
-                              href="#pablo"
+                              tag={Link}
+                              from="*"
+                              to={link_dir_inline + value.link}
                               onMouseEnter={() => updateProductImage(value, index, 'left')}
                               onMouseLeave={() => updateProductDefaultImage(value, index)}
                             >

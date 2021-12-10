@@ -2,18 +2,18 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router";
 
 // core components
-import HazCustomizer from "components/Customizer/Views/Haz/HazInline/HazCustomizer";
-import HazRCustomizer from "components/Customizer/Views/Haz/HazInline/HazRCustomizer";
-import HazFatCustomizer from "components/Customizer/Views/Haz/HazInline/HazFatCustomizer";
-import HazFatRCustomizer from "components/Customizer/Views/Haz/HazInline/HazFatRCustomizer";
+import HazCustomizer from "components/Customizer/Views/Haz/HazInsertion/HazCustomizer";
+import HazRCustomizer from "components/Customizer/Views/Haz/HazInsertion/HazRCustomizer";
+import HazFatCustomizer from "components/Customizer/Views/Haz/HazInsertion/HazFatCustomizer";
+import HazFatRCustomizer from "components/Customizer/Views/Haz/HazInsertion/HazFatRCustomizer";
 
 // product views
-import HazProductView from "components/ProductViews/Haz/HazInline/HazProductView";
-import HazRProductView from "components/ProductViews/Haz/HazInline/HazRProductView";
-import HazFatProductView from "components/ProductViews/Haz/HazInline/HazFatProductView";
-import HazFatRProductView from "components/ProductViews/Haz/HazInline/HazFatRProductView";
+import HazProductView from "components/ProductViews/Haz/HazInsertion/HazProductView";
+import HazRProductView from "components/ProductViews/Haz/HazInsertion/HazRProductView";
+import HazFatProductView from "components/ProductViews/Haz/HazInsertion/HazFatProductView";
+import HazFatRProductView from "components/ProductViews/Haz/HazInsertion/HazFatRProductView";
 
-function HazInline() {
+function HazInsertion() {
   useEffect(() => {
     document.body.classList.add("landing-page");
     document.body.classList.add("sidebar-collapse");
@@ -76,4 +76,4 @@ function HazInline() {
   }
 }
 
-export default HazInline;
+export default HazInsertion;
