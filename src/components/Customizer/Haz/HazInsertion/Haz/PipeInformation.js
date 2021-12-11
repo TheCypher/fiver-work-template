@@ -32,6 +32,7 @@ import Duct from "./PipeInformantion/Duct";
 import Tube from "./PipeInformantion/Tube";
 
 import VelocityCalculator from "components/Customizer/VelocityCalculator";
+import VelocityCalculatorStatic from "components/Customizer/VelocityCalculatorStatic";
 
 function PipeInformation({ handleChange, setPipeInfoPipeSize, value }){
   const [tabType, setTabType] = useState("Pipe");
@@ -59,31 +60,6 @@ function PipeInformation({ handleChange, setPipeInfoPipeSize, value }){
   const MakeChange = (data) => {
     handleChange(data);
     setTabType(data.tab);
-  }
-
-  // const MakeChangeDropdown = (data) => {
-  //   data.option_value = data.option.target.value;
-  //   handleChange(data);
-  // }
-
-  const BottomOptions = () => {
-    if(tabType === "Pipe"){
-      return <PipeStandard />
-    }
-    
-    if(tabType === "Duct"){
-      return(
-        <DuctShape 
-          handleChange={ handleChange }
-          value={ value }
-          setDuctShape={ setDuctShape }
-        />
-      );
-    }
-
-    if(tabType === "Tube"){
-      return(<> </>);
-    }
   }
 
   var title = 'Pipe Information / (Velocity Calculator)';
@@ -161,57 +137,94 @@ function PipeInformation({ handleChange, setPipeInfoPipeSize, value }){
                         price_effect: false,
                         tab: 'Pipe'
                       }, e)}
-                      id="type2Pipe"
-                      name="type2Pipe"
+                      id="pipeType"
+                      name="pipeType"
                       type="radio"
                     ></Input>
                     <span className="form-check-sign"></span>
                   </Label>
                 </FormGroup>
 
-                {
-                  /**
-                    <FormGroup check className="form-check-radio">
-                      <Label check>
-                        <span className="customizerInputTitleSmallX1">Duct</span>
-                        <Input
-                          onClick={ (e) => MakeChange({
-                            section: 'pipe_infornation',
-                            type: 'type',
-                            values: ['duct', 'pipe', 'tube'],
-                            price_effect: false,
-                            tab: 'Duct'
-                          }, e)}
-                          id="type2"
-                          name="type2"
-                          type="radio"
-                        ></Input>
-                        <span className="form-check-sign"></span>
-                      </Label>
-                    </FormGroup>
-                    <FormGroup check className="form-check-radio">
-                      <Label check>
-                        <span className="customizerInputTitleSmallX1">Tube</span>
-                        <Input
-                          onClick={ (e) => MakeChange({
-                            section: 'pipe_infornation',
-                            type: 'type',
-                            values: ['tube', 'duct', 'pipe'],
-                            price_effect: false,
-                            tab: 'Tube'
-                          }, e)}
-                          id="type2"
-                          name="type2"
-                          type="radio"
-                        ></Input>
-                        <span className="form-check-sign"></span>
-                      </Label>
-                    </FormGroup>
-                   */
-                }
+                <FormGroup check className="form-check-radio">
+                  <Label check>
+                    <span className="customizerInputTitleSmallX1">Duct</span>
+                    <Input
+                      onClick={ (e) => MakeChange({
+                        section: 'pipe_infornation',
+                        type: 'type',
+                        values: ['duct', 'pipe', 'tube'],
+                        price_effect: false,
+                        tab: 'Duct'
+                      }, e)}
+                      id="pipeType"
+                      name="pipeType"
+                      type="radio"
+                    ></Input>
+                    <span className="form-check-sign"></span>
+                  </Label>
+                </FormGroup>
                 <br />
 
-                <BottomOptions />
+                {tabType === 'Duct' && (
+                  <span>
+                    <span className="customizerInputTitle">Duct Shape</span>
+                  </span>
+                )}
+
+                {tabType === 'Duct' && (
+                  <FormGroup check className="form-check-radio">
+                    <Label check>
+                      <Row>
+                        <Col>
+                          Rectangular
+                        </Col>
+                      </Row>
+                      <Input
+                        defaultChecked
+                        onClick={ (e) => MakeChange({
+                          section: 'pipe_infornation',
+                          type: 'duct_shape',
+                          values: ['rectangular', 'round'],
+                          price_effect: false,
+                          tab: 'Duct'
+                        },
+                        setDuctShape('rectangular'),
+                        e)}
+                        id="duct_shape"
+                        name="duct_shape"
+                        type="radio"
+                      ></Input>
+                      <span className="form-check-sign"></span>
+                    </Label>
+                  </FormGroup>
+                )}
+
+                {tabType === 'Duct' && (
+                  <FormGroup check className="form-check-radio">
+                    <Label check>
+                      <Row>
+                        <Col>
+                          Round
+                        </Col>
+                      </Row>
+                      <Input
+                        onClick={ (e) => MakeChange({
+                          section: 'pipe_infornation',
+                          type: 'duct_shape',
+                          values: ['round', 'rectangular'],
+                          price_effect: false,
+                          tab: 'Duct'
+                        },
+                        setDuctShape('round'),
+                        e)}
+                        id="duct_shape"
+                        name="duct_shape"
+                        type="radio"
+                      ></Input>
+                      <span className="form-check-sign"></span>
+                    </Label>
+                  </FormGroup>
+                )}
               </Col>
 
               <Col className="col-9">
@@ -248,7 +261,7 @@ function PipeInformation({ handleChange, setPipeInfoPipeSize, value }){
               </Col>
             </Row>
             <hr />
-            <VelocityCalculator
+            <VelocityCalculatorStatic
               type="haz"
               selectedPipeSize={selectedPipeSize}
               pipeDiameter={pipeDiameter}

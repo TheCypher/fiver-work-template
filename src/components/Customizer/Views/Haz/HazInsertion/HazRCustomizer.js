@@ -10,17 +10,17 @@ import {
 
 import MeterCustomizerNavbar from "components/Navbars/MeterCustomizerNavbar";
 import CustomizerPriceFooter from "components/Footers/CustomizerPriceFooter";
-import MeterOrientation from "components/Customizer/Haz/HazInline/HazR/MeterOrientation";
-import TotalCard from "components/Customizer/Haz/HazInline/HazR/TotalCard";
-import MeterHousing from "components/Customizer/Haz/HazInline/HazR/MeterHousing";
-import InputPower from "components/Customizer/Haz/HazInline/HazR/InputPower";
-import PipeInformation from "components/Customizer/Haz/HazInline/HazR/PipeInformation";
-import ApplicationInformation from "components/Customizer/Haz/HazInline/HazR/ApplicationInformation";
-import QuestionsOrComments from "components/Customizer/Haz/HazInline/HazR/QuestionsOrComments";
-import MountingRequirements from "components/Customizer/Haz/HazInline/HazR/MountingRequirements";
-import FlowBody from "components/Customizer/Haz/HazInline/HazR/FlowBody";
-import Enhancements from "components/Customizer/Haz/HazInline/HazR/Enhancements";
-import ProcessParameters from "components/Customizer/Haz/HazInline/HazR/ProcessParameters";
+import MeterOrientation from "components/Customizer/Haz/HazInsertion/HazR/MeterOrientation";
+import TotalCard from "components/Customizer/Haz/HazInsertion/HazR/TotalCard";
+import MeterHousing from "components/Customizer/Haz/HazInsertion/HazR/MeterHousing";
+import InputPower from "components/Customizer/Haz/HazInsertion/HazR/InputPower";
+import PipeInformation from "components/Customizer/Haz/HazInsertion/HazR/PipeInformation";
+import ApplicationInformation from "components/Customizer/Haz/HazInsertion/HazR/ApplicationInformation";
+import QuestionsOrComments from "components/Customizer/Haz/HazInsertion/HazR/QuestionsOrComments";
+import MountingRequirements from "components/Customizer/Haz/HazInsertion/HazR/MountingRequirements";
+import FlowBody from "components/Customizer/Haz/HazInsertion/HazR/FlowBody";
+import Enhancements from "components/Customizer/Haz/HazInsertion/HazR/Enhancements";
+import ProcessParameters from "components/Customizer/Haz/HazInsertion/HazR/ProcessParameters";
 
 
 function HazRCustomizer(){

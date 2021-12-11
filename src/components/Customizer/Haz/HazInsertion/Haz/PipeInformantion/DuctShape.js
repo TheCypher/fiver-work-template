@@ -17,7 +17,7 @@ function DuctShape({ handleChange, value, setDuctShape }){
   return (
     <>
       <span>
-        Duct Shape  
+        <span className="customizerInputTitle">Duct Shape</span>
       </span>
       <FormGroup check className="form-check-radio">
         <Label check>

@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMediaQuery } from 'react-responsive';
-
 
 // reactstrap components
 import {
   Row,
   Col,
   FormGroup,
+  Label,
   Input,
   Button,
   UncontrolledTooltip
 } from "reactstrap";
 
-function DuctRound({ handleChange, value }){
+function DuctRound({ handleChange }){
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   const MakeChangeDropdown = (data) => {
@@ -34,17 +34,21 @@ function DuctRound({ handleChange, value }){
     handleChange(data);
   }
 
+  const MakeChangeText = (data) => {
+    data.option_value = data.option.target.value;
+    handleChange(data);
+  }
+
   Array.prototype.removeWithValue = function() {
     var what, a = arguments, L = a.length, ax;
     while (L && this.length) {
-        what = a[--L];
-        while ((ax = this.indexOf(what)) !== -1) {
-            this.splice(ax, 1);
-        }
+      what = a[--L];
+      while ((ax = this.indexOf(what)) !== -1) {
+        this.splice(ax, 1);
+      }
     }
     return this;
   };
-
 
   var title = 'Pipe Information';
   if (isMobile) {
@@ -57,108 +61,82 @@ function DuctRound({ handleChange, value }){
         <Col className="processParametterCols">
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">Outer Dimention (OD)</span>
-              <Button className="questionToolTip" id="DuctRoundOuterDiameter" size="sm">
-                  ?
+              <span className="customizerInputTitleProcessParameters">Outer Diameter (OD)</span>
+              <Button className="questionToolTip" id="MaximumFlowRateCalc" size="sm">
+                ?
               </Button>{` `}
-              <UncontrolledTooltip placement="top" target="DuctRoundOuterDiameter" delay={0}>
-                Outer Diameter Information needed
+              <UncontrolledTooltip placement="right" target="MaximumFlowRateCalc" delay={0}>
+                Input the maximum gas flow rate you expect in the process line. 
+                This will serve as a reference point when your meter is calibrated to your gas type, 
+                and will serve as the full scale.
               </UncontrolledTooltip>
             </label>
             <Input
-              className="epiInputSize"
-              id="exampleFormControlInput1"
-              placeholder="Duct Height"
-              type="number"
-              
-            ></Input>
+                className="epiInputSize"
+                id="exampleFormControlSelect1"
+                type="number"
+                placeholder="Enter Outer Diameter"
+                onChange={ (e) => MakeChangeText({
+                  section: 'pipe_infornation',
+                  type: 'pipe_size_other',
+                  values: ['size'],
+                  price_effect: false,
+                  text_input: true,
+                  option: e
+                }, e)}
+              >
+              </Input>
           </FormGroup>
         </Col>
-
         <Col className="processParametterCols">
           <FormGroup>
             <label htmlFor="exampleFormControlSelect1">
-              <span className="customizerInputTitle">Inner Dimention (ID)</span>
-              <Button className="questionToolTip" id="DuctRoundInnerDiameter" size="sm">
-                  ?
+              <span className="customizerInputTitleProcessParameters">Inner Diameter (ID)</span>
+              <Button className="questionToolTip" id="VelocityCalcPipeIdQuestion" size="sm">
+                ?
               </Button>{` `}
-              <UncontrolledTooltip placement="top" target="DuctRoundInnerDiameter" delay={0}>
-                Inner Diameter Information needed
+              <UncontrolledTooltip placement="right" target="VelocityCalcPipeIdQuestion" delay={0}>
+                Based on ANSI standard
               </UncontrolledTooltip>
-            </label>
-            <Input
-              className="epiInputSize"
-              id="exampleFormControlInput1"
-              placeholder="Duct Width"
-              type="number"
-              
-            ></Input>
-          </FormGroup>
-        </Col>
-
-        <Col className="col-3">
-          <FormGroup>
-            <label htmlFor="exampleFormControlSelect1" style={{ 'margin-bottom': '14px', 'margin-top': '10px'}}>
-              <span className="customizerInputTitle">Units</span>
             </label>
             <Input
               className="epiInputSize"
               id="exampleFormControlSelect1"
-              type="select"
-              onChange={ (e) => MakeChangeDropdown({
+              type="number"
+              placeholder="Enter inner diameter"
+              onChange={ (e) => MakeChangeText({
                 section: 'pipe_infornation',
-                type: 'pipe_size',
-                values: [
-                  '1.5',
-                  '0.75',
-                  '1',
-                  '1_0.25',
-                  '1_1.5',
-                  '2',
-                  '2_1.5',
-                  '3',
-                  '4'
-                ],
+                type: 'pipe_inner_diameter_other',
+                values: ['diameter'],
                 price_effect: false,
+                text_input: true,
                 option: e
               }, e)}
             >
-              <option value="" selected disabled hidden>Select Units</option>
-              <option value="1.5">1.5 in</option>
-              <option value="0.75">0.75 in</option>
-              <option value="1">1 in</option>
-              <option value="1_0.25">1 - 0.25 in</option>
-              <option value="1_1.5">1 - 1.5 in</option>
-              <option value="2">2 in</option>
-              <option value="2_1.5">2 - 1.5 in</option>
-              <option value="3">3 in</option>
-              <option value="4">4 in</option>
             </Input>
           </FormGroup>
         </Col>
-      </Row>
-
-      <Row style={{ 'margin-top': '20px'}}>
         <Col className="processParametterCols">
+          <label htmlFor="exampleFormControlSelect1">
+            <span className="customizerInputTitleProcessParameters">Units</span>
+            <Button className="questionToolTip" id="CalcUnits" size="sm">
+              ?
+            </Button>{` `}
+            <UncontrolledTooltip placement="right" target="CalcUnits" delay={0}>
+              Unit Information
+            </UncontrolledTooltip>
+          </label>
           <FormGroup>
-            <label htmlFor="exampleFormControlInput1">
-              <span className="customizerInputTitle">Duct Wall Thickness</span>
-              <Button className="questionToolTip" id="DuctRoundWallThickness" size="sm">
-                  ?
-              </Button>{` `}
-              <UncontrolledTooltip placement="right" target="DuctRoundWallThickness" delay={0}>
-                Duct Wall Thickness Information needed
-              </UncontrolledTooltip>
-            </label>
             <Input
               className="epiInputSize"
-              id="exampleFormControlInput1"
-              placeholder="Enter Duct Wall Thickness"
-              type="number"
-            ></Input>
+              id="exampleFormControlSelect1"
+              type="select"
+            >
+              <option value="inches">Inches</option>
+              <option value="mm">Millimeters</option>
+            </Input>
           </FormGroup>
         </Col>
-        <Col></Col>
       </Row>
     </>
   );

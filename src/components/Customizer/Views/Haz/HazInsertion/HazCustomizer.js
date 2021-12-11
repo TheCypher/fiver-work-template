@@ -10,17 +10,17 @@ import {
 
 import MeterCustomizerNavbar from "components/Navbars/MeterCustomizerNavbar";
 import CustomizerPriceFooter from "components/Footers/CustomizerPriceFooter";
-import MeterOrientation from "components/Customizer/Haz/HazInline/Haz/MeterOrientation";
-import TotalCard from "components/Customizer/Haz/HazInline/Haz/TotalCard";
-import MeterHousing from "components/Customizer/Haz/HazInline/Haz/MeterHousing";
-import InputPower from "components/Customizer/Haz/HazInline/Haz/InputPower";
-import PipeInformation from "components/Customizer/Haz/HazInline/Haz/PipeInformation";
-import ApplicationInformation from "components/Customizer/Haz/HazInline/Haz/ApplicationInformation";
-import QuestionsOrComments from "components/Customizer/Haz/HazInline/Haz/QuestionsOrComments";
-import MountingRequirements from "components/Customizer/Haz/HazInline/Haz/MountingRequirements";
-import FlowBody from "components/Customizer/Haz/HazInline/Haz/FlowBody";
-import Enhancements from "components/Customizer/Haz/HazInline/Haz/Enhancements";
-import ProcessParameters from "components/Customizer/Haz/HazInline/Haz/ProcessParameters";
+import MeterOrientation from "components/Customizer/Haz/HazInsertion/Haz/MeterOrientation";
+import TotalCard from "components/Customizer/Haz/HazInsertion/Haz/TotalCard";
+import MeterHousing from "components/Customizer/Haz/HazInsertion/Haz/MeterHousing";
+import InputPower from "components/Customizer/Haz/HazInsertion/Haz/InputPower";
+import PipeInformation from "components/Customizer/Haz/HazInsertion/Haz/PipeInformation";
+import ApplicationInformation from "components/Customizer/Haz/HazInsertion/Haz/ApplicationInformation";
+import QuestionsOrComments from "components/Customizer/Haz/HazInsertion/Haz/QuestionsOrComments";
+import MountingRequirements from "components/Customizer/Haz/HazInsertion/Haz/MountingRequirements";
+import FlowBody from "components/Customizer/Haz/HazInsertion/Haz/FlowBody";
+import Enhancements from "components/Customizer/Haz/HazInsertion/Haz/Enhancements";
+import ProcessParameters from "components/Customizer/Haz/HazInsertion/Haz/ProcessParameters";
 
 
 function HazCustomizer(){
@@ -78,7 +78,7 @@ function HazCustomizer(){
           din: false
         },
         pipe_size: {
-          0.25: true,
+          0.25: false,
           0.375: false,
           0.5: false,
           0.75: false,
