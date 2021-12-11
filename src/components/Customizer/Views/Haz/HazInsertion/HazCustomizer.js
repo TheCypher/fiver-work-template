@@ -21,6 +21,7 @@ import MountingRequirements from "components/Customizer/Haz/HazInsertion/Haz/Mou
 import FlowBody from "components/Customizer/Haz/HazInsertion/Haz/FlowBody";
 import Enhancements from "components/Customizer/Haz/HazInsertion/Haz/Enhancements";
 import ProcessParameters from "components/Customizer/Haz/HazInsertion/Haz/ProcessParameters";
+import ProbeSelection from "components/Customizer/Haz/HazInsertion/Haz/ProbeSelection";
 
 
 function HazCustomizer(){
@@ -718,6 +719,11 @@ function HazCustomizer(){
               />
 
               <MeterHousing
+                handleChange={ handleChange }
+                value={ values }
+              />
+
+              <ProbeSelection
                 handleChange={ handleChange }
                 value={ values }
               />
