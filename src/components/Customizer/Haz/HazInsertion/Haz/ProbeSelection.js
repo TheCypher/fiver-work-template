@@ -147,14 +147,9 @@ function ProbeSelection({ handleChange, value }){
                       section: 'application_information',
                       type: 'application_options',
                       values: [
-                        'compressed_air',
-                        'hvac',
-                        'landfill_gas',
-                        'natural_gas',
-                        'waste_water',
-                        'flue_gas',
-                        'flare',
-                        'other'
+                        '1/2',
+                        '3/4',
+                        '1'
                       ],
                       price_effect: false,
                       input_name: 'application',
@@ -162,14 +157,9 @@ function ProbeSelection({ handleChange, value }){
                     }, e)}
                   >
                     <option value="" selected disabled>Select Width</option>
-                    <option value="compressed_air">Compressed Air Flow Measurement</option>
-                    <option value="hvac">HVAC & Air Vent</option>
-                    <option value="landfill_gas">Landfill Gas & Municipal Flow</option>
-                    <option value="natural_gas">Natural Gas Flow Measurement</option>
-                    <option value="waste_water">Wastewater & Aeration Basin</option>
-                    <option value="flue_gas">Flue Gas</option>
-                    <option value="flare">Flare</option>
-                    <option value="other">Other</option>
+                    <option value="compressed_air">1/2"</option>
+                    <option value="hvac">3/4"</option>
+                    <option value="landfill_gas">1"</option>
                   </Input>
                 </FormGroup>
 
@@ -216,39 +206,14 @@ function ProbeSelection({ handleChange, value }){
                     type="select"
                     onChange={ (e) => MakeChangeDropdown({
                       section: 'application_information',
-                      type: 'gas',
+                      type: 'length',
                       values: [
-                        'Air', 
-                        'Argon',
-                        'Chlorine',
-                        'Blast_Furnace_Gas',
-                        'BioGas',
-                        'Landfill_Gas',
-                        'Ethylene',
-                        'Ethane',
-                        'Propane',
-                        'Liquid_Propane_Gas',
-                        'Butane_Gas',
-                        'Benzene',
-                        'Methane',
-                        'Methane_Helium_Mix',
-                        'Methane_Nitrogen_Mix',
-                        'Carbon_Monoxide',
-                        'Carbon_Dioxide',
-                        'Hydrogen',
-                        'Hydrogen_Nitrogen_Mix',
-                        'Helium',
-                        'Mix_Gas',
-                        'Flare_gas',
-                        'Flue_Gas',
-                        'Nitrogen',
-                        'Natural_Gas',
-                        'Ammonia',
-                        'Oxygen',
-                        'O3',
-                        'SNGPL_Gas',
-                        'SSGCL_Gas',
-                        'MARI_Gas',
+                        6, 
+                        12,
+                        18,
+                        24,
+                        30,
+                        36,
                         'other'
                       ],
                       price_effect: true,
@@ -257,38 +222,12 @@ function ProbeSelection({ handleChange, value }){
                     }, e)}
                   >
                     <option value="" selected disabled>Select Length</option>
-                    <option value="Air">Air</option>
-                    <option value="Argon">Argon</option>
-                    <option value="Chlorine">Chlorine</option>
-                    <option value="Blast_Furnace_Gas">Blast Furnace Gas</option>
-                    <option value="BioGas">BioGas</option>
-                    <option value="Landfill_Gas">Landfill Gas</option>
-                    <option value="Ethylene">Ethylene</option>
-                    <option value="Ethane">Ethane</option>
-                    <option value="Propane">Propane</option>
-                    <option value="Liquid_Propane_Gas">Liquid Propane Gas</option>
-                    <option value="Butane_Gas">Butane Gas</option>
-                    <option value="Benzene">Benzene</option>
-                    <option value="Methane">Methane</option>
-                    <option value="Methane_Helium_Mix">Methane Helium Mix</option>
-                    <option value="Methane_Nitrogen_Mix">Methane Nitrogen Mix</option>
-                    <option value="Carbon_Monoxide">Carbon Monoxide</option>
-                    <option value="Carbon_Dioxide">Carbon Dioxide</option>
-                    <option value="Hydrogen">Hydrogen</option>
-                    <option value="Hydrogen_Nitrogen_Mix">Hydrogen Nitrogen Mix</option>
-                    <option value="Helium">Helium</option>
-                    <option value="Mix_Gas">Mix Gas</option>
-                    <option value="Flare_gas">Flare Gas</option>
-                    <option value="Flue_Gas">Flue Gas</option>
-                    <option value="Nitrogen">Nitrogen</option>
-                    <option value="Natural_Gas">Natural Gas</option>
-                    <option value="Ammonia">Ammonia</option>
-                    <option value="Oxygen">Oxygen</option>
-                    <option value="O3">O3</option>
-                    <option value="SNGPL_Gas">SNGPL Gas</option>
-                    <option value="SSGCL_Gas">SSGCL Gas</option>
-                    <option value="MARI_Gas">MARI Gas</option>
-                    <option value="other">Other</option>
+                    <option value="Air">6"</option>
+                    <option value="Argon">12"</option>
+                    <option value="Chlorine">18"</option>
+                    <option value="Blast_Furnace_Gas">24"</option>
+                    <option value="BioGas">30"</option>
+                    <option value="Landfill_Gas">36"</option>
                   </Input>
                 </FormGroup>
 
@@ -302,7 +241,7 @@ function ProbeSelection({ handleChange, value }){
                       onChange={ (e) => MakeChangeText({
                         section: 'application_information',
                         type: 'gas_other',
-                        values: ['gas'],
+                        values: ['length'],
                         price_effect: false,
                         text_input: true,
                         option: e

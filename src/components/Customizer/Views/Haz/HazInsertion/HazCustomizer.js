@@ -237,6 +237,14 @@ function HazCustomizer(){
           temperature_60_Hg:false
         }
       },
+      probe_section: {
+        probe_width: {
+          width: false
+        },
+        probe_length: {
+          length: false
+        }
+      },
       questions_or_comments: {
         input_options: {
           from_email: false,

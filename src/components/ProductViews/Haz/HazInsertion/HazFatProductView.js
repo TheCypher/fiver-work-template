@@ -11,16 +11,16 @@ function HazFatProductView(){
   const productImage = require('assets/img/epi-bg.png').default;
   
   const navbarData = {
-    product_title: '8700 MPHAZ-FAT',
+    product_title: '8800 MPHAZ-FAT',
     product_type: 'INSERTION FLOW METER'
   }
 
   const productViewData = {
     title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.    ',
-    meter_type: 'Inline',
+    meter_type: 'Insertion',
     enclosure: 'Integrated Electronics',
-    warranty: '5',
+    warranty: '1',
     certifications: 'CE, CSA/CUS, IECEx, KOSHA, ATEX',
     product_description: ''
   }
