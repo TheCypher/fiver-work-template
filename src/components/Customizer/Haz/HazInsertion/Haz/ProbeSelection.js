@@ -21,8 +21,7 @@ import {
 } from "reactstrap";
 
 function ProbeSelection({ handleChange, value }){
-  const [selectInputOptions, setSelectInputOptions] = useState(0);
-  const [selectInputOptionsTwo, setSelectInputOptionsTwo] = useState(0);
+  const [selectInputOptions, setSelectInputOptions] = useState(1);
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
 
   // collapse states and functions
@@ -51,12 +50,14 @@ function ProbeSelection({ handleChange, value }){
       console.log('Show me pipe option data 1.0 =>', data);
     }
 
-    if(data.input_name === 'application'){
-      (data.option_value === 'other') ? setSelectInputOptions(1) : setSelectInputOptions(0);
-    }
-
-    if(data.input_name === 'gas'){
-      (data.option_value === 'other') ? setSelectInputOptionsTwo(1) : setSelectInputOptionsTwo(0);
+    if(data.input_name === 'width'){
+      if(data.option_value === '1/2'){
+        setSelectInputOptions(1)
+      } else if(data.option_value === '3/4'){
+        setSelectInputOptions(2)
+      } else if(data.option_value === '1'){
+        setSelectInputOptions(2)
+      }
     }
 
     handleChange(data);
@@ -64,6 +65,16 @@ function ProbeSelection({ handleChange, value }){
 
   const MakeChangeText = (data) => {
     data.option_value = data.option.target.value;
+
+    if(data.input_name === 'width'){
+      if(data.option_value === '1/2'){
+        setSelectInputOptions(1)
+      } else if(data.option_value === '3/4'){
+        setSelectInputOptions(2)
+      } else if(data.option_value === '1'){
+        setSelectInputOptions(2)
+      }
+    }
     handleChange(data);
   }
 
@@ -143,114 +154,103 @@ function ProbeSelection({ handleChange, value }){
                     id="exampleFormControlSelect1"
                     type="select"
                     placeholder="Yes or No"
-                    onChange={ (e) => MakeChangeDropdown({
-                      section: 'application_information',
-                      type: 'application_options',
-                      values: [
-                        '1/2',
-                        '3/4',
-                        '1'
-                      ],
-                      price_effect: false,
-                      input_name: 'application',
-                      option: e
-                    }, e)}
-                  >
-                    <option value="" selected disabled>Select Width</option>
-                    <option value="compressed_air">1/2"</option>
-                    <option value="hvac">3/4"</option>
-                    <option value="landfill_gas">1"</option>
-                  </Input>
-                </FormGroup>
-
-              { selectInputOptions ? (
-                <FormGroup>
-                  <Input
-                    className="epiInputSize"
-                    id="exampleFormControlSelect1"
-                    type="text"
-                    placeholder="Enter Application"
                     onChange={ (e) => MakeChangeText({
-                      section: 'application_information',
-                      type: 'application_options_other',
-                      values: ['application'],
+                      section: 'probe_section',
+                      type: 'probe_width',
+                      values: ['width'],
                       price_effect: false,
+                      input_name: 'width',
                       text_input: true,
                       option: e
                     }, e)}
                   >
+                    <option value="" selected disabled>Select Width</option>
+                    <option value="1/2">1/2"</option>
+                    <option value="3/4">3/4"</option>
+                    <option value="1">1"</option>
                   </Input>
                 </FormGroup>
-              ) : (
-                <div></div>
-              )}
               </Col>
 
               <Col>
-                <FormGroup>
-                  <label htmlFor="exampleFormControlSelect1">
-                    <span className="customizerInputTitle">Length</span>
-                    <Button className="questionToolTip" id="Gas" size="sm">
-                      ?
-                    </Button>{` `}
-                    <UncontrolledTooltip placement="right" target="Gas" delay={0}>
-                      Gas refers to the specific gas(es) that you will be metering. 
-                      Your new meter will be precisely calibrated to measure the provided selection. 
-                      If you select Natural or Mixed Gas, please input and verify the chemicals and percentages, 
-                      totaling 100%, that make up the composition you will be flowing.
-                    </UncontrolledTooltip>
-                  </label>
-                  <Input
-                    className="epiInputSize"
-                    id="exampleFormControlSelect1"
-                    type="select"
-                    onChange={ (e) => MakeChangeDropdown({
-                      section: 'application_information',
-                      type: 'length',
-                      values: [
-                        6, 
-                        12,
-                        18,
-                        24,
-                        30,
-                        36,
-                        'other'
-                      ],
-                      price_effect: true,
-                      input_name: 'gas',
-                      option: e
-                    }, e)}
-                  >
-                    <option value="" selected disabled>Select Length</option>
-                    <option value="Air">6"</option>
-                    <option value="Argon">12"</option>
-                    <option value="Chlorine">18"</option>
-                    <option value="Blast_Furnace_Gas">24"</option>
-                    <option value="BioGas">30"</option>
-                    <option value="Landfill_Gas">36"</option>
-                  </Input>
-                </FormGroup>
-
-                { selectInputOptionsTwo ? (
+                { selectInputOptions == 1 && (
                   <FormGroup>
+                    <label htmlFor="exampleFormControlSelect1">
+                      <span className="customizerInputTitle">Length</span>
+                      <Button className="questionToolTip" id="Gas" size="sm">
+                        ?
+                      </Button>{` `}
+                      <UncontrolledTooltip placement="right" target="Gas" delay={0}>
+                        Gas refers to the specific gas(es) that you will be metering. 
+                        Your new meter will be precisely calibrated to measure the provided selection. 
+                        If you select Natural or Mixed Gas, please input and verify the chemicals and percentages, 
+                        totaling 100%, that make up the composition you will be flowing.
+                      </UncontrolledTooltip>
+                    </label>
                     <Input
                       className="epiInputSize"
                       id="exampleFormControlSelect1"
-                      type="text"
-                      placeholder="Enter Gas"
+                      type="select"
                       onChange={ (e) => MakeChangeText({
-                        section: 'application_information',
-                        type: 'gas_other',
+                        section: 'probe_section',
+                        type: 'probe_length',
                         values: ['length'],
-                        price_effect: false,
+                        price_effect: true,
                         text_input: true,
                         option: e
                       }, e)}
                     >
+                      <option value="" selected disabled>Select Length</option>
+                      <option value="6">6"</option>
+                      <option value="12">12"</option>
+                      <option value="18">18"</option>
+                      <option value="24">24"</option>
+                      <option value="30">30"</option>
+                      <option value="36">36"</option>
                     </Input>
                   </FormGroup>
-                ) : (
-                  <div></div>
+                )}
+
+                { selectInputOptions == 2 && (
+                  <FormGroup>
+                    <label htmlFor="exampleFormControlSelect1">
+                      <span className="customizerInputTitle">Length</span>
+                      <Button className="questionToolTip" id="Gas" size="sm">
+                        ?
+                      </Button>{` `}
+                      <UncontrolledTooltip placement="right" target="Gas" delay={0}>
+                        Gas refers to the specific gas(es) that you will be metering. 
+                        Your new meter will be precisely calibrated to measure the provided selection. 
+                        If you select Natural or Mixed Gas, please input and verify the chemicals and percentages, 
+                        totaling 100%, that make up the composition you will be flowing.
+                      </UncontrolledTooltip>
+                    </label>
+                    <Input
+                      className="epiInputSize"
+                      id="exampleFormControlSelect1"
+                      type="select"
+                      onChange={ (e) => MakeChangeText({
+                        section: 'probe_section',
+                        type: 'probe_length',
+                        values: ['length'],
+                        price_effect: true,
+                        text_input: true,
+                        option: e
+                      }, e)}
+                    >
+                      <option value="" selected disabled>Select Length</option>
+                      <option value="6">6"</option>
+                      <option value="12">12"</option>
+                      <option value="18">18"</option>
+                      <option value="24">24"</option>
+                      <option value="30">30"</option>
+                      <option value="36">36"</option>
+                      <option value="42">42"</option>
+                      <option value="48">48"</option>
+                      <option value="54">54"</option>
+                      <option value="60">60"</option>
+                    </Input>
+                  </FormGroup>
                 )}
               </Col>
             </Row>

@@ -67,7 +67,7 @@ function MountingRequirements({handleChange, pipeInfoPipeSize, value }){
     handleChange(data);
   }
 
-  var title = 'Mounting Requirements';
+  var title = 'Mounting Options';
   if (isMobile) {
     if(title.length > 18) title = title.substring(0,18) + '...';
   }
@@ -137,13 +137,13 @@ function MountingRequirements({handleChange, pipeInfoPipeSize, value }){
                 <span className="customizerInputTitle">Mounting Type</span>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <span className="customizerInputTitleSmallX1">MNPT Ends</span>
+                    <span className="customizerInputTitleSmallX1">Compression Fitting</span>
                     <Input
                       disabled={flangeSelected}
                       onClick={ (e) => MakeChange({
-                          section: 'mounting_requirements',
+                          section: 'mounting_options',
                           type: 'mounting_types',
-                          values: ['mnpt', 'butt', 'flange'],
+                          values: ['compression_fitting', 'ball_valve', 'welded_flange'],
                           price_effect: false
                         },
                         e,
@@ -158,13 +158,13 @@ function MountingRequirements({handleChange, pipeInfoPipeSize, value }){
                 </FormGroup>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <span className="customizerInputTitleSmallX1">Butt End</span>
+                    <span className="customizerInputTitleSmallX1">Ball Valve Retractor - (requires a minimum of 18” Probe Support)</span>
                     <Input
                       disabled={flangeSelected}
                       onClick={ (e) => MakeChange({
-                          section: 'mounting_requirements',
+                          section: 'mounting_options',
                           type: 'mounting_types',
-                          values: ['butt', 'mnpt', 'flange'],
+                          values: ['ball_valve', 'compression_fitting', 'welded_flange'],
                           price_effect: false
                         },
                         e,
@@ -179,7 +179,7 @@ function MountingRequirements({handleChange, pipeInfoPipeSize, value }){
                 </FormGroup>
                 <FormGroup check className="form-check-radio">
                   <Label check>
-                    <span className="customizerInputTitleSmallX1">Flange</span><br />
+                    <span className="customizerInputTitleSmallX1">Welded Flange</span><br />
                     {
                       flangeSelected? (
                         <span className="customizerInputTitleSmallX1">
@@ -190,9 +190,9 @@ function MountingRequirements({handleChange, pipeInfoPipeSize, value }){
                     <Input
                       defaultChecked
                       onClick={ (e) => MakeChange({
-                        section: 'mounting_requirements',
+                        section: 'mounting_options',
                         type: 'mounting_types',
-                        values: ['flange', 'butt', 'mnpt'],
+                        values: ['welded_flange', 'ball_valve', 'compression_fitting'],
                         price_effect: false
                       }, e,
                       setSelectFlange(true)
@@ -223,54 +223,18 @@ function MountingRequirements({handleChange, pipeInfoPipeSize, value }){
 
             <Row>
               <Col>
-                  {selectFlange? (
-                    <FormGroup>
-                      <label htmlFor="exampleFormControlSelect1">
-                        <span className="customizerInputTitle">Flange Type</span>
-                        <Button className="questionToolTip" id="FlangType" size="sm">
-                          ?
-                        </Button>{` `}
-                        <UncontrolledTooltip placement="right" target="FlangType" delay={0}>
-                          Consult factory for non-standard flange requirements
-                        </UncontrolledTooltip>
-                        </label>
-                      <Input
-                        className="epiInputSize"
-                        id="exampleFormControlSelect1"
-                        type="select"
-                        onChange={ (e) => MakeChangeDropdown({
-                          section: 'mounting_requirements',
-                          type: 'flange_type',
-                          values: [
-                            '150',
-                            '300'
-                          ],
-                          price_effect: false,
-                          option: e
-                        }, e)}
-                      >
-                        <option value="" selected disabled>Select Flange Type</option>
-                        <option value="150">ANSI 150</option>
-                        <option value="300">ANSI 300</option>
-                        <option value="other">Other</option>
-                      </Input>
-                    </FormGroup>
-                  ) : (
-                    <></>
-                  )}
-
-                  { otherFlange ? (
+                  {selectFlange && (
                     <FormGroup>
                       <br />
-                      <span>EPI Sales department will share updated pricing for your custom flange selection below.</span>
+                      <span>Pipe OD to face of flange</span>
                       <Input
                         className="epiInputSize"
                         id="exampleFormControlSelect1"
                         type="number"
-                        placeholder="Enter flange type"
+                        placeholder="Enter pipe outer diameter"
                         onChange={ (e) => MakeChangeText({
-                          section: 'mounting_requirements',
-                          type: 'flange_type_other',
+                          section: 'mounting_options',
+                          type: 'flange_pipe_od',
                           values: ['size'],
                           price_effect: false,
                           text_input: true,
@@ -280,24 +244,6 @@ function MountingRequirements({handleChange, pipeInfoPipeSize, value }){
                       </Input>
                       <br />
                     </FormGroup>
-                  ) : (
-                    <div></div>
-                  )}
-
-                  {selectFlange? (
-                    <FormGroup>
-                      <label htmlFor="exampleFormControlSelect1">
-                        <span className="customizerInputTitle">Flange Size</span>
-                        <Button className="questionToolTip" id="FlangSize" size="sm">
-                          ?
-                        </Button>{` `}
-                        <UncontrolledTooltip placement="right" target="FlangSize" delay={0}>
-                          Flange size is based on pipe size selection
-                        </UncontrolledTooltip>
-                      </label>
-                    </FormGroup>
-                  ) : (
-                    <></>
                   )}
               </Col>
               <Col></Col>

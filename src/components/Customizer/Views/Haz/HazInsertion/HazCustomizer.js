@@ -378,15 +378,13 @@ function HazCustomizer(){
         },
         electropolish:{
           none: false,
-          sensor: false,
-          section: false,
-          section_sensor: true
+          sensor_window: false,
+          probe_sensor_window: true
         },
         electropolish_prices:{
           none: 0,
-          sensor: 260,
-          section: 260,
-          section_sensor: 460
+          sensor_window: 260,
+          probe_sensor_window: 260
         }
       },
       process_parameters: {
@@ -521,17 +519,13 @@ function HazCustomizer(){
           10: false
         }
       },
-      mounting_requirements:{
+      mounting_options:{
         mounting_types:{
-          mnpt: false,
-          butt: false,
-          flange: true
+          compression_fitting: false,
+          ball_valve: false,
+          welded_flange: true
         },
-        flange_type: {
-          150: false,
-          300: false
-        },
-        flange_type_other: {
+        flange_pipe_od: {
           size: false
         }
       }

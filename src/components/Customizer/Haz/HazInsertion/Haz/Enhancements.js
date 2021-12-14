@@ -526,7 +526,7 @@ function Enhancements({handleChange, value }){
                     onClick={ (e) => MakeChange({
                       section: 'enhancements',
                       type: 'electropolish',
-                      values: ['none', 'sensor', 'section', 'section_sensor'],
+                      values: ['none', 'sensor_window', 'probe_sensor_window'],
                       price_effect: true
                     }, e)}
                     id="electropolish"
@@ -538,12 +538,12 @@ function Enhancements({handleChange, value }){
               </FormGroup>
               <FormGroup check className="form-check-radio">
                 <Label check>
-                  <span className="customizerInputTitleSmallX1">Sensor Only</span>
+                  <span className="customizerInputTitleSmallX1">Sensor & Window Only</span>
                   <Input
                     onClick={ (e) => MakeChange({
                       section: 'enhancements',
                       type: 'electropolish',
-                      values: ['sensor', 'section', 'section_sensor', 'none'],
+                      values: ['sensor_window', 'probe_sensor_window', 'none'],
                       price_effect: true
                     }, e)}
                     id="electropolish"
@@ -555,30 +555,13 @@ function Enhancements({handleChange, value }){
               </FormGroup>
               <FormGroup check className="form-check-radio">
                 <Label check>
-                  <span className="customizerInputTitleSmallX1">Fow Section Only</span>
-                  <Input
-                    onClick={ (e) => MakeChange({
-                      section: 'enhancements',
-                      type: 'electropolish',
-                      values: [ 'section', 'sensor', 'section_sensor', 'none'],
-                      price_effect: true
-                    }, e)}
-                    id="electropolish"
-                    name="electropolish"
-                    type="radio"
-                  ></Input>
-                  <span className="form-check-sign"></span>
-                </Label>
-              </FormGroup>
-              <FormGroup check className="form-check-radio">
-                <Label check>
-                  <span className="customizerInputTitleSmallX1">Flow Section & Sensor (All Wetted Parts)</span>
+                  <span className="customizerInputTitleSmallX1">Probe, Sensor, & Window</span>
                   <Input
                     defaultChecked
                     onClick={ (e) => MakeChange({
                       section: 'enhancements',
                       type: 'electropolish',
-                      values: [ 'section_sensor', 'sensor', 'section', 'none'],
+                      values: ['probe_sensor_window', 'sensor_window', 'none'],
                       price_effect: true
                     }, e)}
                     id="electropolish"
