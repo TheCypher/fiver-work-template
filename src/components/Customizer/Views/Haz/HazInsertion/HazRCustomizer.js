@@ -21,6 +21,7 @@ import MountingRequirements from "components/Customizer/Haz/HazInsertion/HazR/Mo
 import FlowBody from "components/Customizer/Haz/HazInsertion/HazR/FlowBody";
 import Enhancements from "components/Customizer/Haz/HazInsertion/HazR/Enhancements";
 import ProcessParameters from "components/Customizer/Haz/HazInsertion/HazR/ProcessParameters";
+import ProbeSelection from "components/Customizer/Haz/HazInsertion/HazR/ProbeSelection";
 
 
 function HazRCustomizer(){
@@ -238,6 +239,14 @@ function HazRCustomizer(){
           temperature_60_Hg:false
         }
       },
+      probe_section: {
+        probe_width: {
+          width: false
+        },
+        probe_length: {
+          length: false
+        }
+      },
       questions_or_comments: {
         input_options: {
           from_email: false,
@@ -371,15 +380,13 @@ function HazRCustomizer(){
         },
         electropolish:{
           none: false,
-          sensor: false,
-          section: false,
-          section_sensor: true
+          sensor_window: false,
+          probe_sensor_window: true
         },
         electropolish_prices:{
           none: 0,
-          sensor: 260,
-          section: 260,
-          section_sensor: 460
+          sensor_window: 260,
+          probe_sensor_window: 260
         }
       },
       process_parameters: {
@@ -726,6 +733,11 @@ function HazRCustomizer(){
               />
 
               <MeterHousing
+                handleChange={ handleChange }
+                value={ values }
+              />
+
+              <ProbeSelection
                 handleChange={ handleChange }
                 value={ values }
               />

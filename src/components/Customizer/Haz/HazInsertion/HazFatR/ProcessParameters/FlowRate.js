@@ -134,28 +134,40 @@ function FlowRate({ MakeChangeText, MakeChangeDropdown }){
               }, e)}
             >
               <option value="" selected disabled hidden>Units</option>
+              <option value="SCFS">SCFS</option>
               <option value="SCFM">SCFM</option>
               <option value="SCFH">SCFH</option>
               <option value="SCFD">SCFD</option>
-              <option value="NM3/M">NM3/M</option>
-              <option value="NM3/H">NM3/H</option>
-              <option value="NM3/D">NM3/D</option>
-              <option value="NLPS">NLPS</option>
-              <option value="NLPM">NLPM</option>
-              <option value="NLPH">NLPH</option>
-              <option value="MSCFD">MSCFD</option>
+              <option value="LB/S">LB/S</option>
+              <option value="LB/M">LB/M</option>
+              <option value="LB/H">LB/H</option>
+              <option value="LB/D">LB/D</option>
+              <option value="STPM">STPM</option>
+              <option value="SCIM">SCIM</option>
+              <option value="SCIH">SCIH</option>
+              <option value="SFPS">SFPS</option>
+              <option value="SFPM">SFPM</option>
+              <option value="BTUM">BTUM</option>
+              <option value="BTUH">BTUH</option>
               <option value="MCFD">MCFD</option>
-              <option value="MMSCFD">MMSCFD</option>
-              <option value="SM3/H">SM3/H</option>
-              <option value="SLPM">SLPM</option>
-              <option value="LBS/S">LBS/S</option>
-              <option value="LBS/M">LBS/M</option>
-              <option value="LBS/H">LBS/H</option>
-              <option value="LBS/D">LBS/D</option>
+              <option value="SLPS">SLPS</option>
+              <option value="SLMP">SLPM</option>
+              <option value="SLPH">SLPH</option>
+              <option value="SCCM">SCCM</option>
               <option value="KG/S">KG/S</option>
               <option value="KG/M">KG/M</option>
               <option value="KG/H">KG/H</option>
-              <option value="MT/H">MT/H</option>
+              <option value="KG/D">KG/D</option>
+              <option value="MTPM">MTPM</option>
+              <option value="NMPS">NMPS</option>
+              <option value="NMPM">NMPM</option>
+              <option value="NMPH">NMPH</option>
+              <option value="Nm/s">Nm/s</option>
+              <option value="Nm/m">Nm/m</option>
+              <option value="Nm/h">Nm/h</option>
+              <option value="SCMH">SCMH</option>
+              <option value="NLPM">NLPM</option>
+              <option value="NLPH">NLPH</option>
             </Input>
           </FormGroup>
         </Col>
