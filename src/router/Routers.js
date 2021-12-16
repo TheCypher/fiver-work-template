@@ -7,24 +7,13 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import HazInline from "views/customizer/haz/HazInline";
-import HazInsertion from "views/customizer/haz/HazInsertion";
+import ExamplePage from "views/ExamplePage";
 
 const routes = [
   {
     path: "/",
     exact: true,
-    component: () => HazInline()
-  },
-  {
-    path: "/products/haz/inline/:product?",
-    exact: true,
-    component: () => HazInline()
-  },
-  {
-    path: "/products/haz/insertion/:product?",
-    exact: true,
-    component: () => HazInsertion()
+    component: () => ExamplePage()
   }
 ];
 

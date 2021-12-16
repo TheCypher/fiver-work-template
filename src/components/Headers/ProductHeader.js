@@ -2,8 +2,6 @@ import React from "react";
 import { useMediaQuery } from 'react-responsive';
 
 // core components
-import MenuHeader from "./MenuHeader";
-import MobileMenuHeader from "./MobileMenuHeader";
 
 function ProductHeader({ productImage }) {
   const isMobile = useMediaQuery({ query: `(max-width: 760px)` });
@@ -34,7 +32,6 @@ function ProductHeader({ productImage }) {
           }}
           ref={pageHeader}
         ></div>
-        { isMobile? (<MobileMenuHeader />) : (<MenuHeader />)}
       </div>
     </>
   );
